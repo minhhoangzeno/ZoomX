@@ -7,7 +7,9 @@ export default function HomePage(){
         <div>
             <Header />
             Home Page
-            <Footer />
+            <div>
+                ALlo
+            </div>
         </div>
     )
 }
