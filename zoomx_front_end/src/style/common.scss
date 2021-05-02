@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+    li{
+        list-style: none;
+    }
+}
+a{
+    text-decoration: none;
+}
+@font-face {
+    font-family: Helvetica;
+    src: url(../font/Helvetica.ttf);
+}
+@font-face {
+    font-family: Didot;
+    src: url(../font/Didot-HTF-L06-Light.ttf);
+}
