@@ -6,10 +6,10 @@ export default function HomePage(){
     return(
         <div>
             <Header />
+            <div style={{width:'100%',height:500}}>
             Home Page
-            <div>
-                ALlo
             </div>
+            <Footer />
         </div>
     )
 }
