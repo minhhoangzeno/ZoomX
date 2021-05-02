@@ -1,14 +1,13 @@
 import React from 'react';
+import Demo from '../component/home/Demo';
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
-
+import '../style/home.scss'
 export default function HomePage(){
     return(
         <div>
             <Header />
-            <div style={{width:'100%',height:500}}>
-            Home Page
-            </div>
+            <Demo />
             <Footer />
         </div>
     )
