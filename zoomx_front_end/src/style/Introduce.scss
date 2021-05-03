@@ -1,0 +1,139 @@
+@import "./common.scss";
+
+.home-container {
+  position: relative;
+  .img-container {
+    width: 100%;
+    height: 295px;
+  }
+  .detail-inner {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    .content-headline {
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+    .content-intro {
+      color: #ffffff;
+      font-size: 13px;
+    }
+  }
+}
+.container-description {
+  background-color: white;
+  height: 100%;
+  .img-inner {
+    text-align: center;
+    margin-bottom: 25px;
+    .img-content {
+      margin-top: 70px;
+    }
+  }
+  .detail-content {
+    text-align: center;
+    .detail-content-block {
+      width: 53%;
+      margin: 0 auto;
+      margin-bottom: 25px;
+      font-family: Helvetica;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .content-founder {
+      color: #e01042;
+      font-size: 20px;
+      font-weight: 700;
+      font-family: Helvetica;
+    }
+    .content {
+      font-family: Helvetica;
+      font-size: 14px;
+    }
+  }
+  .block {
+    padding: 0 100px 0 100px;
+    .item-content {
+      .detail-introduce {
+        font-size: 14px;
+        font-family: sans-serif;
+        margin-bottom: 10px;
+      }
+      .empty {
+        width: 50px;
+        height: 2px;
+        background-color: #707070;
+        margin-bottom: 40px;
+      }
+      .great-title {
+        font-size: 30px;
+        margin-bottom: 40px;
+      }
+      .title-content {
+        font-family: Helvetica;
+        margin-bottom: 25px;
+      }
+      .flex-item {
+        display: flex;
+        .item-file {
+          font-size: 30px;
+          margin-right: 100px;
+        }
+        .item-click {
+          width: 187px;
+          height: 53px;
+          font-size: 16px;
+          color: white;
+          background-color: #e01042;
+          border: none;
+          font-weight: 600;
+        }
+      }
+    }
+    .item-img {
+      position: relative;
+      .picture {
+        position: absolute;
+      }
+      .img-home {
+        width: 85%;
+        top: 80px;
+        left: 80px;
+        z-index: 1;
+      }
+      .img-hotel {
+        width: 65%;
+        top: 150px;
+      }
+      .img-icon {
+        width: 62%;
+        top: 30px;
+        left: 150px;
+      }
+    }
+    .container-startup {
+      text-align: center;
+      .startup-title {
+        font-size: 30px;
+        margin-top: 80px;
+        margin-bottom: 40px;
+      }
+      .title-lorem {
+        text-align: left;
+        margin-bottom: 40px;
+      }
+    }
+    .container-img {
+      padding: 0 30px 0 30px;
+      .img-startup {
+        width: 100%;
+      }
+    }
+    .partner-container {
+      margin-bottom: 150px;
+      .img-partner {
+        width: 50%;
+      }
+    }
+  }
+}
