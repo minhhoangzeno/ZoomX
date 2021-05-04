@@ -4,12 +4,12 @@ header{
     width: 100%;
     .header__wrapper{
         &--top{
-            min-height: 70px;
+            min-height: 40px;
             border: 1px solid #eaeaea;
                 .wrapper__top{
                     width: 100%;
                     display: flex;
-                    min-height: 70px;
+                    min-height: 40px;
                     justify-content: space-between;
                     align-items: center;
                     color: #1B1C1B;
@@ -29,11 +29,11 @@ header{
         }
         &--bottom{
             background-color: #282828;
-            min-height: 80px;
+            min-height: 70px;
             .wrapper__bottom{
                 display: flex;
                 width: 100%;
-                min-height: 80px;
+                min-height: 70px;
                 color: #ffffff;
                 font-family: Helvetica;
                 justify-content: space-between;
@@ -77,12 +77,25 @@ header{
 
 footer{
     font-family: Helvetica;
+    background-color: #282828;
+    position: relative;
+    .footer__img{
+        position: absolute;
+        top: -15%;
+        left: -2%;
+        height: 100%;
+        img{
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
     .footer__wrapper{
         &--top{
-            background-color: #282828;
+            // background-color: #282828;
             color: rgba($color: #FFF, $alpha: .87);
-            padding-top: 40px;
-            padding-bottom: 30px;
+            padding-top: 50px;
+            padding-bottom: 50px;
             .wrapper__top{
                 &__item{
                     &--top{
@@ -136,30 +149,38 @@ footer{
         }
         &--bottom{
             min-height: 50px;
-            background-color: #151515;
-            .wrapper__bottom{
-                display: flex;
-                justify-content: space-between;
-                min-height: 50px;
-                align-items: center;
-                &--copy{
-                    color: rgba($color: #FFFFFF, $alpha: .63);
-                }
-                &--nav{
+            width: 100%;
+            &__content{
+                position: absolute;
+                z-index: 9;
+                background-color: #151515;
+                width: 100%;
+                .wrapper__bottom{
+                    width: 100%;
                     display: flex;
-                    margin-bottom: 0px;
-                    li{
-                        a{
-                            color: #ffffff;
-                            padding: 15px;
-                            cursor: pointer;
-                            &:hover{
-                                color: rgba($color: #FFFFFF, $alpha: .63);
+                    justify-content: space-between;
+                    min-height: 50px;
+                    align-items: center;
+                    &--copy{
+                        color: rgba($color: #FFFFFF, $alpha: .63);
+                    }
+                    &--nav{
+                        display: flex;
+                        margin-bottom: 0px;
+                        li{
+                            a{
+                                color: #ffffff;
+                                padding: 15px;
+                                cursor: pointer;
+                                &:hover{
+                                    color: rgba($color: #FFFFFF, $alpha: .63);
+                                }
                             }
                         }
                     }
                 }
-            }
+            }            
+            
         }
     }
 }
