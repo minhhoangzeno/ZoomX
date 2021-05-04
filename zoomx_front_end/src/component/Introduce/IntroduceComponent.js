@@ -1,5 +1,5 @@
 import React from "react";
-import home from "../../image/home/home.png";
+// import home from "../../image/home/home.png";
 import brackets from "../../image/home/brackets.png";
 import hotel from "../../image/home/hotel.png";
 import icon from "../../image/home/icon.png";
@@ -13,16 +13,16 @@ import item3 from "../../image/home/item3.png";
 import item4 from "../../image/home/item4.png";
 import item5 from "../../image/home/item5.png";
 import item6 from "../../image/home/item6.png";
-export default function Demo() {
+export default function IntroduceComponent() {
   return (
     <>
-      <div className="home-container">
+      {/* <div className="home-container">
         <img src={home} className="img-container" alt="#" />
         <div className="detail-inner">
           <h5 className="content-headline">VỀ ZOOMX HOTELS</h5>
           <p className="content-intro">TRANG CHỦ / GIỚI THIỆU</p>
         </div>
-      </div>
+      </div> */}
       <div className="container-description">
         <div className="img-inner">
           <img src={brackets} className="img-content" alt="#" />
@@ -38,7 +38,7 @@ export default function Demo() {
         </div>
         <div className="container-fluid block">
           <div className="row">
-            <div className="col-6 item-content">
+            <div className="col-lg-6 item-content">
               <p className="detail-introduce">WELCONE TO ZOOMX HOTELS</p>
               <div className="empty"></div>
               <p className="great-title">Khách sạn quay ZoomX là gì ?</p>
@@ -66,7 +66,7 @@ export default function Demo() {
                 <button className="item-click">XEM THÊM</button>
               </div>
             </div>
-            <div className="col-6 item-img">
+            <div className="col-lg-6 item-img">
               <img className="img-home picture" src={icon} alt="#" />
               <img className="img-hotel picture" src={hotel} alt="" />
               <img className="img-icon picture" src={hotel} alt="" />
@@ -86,21 +86,21 @@ export default function Demo() {
               dolore te feugait nulla facilisi.
             </p>
             <div className="row">
-              <div className="col-3 container-img">
+              <div className="col-md-3 container-img">
                 <img className="img-startup" src={icon1} alt="#" />
               </div>
-              <div className="col-3 container-img">
+              <div className="col-md-3 container-img">
                 <img className="img-startup" src={icon2} alt="#" />
               </div>
-              <div className="col-3 container-img">
+              <div className="col-md-3 container-img">
                 <img className="img-startup" src={icon3} alt="#" />
               </div>
-              <div className="col-3 container-img">
+              <div className="col-md-3 container-img">
                 <img className="img-startup" src={icon4} alt="#" />
               </div>
             </div>
             <p className="startup-title">Đối tác</p>
-            <div className="row partner-container">
+            {/* <div className="row partner-container">
               <div className="col-2">
                 <img className="img-partner" src={item1} alt="#" />
               </div>
@@ -119,7 +119,7 @@ export default function Demo() {
               <div className="col-2">
                 <img className="img-partner" src={item6} alt="#" />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

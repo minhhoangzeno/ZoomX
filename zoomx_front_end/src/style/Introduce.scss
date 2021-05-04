@@ -52,7 +52,7 @@
     }
   }
   .block {
-    padding: 0 100px 0 100px;
+    padding: 0 140px 0 140px;
     .item-content {
       .detail-introduce {
         font-size: 14px;
@@ -110,6 +110,9 @@
         top: 30px;
         left: 150px;
       }
+      @media (max-width: 1024px) {
+        min-height: 500px;
+      }
     }
     .container-startup {
       text-align: center;
@@ -129,11 +132,17 @@
         width: 100%;
       }
     }
-    .partner-container {
-      margin-bottom: 150px;
-      .img-partner {
-        width: 50%;
-      }
-    }
   }
+}
+
+.partner-container {
+  margin-bottom: 150px;
+}
+.img-partner {
+  width: 70%;
+  margin: 0 auto;
+  border: none;
+}
+.slider-block {
+  margin: 0 140px 140px 140px;
 }
