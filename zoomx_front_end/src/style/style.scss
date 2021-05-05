@@ -301,3 +301,89 @@ footer{
         }
     }
 }
+
+.header-menu-mobile{
+    position: sticky;
+    bottom: 0;
+    min-height: 50px;
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    z-index: 9;
+    display: none;
+    @media (max-width:1024px){
+        display: block;
+    }
+    .header__wrapper{
+        display: flex;
+        min-height: 50px;
+        justify-content: space-between;
+        padding-left: 50px;
+        padding-right: 50px;
+        @media (max-width:426px){
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        &--btn{
+            display: flex;
+            align-items: center;
+        }
+        &--nav{
+            margin-bottom: 0px;
+            display: flex;
+            li{
+                display: flex;
+                align-items: center;
+                a{
+                    color: #fff;
+                    padding-left: 40px;
+                    padding-right: 40px;
+                    img{
+                        width: 20px;
+                        height: auto;
+                        object-fit: contain;
+                    }
+                    @media (max-width:767px){
+                        padding-left: 35px;
+                        padding-right: 35px;
+                    }
+                    @media (max-width:426px){
+                        padding-left: 20px;
+                        padding-right: 20px;
+                    }
+                    @media (max-width:370px){
+                        padding-left: 15px;
+                        padding-right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+.nav--mobile{
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    background-color: #282828;
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    flex-direction: column;
+    z-index: 10;
+    overflow: hidden;
+    transition-duration: 1s;
+    transform: translateX(-100%);
+    &__content{
+        li{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+.openNavMobile{
+    transform: translateX(0);
+}

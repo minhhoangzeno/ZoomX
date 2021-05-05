@@ -117,6 +117,7 @@ export default function Header() {
                                             <rect id="Rectangle_293" data-name="Rectangle 293" width="30.36" height="4.803" transform="translate(-829.82 -143.463)" fill="#e01042" />
                                         </g>
                                     </svg>
+
                                 </div>
                                 <ul className="wrapper__bottom--nav">
                                     <li>
