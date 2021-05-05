@@ -7,12 +7,12 @@ import icon1 from "../../image/home/icon1.png";
 import icon2 from "../../image/home/icon2.png";
 import icon3 from "../../image/home/icon3.png";
 import icon4 from "../../image/home/icon4.png";
-import item1 from "../../image/home/item1.png";
-import item2 from "../../image/home/item2.png";
-import item3 from "../../image/home/item3.png";
-import item4 from "../../image/home/item4.png";
-import item5 from "../../image/home/item5.png";
-import item6 from "../../image/home/item6.png";
+// import item1 from "../../image/home/item1.png";
+// import item2 from "../../image/home/item2.png";
+// import item3 from "../../image/home/item3.png";
+// import item4 from "../../image/home/item4.png";
+// import item5 from "../../image/home/item5.png";
+// import item6 from "../../image/home/item6.png";
 export default function IntroduceComponent() {
   return (
     <>
