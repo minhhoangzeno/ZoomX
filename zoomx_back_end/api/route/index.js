@@ -1,6 +1,6 @@
+const hotelToDo = require('../controller/HotelController');
 module.exports = app => {
-    let todoList = require('../controller/TaskController');
     app.route('/')
-        .get(todoList.get_list)
-        .post(todoList.add_list)
+        .get(hotelToDo.get_all)
+        .post(hotelToDo.add_all)
 }

@@ -1,13 +1,27 @@
-var express = require('express');
-var app = express();
-const mongoose = require('mongoose');
-let bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }))
-let routes = require('./api/route');
+var express = require('express'),
+    app = express(),
+    port = process.env.PORT || 3001,
+    mongoose = require('mongoose'),
+    bodyParser = require('body-parser'),
+    cors = require('cors');
+
+mongoose
+    .connect('mongodb://localhost:27017/zoomx', {
+        useNewUrlParser: true, useUnifiedTopology: true
+    })
+    .then(() => {
+        console.log('Connected!')
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+app.use(cors({}))
+app.use(bodyParser.json());
+var routes = require('./api/route');
 routes(app)
-mongoose.connect('mongodb://localhost:27017/myapp', { useNewUrlParser: true, useUnifiedTopology: true })
-
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+app.use((req,res) => {
+    res.status(404).send({url: req.originalUrl + ' not found'})
 });
+app.listen(port);
+console.log("Serever on port " + port)
