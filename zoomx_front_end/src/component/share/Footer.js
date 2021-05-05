@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className="footer__wrapper--top">
                     <div className="container-fluid wrapper__top">
                         <div className="row" style={{ flexWrap: 'wrap-reverse' }}>
-                            <div className="col-xl-4 col-lg-6 wrapper__top__item">
+                            <div className="col-lg-4 col-md-6 col-6 wrapper__top__item">
                                 <div>
                                     <div className="wrapper__top__item--top">
                                         Thời tiết
@@ -21,7 +21,7 @@ export default function Footer() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-xl-4 col-lg-6 wrapper__top__item">
+                            <div className="col-lg-4 col-md-6 col-6  wrapper__top__item">
                                 <div>
                                     <div className="wrapper__top__item--top">
                                         Liên hệ với chúng tôi
@@ -69,7 +69,7 @@ export default function Footer() {
 
                                 </div>
                             </div>
-                            <div className="col-xl-4 col-lg-6 wrapper__top__item">
+                            <div className="col-lg-4 col-md-8 col-sm-12 wrapper__top__item">
                                 <div className="wrapper__top__item--top">
                                     Tin mới
                                 </div>
