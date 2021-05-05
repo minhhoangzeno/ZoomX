@@ -67,9 +67,15 @@ export default function IntroduceComponent() {
               </div>
             </div>
             <div className="col-lg-6 item-img">
-              <img className="img-home picture" src={icon} alt="#" />
-              <img className="img-hotel picture" src={hotel} alt="" />
-              <img className="img-icon picture" src={hotel} alt="" />
+              <div className="wrap-picture">
+                {/* <img className="img-home picture" src={icon} alt="#" />
+                <img className="img-hotel picture" src={hotel} alt="" />
+                <img className="img-icon picture" src={hotel} alt="" /> */}
+                {/* em dung cai nay nay */}
+                <div className={'img-home picture'} style={{backgroundImage: `url(${icon})`}} />
+                <div className={'img-hotel picture'} style={{backgroundImage: `url(${hotel})`}} />
+                <div className={'img-icon picture'} style={{backgroundImage: `url(${hotel})`}} />
+              </div>
             </div>
           </div>
           <div className="container-startup">
@@ -86,16 +92,16 @@ export default function IntroduceComponent() {
               dolore te feugait nulla facilisi.
             </p>
             <div className="row">
-              <div className="col-md-3 container-img">
+              <div className="col-lg-3 col-md-6 container-img">
                 <img className="img-startup" src={icon1} alt="#" />
               </div>
-              <div className="col-md-3 container-img">
+              <div className="col-lg-3 col-md-6 container-img">
                 <img className="img-startup" src={icon2} alt="#" />
               </div>
-              <div className="col-md-3 container-img">
+              <div className="col-lg-3 col-md-6 container-img">
                 <img className="img-startup" src={icon3} alt="#" />
               </div>
-              <div className="col-md-3 container-img">
+              <div className="col-lg-3 col-md-6 container-img">
                 <img className="img-startup" src={icon4} alt="#" />
               </div>
             </div>
