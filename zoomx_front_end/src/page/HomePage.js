@@ -1,16 +1,26 @@
 import React from "react";
-import IntroduceComponent from "../component/Introduce/IntroduceComponent";
-import PartnerComponent from "../component/Introduce/PartnerComponent";
 import Footer from "../component/share/Footer";
 import Header from "../component/share/Header";
-import "../style/Introduce.scss";
+import HotelComponent from "../component/HomePage/HotelComponent";
+import ItemHotelComponent from "../component/HomePage/ItemHotelComponent";
+import RouteComponent from "../component/HomePage/RouteComponent";
+import FieldComponent from "../component/HomePage/FieldComponent";
+import FounderComponent from "../component/HomePage/FounderComponent";
+import RelaxComponent from "../component/HomePage/RelaxComponent";
+import NewsComponent from "../component/HomePage/NewsComponent";
+import "../style/HomePage.scss";
 
 export default function HomePage() {
   return (
     <div>
       <Header />
-      <IntroduceComponent />
-      <PartnerComponent />
+      <HotelComponent />
+      <ItemHotelComponent />
+      <RouteComponent />
+      <FieldComponent />
+      <FounderComponent />
+      <RelaxComponent />
+      <NewsComponent />
       <Footer />
     </div>
   );
