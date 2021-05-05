@@ -11,6 +11,7 @@ ul{
 a{
     text-decoration: none;
 }
+
 @font-face {
     font-family: Helvetica;
     src: url('../font//helvetica-light-587ebe5a59211.ttf');
@@ -18,4 +19,9 @@ a{
 @font-face {
     font-family: Didot;
     src: url(../font/Didot-HTF-L06-Light.ttf);
+}
+
+@font-face {
+    font-family: Giroly;
+    src: url('../font/SVN-Gilroy\ Light.otf');
 }
