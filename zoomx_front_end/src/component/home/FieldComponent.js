@@ -57,7 +57,7 @@ export default function FieldComponent() {
                 <p className="content__txt">Lĩnh vực</p>
                 <p className="detail__hotel">KHÁCH SẠN</p>
                 <div className="empty__field"></div>
-                <button className="btn__item">Xem thêm</button>
+                <button className="btn__item">Xem thêm.</button>
               </div>
             </div>
           </div>
