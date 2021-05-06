@@ -1,11 +1,11 @@
 import React from "react";
 import Slider from "react-slick";
-import item1 from "../../image/home/item1.png";
-import item2 from "../../image/home/item2.png";
-import item3 from "../../image/home/item3.png";
-import item4 from "../../image/home/item4.png";
-import item5 from "../../image/home/item5.png";
-import item6 from "../../image/home/item6.png";
+import item1 from "../../image/Introduce/item1.png";
+import item2 from "../../image/Introduce/item2.png";
+import item3 from "../../image/Introduce/item3.png";
+import item4 from "../../image/Introduce/item4.png";
+import item5 from "../../image/Introduce/item5.png";
+import item6 from "../../image/Introduce/item6.png";
 export default function PartnerComponent() {
   var settings = {
     // dots: true,
