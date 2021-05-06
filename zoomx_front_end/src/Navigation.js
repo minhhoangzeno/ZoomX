@@ -5,6 +5,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import LibraryPage from './page/LibraryPage';
 import ContactPage from './page/ContactPage';
 import DetailProjectPage from './page/DetailProjectPage';
 import DetailRecruitmentPage from './page/DetailRecruitmentPage';
@@ -20,6 +21,9 @@ export default function Navigation() {
             <Switch>
                 <Route exact path="/">
                     <HomePage />
+                </Route>
+                <Route exact path="/library">
+                    <LibraryPage />
                 </Route>
                 <Route exact path="/zoomX">
                     <ZoomXPage />
