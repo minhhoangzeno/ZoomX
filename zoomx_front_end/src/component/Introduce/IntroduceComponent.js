@@ -7,22 +7,9 @@ import icon1 from "../../image/home/icon1.png";
 import icon2 from "../../image/home/icon2.png";
 import icon3 from "../../image/home/icon3.png";
 import icon4 from "../../image/home/icon4.png";
-// import item1 from "../../image/home/item1.png";
-// import item2 from "../../image/home/item2.png";
-// import item3 from "../../image/home/item3.png";
-// import item4 from "../../image/home/item4.png";
-// import item5 from "../../image/home/item5.png";
-// import item6 from "../../image/home/item6.png";
 export default function IntroduceComponent() {
   return (
     <>
-      {/* <div className="home-container">
-        <img src={home} className="img-container" alt="#" />
-        <div className="detail-inner">
-          <h5 className="content-headline">VỀ ZOOMX HOTELS</h5>
-          <p className="content-intro">TRANG CHỦ / GIỚI THIỆU</p>
-        </div>
-      </div> */}
       <div className="container-description">
         <div className="img-inner">
           <img src={brackets} className="img-content" alt="#" />
@@ -68,13 +55,18 @@ export default function IntroduceComponent() {
             </div>
             <div className="col-lg-6 item-img">
               <div className="wrap-picture">
-                {/* <img className="img-home picture" src={icon} alt="#" />
-                <img className="img-hotel picture" src={hotel} alt="" />
-                <img className="img-icon picture" src={hotel} alt="" /> */}
-                {/* em dung cai nay nay */}
-                <div className={'img-home picture'} style={{backgroundImage: `url(${icon})`}} />
-                <div className={'img-hotel picture'} style={{backgroundImage: `url(${hotel})`}} />
-                <div className={'img-icon picture'} style={{backgroundImage: `url(${hotel})`}} />
+                <div
+                  className={"img-home picture"}
+                  style={{ backgroundImage: `url(${icon})` }}
+                />
+                <div
+                  className={"img-hotel picture"}
+                  style={{ backgroundImage: `url(${hotel})` }}
+                />
+                <div
+                  className={"img-icon picture"}
+                  style={{ backgroundImage: `url(${hotel})` }}
+                />
               </div>
             </div>
           </div>
@@ -106,26 +98,6 @@ export default function IntroduceComponent() {
               </div>
             </div>
             <p className="startup-title">Đối tác</p>
-            {/* <div className="row partner-container">
-              <div className="col-2">
-                <img className="img-partner" src={item1} alt="#" />
-              </div>
-              <div className="col-2">
-                <img className="img-partner" src={item2} alt="#" />
-              </div>
-              <div className="col-2">
-                <img className="img-partner" src={item3} alt="#" />
-              </div>
-              <div className="col-2">
-                <img className="img-partner" src={item4} alt="#" />
-              </div>
-              <div className="col-2">
-                <img className="img-partner" src={item5} alt="#" />
-              </div>
-              <div className="col-2">
-                <img className="img-partner" src={item6} alt="#" />
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

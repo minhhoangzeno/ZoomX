@@ -1,1 +1,86 @@
 @import "./common.scss";
+
+.main {
+  padding: 0 140px 0 140px;
+  margin-top: 50px;
+  padding-bottom: 50px;
+  @media (max-width: 768px) {
+    padding: 0 40px 0 40px;
+    padding-bottom: 50px;
+  }
+  .detail {
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    padding-bottom: 100%;
+  }
+  &.img-hotel {
+    width: 100%;
+  }
+  .flex-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .detail-content {
+      text-align: center;
+      .txt-element {
+        font-size: 16px;
+      }
+      .empty-block {
+        margin: 0 auto;
+        width: 50px;
+        height: 2px;
+        background-color: #707070;
+      }
+      .hotel-txt {
+        font-size: 50px;
+      }
+      .conten-txt {
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .btn-element {
+        width: 150px;
+        height: 40px;
+        background-color: #e01042;
+        color: #fff;
+        border: none;
+      }
+    }
+  }
+}
+.main-item {
+  //   position: relative;
+  background-color: #f9f9f9;
+  text-align: center;
+  padding-top: 50px;
+  .empty-block {
+    margin: 0 auto;
+    width: 50px;
+    height: 2px;
+    background-color: #707070;
+  }
+  .txt-element {
+    font-size: 16px;
+  }
+  .hotel-txt {
+    font-size: 50px;
+  }
+  .item-sense {
+    position: relative;
+    .img-home {
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+      padding-bottom: 30%;
+    }
+    .empty-left {
+      width: 450px;
+      height: 300px;
+      background-color: white;
+      position: absolute;
+      top: 15%;
+      left: 40px;
+    }
+  }
+}
