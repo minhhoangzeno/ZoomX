@@ -8,13 +8,13 @@ export default function ListLibrary() {
                     <div className="row wrapper__item">
                         <a className="item">
                             <div className="item__content--top">
-                                <div className="bg-hover">
-
-                                </div>
+                                <img src={item} alt="" loading="lazy"/>
                             </div>
                             <div className="item__content--bottom">
                                 <div className="label">
-                                    HÌNH ẢNH
+                                    <span>
+                                        HÌNH ẢNH
+                                    </span>
                                 </div>
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
@@ -23,13 +23,13 @@ export default function ListLibrary() {
                         </a>
                         <a className="item">
                             <div className="item__content--top">
-                                <div className="bg-hover">
-
-                                </div>
+                                <img src={item} alt="" loading="lazy" />
                             </div>
                             <div className="item__content--bottom">
                                 <div className="label">
-                                    HÌNH ẢNH
+                                    <span>
+                                        HÌNH ẢNH
+                                    </span>
                                 </div>
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
@@ -38,13 +38,13 @@ export default function ListLibrary() {
                         </a>
                         <a className="item">
                             <div className="item__content--top">
-                                <div className="bg-hover">
-
-                                </div>
+                                <img src={item} alt="" loading="lazy" />
                             </div>
                             <div className="item__content--bottom">
                                 <div className="label">
-                                    HÌNH ẢNH
+                                    <span>
+                                        HÌNH ẢNH
+                                    </span>
                                 </div>
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
@@ -53,13 +53,13 @@ export default function ListLibrary() {
                         </a>
                         <a className="item">
                             <div className="item__content--top">
-                                <div className="bg-hover">
-
-                                </div>
+                                <img src={item} alt="" loading="lazy" />
                             </div>
                             <div className="item__content--bottom">
                                 <div className="label">
-                                    HÌNH ẢNH
+                                    <span>
+                                        HÌNH ẢNH
+                                    </span>
                                 </div>
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
@@ -68,13 +68,13 @@ export default function ListLibrary() {
                         </a>
                         <a className="item">
                             <div className="item__content--top">
-                                <div className="bg-hover">
-
-                                </div>
+                                <img src={item} alt="" loading="lazy" />
                             </div>
                             <div className="item__content--bottom">
                                 <div className="label">
-                                    HÌNH ẢNH
+                                    <span>
+                                        HÌNH ẢNH
+                                    </span>
                                 </div>
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
@@ -83,13 +83,58 @@ export default function ListLibrary() {
                         </a>
                         <a className="item">
                             <div className="item__content--top">
-                                <div className="bg-hover">
-
-                                </div>
+                                <img src={item} alt="" loading="lazy" />
                             </div>
                             <div className="item__content--bottom">
                                 <div className="label">
-                                    HÌNH ẢNH
+                                    <span>
+                                        HÌNH ẢNH
+                                    </span>
+                                </div>
+                                <div className="title">
+                                    FLC Grand Hotel Quy Nhon 2020
+                                </div>
+                            </div>
+                        </a>
+                        <a className="item">
+                            <div className="item__content--top">
+                                <img src={item} alt="" loading="lazy" />
+                            </div>
+                            <div className="item__content--bottom">
+                                <div className="label">
+                                    <span>
+                                        HÌNH ẢNH
+                                    </span>
+                                </div>
+                                <div className="title">
+                                    FLC Grand Hotel Quy Nhon 2020
+                                </div>
+                            </div>
+                        </a>
+                        <a className="item">
+                            <div className="item__content--top">
+                                <img src={item} alt="" loading="lazy" />
+                            </div>
+                            <div className="item__content--bottom">
+                                <div className="label">
+                                    <span>
+                                        HÌNH ẢNH
+                                    </span>
+                                </div>
+                                <div className="title">
+                                    FLC Grand Hotel Quy Nhon 2020
+                                </div>
+                            </div>
+                        </a>
+                        <a className="item">
+                            <div className="item__content--top">
+                                <img src={item} alt="" loading="lazy" />
+                            </div>
+                            <div className="item__content--bottom">
+                                <div className="label">
+                                    <span>
+                                        HÌNH ẢNH
+                                    </span>
                                 </div>
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
@@ -99,6 +144,7 @@ export default function ListLibrary() {
                     </div>
                 </div>
             </div>
+
         </>
     )
 }

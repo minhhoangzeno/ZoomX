@@ -28,7 +28,6 @@ export default function MenuLibrary() {
                                 VIDEO
                             </a>
                         </li>
-                        /
                     </ul>
                 </div>
             </div>
