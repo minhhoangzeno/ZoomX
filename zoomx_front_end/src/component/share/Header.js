@@ -7,8 +7,8 @@ export default function Header() {
             <header>
                 <div className="header__wrapper">
                     <div className="header__wrapper--top">
-                        <div className="container-fluid">
-                            <div className="wrapper__top">
+                        <div className="container-fluid wrapper__top">
+                            
                                 <div className="wrapper__top--left contact">
                                     <div className="contact__number">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14.439" height="14.46" viewBox="0 0 14.439 14.46">
@@ -38,13 +38,13 @@ export default function Header() {
                                     </div>
                                 </div>
 
-                            </div>
+                          
 
                         </div>
                     </div>
                     <div className="header__wrapper--bottom">
-                        <div className="container-fluid">
-                            <div className="wrapper__bottom">
+                        <div className="container-fluid wrapper__bottom">
+                          
                                 <div className="wrapper__bottom--logo">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="71.348" height="52.437" viewBox="0 0 71.348 52.437">
                                         <g id="Group_540" data-name="Group 540" transform="translate(831.021 147.649)">
@@ -149,7 +149,7 @@ export default function Header() {
                                         </svg>
                                     </div>
                                 </div>
-                            </div>
+                           
 
                         </div>
                     </div>
