@@ -114,6 +114,12 @@
                             color: #fff;
                             font-size: 13px;
                             font-weight: 600;
+                            opacity: .7;
+                            transition: 0.5s;
+                            &:hover{
+                                opacity: 1;
+                                transition: 0.5s;
+                            }
                         }
                     }
                     .title{
