@@ -5,10 +5,16 @@ header{
     @media (max-width:1024px){
         display: none !important;
     }
+    min-height: 110px;
     .header__wrapper{
+        position: fixed;
+        top: 0%;
+        z-index: 39;
+        width: 100%;
         &--top{
             min-height: 40px;
             border: 1px solid #eaeaea;
+            background: #fff;
                 .wrapper__top{
                     width: 100%;
                     display: flex;
@@ -386,4 +392,78 @@ footer{
 }
 .openNavMobile{
     transform: translateX(0);
+}
+.hero{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../image/home/hero.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    &__content{
+        position: absolute;
+        color: #FFF;
+        z-index: 4;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        &--top{
+            font-size: 14px;
+            letter-spacing: 3px;
+            @media (max-width:768px){
+                font-size: 13px;
+            }
+            @media (max-width:426px){
+                font-size: 11px;
+               
+            }
+        }
+        &--mid{
+            font-size: 60px;
+            letter-spacing: 2px;
+            @media (max-width:1024px){
+                font-size: 50px;
+            }
+            @media (max-width:768px){
+                font-size: 35px;
+            }
+            @media (max-width:426px){
+                font-size: 20px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+        &--bottom{
+            button{
+                border: 1px solid #fff;
+                background: transparent;
+                padding: 10px 15px;
+                font-size: 20px;
+                color: #FFF;
+                @media (max-width:1024px){
+                    font-size: 16px;
+                }
+                @media (max-width:768px){
+                    font-size: 14px;
+                }
+                @media (max-width:426px){
+                    font-size: 13px;
+                   
+                }
+            }
+        }
+    }
+    &__overlay{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        background-color: rgba($color: #000000, $alpha: .17);
+        z-index: 3;
+    }
 }

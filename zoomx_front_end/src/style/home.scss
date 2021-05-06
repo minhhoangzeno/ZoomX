@@ -1,25 +1,45 @@
 @import './common.scss';
 .timeline--background{
     margin-bottom: 300px;
-    background-image: url('../image/home/timeline.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100px;
-}
-.timeline{
     padding-left: 140px;
     padding-right: 140px;
-    &__content{
-        display: flex;
-        justify-content: space-evenly;
-        &__item{
-            width: 276px;
-            height: 288px;
-            box-shadow: rgba($color: #000000, $alpha: .16);
+    img{
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+.timeline__wrapper{
+    @media (max-width:768px){
+        display: none;
+    }
+    .timeline{
+        // padding-left: 140px;
+        // padding-right: 140px;
+        margin-bottom: 300px;
+        &__content{
+            // display: flex;
+            // justify-content: space-evenly;
+            padding-left: 140px;
+            padding-right: 140px;
+            @media (max-width:1440px){
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            
+        }
+    }
+}
+.timeline__content__item{
+    // width: 276px;
+            // height: 288px;
             background-color: #fff;
             position: relative;
-            border: 1px solid #333;
-            margin-right: 75px;
+            box-shadow: 2px 0.5px 3px 2px rgba($color: #000000, $alpha: .16);
+            min-height: 288px;
+            max-width: 240px;
+            margin-left: auto;
+            margin-right: auto;
             &--text{
                 position: absolute;
                 top: 0%;
@@ -28,9 +48,11 @@
                 z-index: 9;
                 display: flex;
                 align-items: center;
+                padding-left: 15px;
+                padding-right: 15px;
                 .wrapper__text{
-                    padding-left: 30px;
-                    padding-right: 30px;
+                    // padding-left: 30px;
+                    // padding-right: 30px;
                     p{
                         font-size: 16px;
                         color: #282828;
@@ -58,6 +80,17 @@
                 height: 10px;
                 background-color: #E01042;
             }
+}
+.timeline-mobile{
+    display: none;
+    @media (max-width:768px){
+        display: block;
+    }
+    &__content{
+        padding-left: 50px;
+        padding-right: 50px;
+        .slick-next{
+            display: none !important;
         }
     }
 }
