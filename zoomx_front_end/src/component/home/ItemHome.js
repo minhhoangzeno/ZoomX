@@ -1,7 +1,6 @@
 import React from "react";
+import IconHome from "./IconHome";
 import itemHome from "../../image/homePage/itemHome.png";
-import Image from "../../image/homePage/Image.png";
-
 export default function ItemHome() {
   return (
     <>
@@ -17,24 +16,24 @@ export default function ItemHome() {
           <div className="content__element-block">
             <p className="txt__headline">Kích thích mọi giác quan</p>
             <div className="flex__item">
-              <img className="img__item" src={Image} alt="#" />
+              <IconHome />
               <p className="txt__item">
                 Mở rộng tầm mắt ngắm nhìn không gian không giới hạn nhờ thiết kế
                 quay 360 độ
               </p>
             </div>
             <div className="flex__item">
-              <img className="img__item" src={Image} alt="#" />
+              <IconHome />
               <p className="txt__item">Chìm đắm vào những bản nhạc du dương</p>
             </div>
             <div className="flex__item">
-              <img className="img__item" src={Image} alt="#" />
+              <IconHome />
               <p className="txt__item">
                 Thư giãn cùng những hương thơm đặc trưng
               </p>
             </div>
             <div className="flex__item">
-              <img className="img__item" src={Image} alt="#" />
+              <IconHome />
               <p className="txt__item">
                 Kích thích vị giác với nhiều món ăn độc đáo đến từ khắp nơi trên
                 thế giới.

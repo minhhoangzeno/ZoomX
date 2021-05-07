@@ -6,8 +6,11 @@ import HomePageComponent from "../component/home/HomePageComponent";
 import ItemHome from "../component/home/ItemHome";
 import TimeLine from "../component/home/TimeLine";
 import FieldComponent from "../component//home/FieldComponent";
+import Founder from "../component/home/Founder";
 import "../style/home.scss";
 import HeroHeader from "../component/share/HeroHeader";
+import EnjoyVideo from "../component/home/EnjoyVideo";
+import News from "../component/home/News";
 export default function HomePage() {
   return (
     <div>
@@ -21,6 +24,9 @@ export default function HomePage() {
       <ItemHome />
       <TimeLine />
       <FieldComponent />
+      <Founder />
+      <EnjoyVideo />
+      <News />
       <Footer />
     </div>
   );
