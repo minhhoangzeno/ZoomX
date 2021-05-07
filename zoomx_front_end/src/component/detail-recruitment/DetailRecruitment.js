@@ -14,7 +14,7 @@ export default function DetailRecruitment(){
                     <div className="col-lg-4 col-12">
                         <div className="recruitment__list__same">
                                 <div className="list__same">
-                                    <div className="title"><strong>Việc làm tương tự</strong></div>
+                                    <div className="title"><strong>Việc làm tương tực</strong></div>
                                     <RecruitmentSameItem />
                                     <RecruitmentSameItem />
                                     <RecruitmentSameItem />
