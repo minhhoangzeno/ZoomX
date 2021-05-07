@@ -1,6 +1,8 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import '../../style/style.scss';
 export default function HeroHeader(){
+    const history = useHistory()
     return(
         <>
             <div className="hero">
@@ -12,7 +14,7 @@ export default function HeroHeader(){
                         Difference in every second
                     </div>
                     <div className="hero__content--bottom">
-                        <button>XEM THÊM</button>
+                        <button onClick={() => history.push('/zoomx')}>XEM THÊM</button>
                     </div>
                 </div>
                 <div className="hero__overlay">

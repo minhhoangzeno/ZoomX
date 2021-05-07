@@ -1,7 +1,9 @@
 import React from 'react';
 import '../../style/style.scss';
 import logoCountry from '../../image/home/country.png'
+import { useHistory } from 'react-router';
 export default function Header() {
+    let history = useHistory();
     return (
         <>
             <header>
@@ -30,10 +32,10 @@ export default function Header() {
                                     </div>
                                 </div>
                                 <div className="wrapper__top--right">
-                                    <div className="wrapper__top--right__recruitment">
+                                    <div className="wrapper__top--right__recruitment" style={{cursor:'pointer'}} onClick={() => history.push('/recruitment')}>
                                         Tuyển dụng
                                     </div>
-                                    <div className="wrapper__top--right__contact">
+                                    <div className="wrapper__top--right__contact" style={{cursor:'pointer'}} onClick={() => history.push('/contact')}>
                                         Liên hệ
                                     </div>
                                 </div>
@@ -45,7 +47,7 @@ export default function Header() {
                     <div className="header__wrapper--bottom">
                         <div className="container-fluid wrapper__bottom">
                           
-                                <div className="wrapper__bottom--logo">
+                                <div className="wrapper__bottom--logo" style={{cursor:'pointer'}} onClick={() => history.push('/')}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="71.348" height="52.437" viewBox="0 0 71.348 52.437">
                                         <g id="Group_540" data-name="Group 540" transform="translate(831.021 147.649)">
                                             <g id="Group_532" data-name="Group 532" transform="translate(-828.858 -98.508)">
@@ -121,22 +123,22 @@ export default function Header() {
                                 </div>
                                 <ul className="wrapper__bottom--nav">
                                     <li>
-                                        <a>Trang chủ</a>
+                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/')}>Trang chủ</a>
                                     </li>
                                     <li>
-                                        <a>Giới thiệu</a>
+                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/zoomx')}>Giới thiệu</a>
                                     </li>
                                     <li>
-                                        <a>Dự án</a>
+                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/project')}>Dự án</a>
                                     </li>
                                     <li>
-                                        <a>Lĩnh vực đầu tư</a>
+                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/investment')}>Lĩnh vực đầu tư</a>
                                     </li>
                                     <li>
-                                        <a>Tin tức - Sự kiện</a>
+                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/news')}>Tin tức - Sự kiện</a>
                                     </li>
                                     <li>
-                                        <a>Thư viện</a>
+                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/library')}>Thư viện</a>
                                     </li>
                                 </ul>
                                 <div className="wrapper__bottom--right">
