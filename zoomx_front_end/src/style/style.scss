@@ -467,3 +467,63 @@ footer{
         z-index: 3;
     }
 }
+.hero__page{
+    width: 100%;
+    height: 30vh;
+    background-image: url('../image/home/hero-page.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    &__content{
+        padding-left: 140px !important;
+        position: absolute;
+        color: #FFF;
+        z-index: 4;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &--top{
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            @media (max-width:1441px){
+                font-size: 30px;
+            }
+            @media (max-width:1025px){
+                font-size: 25px;
+            }
+            @media (max-width:769px){
+                font-size: 20px;
+            }
+        }
+        &--mid{
+            margin-top: 10px;
+            font-size: 16px;
+            @media (max-width:1025px){
+                font-size: 14px;
+            }
+            @media (max-width:769px){
+                font-size: 13px;
+                margin-top: 5px;
+            }
+        }
+        @media (max-width:1440px){
+            padding-left: 50px !important;
+        }
+        @media (max-width:426px){
+            padding-left: 15px !important;
+        }
+    }
+    &__overlay{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        background-color: rgba($color: #000000, $alpha: .17);
+        z-index: 3;
+    }
+}
