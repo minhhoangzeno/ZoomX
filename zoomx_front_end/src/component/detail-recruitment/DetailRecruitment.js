@@ -7,7 +7,7 @@ export default function DetailRecruitment(){
     return (
         <div className="detail-recruitment">
             <div className="container-fluid">
-                <div className="row">
+                <div className="row no-gutters">
                     <div className="col-lg-8 col-12">
                         <RecruitmentMain />
                     </div>
