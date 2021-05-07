@@ -1,7 +1,9 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 export default function RecruitmentItem() {
+    let history = useHistory();
     return (
-        <div className="col-lg-4 col-sm-6 col-12">
+        <div className="col-lg-4 col-sm-6 col-12" onClick={() => history.push('/detail-recruitment')}>
             <div className="recruitment__list__block">
                 <div className="block__info">
                     <div className="block__info--logo">

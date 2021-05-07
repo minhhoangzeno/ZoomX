@@ -1,13 +1,19 @@
 import React from 'react';
+import { MetaTags } from 'react-meta-tags';
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
 import Img from '../image/investment/img.png';
+import HeroPage from '../component/share/HeroPage'
 import '../style/investment.scss';
 
 export default function InvestmentPage() {
     return (
         <>
-            <Header />
+           <MetaTags>
+                <title>Lĩnh vực đầu tư</title>
+            </MetaTags>
+        <Header />
+        <HeroPage title="LĨNH VỰC ĐẦU TƯ" title_sub="TRANG CHỦ / LĨNH VỰC ĐẦU TƯ" />
 
             <div className="investment-wrapper">
                 <div className="container-fluid">
@@ -77,4 +83,4 @@ export default function InvestmentPage() {
             <Footer />
         </>
     )
-}
+    }
