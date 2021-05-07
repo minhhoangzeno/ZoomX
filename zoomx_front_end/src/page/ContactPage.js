@@ -1,7 +1,6 @@
 import React from 'react';
 import { MetaTags } from 'react-meta-tags';
-import LeftContact from '../component/contact/LeftContact';
-import RightContact from '../component/contact/RightContact';
+import Contact from '../component/contact/Contact'
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
 import HeroPage from '../component/share/HeroPage';
@@ -14,10 +13,8 @@ export default function ContactPage(){
             </MetaTags>
         <Header />
         <HeroPage title="LIÊN HỆ" title_sub="TRANG CHỦ / LIÊN HỆ" />
-
-            <LeftContact>
-            </LeftContact>
-            <RightContact />
+        <Contact />
+            
         <Footer />
         </>
     )
