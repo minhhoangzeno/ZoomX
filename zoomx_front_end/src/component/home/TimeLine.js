@@ -8,36 +8,20 @@ export default function TimeLine() {
         speed: 500,
         slidesToShow: 2,
         slidesToScroll: 1,
-        // responsive: [
-        //     {
-        //         breakpoint: 1024,
-        //         settings: {
-        //             slidesToShow: 5,
-        //             slidesToScroll: 3,
-        //             infinite: true,
-        //         },
-        //     },
-        //     {
-        //         breakpoint: 600,
-        //         settings: {
-        //             slidesToShow: 4,
-        //             slidesToScroll: 3,
-        //             infinite: true,
-        //         },
-        //     },
-        //     {
-        //         breakpoint: 480,
-        //         settings: {
-        //             slidesToShow: 3,
-        //             slidesToScroll: 3,
-        //             infinite: true,
-        //         },
-        //     },
-        // ],
+        responsive: [
+            {
+                breakpoint: 425,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                },
+            }
+        ],
     };
     return (
         <>
-            <div className="timeline__wrapper">
+            <div className="timeline__wrapper timeline__web">
                 <div className="container-fluid timeline">
                     <div className="row timeline__content">
                         <div className="col-4">
@@ -99,9 +83,10 @@ export default function TimeLine() {
             </div>
 
             <div className="timeline-mobile">
+              
                 <div className="container-fluid timeline-mobile__content">
                     <Slider className="row" {...settings}>
-                        <div className="col-4" style={{ maxWidth: '100%' }}>
+                        <div className="col-4 col-item" style={{ maxWidth: '100%' }}>
                             <div className="timeline__content__item">
                                 <div className="timeline__content__item--text">
                                     <div className="wrapper__text">
@@ -119,7 +104,7 @@ export default function TimeLine() {
                                 <div className="timeline__content__item--border"></div>
                             </div>
                         </div>
-                        <div className="col-4">
+                        <div className="col-4 col-item" style={{ maxWidth: '100%' }}>
                             <div className="timeline__content__item">
                                 <div className="timeline__content__item--text">
                                     <div className="wrapper__text">
@@ -137,7 +122,7 @@ export default function TimeLine() {
                                 <div className="timeline__content__item--border"></div>
                             </div>
                         </div>
-                        <div className="col-4">
+                        <div className="col-4 col-item" style={{ maxWidth: '100%' }}>
                             <div className="timeline__content__item">
                                 <div className="timeline__content__item--text">
                                     <div className="wrapper__text">
@@ -160,11 +145,6 @@ export default function TimeLine() {
                 </div>
             </div>
 
-            {/* <div className="timeline--background">
-                <div className="container-fluid">
-                    <img src={timline} />
-                </div>
-            </div> */}
         </>
     )
 }
