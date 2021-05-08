@@ -1,48 +1,86 @@
 import React from "react";
-import view from "../../image/homePage/view.png";
-import view1 from "../../image/homePage/view1.png";
-import view2 from "../../image/homePage/view2.png";
-
+import Slider from "react-slick";
+import vn from "../../image/homePage/vn.png";
+import vn1 from "../../image/homePage/vn1.png";
+import vn2 from "../../image/homePage/vn2.png";
 export default function News() {
+  const settings = {
+    // dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 578,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 376,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+    ],
+  };
   return (
-    <>
-      <div className="container-fluid">
-        <div className="news__item">
-          <p className="text__headline--news">WELCOME TO ZOOMX HOTELS</p>
-          <div className="empty__element--news"></div>
-          <p className="big__word-news">Tin tức</p>
+    <div className="main__view--slider">
+      <p className="text__headline--view">WELCOME TO ZOOMX HOTELS</p>
+      <div className="empty__element-view"></div>
+      <p className="big__word-view">Khách sạn quay ZoomX là gì ?</p>
+      <Slider className="main__slider" {...settings}>
+        <div className="slider__item__cover">
+          <img className="news__img" src={vn} alt="#" />
+          <p className="item__content"> Tháng 4 30, 2021</p>
+          <p className="item__content-cover">
+            Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
+          </p>
         </div>
-        <div className="row">
-          <div className="col-lg-4 news__block">
-            <img className="view__item" src={view} alt="#" />
-            <div className="news__content">
-              <p className="news__date"> Tháng 4 30, 2021</p>
-              <p className="view__item">
-                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-              </p>
-            </div>
-          </div>
-          <div className="col-lg-4 news__block">
-            <img className="view__item" src={view1} alt="#" />
-            <div className="news__content">
-              <p className="news__date"> Tháng 4 30, 2021</p>
-              <p className="view__item">
-                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-              </p>
-            </div>
-          </div>
-          <div className="col-lg-4 news__block">
-            <img className="view__item" src={view2} alt="#" />
-            <div className="news__content">
-              <p className="news__date"> Tháng 4 30, 2021</p>
-              <p className="view__item">
-                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-              </p>
-            </div>
-          </div>
-          <button className="btn__news">XEM THÊM</button>
+        <div className="slider__item__cover">
+          <img className="news__img" src={vn1} alt="#" />
+          <p className="item__content"> Tháng 4 30, 2021</p>
+          <p className="item__content-cover">
+            Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
+          </p>
         </div>
-      </div>
-    </>
+        <div className="slider__item__cover">
+          <img className="news__img" src={vn2} alt="#" />
+          <p className="item__content"> Tháng 4 30, 2021</p>
+          <p className="item__content-cover">
+            Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
+          </p>
+        </div>
+        <div className="slider__item__cover">
+          <img className="news__img" src={vn} alt="#" />
+          <p className="item__content"> Tháng 4 30, 2021</p>
+          <p className="item__content-cover">
+            Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
+          </p>
+        </div>
+      </Slider>
+      <button className="btn__item-click">XEM THÊM</button>
+    </div>
   );
 }
