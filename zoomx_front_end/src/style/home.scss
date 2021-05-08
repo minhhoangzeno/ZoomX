@@ -10,9 +10,7 @@
     }
 }
 .timeline__wrapper{
-    @media (max-width:768px){
-        display: none;
-    }
+    
     .timeline{
         // padding-left: 140px;
         // padding-right: 140px;
@@ -81,14 +79,30 @@
                 background-color: #E01042;
             }
 }
+.timeline__web{
+    display: block;
+    @media (max-width:768px){
+        display: none !important;
+    }
+}
 .timeline-mobile{
     display: none;
     @media (max-width:768px){
-        display: block;
+        display: block !important;
     }
     &__content{
         padding-left: 50px;
         padding-right: 50px;
+       .slick-slide{
+           div{
+               &:nth-child(1){
+                   width: 100% !important;
+                   .col-item{
+                       max-width: 100% !important;
+                   }
+               }
+           }
+       }
         .slick-next{
             display: none !important;
         }

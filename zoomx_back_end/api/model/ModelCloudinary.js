@@ -10,22 +10,21 @@ var self = module.exports = {
         return new Promise((resolve, reject) => {
             cloudinary.uploader.upload(request.file, {
                 folder: request.path
+            }).then((result) => {
+                const filename = String(request.file).split("\\")
+                const fs = require('fs')
+                fs.unlinkSync(request.file)
+                resolve({
+                    name: filename[filename.length - 1],
+                    url: result.secure_url,
+                    id: result.public_id
+                })
+            }).catch((error) => {
+                reject(error)
             })
-                .then((result) => {
-                    const fileName = String(request.file).split("\\");
-                    const fs = request('fs');
-                    fs.unlinkSyncs(request.file)
-                    resolve({
-                        name: fileName[fileName.length - 1],
-                        url: result.secure_url,
-                        id: result.public_id
-                    })
-                })
-                .catch((error) => {
-                    reject(error)
-                })
         })
     },
+
     uploadMultiple: (request) => {
         return new Promise((resolve, reject) => {
             cloudinary.uploader.upload(request.file, {
@@ -35,10 +34,12 @@ var self = module.exports = {
                 console.log(filename[filename.length - 1]);
                 const fs = require('fs');
                 fs.unlinkSync(request.file)
+                console.log(result.secure_url)
                 resolve({
                     name: filename[filename.length - 1],
                     url: result.secure_url,
                     id: result.public_id
+    
                 }).catch((error) => {
                     reject(error)
                 })
