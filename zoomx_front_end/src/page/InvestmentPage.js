@@ -3,17 +3,21 @@ import { MetaTags } from 'react-meta-tags';
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
 import HeroPage from '../component/share/HeroPage';
-export default function InvestmentPage(){
-    return(
+import Investment from './../component/investment/Investment';
+import '../style/investment.scss'
+
+export default function InvestmentPage() {
+    return (
         <>
-        <MetaTags>
+            <MetaTags>
                 <title>Lĩnh vực đầu tư</title>
             </MetaTags>
-        <Header />
-        <HeroPage title="LĨNH VỰC ĐẦU TƯ" title_sub="TRANG CHỦ / LĨNH VỰC ĐẦU TƯ" />
+            <Header />
+            <HeroPage title="LĨNH VỰC ĐẦU TƯ" title_sub="TRANG CHỦ / LĨNH VỰC ĐẦU TƯ" />
 
-            Lĩnh vực đầu tư
-        <Footer />
+            <Investment />
+
+            <Footer />
         </>
     )
 }
