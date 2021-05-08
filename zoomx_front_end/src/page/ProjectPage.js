@@ -3,6 +3,7 @@ import { MetaTags } from 'react-meta-tags';
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
 import HeroPage from '../component/share/HeroPage';
+
 export default function ProjectPage(){
     return(
         <>
@@ -11,7 +12,8 @@ export default function ProjectPage(){
             </MetaTags>
         <Header />
         <HeroPage title="DỰ ÁN" title_sub="TRANG CHỦ / DỰ ÁN" />
-            Project Page
+
+
         <Footer />
         </>
     )

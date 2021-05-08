@@ -34,7 +34,6 @@ export default function TimeLine() {
                                             khách sạn quay ZoomX đến với nhiều quốc gia khác trên thế giới.Khẳng định giá trị trí tuệ của con người Việt Nam.
                             </p>
                                     </div>
-
                                 </div>
                                 <div className="timeline__content__item--number">
                                     1
@@ -52,7 +51,6 @@ export default function TimeLine() {
                                             khách sạn quay ZoomX đến với nhiều quốc gia khác trên thế giới.Khẳng định giá trị trí tuệ của con người Việt Nam.
                             </p>
                                     </div>
-
                                 </div>
                                 <div className="timeline__content__item--number">
                                     2
@@ -68,13 +66,12 @@ export default function TimeLine() {
                                         <p>
                                             Mang ý tưởng và thiết kế
                                             khách sạn quay ZoomX đến với nhiều quốc gia khác trên thế giới.Khẳng định giá trị trí tuệ của con người Việt Nam.
-                            </p>
+                             </p>
                                     </div>
-
                                 </div>
                                 <div className="timeline__content__item--number">
                                     3
-                            </div>
+                             </div>
                                 <div className="timeline__content__item--border"></div>
                             </div>
                         </div>
@@ -83,7 +80,7 @@ export default function TimeLine() {
             </div>
 
             <div className="timeline-mobile">
-              
+
                 <div className="container-fluid timeline-mobile__content">
                     <Slider className="row" {...settings}>
                         <div className="col-4 col-item" style={{ maxWidth: '100%' }}>
@@ -136,11 +133,11 @@ export default function TimeLine() {
                                 </div>
                                 <div className="timeline__content__item--number">
                                     3
-                            </div>
+                             </div>
                                 <div className="timeline__content__item--border"></div>
                             </div>
                         </div>
-                        
+
                     </Slider>
                 </div>
             </div>
