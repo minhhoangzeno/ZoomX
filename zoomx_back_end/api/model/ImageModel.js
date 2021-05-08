@@ -9,8 +9,7 @@ const ImageModel = new Schema({
         type: String
     },
     url: {
-        type: String,
-        required: [true, 'url cua anh']
+        type: String
     },
     imageId: {
         type: String,

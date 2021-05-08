@@ -58,7 +58,7 @@ export default function Contact() {
                     </div>
                     <div className="col-md-6 col-12">
                         <div className="contact__info">
-                            <img src="{hotel}" alt="" />
+                            <img src={hotel} alt="" />
                         </div>
                     </div>
                 </div>

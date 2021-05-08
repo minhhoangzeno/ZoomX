@@ -19,7 +19,7 @@ const investmentSchema = new Schema({
         type: String,
         require: true
     },
-    project: [{
+    projectArr: [{
         type: Schema.Types.ObjectId,
         ref: 'project'
     }],
