@@ -1,6 +1,5 @@
 import React from 'react';
 import Img from '../../image/investment/img.png';
-import '../../style/investment.scss';
 
 export default function Investment() {
     return (
