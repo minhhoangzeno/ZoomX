@@ -21,6 +21,10 @@ var ProjectSchema = new Schema({
         type: String,
         require : true
     },
+    typeInvestment: {
+        type: String,
+        default: "60960ef382f9591138cf3a0a"
+    },
     address:{
         type: String,
         require: true
@@ -39,11 +43,11 @@ var ProjectSchema = new Schema({
     },
     dateStart:{
         type: Date,
-        require: true
+        default: Date.now,
     },
     dateFinish:{
         type: Date,
-        require: true
+        default: Date.now,
     },
     imageInfor:{
         type: Schema.Types.ObjectId,

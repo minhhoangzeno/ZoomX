@@ -5,9 +5,11 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     cors = require('cors'),
     multer = require('multer'),
-    Investment = require('./api/model/InvesmentModel'),
-    Project = require('./api/model/ImageModel'),
+    Investment = require('./api/model/InvestmentModel'),
+    Project = require('./api/model/ProjectModel'),
     Image = require('./api/model/ImageModel'),
+    Recruitment = require('./api/model/RecruitmentModel'),
+    Partner = require('./api/model/PartnerModel')
     path = require('path')
     ;
 
