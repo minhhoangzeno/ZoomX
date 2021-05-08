@@ -2,6 +2,8 @@ var mongoose = require('mongoose'),
     Investment = mongoose.model('investment'),
     Upload = require('../model/UploadImageModel'),
     Project = mongoose.model('project');
+
+
 exports.get_investment = (req, res) => {
     const getInvestmentPromise = new Promise((resolve, reject) => {
         Investment.find({ isDeleted: false })

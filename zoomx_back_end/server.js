@@ -8,6 +8,8 @@ var express = require('express'),
     Investment = require('./api/model/InvestmentModel'),
     Project = require('./api/model/ProjectModel'),
     Image = require('./api/model/ImageModel'),
+    Recruitment = require('./api/model/RecruitmentModel'),
+    Partner = require('./api/model/PartnerModel')
     path = require('path')
     ;
 
