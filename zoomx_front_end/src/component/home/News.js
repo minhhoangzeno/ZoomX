@@ -22,8 +22,8 @@ export default function News() {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 3,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
         },
       },
@@ -31,7 +31,7 @@ export default function News() {
         breakpoint: 578,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
         },
       },
@@ -39,7 +39,7 @@ export default function News() {
         breakpoint: 376,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
         },
       },
