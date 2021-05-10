@@ -15,7 +15,7 @@ export default function FieldComponent() {
       {
         breakpoint: 1040,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
         },
@@ -23,7 +23,7 @@ export default function FieldComponent() {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 3,
           infinite: true,
         },
@@ -51,7 +51,7 @@ export default function FieldComponent() {
       <div className="main__field">
         <p className="text__headline--field">WELCOME TO ZOOMX HOTELS</p>
         <div className="empty__element--field"></div>
-        <p className="big__word--field">Khách sạn quay ZoomX là gì ?</p>
+        <p className="big__word--field">Lĩnh vực đầu tư</p>
         <Slider className="main__slider--item" {...item}>
           <div className="item__field__size">
             <img className="img__field" src={icon1} alt="#" />
