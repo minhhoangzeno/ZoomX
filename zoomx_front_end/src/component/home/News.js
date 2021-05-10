@@ -58,6 +58,7 @@ export default function News() {
             <p className="item__content-cover">
               Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
             </p>
+            <div className="item__btn-main">Xem Thêm</div>
           </div>
         </div>
         <div className="slider__item__cover">
@@ -67,15 +68,17 @@ export default function News() {
             <p className="item__content-cover">
               Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
             </p>
+            <div className="item__btn-main">Xem Thêm</div>
           </div>
         </div>
         <div className="slider__item__cover">
           <div className="item-block">
-            <img className="news__img" src={vn2} alt="#" />
+            <img className="news__img" src={vn1} alt="#" />
             <p className="item__content"> Tháng 4 30, 2021</p>
             <p className="item__content-cover">
               Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
             </p>
+            <div className="item__btn-main">Xem Thêm</div>
           </div>
         </div>
         <div className="slider__item__cover">
@@ -85,6 +88,7 @@ export default function News() {
             <p className="item__content-cover">
               Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
             </p>
+            <div className="item__btn-main">Xem Thêm</div>
           </div>
         </div>
       </Slider>

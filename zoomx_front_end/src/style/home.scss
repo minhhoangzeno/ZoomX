@@ -404,25 +404,25 @@
 .slider__item__cover {
   position: relative;
   .item__content {
-    position: absolute;
     // display: none;
-    visibility: hidden;
-    opacity: 0;
+    position: absolute;
+    // visibility: hidden;
+    // opacity: 0;
     bottom: 60px;
     left: 70px;
     color: #ffffff;
     font-size: 13px;
   }
 }
-.slider__item__cover:hover .item__content {
-  display: block;
-}
+// .slider__item__cover:hover .item__content {
+//   display: block;
+// }
 .slider__item__cover {
   .item__content-cover {
-    position: absolute;
     // display: none;
-    visibility: visible;
-    opacity: 0;
+    position: absolute;
+    // visibility: visible;
+    // opacity: 0;
     bottom: 10px;
     left: 70px;
     width: 270px;
@@ -430,9 +430,51 @@
     color: #ffffff;
   }
 }
-.slider__item__cover:hover .item__content-cover {
+.item__btn-main {
+  // display: none;
+  visibility: visible;
+  opacity: 0;
+  padding-left: 30px;
+  padding-top: 12px;
+  // display: flex;
+  // align-items: center;
+  text-align: left;
+  position: absolute;
+  background-color: #ffffff;
+  height: 50px;
+  bottom: 0px;
+  right: 55px;
+  left: 56px;
+}
+.item-block:hover .item__btn-main {
   display: block;
 }
+.item-block:hover {
+  .item__content,
+  .item__content-cover,
+  .item__btn-main {
+    transition: all 2s;
+    -moz-transition: all 2s;
+    -webkit-transition: all 2s;
+  }
+}
+.item-block:hover {
+  .item__btn-main {
+    transform: translate(0, -20px);
+    visibility: visible;
+    opacity: 1;
+  }
+  .item__content {
+    transform: translate(0, -45px);
+  }
+  .item__content-cover {
+    transform: translate(0, -45px);
+  }
+}
+
+// .slider__item__cover:hover .item__content-cover {
+//   display: block;
+// }
 
 .main__field {
   background-color: #f9f9f9;
@@ -534,21 +576,21 @@
     }
   }
 }
-.item__content-cover {
-  transition: all 2s;
-  -moz-transition: all 2s;
-  -webkit-transition: all 2s;
-}
-.item__content {
-  transition: all 2s;
-  -moz-transition: all 2s;
-  -webkit-transition: all 2s;
-}
-.item-block:hover {
-  .item__content-cover,
-  .item__content {
-    transform: translate(0, -20px);
-    visibility: visible;
-    opacity: 1;
-  }
-}
+// .item__content-cover {
+//   transition: all 2s;
+//   -moz-transition: all 2s;
+//   -webkit-transition: all 2s;
+// }
+// .item__content {
+//   transition: all 2s;
+//   -moz-transition: all 2s;
+//   -webkit-transition: all 2s;
+// }
+// .item-block:hover {
+//   .item__content-cover,
+//   .item__content {
+//     transform: translate(0, -20px);
+//     visibility: visible;
+//     opacity: 1;
+//   }
+// }
