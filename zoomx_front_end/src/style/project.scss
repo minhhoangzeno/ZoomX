@@ -4,12 +4,11 @@
     width: 100%;
     padding: 50px 0;
     .container-fluid {
-        @media (max-width: 768px) {
-            padding: 0;
-        }
+        padding: 0;
         ul.menu__project {
             margin: 0;
             display: flex;
+            flex-wrap: wrap;
             flex-direction: row;
             justify-content: center;
             padding-left: 140px;
@@ -53,7 +52,13 @@
             flex-wrap: wrap;
             padding-left: 140px;
             padding-right: 140px;
-            a {
+            @media (max-width: 1440px) {
+                padding: 0 50px;
+            }
+            @media(max-width: 768px){
+                padding: 0 15px;
+            }
+            a.item {
                 width: calc((100% - 70px) / 2);
                 margin-right: 70px;
                 margin-bottom: 40px;
@@ -61,13 +66,21 @@
                 box-shadow: 0px 0px 49px -13px #8c8c8c;
                 &:hover {
                     text-decoration: none;
+                } 
+                @media (max-width: 1024px){
+                    margin-right: 50px;
+                    width: calc((100% - 50px) / 2);
                 }
-                // &:hover {
-                //     img {
-                //         transform: scale(1.5);
-                //         transition: 2s;
-                //     }
-                // }
+                @media (max-width: 768px){
+                    margin-right: 40px;
+                    margin-bottom: 30px;
+                    width: calc((100% - 40px) / 2);
+                }
+                @media (max-width: 425px){
+                    margin-right: 20px;
+                    margin-bottom: 20px;
+                    width: calc((100% - 20px) / 2);
+                }
                 .item__content--top {
                     overflow: hidden;
                     img {
@@ -78,10 +91,32 @@
                 .item__content--bottom {
                     padding: 30px;
                     display: flex;
-                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    position: relative;
+                    @media (max-width: 1024px){
+                        padding: 20px;
+                    }
+                    @media (max-width: 768px){
+                        padding: 10px;
+                    }
                     .label {
                         font-family: Giroly;
-                        padding: 0 0 10px 0;
+                        position: absolute;
+                        right: 30px;
+                        @media (max-width: 1024px){
+                            width: 100%;
+                            position: relative;
+                            padding: 0;
+                            top: auto;
+                            right: auto;
+                            display: flex;
+                            justify-content: center;
+                            margin-top: 15px;
+                        }
+                        @media(max-width: 768px){
+                            margin-top: 10px;
+                        }
                         span {
                             padding: 5px 25px;
                             background-color: #cc0000;
@@ -90,6 +125,10 @@
                             font-size: 15px;
                             font-weight: 700;
                             transition: .5s;
+                            @media (max-width: 768px){
+                                padding: 3px 15px;
+                                font-size: 13px;
+                            }
                             &:hover {
                                 text-decoration: none;
                                 background-color: #fff;
@@ -104,6 +143,14 @@
                         color: #333;
                         font-weight: 700;
                         font-size: 17px;
+                        width: 70%;
+                        @media (max-width: 1024px){
+                            width: 100%;
+                            text-align: center;
+                        }
+                        @media (max-width: 768px){
+                            font-size: 15px;
+                        }
                         &:hover {
                             color: #af8d41;
                         }
@@ -122,6 +169,9 @@
     margin: 0 0 50px 0;
     display: flex;
     justify-content: center;
+    @media (max-width: 425px){
+        margin-bottom: 30px;
+    }
     a {
         padding: 5px 25px;
         background-color: #cc0000;

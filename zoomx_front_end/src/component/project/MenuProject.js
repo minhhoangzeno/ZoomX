@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../style/project.scss';
 import iconNav from '../../image/home/librarypage/icon-menu.png';
 
 export default function MenuProject() {
