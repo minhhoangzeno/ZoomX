@@ -64,7 +64,7 @@
         .ingredient__item {
           width: 100%;
           height: auto;
-          background-color: #ffffff;
+          background-color: #f9f9f9;
           .item__wrap {
             padding-left: 20px;
             padding-right: 20px;
@@ -105,7 +105,7 @@
               padding: 5px;
               color: #e01042;
               border: 1px solid#ce3047;
-              background-color: #ffffff;
+              background-color: #f5f5f5;
               margin-bottom: 20px;
             }
           }
@@ -135,6 +135,7 @@
       border: 1px solid #d4d4d4;
       outline: none;
       margin-bottom: 20px;
+      background-color: #f5f5f5;
     }
     .btn__search {
       width: 120px;
