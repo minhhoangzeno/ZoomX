@@ -102,6 +102,22 @@
                             @media (max-width:1190px) {
                                 padding-top: 20px;
                             }
+                            button{
+                                width: 163px;
+                                height: 35px;
+                                background-color: #E01042;
+                                color: #FFFFFF;
+                                border: none;
+                                @media (max-width:767px) {
+                                    width: 90px;
+                                    height: 27px;
+                                }
+                                @media (max-width:1679px) {
+                                    width: 130px;
+                                    height: 33px;
+                                }
+                            }
+                            
                             
                         }
                     }
@@ -259,6 +275,80 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+.modal__recruitment{
+    width: 100%;
+    margin: 140px;
+    background-color: #f9f9f9;   
+    color: #282828;     
+    font-family: 'Helvetica Neue';               
+    .container-fluid{
+        .quick--application{
+            strong{
+                color: #E01042;
+            }
+            &--title{
+                strong{
+                    font-size: 36px;
+                }
+                text-align: center;
+            }
+            &--info{
+                display: flex;
+                .logo{}
+                .info{
+                    display: flex;
+                    p{
+                        color: #1C1C1C;
+                        strong{
+                            color: #1C1C1C;
+                        }
+                    }
+                    &-left{
+
+                    }
+                    &-right{
+                        
+                    }
+                }
+                
+            }
+            &--form{
+                .title{
+                    font-size: 21px;
+                }
+                .form{
+                    &-item{
+                        .col-4{
+                            text-align: right;
+                        }
+                    }
+                }
+
+            }
+            &--file{
+                .title{
+                    font-size: 21px;
+                }
+                .file{
+                    .col-8{
+                        button{
+                            
+                            background-color: #E01042;
+                            width: 187px;
+                            height: 53px;
+                            border: none;
+                            strong{
+                                color:#FFFFFF ;
+                            }
+                        }
+                    }
+
+                }
+
             }
         }
     }
