@@ -1,7 +1,8 @@
 import React from 'react';
 import Img from '../../image/investment/img.png';
-
+import { useHistory } from 'react-router-dom';
 export default function Investment() {
+    let history = useHistory();
     return (
         <>
             <div className="investment-wrapper">
@@ -17,7 +18,7 @@ export default function Investment() {
                                 <h1>01/</h1>
                                 <h2>KHÁCH SẠN</h2>
                                 <p>Là một trong những thương hiệu dẫn đầu trong ngành khách sạn du lịch nghỉ dưỡng tại Việt Nam, Tập đoàn FLC sở hữu hệ…</p>
-                                <a className="read-more-btn">XEM THÊM</a>
+                                <a className="read-more-btn" onClick={() => history.push('/detail-project')}>XEM THÊM</a>
                             </div>
                         </div>
                     </div>
@@ -70,4 +71,4 @@ export default function Investment() {
             </div>
         </>
     )
-    }
+}

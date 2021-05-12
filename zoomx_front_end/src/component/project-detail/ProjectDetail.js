@@ -23,6 +23,7 @@ export default function ProjectDetail() {
                                                     <path id="Path_185" data-name="Path 185" d="M1603.589,1226a4.057,4.057,0,0,1-2.564,2.607v2.86a6.573,6.573,0,0,0,3.578-1.889,6.658,6.658,0,0,0,1.911-3.579Z" transform="translate(-35.373 -35.276)" fill="#e01042" />
                                                 </g>
                                             </svg>
+
                                             <strong>
                                                 Địa điểm
                                             </strong>
@@ -39,6 +40,7 @@ export default function ProjectDetail() {
                                                     <path id="Path_185" data-name="Path 185" d="M1603.589,1226a4.057,4.057,0,0,1-2.564,2.607v2.86a6.573,6.573,0,0,0,3.578-1.889,6.658,6.658,0,0,0,1.911-3.579Z" transform="translate(-35.373 -35.276)" fill="#e01042" />
                                                 </g>
                                             </svg>
+
                                             <strong>
                                                 Diện tích
                                             </strong>
@@ -53,6 +55,7 @@ export default function ProjectDetail() {
                                                     <path id="Path_185" data-name="Path 185" d="M1603.589,1226a4.057,4.057,0,0,1-2.564,2.607v2.86a6.573,6.573,0,0,0,3.578-1.889,6.658,6.658,0,0,0,1.911-3.579Z" transform="translate(-35.373 -35.276)" fill="#e01042" />
                                                 </g>
                                             </svg>
+
                                             <strong>
                                                 Tổng vốn đầu tư
                                             </strong>
@@ -68,6 +71,7 @@ export default function ProjectDetail() {
                                                     <path id="Path_185" data-name="Path 185" d="M1603.589,1226a4.057,4.057,0,0,1-2.564,2.607v2.86a6.573,6.573,0,0,0,3.578-1.889,6.658,6.658,0,0,0,1.911-3.579Z" transform="translate(-35.373 -35.276)" fill="#e01042" />
                                                 </g>
                                             </svg>
+
                                             <strong>
                                                 Hạng mục đầu tư
                                             </strong>
@@ -90,6 +94,7 @@ export default function ProjectDetail() {
                                                     <path id="Path_185" data-name="Path 185" d="M1603.589,1226a4.057,4.057,0,0,1-2.564,2.607v2.86a6.573,6.573,0,0,0,3.578-1.889,6.658,6.658,0,0,0,1.911-3.579Z" transform="translate(-35.373 -35.276)" fill="#e01042" />
                                                 </g>
                                             </svg>
+
                                             <strong>
                                                 Thời gian khởi công
                                             </strong>
@@ -104,6 +109,7 @@ export default function ProjectDetail() {
                                                     <path id="Path_185" data-name="Path 185" d="M1603.589,1226a4.057,4.057,0,0,1-2.564,2.607v2.86a6.573,6.573,0,0,0,3.578-1.889,6.658,6.658,0,0,0,1.911-3.579Z" transform="translate(-35.373 -35.276)" fill="#e01042" />
                                                 </g>
                                             </svg>
+
                                             <strong>
                                                 Thời gian hoàn thành
                                             </strong>

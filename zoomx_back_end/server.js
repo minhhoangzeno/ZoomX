@@ -3,7 +3,15 @@ var express = require('express'),
     port = process.env.PORT || 3001,
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
-    cors = require('cors');
+    cors = require('cors'),
+    multer = require('multer'),
+    Investment = require('./api/model/InvestmentModel'),
+    Project = require('./api/model/ProjectModel'),
+    Image = require('./api/model/ImageModel'),
+    Recruitment = require('./api/model/RecruitmentModel'),
+    Partner = require('./api/model/PartnerModel')
+    path = require('path')
+    ;
 
 mongoose
     .connect('mongodb://localhost:27017/zoomx', {
@@ -18,6 +26,18 @@ mongoose
 
 app.use(cors({}))
 app.use(bodyParser.json());
+app.use(express.static('public'))
+app.use(multer({
+    storage: multer.diskStorage({
+        destination: (req, file, callback) => {
+            callback(null, path.join(__dirname, 'public/images'))
+        },
+        filename: (req, file, callback) => {
+            // console.log(file.originalname);
+            callback(null, file.originalname);
+        },
+    })
+}).any())
 var routes = require('./api/route');
 routes(app)
 app.use((req,res) => {
