@@ -110,40 +110,41 @@ export default function ModalRecruitment(props) {
                                 <form action="post">
                                     <div className="form-item">
                                         <div className="row">
-                                            <div className="col-4">
+                                            <div className="col-2">
                                                 <p>Tên</p>
                                             </div>
-                                            <div className="col-8">
+                                            <div className="col-10">
                                                 <input type="text" />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="form-item">
                                         <div className="row">
-                                            <div className="col-4">
+                                            <div className="col-2">
                                                 <p>Họ</p>
                                             </div>
-                                            <div className="col-8">
+                                            <div className="col-10">
                                                 <input type="text" />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="form-item">
                                         <div className="row">
-                                            <div className="col-4">
+                                            <div className="col-2">
                                                 <p>Email</p>
                                             </div>
-                                            <div className="col-8">
+                                            <div className="col-10">
                                                 <input type="email" />
+                                                <label htmlFor="email">Vui lòng kiểm tra kỹ email của bạn để nhận được cơ hội nghề nghiệp và tin tức mới nhất từ tập đoàn ZoomX</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="form-item">
                                         <div className="row">
-                                            <div className="col-4">
+                                            <div className="col-2">
                                                 <p>Số điện thoại</p>
                                             </div>
-                                            <div className="col-8">
+                                            <div className="col-10">
                                                 <input type="text" />
                                             </div>
                                         </div>
@@ -157,13 +158,13 @@ export default function ModalRecruitment(props) {
                             </div>
                             <div className="file">
                                 <div className="row">
-                                    <div className="col-4">
+                                    <div className="col-2">
                                         
                                     </div>
-                                    <div className="col-8">
-                                        <input type="file"  />
-                                        <p>Hỗ trợ định dạng</p>
-                                        <button><strong>ỨNG TUYỂN</strong></button>
+                                    <div className="col-10">
+                                        <input type="file" name="file" />
+                                        <p>Hỗ trợ định dạng '.doc 'docx '.pdf và thông qua 2MB</p>
+                                        <div className="button"><button><strong>ỨNG TUYỂN</strong></button></div>
                                     </div>
                                 </div>
                             </div>

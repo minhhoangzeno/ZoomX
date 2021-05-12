@@ -15,7 +15,7 @@
         font-size: 10px;
     }
     .container-fluid{
-        width: 100%vw;
+        width: 100vw;
         padding: 140px;
         @media (max-width:1190px) {
             padding: 50px;
@@ -179,7 +179,9 @@
                     padding-top: 35px;
                     padding-bottom: 30px;
                     padding-left: 20px;
-                padding-right: 20px;
+                    padding-right: 20px;
+                }
+                @media (max-width:767px) {
                 }
                 .title{
                     strong{
@@ -279,76 +281,246 @@
         }
     }
 }
-.modal__recruitment{
-    width: 100%;
-    margin: 140px;
-    background-color: #f9f9f9;   
-    color: #282828;     
-    font-family: 'Helvetica Neue';               
-    .container-fluid{
-        .quick--application{
-            strong{
-                color: #E01042;
-            }
-            &--title{
+.modal-dialog{
+        max-width: 100vw !important;
+        padding-left: 140px;   
+        padding-right: 140px;  
+        padding-top: 50px;
+        
+    @media (max-width:1190px) {
+        padding-left: 50px;   
+        padding-right: 50px;  
+        padding-top: 50px;
+        font-size: 14px;
+    }
+    @media (max-width:767px) {
+        padding-left: 10px;   
+        padding-right: 10px;  
+        padding-top: 10px;
+        font-size: 12px;
+    }
+
+    .modal__recruitment{
+   
+        color: #282828;     
+        font-family: 'Helvetica Neue';    
+        padding-left: 140px;   
+        padding-right: 140px;     
+        padding-bottom: 80px;  
+        @media (max-width:1190px) {
+            padding-left: 50px;   
+            padding-right: 50px;  
+            padding-bottom: 50px;
+        } 
+        @media (max-width:767px) {
+            padding-left: 10px;   
+            padding-right: 10px;  
+            padding-bottom: 30px;
+        }
+        .container-fluid{
+            .quick--application{
                 strong{
-                    font-size: 36px;
+                    color: #E01042;
                 }
-                text-align: center;
-            }
-            &--info{
-                display: flex;
-                .logo{}
-                .info{
+                &--title{
+                    strong{
+                        font-size: 36px;
+                        @media (max-width:1190px) {
+                            font-size: 30px;
+                        } 
+                        @media (max-width:767px) {
+                            font-size: 20px;
+                        } 
+
+                    }
+                    border-bottom: 1px solid #707070;
+                    text-align: center;
+                    padding-top: 50px;
+                    padding-bottom: 50px;
+                    @media (max-width:1190px) {
+                        padding-top: 30px;
+                        padding-bottom: 30px;
+                    } 
+                }
+                &--info{
+                    padding-top: 60px;
+                    padding-bottom: 70px;
+                    padding-left: 60px;
+                    @media (max-width:1190px) {
+                        padding-top: 40px;
+                        padding-bottom: 40px;
+                        padding-left: 30px;
+                    } 
+                    @media (max-width: 767px) {
+                        padding-top: 30px;
+                        padding-bottom: 10px;
+                        padding-left: 10px
+                    } 
                     display: flex;
-                    p{
-                        color: #1C1C1C;
-                        strong{
-                            color: #1C1C1C;
-                        }
-                    }
-                    &-left{
-
-                    }
-                    &-right{
-                        
-                    }
-                }
-                
-            }
-            &--form{
-                .title{
-                    font-size: 21px;
-                }
-                .form{
-                    &-item{
-                        .col-4{
-                            text-align: right;
-                        }
-                    }
-                }
-
-            }
-            &--file{
-                .title{
-                    font-size: 21px;
-                }
-                .file{
-                    .col-8{
-                        button{
+                    .logo{
+                        padding-right: 100px;
+                        @media (max-width:1190px) {
+                            padding-right: 60px;
                             
-                            background-color: #E01042;
-                            width: 187px;
-                            height: 53px;
-                            border: none;
+                        } 
+                        @media (max-width: 767px) {
+                            padding-right: 20px;
+                        } 
+                        svg{
+                            @media (max-width: 767px) {
+                                width: 60px;
+                                height: auto;
+                                object-fit: contain;
+                            } 
+                        }
+                    }
+                    .info{
+                        display: flex;
+                        p{
+                            color: #1C1C1C;
                             strong{
-                                color:#FFFFFF ;
+                                color: #1C1C1C;
+                            }
+                        }
+                        &-left{
+                            padding-right: 50px;
+                            @media (max-width: 767px) {
+                                padding-right: 20px;
+                            } 
+                        }
+                        &-right{
+                            
+                        }
+                    }
+                    
+                }
+                &--form{
+                    .title{
+                        font-size: 21px;
+                        @media (max-width:1190px) {
+                            font-size: 18px;
+                        } 
+                        @media (max-width: 767px) {
+                            font-size: 14px;
+                        } 
+                    }
+                    .form{
+                        padding-left: 15px;
+                        padding-top: 50px;
+                        @media (max-width:1190px) {
+                            padding-top: 30px;
+                            
+                        } 
+                        @media (max-width:767px) {
+                            padding-left: 0px;
+                        }
+                        &-item{
+                            padding-top: 20px;
+                            font-family: 'Helvetica';
+                            @media (max-width:767px) {
+                                padding-top: 5px;
+                            }
+                            .col-2{
+                                text-align: right;
+                                @media (max-width:767px) {
+                                    padding: 0px;
+                                }
+                            }
+                            input{
+                                width: 605px;
+                                height: 38px;
+                                border: 1px solid #707070;
+                                @media (max-width:1190px) {
+                                    width: 400px;
+                                    height: 30px;
+                                } 
+                                @media (max-width:767px) {
+                                    width: 200px;
+                                    height: 20px;
+                                }
+                            }
+                            label{
+                                color: #E01042;
+                                font-size: 12px;
+                                @media (max-width:1190px) {
+                                    font-size: 10px;
+                                } 
                             }
                         }
                     }
-
+                    
+    
                 }
-
+                &--file{
+                    padding-top: 60px;
+                    @media (max-width:1190px) {
+                        padding-top: 40px;
+                        
+                    } 
+                    @media (max-width:767px) {
+                        padding-top: 20px;
+                    }
+                    .title{
+                        font-size: 21px;
+                        @media (max-width:1190px) {
+                            font-size: 18px;
+                        } 
+                        @media (max-width: 767px) {
+                            font-size: 14px;
+                        } 
+                    }
+                    .file{
+                        padding-top: 40px;
+                        @media (max-width:767px) {
+                            padding-top: 20px;
+                        }
+                        .col-10{
+                            input{
+                                width: 276px;
+                                height: 51px;
+                                
+                            }
+                            p{
+                                font-size: 12px;
+                                font-family: 'Helvetica';
+                                @media (max-width:1190px) {
+                                    font-size: 10px;
+                                } 
+                                @media (max-width: 767px) {
+                                    font-size: 8px;
+                                } 
+                            }
+                            .button{
+                                padding-top: 20px;
+                                @media (max-width:767px) {
+                                    padding-top: 10px;
+                                }
+                                button{
+                                    background-color: #E01042;
+                                    width: 187px;
+                                    height: 53px;
+                                    border: none;
+                                    @media (max-width:1190px) {
+                                        width: 160px;
+                                        height: 40px;
+                                    } 
+                                    @media (max-width:767px) {
+                                        width: 100px;
+                                        height: 25px;
+                                    }
+                                    strong{
+                                        color:#FFFFFF ;
+                                        @media (max-width:767px) {
+                                            font-size: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+    
+                    }
+    
+                }
             }
         }
     }
