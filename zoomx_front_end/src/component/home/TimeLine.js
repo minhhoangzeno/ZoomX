@@ -1,6 +1,7 @@
 import React from 'react';
 import timline from '../../image/home/timeline.png';
 import Slider from "react-slick";
+import '../../style/timeline.scss'
 export default function TimeLine() {
     var settings = {
         // dots: true,
