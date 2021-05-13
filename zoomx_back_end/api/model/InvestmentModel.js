@@ -19,10 +19,10 @@ const investmentSchema = new Schema({
         type: String,
         require: true
     },
-    projectArr: [{
-        type: Schema.Types.ObjectId,
-        ref: 'project'
-    }],
+    // projectArr: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'project'
+    // }],
     imageCover:{
         type: Schema.Types.ObjectId,
         ref: 'image'
