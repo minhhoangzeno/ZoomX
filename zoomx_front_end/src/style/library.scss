@@ -22,7 +22,7 @@
                 padding: 0 15px;
             }
             li{
-                padding: 0 15px 0 15px;
+                padding: 0 25px 0 25px;
                 color: #A4ABB3;
                 font-weight: 700;
                 font-size: 12px;
@@ -34,7 +34,7 @@
                     position: absolute;
                 }
                 a{
-                    padding: 0 0 0 20px;
+                    padding: 0 0 0 25px;
                 }
             }
         }
@@ -108,17 +108,20 @@
                     .label{
                         font-family: Giroly;
                         padding: 0 0 10px 0;
-                        span{
+                        span {
+                            padding: 5px 25px;
                             background-color: #cc0000;
-                            padding: 5px 15px;
                             color: #fff;
-                            font-size: 13px;
-                            font-weight: 600;
-                            opacity: .7;
-                            transition: 0.5s;
-                            &:hover{
-                                opacity: 1;
-                                transition: 0.5s;
+                            cursor: pointer;
+                            font-size: 15px;
+                            font-weight: 700;
+                            transition: .5s;
+                            &:hover {
+                                text-decoration: none;
+                                background-color: #fff;
+                                border: 1px solid #cc0000;
+                                color: #cc0000;
+                                transition: .5s;
                             }
                         }
                     }

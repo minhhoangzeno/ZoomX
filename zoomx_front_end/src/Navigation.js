@@ -15,6 +15,8 @@ import NewsPage from './page/NewsPage';
 import ProjectPage from './page/ProjectPage';
 import RecruitmentPage from './page/RecruitmentPage';
 import ZoomXPage from './page/ZoomXPage';
+import BlogDetailPage from './page/BlogDetailPage';
+
 export default function Navigation() {
     return (
         <Router>
@@ -48,6 +50,9 @@ export default function Navigation() {
                 </Route>
                 <Route exact path="/detail-recruitment">
                     <DetailRecruitmentPage />
+                </Route>
+                <Route exact path="/blog-detail">
+                    <BlogDetailPage />
                 </Route>
             </Switch>
         </Router>

@@ -9,7 +9,8 @@ var express = require('express'),
     Project = require('./api/model/ProjectModel'),
     Image = require('./api/model/ImageModel'),
     Recruitment = require('./api/model/RecruitmentModel'),
-    Partner = require('./api/model/PartnerModel')
+    Partner = require('./api/model/PartnerModel'),
+    TimeLine = require('./api/model/TimeLineModel')
     path = require('path')
     ;
 

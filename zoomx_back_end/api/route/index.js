@@ -2,7 +2,8 @@ const investment_controller = require('../controller/InvestmentController');
 const image_controller = require('../controller/ImageController');
 const project_controller = require('../controller/ProjectController');
 const recruitment_controller = require('../controller/RecruitmentController');
-const partner_controller = require('../controller/PartnerController')
+const partner_controller = require('../controller/PartnerController');
+const timeline_controller = require('../controller/TimeLineController');
 module.exports = app => {
 
 
@@ -40,4 +41,11 @@ module.exports = app => {
         .post(partner_controller.add_partner)
     app.route('/partner/image/:partner_id')
         .post(partner_controller.upload_image_partner)
+
+    app.route('/timeline')
+        .get(timeline_controller.get_timeline)
+        .post(timeline_controller.add_timeline)
+    app.route('/timeline/:timeline_id')
+        .put(timeline_controller.update_timeline)
+        .delete(timeline_controller.delete_timeline)
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import item from '../../image/home/librarypage/itemOfList.jpg';
+
 export default function ListLibrary() {
     return (
         <>
@@ -8,7 +9,7 @@ export default function ListLibrary() {
                     <div className="row wrapper__item">
                         <a className="item">
                             <div className="item__content--top">
-                                <img src={item} alt="" loading="lazy"/>
+                                <img src={item} alt="" loading="lazy" />
                             </div>
                             <div className="item__content--bottom">
                                 <div className="label">
