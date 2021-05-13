@@ -20,6 +20,7 @@
 .timeline__content__item {
   // width: 276px;
   // height: 288px;
+  margin-top: 70px;
   background-color: #fff;
   position: relative;
   box-shadow: 2px 0.5px 3px 2px rgba($color: #000000, $alpha: 0.16);
@@ -82,7 +83,6 @@
     padding-left: 50px;
     padding-right: 50px;
     .slick-slide {
-       
       div {
         &:nth-child(1) {
           width: 100% !important;
@@ -97,6 +97,6 @@
     }
   }
 }
-.slick-list{
-    width: 100% !important;
+.slick-list {
+  width: 100% !important;
 }
