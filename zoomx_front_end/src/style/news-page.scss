@@ -6,6 +6,9 @@
     padding: 10px;
     margin-bottom: 50px;
     margin-top: 0;
+    @media (max-width: 1440px){
+      padding: 0 50px !important;
+    }
     @media (max-width: 760px) {
       padding: 0 20px;
     }
@@ -30,7 +33,7 @@
 }
 
 .main__item__detail {
-  //   padding: 0 !important;
+  padding: 0;
   @media (max-width: 1024px) {
     padding: 5px !important;
   }
@@ -46,7 +49,9 @@
   .list__inner {
     padding: 0;
     margin: 0;
-    .wraper {
+    display: flex;
+    flex-wrap: wrap;
+    .wrapper {
       @media (max-width: 425px) {
         padding: 0 !important;
       }
@@ -115,7 +120,12 @@
   }
 }
 .main__part {
+  width: 70%;
+  @media(max-width: 1440px){
+    width: 100%;
+  }
   .main__category {
+    width: 100%;
     .average__word {
       font-size: 20px;
       font-weight: 600;
