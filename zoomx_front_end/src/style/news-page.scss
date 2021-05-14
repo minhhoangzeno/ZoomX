@@ -56,7 +56,7 @@
       .block__detail {
         border: 1px solid #707070;
         margin-bottom: 30px;
-        width: 80%;
+        width: 90%;
         // margin: 0 auto;
         @media (max-width: 425px) {
           margin: 0 auto;
@@ -124,6 +124,12 @@
               font-weight: 700;
               margin-bottom: 20px;
             }
+            .btn__news:hover {
+              border: 1px solid #e01042;
+              background-color: #ffffff;
+              color: #e01042;
+              transition: 0.5s;
+            }
           }
         }
       }
@@ -167,6 +173,12 @@
       border: none;
       font-weight: 600;
       margin-bottom: 20px;
+    }
+    .btn__search:hover {
+      border: 1px solid #e01042;
+      background-color: #ffffff;
+      color: #e01042;
+      transition: 0.5s;
     }
     .list__item {
       display: flex;
