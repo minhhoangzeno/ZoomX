@@ -73,3 +73,37 @@ exports.upload_image_recruitment = (req, res) => {
             console.log(error)
         })
 }
+exports.update_recruitment = (req, res) => {
+    let id = req.params.recruitment_id;
+    let objRecruitment = req.body;
+    Recruitment.findByIdAndUpdate(id, objRecruitment)
+        .then((recruitment) => {
+            res.send(recruitment)
+        })
+        .catch(err => {
+            res.send(err)
+        })
+}
+exports.delete_recruitment = (req, res) => {
+    Recruitment.findByIdAndDelete(req.params.recruitment_id)
+        .then(recruitment => {
+            res.send(recruitment)
+        })
+        .catch(err => {
+            res.send(err)
+        })
+}
+exports.get_a_recruitment = (req, res) => {
+    Recruitment.findById(req.params.recruitment_id)
+        .populate({
+            path: 'imageRecruitment',
+            model: 'image',
+            select: 'url'
+        })
+        .then((recruitment) => {
+            res.send(recruitment)
+        })
+        .catch((error) => {
+            res.send(error)
+        })
+}

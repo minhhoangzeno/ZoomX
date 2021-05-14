@@ -2,7 +2,6 @@
  * Tạo model Investment (Lĩnh vực đầu tư) với các thuộc tính
  * investmentName String
  * description String
- * project: [{}] ref 
  * isDeleted Boolen
  * imageCover ref
  */
@@ -19,10 +18,6 @@ const investmentSchema = new Schema({
         type: String,
         require: true
     },
-    projectArr: [{
-        type: Schema.Types.ObjectId,
-        ref: 'project'
-    }],
     imageCover:{
         type: Schema.Types.ObjectId,
         ref: 'image'
