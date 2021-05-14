@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import icon_money from '../../image/icon/money.png'
 export default function RecruitmentItem() {
     let history = useHistory();
     return (
@@ -85,16 +86,22 @@ export default function RecruitmentItem() {
                         <strong><a href="#">zoomx holding - chuyên viên thiết kế</a></strong>
                     </div>
                     <div className="block__info--address">
-                        <svg width="24px" height="24px" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2M12,4A5,5 0 0,0 7,9C7,10 7,12 12,18.71C17,12 17,10 17,9A5,5 0 0,0 12,4Z" />
-                        </svg>
-                        <p>Hà Nội</p>
+                        <div className="icon">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2M12,4A5,5 0 0,0 7,9C7,10 7,12 12,18.71C17,12 17,10 17,9A5,5 0 0,0 12,4Z" />
+                            </svg>
+                        </div>
+                        <div className="value">
+                            <p>Hà Nội</p>
+                        </div>
                     </div>
                     <div className="block__info--salary">
-                        <svg width="24px" height="24px" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2M12,4A5,5 0 0,0 7,9C7,10 7,12 12,18.71C17,12 17,10 17,9A5,5 0 0,0 12,4Z" />
-                        </svg>
-                        <p>Lương: 7.000.000đ-12.000.000đ</p>
+                        <div className="icon">
+                            <img width="24px" height="24px" src={icon_money} alt="" />
+                        </div>
+                        <div className="value">
+                            <p>Lương: 7.000.000đ-12.000.000đ</p>
+                        </div>
                     </div>
                     <hr />
                     <div className="block__info--deadline">

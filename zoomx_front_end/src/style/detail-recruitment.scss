@@ -42,7 +42,7 @@
                 
                 &--info{
                     display: flex;
-                    border-bottom: 1px solid #707070;
+                    border-bottom: 1px ridge #707070;
                     padding-bottom: 80px;
                     @media (max-width:1679px) {
                         padding-bottom: 50px;
@@ -87,6 +87,7 @@
                         }
                         .title{
                             font-size: 36px;
+                            color: #282828;
                             @media (max-width:1679px) {
                                 font-size: 26px;
                             }
@@ -102,8 +103,10 @@
                             @media (max-width:1190px) {
                                 padding-top: 20px;
                             }
-                            button{
-                                width: 163px;
+                            .button{
+                                padding-top: 10px;
+                                button{
+                                    width: 163px;
                                 height: 35px;
                                 background-color: #E01042;
                                 color: #FFFFFF;
@@ -115,6 +118,7 @@
                                 @media (max-width:1679px) {
                                     width: 130px;
                                     height: 33px;
+                                }
                                 }
                             }
                             
@@ -212,7 +216,7 @@
                     @media (max-width:1190px) {
                         font-size: 10px;
                     }
-                    border-bottom: 1px solid #707070;
+                    border-bottom: 1px solid rgba($color: #707070, $alpha: 0.6);
                     &--item{
                         display: flex;
                         .logo{
@@ -270,9 +274,18 @@
                             }
                             &--address{
                                 display: flex;
+                                .value{
+                                    padding-left: 5px;
+                                }
                             }
                             &--salary{
                                 display: flex;
+                                .value{
+                                    padding-left: 5px;
+                                }
+                                img{
+                                    opacity: 0.6;
+                                }
                             }
                         }
                     }
@@ -427,7 +440,10 @@
                             input{
                                 width: 605px;
                                 height: 38px;
-                                border: 1px solid #707070;
+                                border: 1px solid rgba($color: #707070, $alpha: 0.6);
+                                padding-left: 10px;
+                                padding-top: auto;
+                                padding-bottom: auto;
                                 @media (max-width:1190px) {
                                     width: 400px;
                                     height: 30px;
@@ -435,6 +451,7 @@
                                 @media (max-width:767px) {
                                     width: 200px;
                                     height: 20px;
+                                    padding-left: 5px;
                                 }
                             }
                             label{

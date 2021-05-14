@@ -29,7 +29,7 @@
             }
             &__block{
                 background-color: #F9F9F9;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                box-shadow: 0px 0px 49px -13px #8c8c8c;
                 margin: 0px 30px;
                 margin-bottom: 70px;
                 @media (max-width:1679px) {
@@ -49,6 +49,7 @@
                     padding-left: 35px;
                     padding-right: 45px;
                     padding-top: 40px;
+                    color: rgba($color: #282828, $alpha: 0.6);
                     @media (max-width:1679px) {
                         padding-left: 25px;
                         padding-right: 35px;
@@ -78,11 +79,19 @@
                     &--address{
                         display: flex;
                         font-size: 13px;
+                        .value{
+                            padding-left: 5px;
+                        }
                     }
                     &--salary{
                         display: flex;
                         font-size: 13px;
-    
+                        img{
+                            opacity: 0.6;
+                        }
+                        .value{
+                            padding-left: 5px;
+                        }
                     }
                 }
                 .block__bottom{
