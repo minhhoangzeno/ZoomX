@@ -16,6 +16,7 @@ import ProjectPage from './page/ProjectPage';
 import RecruitmentPage from './page/RecruitmentPage';
 import ZoomXPage from './page/ZoomXPage';
 import BlogDetailPage from './page/BlogDetailPage';
+import AdminPage from './page/AdminPage';
 
 export default function Navigation() {
     return (
@@ -53,6 +54,9 @@ export default function Navigation() {
                 </Route>
                 <Route exact path="/blog-detail">
                     <BlogDetailPage />
+                </Route>
+                <Route exact path="/admin">
+                    <AdminPage />
                 </Route>
             </Switch>
         </Router>
