@@ -47,7 +47,6 @@ module.exports = app => {
     app.route('/project/image/infor/:project_id')
         .post(project_controller.upload_infor_image)
 
-
     app.route('/recruitment')
         .get(recruitment_controller.get_recruitment)
         .post(recruitment_controller.add_recruitment)
