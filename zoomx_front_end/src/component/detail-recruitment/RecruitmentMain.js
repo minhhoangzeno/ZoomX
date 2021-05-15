@@ -96,7 +96,7 @@ export default function RecruitmentMain() {
                                     <p><strong>Mức lương</strong></p>
                                     <p><strong>Ngành nghề</strong></p>
                                     <p><strong>Hạn chót nhận hồ sơ</strong></p>
-                                    <button variant="primary" onClick={handleShow}>NỘP ĐƠN</button>
+                                    <div className="button"><button variant="primary" onClick={handleShow}>NỘP ĐƠN</button></div>
                                     <ModalRecruitment show={show} handleClose={handleClose} handleShow={handleShow} />
                                 </div>
                                 <div className="col-8">
