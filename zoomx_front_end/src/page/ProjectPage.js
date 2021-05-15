@@ -5,8 +5,9 @@ import Header from '../component/share/Header';
 import HeroPage from '../component/share/HeroPage';
 import MenuProject from '../component/project/MenuProject';
 import ListProject from '../component/project/ListProject';
-import ReadMoreBtn from '../component/project/ReadMoreBtn';
-import '../style/project.scss'
+import Paginator from '../component/library/Paginator';
+import '../style/project.scss';
+import '../style/library.scss';
 
 export default function ProjectPage(){
     return(
@@ -18,7 +19,7 @@ export default function ProjectPage(){
         <HeroPage title="DỰ ÁN" title_sub="TRANG CHỦ / DỰ ÁN" />
         <MenuProject />
         <ListProject />
-        <ReadMoreBtn />
+        <Paginator />
 
         <Footer />
         </>
