@@ -44,6 +44,43 @@ exports.add_investment = (req, res) => {
         res.send({ err })
     })
 }
+exports.update_investment = (req, res) => {
+    let id = req.params.id;
+    let objInvestment = req.body;
+    Investment.findByIdAndUpdate(id, objInvestment)
+        .then(investment => {
+            res.send(investment)
+        })
+        .catch(err => {
+            res.send(err)
+        })
+}
+exports.delete_investment = (req, res) => {
+    let id = req.params.investment_id;
+    Investment.findByIdAndUpdate(id, { isDeleted: true })
+        .then(investment => {
+            Project.find({
+                typeInvestment: investment._id
+            }).then(result => {
+                console.log(result)
+                result.map((pj) => {
+                    Project.findByIdAndUpdate(pj._id, {
+                        typeInvestment: null
+                    }).then(project => {
+                        res.send(project)
+                    }).catch(error => {
+                        res.send(error)
+                    })
+                })
+            }).catch(err => {
+                res.send(err)
+            })
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    
+}
 exports.upload_image_actor = (req, res) => {
     Upload.uploadSingleFile({
         file: req.files[0],
@@ -76,32 +113,4 @@ exports.upload_image_actor = (req, res) => {
             console.log(error)
         })
 }
-exports.upload_project_investment = (req, res) => {
-    const projectPromise = new Promise((resolve, reject) => {
-        Project.find({ typeInvestment: req.params.investment_id })
-            .then((result) => {
-                resolve(result)
-                console.log(1)
-            })
-            .catch(err => {
-                reject(err)
-            })
-    })
-    projectPromise.then((result) => {
-        const project = [];
-        result.map(pj => {
-            project.push({
-                _id: pj._id,
-                nameProject: pj._projectName
 
-            })
-        })
-        Investment.findByIdAndUpdate(req.params.investment_id,{projectArr: project }, { new: true, useFindAndModify: false })
-            .then(investment => {
-                res.send(investment)
-            })
-
-    }).catch(err => {
-        res.send({ err })
-    })
-}
