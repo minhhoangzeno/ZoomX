@@ -12,6 +12,11 @@ const blogSchema = new Schema({
         type: String,
         require: true
     },
+    createdDate:{
+        type:Date,
+        require:true,
+        default: Date.now
+    },
     typeBlog:{
         type: String,
         require: true

@@ -10,6 +10,9 @@ const person_contact_controller = require('../controller/PersonContactController
 const hero_controller = require('../controller/HeroController');
 const blog_controller = require('../controller/BlogController');
 const categoryblog_controller = require('../controller/CategoryBlogController');
+const library_lookup_controller = require('../controller/LibraryLookupController');
+const library_image_controller = require('../controller/LibraryImageController');
+const library_video_controller = require('../controller/LibraryVideoController');
 module.exports = app => {
 
 
@@ -118,5 +121,37 @@ module.exports = app => {
     app.route('/categoryblog/:categoryblog_id')
         .put(categoryblog_controller.update_blog)
         .delete(categoryblog_controller.delete_blog)
+
+    app.route('/library/lookup')
+        .get(library_lookup_controller.get_library_lookup)
+        .post(library_lookup_controller.add_library_lookup)
+    app.route('/library/lookup/:library_lookup_id')
+        .put(library_lookup_controller.update_library_lookup)
+        .delete(library_lookup_controller.delete_library_lookup)
+    app.route('/library/lookup/image/:library_lookup_id')
+        .post(library_lookup_controller.upload_image_library_lookup)
+    app.route('/library/lookup/file/:library_lookup_id')
+        .post(library_lookup_controller.upload_file_library_lookup)
+
+    app.route('/library/image')
+        .get(library_image_controller.get_library_image)
+        .post(library_image_controller.add_librare_image)
+    app.route('/library/image/:library_image_id')
+        .put(library_image_controller.update_library_image)
+        .delete(library_image_controller.delete_library_image)
+    app.route('/library/image/image-cover/:library_image_id')
+        .post(library_image_controller.upload_image_cover)
+    app.route('/library/image/image-list/:library_image_id')
+        .post(library_image_controller.upload_image_list)
+
+    app.route('/library/video')
+        .get(library_video_controller.get_libraryvideo)
+        .post(library_video_controller.add_libraryvideo)
+    app.route('/library/video/:library_video_id')
+        .put(library_video_controller.update_library_video)
+        .delete(library_video_controller.delete_library_video)
+    app.route('/library/video/image/:library_image_id')
+        .post(library_video_controller.upload_image_library_video)
+   
 
 }

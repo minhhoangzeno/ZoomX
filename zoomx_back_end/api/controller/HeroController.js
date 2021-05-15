@@ -43,6 +43,7 @@ exports.add_hero = (req, res) => {
         res.send({ err })
     })
 }
+
 exports.upload_image_hero = (req, res) => {
     Upload.uploadSingleFile({
         file: req.files[0],

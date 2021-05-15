@@ -17,6 +17,9 @@ var express = require('express'),
     Hero = require('./api/model/HeroModel'),
     Blog = require('./api/model/BlogModel'),
     CategoryBlog = require('./api/model/CategoryBlogModel'),
+    LibraryLookup = require('./api/model/LibraryLookupModel'),
+    LibraryImage = require('./api/model/LibraryImageModel'),
+    LibraryVideo = require('./api/model/LibraryVideoModel'),
     path = require('path');
 
 mongoose
