@@ -9,9 +9,15 @@ var express = require('express'),
     Project = require('./api/model/ProjectModel'),
     Image = require('./api/model/ImageModel'),
     Recruitment = require('./api/model/RecruitmentModel'),
-    Partner = require('./api/model/PartnerModel')
-    path = require('path')
-    ;
+    Partner = require('./api/model/PartnerModel'),
+    TimeLine = require('./api/model/TimeLineModel'),
+    PersonContact = require('./api/model/PersonContactModel'),
+    PersonRecruitment = require('./api/model/PersonRecruitmentModel'),
+    File = require('./api/model/FileModel'),
+    Hero = require('./api/model/HeroModel'),
+    Blog = require('./api/model/BlogModel'),
+    CategoryBlog = require('./api/model/CategoryBlogModel'),
+    path = require('path');
 
 mongoose
     .connect('mongodb://localhost:27017/zoomx', {
@@ -30,7 +36,7 @@ app.use(express.static('public'))
 app.use(multer({
     storage: multer.diskStorage({
         destination: (req, file, callback) => {
-            callback(null, path.join(__dirname, 'public/images'))
+            callback(null, path.join(__dirname, 'public/files'))
         },
         filename: (req, file, callback) => {
             // console.log(file.originalname);

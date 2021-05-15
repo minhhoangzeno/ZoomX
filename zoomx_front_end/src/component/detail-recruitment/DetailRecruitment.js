@@ -3,6 +3,7 @@ import '../../style/detail-recruitment.scss'
 import RecruitmentMain from './RecruitmentMain';
 import RecruitmentSameItem from './RecruitmentSameItem';
 
+
 export default function DetailRecruitment(){
     return (
         <div className="detail-recruitment">

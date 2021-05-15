@@ -1,5 +1,6 @@
 @import "./common.scss";
-
+.home-page{
+  
 .container-fluid {
   .control__item {
     padding-top: 40px;
@@ -21,6 +22,7 @@
       margin: 0 auto;
     }
   }
+  
   .row {
     padding: 0 140px;
     margin-top: 50px;
@@ -86,6 +88,7 @@
       }
     }
   }
+}
 }
 .container__item-block {
   text-align: center;

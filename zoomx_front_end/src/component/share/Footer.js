@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import iconWeather from '../../image/home/icon-weather.png';
-import logoCountry from '../../image/home/country.png'
+import logoCountry from '../../image/home/country.png';
+import { useHistory } from 'react-router-dom';
 import '../../style/style.scss';
 
 export default function Footer() {
     const [isNavMobile, setIsNavMobile] = useState(false)
-
+    let history = useHistory();
     return (
         <>
             <footer>
@@ -221,22 +222,22 @@ export default function Footer() {
                         </a>
                     </li>
                     <li>
-                        <a>Trang chủ</a>
+                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/')}>Trang chủ</a>
                     </li>
                     <li>
-                        <a>Giới thiệu</a>
+                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/zoomx')}>Giới thiệu</a>
                     </li>
                     <li>
-                        <a>Dự án</a>
+                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/project')}>Dự án</a>
                     </li>
                     <li>
-                        <a>Lĩnh vực đầu tư</a>
+                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/investment')}>Lĩnh vực đầu tư</a>
                     </li>
                     <li>
-                        <a>Tin tức - Sự kiện</a>
+                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/news')}>Tin tức - Sự kiện</a>
                     </li>
                     <li>
-                        <a>Thư viện</a>
+                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/library')}>Thư viện</a>
                     </li>
                 </ul>
                 <div className="nav--mobile__close" onClick={() => setIsNavMobile(false)}>
