@@ -14,6 +14,9 @@ var express = require('express'),
     PersonContact = require('./api/model/PersonContactModel'),
     PersonRecruitment = require('./api/model/PersonRecruitmentModel'),
     File = require('./api/model/FileModel'),
+    Hero = require('./api/model/HeroModel'),
+    Blog = require('./api/model/BlogModel'),
+    CategoryBlog = require('./api/model/CategoryBlogModel'),
     path = require('path');
 
 mongoose

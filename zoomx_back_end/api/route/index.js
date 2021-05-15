@@ -7,6 +7,9 @@ const timeline_controller = require('../controller/TimeLineController');
 const file_controller = require('../controller/FileController');
 const person_recruitment_controller = require('../controller/PersonRecruitmentController');
 const person_contact_controller = require('../controller/PersonContactController');
+const hero_controller = require('../controller/HeroController');
+const blog_controller = require('../controller/BlogController');
+const categoryblog_controller = require('../controller/CategoryBlogController');
 module.exports = app => {
 
 
@@ -18,8 +21,6 @@ module.exports = app => {
         .delete(investment_controller.delete_investment)
     app.route('/investment/image/:investment_id')
         .post(investment_controller.upload_image_actor)
-    // app.route('/investment/upload/project/:investment_id')
-    //     .get(investment_controller.upload_project_investment)
 
     app.route('/images')
         .get(image_controller.get_image)
@@ -38,6 +39,9 @@ module.exports = app => {
     app.route('/project')
         .get(project_controller.get_project)
         .post(project_controller.add_project)
+    app.route('/project/:project_id')
+        .put(project_controller.update_project)
+        .delete(project_controller.delete_project)
     app.route('/project/image/cover/:project_id')
         .post(project_controller.upload_cover_image)
     app.route('/project/image/hero/:project_id')
@@ -84,4 +88,35 @@ module.exports = app => {
         .post(person_contact_controller.add_person_contact)
     app.route('/person-contact/:person_contact_id')
         .delete(person_contact_controller.delete_person_contact)
+
+    app.route('/hero')
+        .get(hero_controller.get_hero)
+        .post(hero_controller.add_hero)
+    app.route('/hero/:hero_id')
+        .put(hero_controller.update_hero)
+        .delete(hero_controller.delete_hero)
+    app.route('/hero/image/:hero_id')
+        .post(hero_controller.upload_image_hero)
+
+    app.route('/blog')
+        .get(blog_controller.get_all_blog)
+        .post(blog_controller.add_blog)
+    app.route('/blog/:blog_id')
+        .get(blog_controller.get_a_blog)
+        .put(blog_controller.update_blog)
+        .delete(blog_controller.delete_blog)
+    app.route('/blog/image/start/:blog_id')
+        .post(blog_controller.upload_imgae_start)
+    app.route('/blog/image/mid/:blog_id')
+        .post(blog_controller.upload_imgae_mid)
+    app.route('/blog/image/begin/:blog_id')
+        .post(blog_controller.upload_imgae_begin)
+
+    app.route('/categoryblog')
+        .get(categoryblog_controller.get_all_blogs)
+        .post(categoryblog_controller.add_blog)
+    app.route('/categoryblog/:categoryblog_id')
+        .put(categoryblog_controller.update_blog)
+        .delete(categoryblog_controller.delete_blog)
+
 }

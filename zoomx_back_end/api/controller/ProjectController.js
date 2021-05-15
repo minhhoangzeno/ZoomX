@@ -40,7 +40,6 @@ exports.get_project = (req, res) => {
     })
     getProjectPromise.then(project => {
         res.send(project)
-        console.log(project)
     }).catch(err => {
         res.send(err)
     })
@@ -183,4 +182,25 @@ exports.upload_project_image = (req, res) => {
     }).catch((error) => {
         res.send({ error })
     })
+}
+
+exports.update_project = (req, res) => {
+    const id = req.params.project_id;
+    const updataObj = req.body;
+    Project.findByIdAndUpdate(id, updataObj)
+        .then(pj => {
+            res.send(pj)
+        })
+        .catch(err => {
+            res.send(err)
+        })
+}
+exports.delete_project = (req, res) => {
+    Project.findByIdAndDelete(req.params.project_id)
+        .then(pj => {
+            res.send(pj)
+        })
+        .catch(err => {
+            res.send(err)
+        })
 }
