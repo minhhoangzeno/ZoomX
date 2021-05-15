@@ -70,14 +70,14 @@
                 margin-right: 30px;
                 margin-bottom: 40px;
                 cursor: pointer;
-                box-shadow: 0px 0px 49px -13px #8c8c8c;
+                box-shadow: 0px 1px 20px #d5d5d5;
                 &:hover{
                     text-decoration: none;
                 }
                 &:hover{
                     img{
                         transform: scale(1.5);
-                        transition: 2s;
+                        transition: 1s;
                     }
                 }
                 @media (max-width: 426px){
@@ -107,7 +107,7 @@
                     }
                     .label{
                         font-family: Giroly;
-                        padding: 0 0 10px 0;
+                        margin-bottom: 20px;
                         span {
                             padding: 5px 25px;
                             background-color: #cc0000;
@@ -163,8 +163,8 @@
                 }
                 span.current{
                     color: #fff;
-                    background-color: rgba(0,0,0,0.85);
-                    border: 1px solid rgba(0,0,0,0.85);
+                    background-color: #cc0000;
+                    border: 1px solid #cc0000;
                 }
                 a, span{
                     display: inline-block;
