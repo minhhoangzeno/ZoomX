@@ -63,20 +63,20 @@ module.exports = app => {
         .put(recruitment_controller.update_recruitment)
         .delete(recruitment_controller.delete_recruitment)
         .get(recruitment_controller.get_a_recruitment)
-
+// ............................................................//
     app.route('/partner')
         .get(partner_controller.get_partner)
         .post(partner_controller.add_partner)
     app.route('/partner/image/:partner_id')
         .post(partner_controller.upload_image_partner)
-
+// ............................................................. 
     app.route('/timeline')
         .get(timeline_controller.get_timeline)
         .post(timeline_controller.add_timeline)
     app.route('/timeline/:timeline_id')
         .put(timeline_controller.update_timeline)
         .delete(timeline_controller.delete_timeline)
-
+// .........................................................//
     app.route('/person-recruitment')
         .get(person_recruitment_controller.get_person_recruitment)
         .post(person_recruitment_controller.add_person_recruitment)
