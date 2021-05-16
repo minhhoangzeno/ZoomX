@@ -4,21 +4,21 @@
  * logo ref
  */
 
-const mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+const mongoose = require("mongoose"),
+  Schema = mongoose.Schema;
 
 const partnerSchema = new Schema({
-    name: {
-        type: String,
-        require: true
-    },
-    logo: {
-        type: Schema.Types.ObjectId,
-        ref: 'image'
-    },
-    isDeleted:{
-        type: Boolean,
-        default:false
-    }
-})
-module.exports = mongoose.model('partner',partnerSchema)
+  name: {
+    type: String,
+    require: true,
+  },
+  logo: {
+    type: Schema.Types.ObjectId,
+    ref: "image",
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false,
+  },
+});
+module.exports = mongoose.model("partner", partnerSchema);

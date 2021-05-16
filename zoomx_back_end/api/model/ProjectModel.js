@@ -13,68 +13,69 @@
  * imageProject [{}] ref (ảnh dự án)
  * imageHero ref (ảnh heropage)
  */
-var mongoose = require('mongoose'),
-    Schema   = mongoose.Schema;
+var mongoose = require("mongoose"),
+  Schema = mongoose.Schema;
 
 var ProjectSchema = new Schema({
-    projectName: {
-        type: String,
-        require : true
+  projectName: {
+    type: String,
+    require: true,
+  },
+  typeInvestment: {
+    type: String,
+    require: true,
+    default: "60960ef382f9591138cf3a0a",
+  },
+  address: {
+    type: String,
+    require: true,
+  },
+  acreage: {
+    type: String,
+    require: true,
+  },
+  totalInvestment: {
+    type: String,
+    require: true,
+  },
+  categoryInvestment: {
+    type: String,
+    require: true,
+  },
+  dateStart: {
+    type: Date,
+    default: Date.now,
+  },
+  dateFinish: {
+    type: Date,
+    default: Date.now,
+  },
+  imageInfor: {
+    type: Schema.Types.ObjectId,
+    ref: "image",
+  },
+  imageCover: {
+    type: Schema.Types.ObjectId,
+    ref: "image",
+  },
+  description: {
+    type: String,
+    require: true,
+  },
+  imageProject: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "image",
     },
-    typeInvestment: {
-        type: String,
-        require: true,
-        default: "60960ef382f9591138cf3a0a"
+  ],
+  imageHero: {
+    type: Schema.Types.ObjectId,
+    ref: "image",
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false,
+  },
+});
 
-    },
-    address:{
-        type: String,
-        require: true
-    },
-    acreage:{
-        type: String,
-        require: true
-    },
-    totalInvestment:{
-        type: String,
-        require: true
-    },
-    categoryInvestment:{
-        type: String,
-        require: true
-    },
-    dateStart:{
-        type: Date,
-        default: Date.now,
-    },
-    dateFinish:{
-        type: Date,
-        default: Date.now,
-    },
-    imageInfor:{
-        type: Schema.Types.ObjectId,
-        ref: 'image'
-    },
-    imageCover:{
-        type: Schema.Types.ObjectId,
-        ref: 'image'
-    },
-    description:{
-        type: String,
-        require: true
-    },
-    imageProject: [{
-        type: Schema.Types.ObjectId,
-        ref:'image'
-    }],
-    imageHero:{
-        type: Schema.Types.ObjectId,
-        ref:'image'
-    },
-    isDeleted: {
-        type: Boolean,
-        default: false
-    }
-})
-
-module.exports = mongoose.model('project',ProjectSchema)
+module.exports = mongoose.model("project", ProjectSchema);

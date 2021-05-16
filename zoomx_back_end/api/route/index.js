@@ -56,7 +56,7 @@ module.exports = app => {
         .put(recruitment_controller.update_recruitment)
         .delete(recruitment_controller.delete_recruitment)
         .get(recruitment_controller.get_a_recruitment)
-
+// ...........................................................//
     app.route('/partner')
         .get(partner_controller.get_partner)
         .post(partner_controller.add_partner)

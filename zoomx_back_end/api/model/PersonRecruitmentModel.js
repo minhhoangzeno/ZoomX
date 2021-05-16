@@ -10,40 +10,40 @@
  * fileCv ref file
  */
 
-const mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+const mongoose = require("mongoose"),
+  Schema = mongoose.Schema;
 const personRecruitment = new Schema({
-    career: {
-        type: String,
-        require: true
-    },
-    addressWork: {
-        type: String,
-        require: true
-    },
-    personContact: {
-        type: String,
-        require: true
-    },
-    firstName: {
-        type: String,
-        require: true
-    },
-    lastName: {
-        type: String,
-        require: true
-    },
-    email: {
-        type: String,
-        require: true
-    },
-    numberPhone: {
-        type: Number,
-        require: true
-    },
-    fileCv: {
-        type: Schema.Types.ObjectId,
-        ref: 'file'
-    }
-})
-module.exports = mongoose.model('personRecruitment', personRecruitment);
+  career: {
+    type: String,
+    require: true,
+  },
+  addressWork: {
+    type: String,
+    require: true,
+  },
+  personContact: {
+    type: String,
+    require: true,
+  },
+  firstName: {
+    type: String,
+    require: true,
+  },
+  lastName: {
+    type: String,
+    require: true,
+  },
+  email: {
+    type: String,
+    require: true,
+  },
+  numberPhone: {
+    type: Number,
+    require: true,
+  },
+  fileCv: {
+    type: Schema.Types.ObjectId,
+    ref: "file",
+  },
+});
+module.exports = mongoose.model("personRecruitment", personRecruitment);

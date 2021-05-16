@@ -6,27 +6,27 @@
  * numberPhone Number
  * description String
  */
-const mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+const mongoose = require("mongoose"),
+  Schema = mongoose.Schema;
 
 const personContactSchema = new Schema({
-    firstName:{
-        type: String,
-        require: true
-    },
-    lastName:{
-        type: String,
-        require: true
-    },
-    email: {
-        type: String,
-        require: true
-    },
-    numberPhone:{
-        type: Number,
-        require: true
-    },
-    description: String
-})
+  firstName: {
+    type: String,
+    require: true,
+  },
+  lastName: {
+    type: String,
+    require: true,
+  },
+  email: {
+    type: String,
+    require: true,
+  },
+  numberPhone: {
+    type: Number,
+    require: true,
+  },
+  description: String,
+});
 
-module.exports = mongoose.model('personContact',personContactSchema)
+module.exports = mongoose.model("personContact", personContactSchema);
