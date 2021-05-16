@@ -1,4 +1,5 @@
-import axios from 'axios'
+import axios from 'axios';
+const BASE_URL = 'http://localhost:3001'
 export const doPost = async (path, headers, formData) => {
     return axios({
         url: BASE_URL + path,
@@ -22,5 +23,10 @@ export const doPut = async (path, headers, formData) => {
         method: 'PUT',
         headers: headers,
         data: formData
+    })
+}
+export const deDelete = async (path,headers) => {
+    return axios({
+        url: BASE_URL
     })
 }

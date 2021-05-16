@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'),
-    LibraryLookup = mongoose.model('libraryLookup'),
+    LibraryLookup = mongoose.model('librarylookup'),
     Upload = require('../model/UploadImageModel'),
     UploadFile = require('../model/UploadFileModel');
 

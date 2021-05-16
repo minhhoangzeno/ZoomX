@@ -24,4 +24,4 @@ const libraryVideoSchema = new Schema({
         default: false
     }
 })
-module.exports = mongoose.model('libraryVideo', libraryVideoSchema);
+module.exports = mongoose.model('libraryvideo', libraryVideoSchema);

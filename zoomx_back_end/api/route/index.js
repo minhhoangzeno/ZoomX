@@ -21,7 +21,7 @@ module.exports = app => {
         .post(investment_controller.add_investment)
     app.route('/investment/:investment_id')
         .put(investment_controller.update_investment)
-        .delete(investment_controller.delete_investment)
+        .put(investment_controller.delete_investment)
     app.route('/investment/image/:investment_id')
         .post(investment_controller.upload_image_actor)
 

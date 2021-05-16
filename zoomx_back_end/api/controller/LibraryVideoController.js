@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'),
-    LibraryVideo = mongoose.model('library'),
+    LibraryVideo = mongoose.model('libraryvideo'),
     Upload = require('../model/UploadImageModel');
 
 exports.get_libraryvideo = (req, res) => {

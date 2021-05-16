@@ -45,7 +45,7 @@ exports.add_investment = (req, res) => {
     })
 }
 exports.update_investment = (req, res) => {
-    let id = req.params.id;
+    let id = req.params.investment_id;
     let objInvestment = req.body;
     Investment.findByIdAndUpdate(id, objInvestment)
         .then(investment => {
