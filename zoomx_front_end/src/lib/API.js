@@ -1,93 +1,36 @@
-// import axios from 'axios'
-// export const doPost = async (path, headers, formData) => {
-//     return axios({
-//         url: BASE_URL + path,
-//         method: 'POST',
-//         headers: headers,
-//         data: formData
-//     })
-// }
-
-// export const doGet = async (path, headers) => {
-//     return axios({
-//         url: BASE_URL + path,
-//         method: 'GET',
-//         headers: headers
-//     })
-// }
-
-// export const doPut = async (path, headers, formData) => {
-//     return axios({
-//         url: BASE_URL + path,
-//         method: 'PUT',
-//         headers: headers,
-//         data: formData
-//     })
-// }
 
 
-// import moment from 'moment';
-// import { useEffect, useState } from 'react';
 
-// import { doGet, doPost, doPut } from './API';
+import { useEffect, useState } from 'react';
+import { doGet } from './DataSource';
 
-// export const useSearchFlight = () => {
-//     const [data, setData] = useState(null);
-//     const [error, setError] = useState(null);
-//     const [loading, setLoading] = useState(null);
-//     async function handleSubcribeAPI(searchDTO) {
-//         setLoading(true)
-//         const path = "/api/vietjet/v1/search-flights"
-//         const headers = {
-//             Accept: "*/*",
-//             "Content-Type": "application/json",
-//         }
-//         const formData = JSON.stringify(searchDTO)
 
-//         try {
-//             var resp = await doPost(path, headers, formData);
-//             if (resp.status == 200) {
-//                 setData(resp.data)
-//             }
-//         } catch (e) {
-//             alert("Không thể kết nối VIETJET")
-//             setError(e)
-//         }
-//         setLoading(false)
-//     }
 
-//     return { data, error, loading, handleSubcribeAPI }
-// }
+export const useInvestment = () => {
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
 
-// export const useCurrentUser = (username) => {
-//     const [data, setData] = useState(null);
-//     const [error, setError] = useState(null);
+    useEffect(() => {
+        getInvestment()
+    }, []);
 
-//     useEffect(() => {
-//         let user = JSON.parse(localStorage.getItem("currentUser"))
-//         if (user)
-//             setData(user)
-//         else
-//             getCurrentUser()
-//     }, []);
+    async function getInvestment() {
+        const path = "/investment";
+        const headers = {
+            Accept: "*/*"
+        }
+        try {
+            var resp = await doGet(path, headers);
+            if (resp.status == 200) {
+                setData(resp.data)
+            }
+        } catch (e) {
+            setError(e)
+        }
+    }
+    return { data, error, loading: (data || error ? false : true) }
+}
 
-//     async function getCurrentUser() {
-//         const path = "/api/v1/user/current?username=" + username
-//         const headers = {
-//             Accept: "*/*"
-//         }
-
-//         try {
-//             var resp = await doGet(path, headers);
-//             if (resp.status == 200) {
-//                 setData(resp.data)
-//             }
-//         } catch (e) {
-//             setError(e)
-//         }
-//     }
-//     return { data, error, loading: (data || error ? false : true) }
-// }
 // export const usePaymentMethods = (flightDTO) => {
 //     const [data, setData] = useState(null);
 //     const [error, setError] = useState(null);

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Img from '../../image/investment/img.png';
 import { useHistory } from 'react-router-dom';
+import { useInvestment } from '../../lib/API';
 export default function Investment() {
     let history = useHistory();
+    const { data } = useInvestment();
+  
+    console.log(data)
     return (
         <>
             <div className="investment-wrapper">

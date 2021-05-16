@@ -25,8 +25,10 @@ export const doPut = async (path, headers, formData) => {
         data: formData
     })
 }
-export const deDelete = async (path,headers) => {
+export const deDelete = async (path, headers) => {
     return axios({
-        url: BASE_URL
+        url: BASE_URL + path,
+        mathod: 'DELETE',
+        headers: headers
     })
 }
