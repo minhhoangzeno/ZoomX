@@ -23,7 +23,7 @@ var express = require('express'),
     path = require('path');
 
 mongoose
-    .connect('mongodb+srv://minhhoang:minhhoangzeno@minhhoang.elaib.mongodb.net/test', {
+    .connect('mongodb://localhost:27017/zoomx', {
         useNewUrlParser: true, useUnifiedTopology: true
     })
     .then(() => {
