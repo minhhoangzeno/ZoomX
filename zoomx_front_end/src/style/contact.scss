@@ -160,6 +160,13 @@
                         color: #FFFFFF;
                     }
                 }
+                button:hover{
+                    background-color: #FFFFFF;
+                    border: 1px solid #E01042;
+                    strong{
+                        color: #E01042;
+                    }
+                }
             }
         }
         .contact__info{

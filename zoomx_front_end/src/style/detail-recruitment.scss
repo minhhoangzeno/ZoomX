@@ -121,6 +121,13 @@
                                 }
                                 }
                             }
+                            .button:hover{
+                                button{
+                                    background-color: #FFFFFF;
+                                    color: #E01042;
+                                    border: 1px solid #E01042;
+                                }
+                            }
                             
                             
                         }
@@ -529,6 +536,16 @@
                                             font-size: 10px;
                                         }
                                     }
+                                }
+                                
+                            }
+                            .button:hover{
+                                button{
+                                    background-color: #FFFFFF;
+                                    strong{
+                                        color:#E01042 ;
+                                    }
+                                    border: 1px solid #E01042;
                                 }
                             }
                         }
