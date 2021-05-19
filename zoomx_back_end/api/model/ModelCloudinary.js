@@ -1,4 +1,5 @@
 var cloudinary = require('cloudinary').v2;
+const util = require('util');
 cloudinary.config({
     cloud_name: 'dbp8yfsyx',
     api_key: '757189822534373',
@@ -13,7 +14,9 @@ var self = module.exports = {
             }).then((result) => {
                 const filename = String(request.file).split("\\")
                 const fs = require('fs')
-                fs.unlinkSync(request.file)
+                const unlinkP = util.promisify(fs.link)
+                unlinkP(request.file)
+                // fs.unlinkSync(request.file)
                 resolve({
                     name: filename[filename.length - 1],
                     url: result.secure_url,
@@ -31,10 +34,9 @@ var self = module.exports = {
                 folder: request.path
             }).then((result) => {
                 const filename = String(request.file).split("\\")
-                console.log(filename[filename.length - 1]);
-                const fs = require('fs');
-                fs.unlinkSync(request.file)
-                console.log(result.secure_url)
+                const fs = require('fs')
+                const unlinkP = util.promisify(fs.link)
+                unlinkP(request.file)
                 resolve({
                     name: filename[filename.length - 1],
                     url: result.secure_url,

@@ -45,7 +45,7 @@ export default function FieldComponent() {
         },
       },
     ],
-  };
+  };z
   return (
     <>
       <div className="main__field">

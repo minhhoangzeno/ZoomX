@@ -27,7 +27,8 @@ var express = require('express'),
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb+srv://minhhoangzeno:5021985@cluster0.pw5ra.mongodb.net/ZoomX?retryWrites=true&w=majority', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 }).then(() => {
     console.log('Connected to mongodb !!!');
 }).catch((err) => {
