@@ -1,0 +1,12 @@
+@import "./common.scss";
+
+.main__field--top {
+  margin: 100px 50px 100px 50px;
+  .field__slide {
+    width: 278px !important;
+    // height: 219px !important;
+    .field__img {
+      width: 100%;
+    }
+  }
+}

@@ -8,6 +8,7 @@ import TimeLine from "../component/home/TimeLine";
 import FieldComponent from "../component//home/FieldComponent";
 import Founder from "../component/home/Founder";
 import "../style/home.scss";
+import "../style/field.scss";
 import HeroHeader from "../component/share/HeroHeader";
 import EnjoyVideo from "../component/home/EnjoyVideo";
 import News from "../component/home/News";
