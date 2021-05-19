@@ -51,8 +51,8 @@ app.use(multer({
 }).any())
 var routes = require('./api/route');
 routes(app)
-app.use((req, res) => {
-    res.status(404).send({ url: req.originalUrl + ' not found' })
+app.use((req,res) => {
+    res.status(404).send({url: req.originalUrl + ' not found'})
 });
 app.listen(port);
 console.log("Serever on port " + port)
