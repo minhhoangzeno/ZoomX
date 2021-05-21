@@ -94,13 +94,14 @@
                         cursor: pointer;
                         font-size: 15px;
                         font-weight: 700;
-                        transition: 1s;
+                        transition: .5s;
+                        border: 1px solid #cc0000;
                         &:hover{
                             text-decoration: none;
                             background-color: #fff;
                             border: 1px solid #cc0000;
                             color: #cc0000;
-                            transition: 1s;
+                            transition: .5s;
                         }
                     }
                 }
