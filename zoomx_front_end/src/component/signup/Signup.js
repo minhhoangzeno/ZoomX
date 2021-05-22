@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../image/zoomX/item4.png'
 export default function Signup() {
     return (
         <>
@@ -14,7 +13,7 @@ export default function Signup() {
                         <input className="confirm-btn" placeholder="Confirm Password" />
                         <div className="wrapper__sign-btn">
                             <div className="sign-up">
-                                <a>ĐĂNG KÍ</a>
+                                <a href="http://www.github.com">ĐĂNG KÍ</a>
                             </div>
                         </div>
                     </div>

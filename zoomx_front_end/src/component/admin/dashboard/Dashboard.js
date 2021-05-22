@@ -7,13 +7,12 @@ import Recruitment from './recruitment/Recruitment';
 export default function Dashboard({ isPage }) {
     return (
         <>
-            <div>
-                {isPage == "investment" ? <Investment /> : <></>}
-                {isPage == "project" ? <Project /> : <></>}
-                {isPage == "blog" ? <Blog /> : <></>}
-                {isPage == "recruitment" ? <Recruitment /> : <></>}
-                {isPage == "partner" ? <Partner /> : <></>}
-            </div>
+           
+                {isPage === "investment" ? <Investment /> : <></>}
+                {isPage === "project" ? <Project /> : <></>}
+                {isPage === "blog" ? <Blog /> : <></>}
+                {isPage === "recruitment" ? <Recruitment /> : <></>}
+                {isPage === "partner" ? <Partner /> : <></>}
         </>
     )
 }

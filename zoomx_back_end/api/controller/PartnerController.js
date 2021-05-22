@@ -1,8 +1,8 @@
 const mongoose = require('mongoose'),
     Partner = mongoose.model('partner'),
-    Upload = require('../model/UploadImageModel');
-
-
+    Upload = require('../model/UploadImageModel'),
+    ImageUtil = require('../utils/ImageUtil')
+    ;
 exports.get_partner = (req, res) => {
     const getPartnerPromise = new Promise((resolve, reject) => {
         Partner.find({ isDeleted: false })
@@ -27,49 +27,53 @@ exports.get_partner = (req, res) => {
 }
 
 exports.add_partner = (req, res) => {
-    const newPartnet = new Partner(req.body);
-    const addPromise = new Promise((resolve, reject) => {
-        newPartnet.save()
-            .then((partner) => {
-                resolve(partner)
-            })
-            .catch(err => {
-                reject(err)
-            })
+    let uploadLogo = new Promise((resolve, reject) => {
+        Upload.uploadSingleFile({
+            file: req.files[0],
+            path: 'ZoomX/Partner'
+        }).then(logo => {
+            resolve(logo)
+        }).catch(err => {
+            reject(null)
+        })
     })
-    addPromise.then((partner) => {
-        res.send(partner)
-    }).catch(err => {
-        res.send({ err })
+    uploadLogo.then(result => {
+        Partner.create({
+            name: req.body.name,
+            logo: result._id
+        }).then(partner => {
+            res.send(partner)
+        }).catch(error => {
+            res.send(error)
+        })
+    }).catch(error => {
+        res.send(error)
+    })
+
+}
+exports.update_partner = (req, res) => {
+    let id = req.params.partner_id;
+    Partner.findById(id).exec().then(partner => {
+        ImageUtil.updateSingeFile(req.files[0], partner.logo, 'Partner').then(() => {
+            Partner.findByIdAndUpdate(id, {
+                name: req.body.name,
+            }).then(data => {
+                res.send(data)
+            }).catch(error => {
+                res.send(error)
+            })
+        })
     })
 }
-exports.upload_image_partner = (req, res) => {
-    Upload.uploadSingleFile({
-        file: req.files[0],
-        path: 'ZoomX/Partner'
-    })
-        .then(result => {
-            const id = req.params.partner_id;
-            const update_partner = new Promise((resolve, reject) => {
-                Partner.findByIdAndUpdate(id, { logo: result._id }, { new: true, useFindAndModify: false })
-                    .then(partner => {
-                        resolve(partner)
-                    })
-                    .catch(err => {
-                        reject(err)
-                    })
-            })
-            update_partner
-                .then(partner => {
-                    res.send({ partner })
-                })
-                .catch(err => {
-                    res.send({ err })
 
-                })
+exports.delete_partner = (req,res) => {
+    let id = req.params.partner_id;
+    Partner.findById(id).exec().then(async partner => {
+       await  ImageUtil.deleteSingleFile(partner.logo).then(() => {
+            partner.remove()
         })
-        .catch(error => {
-            res.send({ error })
-            console.log(error)
-        })
+        res.send(partner)
+    }).catch(error => {
+        res.send(error)
+    })
 }

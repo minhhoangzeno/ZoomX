@@ -20,15 +20,18 @@ var express = require('express'),
     LibraryLookup = require('./api/model/LibraryLookupModel'),
     LibraryImage = require('./api/model/LibraryImageModel'),
     LibraryVideo = require('./api/model/LibraryVideoModel'),
-    path = require('path');
+    path = require('path')
+
+    ;
 
 
 
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb+srv://minhhoangzeno:5021985@cluster0.pw5ra.mongodb.net/ZoomX?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://minhhoang:521985@zoomx.x6xhr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useFindAndModify: false
 }).then(() => {
     console.log('Connected to mongodb !!!');
 }).catch((err) => {
@@ -51,8 +54,8 @@ app.use(multer({
 }).any())
 var routes = require('./api/route');
 routes(app)
-app.use((req,res) => {
-    res.status(404).send({url: req.originalUrl + ' not found'})
+app.use((req, res) => {
+    res.status(404).send({ url: req.originalUrl + ' not found' })
 });
 app.listen(port);
 console.log("Serever on port " + port)

@@ -1,7 +1,10 @@
+
 var mongoose = require('mongoose'),
     Investment = mongoose.model('investment'),
     Upload = require('../model/UploadImageModel'),
-    Project = mongoose.model('project');
+    Project = mongoose.model('project'),
+    ImageUtil = require('../utils/ImageUtil')
+    ;
 
 
 exports.get_investment = (req, res) => {
@@ -28,41 +31,57 @@ exports.get_investment = (req, res) => {
 }
 
 exports.add_investment = (req, res) => {
-    const newInvestment = new Investment(req.body);
-    const addPromise = new Promise((resolve, reject) => {
-        newInvestment.save()
-            .then((investments) => {
-                resolve(investments)
-            })
-            .catch(err => {
-                reject(err)
-            })
+    let fileCover = req.files.filter(item => item.fieldname == 'imageCover');
+    let uploadCover = new Promise((resolve, reject) => {
+        Upload.uploadSingleFile({
+            file: fileCover[0],
+            path: 'ZoomX/Investment'
+        }).then(resultCover => {
+            resolve(resultCover)
+        }).catch(err => {
+            reject(null)
+        })
     })
-    addPromise.then((investments) => {
-        res.send(investments)
-    }).catch(err => {
-        res.send({ err })
+    uploadCover.then(result => {
+        Investment.create({
+            investmentName: req.body.investmentName,
+            description: req.body.description,
+            imageCover: result._id
+        }).then(investment => {
+            res.send(investment)
+        }).catch(error => {
+            res.send(error)
+        })
+    }).catch(error => {
+        res.send(error)
     })
+
 }
 exports.update_investment = (req, res) => {
     let id = req.params.investment_id;
-    let objInvestment = req.body;
-    Investment.findByIdAndUpdate(id, objInvestment)
-        .then(investment => {
-            res.send(investment)
+    let fileCover = req.files.filter(item => item.fieldname == 'imageCover')[0];
+    Investment.findById(id).exec().then(investment => {
+        ImageUtil.updateSingeFile(fileCover, investment.imageCover, 'Investment').then(result => {
+            Investment.findByIdAndUpdate(id, {
+                investmentName: req.body.investmentName,
+                description: req.body.description
+            }).then(inv => {
+                res.send(inv)
+            }).catch(error => {
+                res.send(error)
+            })
         })
-        .catch(err => {
-            res.send(err)
-        })
+    })
+
 }
 exports.delete_investment = (req, res) => {
     let id = req.params.investment_id;
-    Investment.findByIdAndUpdate(id, { isDeleted: true })
+    Investment.findByIdAndUpdate(id, { isDeleted: true }).exec()
         .then(investment => {
+            console.log(investment)
             Project.find({
                 typeInvestment: investment._id
             }).then(result => {
-                console.log(result)
                 result.map((pj) => {
                     Project.findByIdAndUpdate(pj._id, {
                         typeInvestment: null
@@ -75,42 +94,11 @@ exports.delete_investment = (req, res) => {
             }).catch(err => {
                 res.send(err)
             })
+            res.send(investment)
         })
         .catch(err => {
             res.send(err)
         })
-    
-}
-exports.upload_image_actor = (req, res) => {
-    Upload.uploadSingleFile({
-        file: req.files[0],
-        path: 'ZoomX/Investment'
-    })
-        .then(result => {
-            const id = req.params.investment_id;
-            console.log(id)
-            console.log(result._id)
-            const update_investment = new Promise((resolve, reject) => {
-                Investment.findByIdAndUpdate(id, { imageCover: result._id }, { new: true, useFindAndModify: false })
-                    .then(investImg => {
-                        resolve(investImg)
-                    })
-                    .catch(err => {
-                        reject(err)
-                    })
-            })
-            update_investment
-                .then(investImg => {
-                    res.send({ investImg })
-                })
-                .catch(err => {
-                    res.send({ err })
 
-                })
-        })
-        .catch(error => {
-            res.send({ error })
-            console.log(error)
-        })
 }
 

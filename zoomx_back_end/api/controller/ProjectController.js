@@ -1,6 +1,9 @@
 const mongoose = require('mongoose'),
     Project = mongoose.model('project'),
-    Upload = require('../model/UploadImageModel');
+    Upload = require('../model/UploadImageModel'),
+    ImageUtil = require('../utils/ImageUtil'),
+    cloudinary = require('cloudinary').v2
+    ;
 
 exports.get_project = (req, res) => {
     const getProjectPromise = new Promise((resolve, reject) => {
@@ -46,19 +49,11 @@ exports.get_project = (req, res) => {
 }
 
 exports.add_project = (req, res) => {
-    let objProject = {
-        projectName: req.body.projectName,
-        typeInvestment: req.body.typeInvestment,
-        address: req.body.address,
-        acreage: req.body.acreage,
-        totalInvestment: req.body.totalInvestment,
-        categoryInvestment: req.body.categoryInvestment,
-        description: req.body.description
-    }
     let fileCover = req.files.filter(item => item.fieldname == 'fileCover');
     let fileInfor = req.files.filter(item => item.fieldname == 'fileInfor');
     let fileHero = req.files.filter(item => item.fieldname == 'fileHero');
     let fileProject = req.files.filter(item => item.fieldname == 'fileProject');
+
     let uploadCover = new Promise((resolve, reject) => {
         Upload.uploadSingleFile({
             file: fileCover[0],
@@ -68,7 +63,9 @@ exports.add_project = (req, res) => {
                 imageCover: resultCover._id
             })
         }).catch(err => {
-            reject(err)
+            resolve({
+                imageCover: null
+            })
         })
     })
     let uploadInfor = new Promise((resolve, reject) => {
@@ -80,7 +77,9 @@ exports.add_project = (req, res) => {
                 imageInfor: resultInfor._id
             })
         }).catch(err => {
-            reject(err)
+            resolve({
+                imageInfor: null
+            })
         })
     })
     let uploadHero = new Promise((resolve, reject) => {
@@ -92,7 +91,9 @@ exports.add_project = (req, res) => {
                 imageHero: resultHero._id
             })
         }).catch(err => {
-            reject(err)
+            resolve({
+                imageHero: null
+            })
         })
     })
     let uploadProject = new Promise((resolve, reject) => {
@@ -108,7 +109,9 @@ exports.add_project = (req, res) => {
                 imageProject: idPj
             })
         }).catch(err => {
-            reject(err)
+            resolve({
+                imageProject: null
+            })
         })
     })
     Promise.all([uploadProject, uploadHero, uploadInfor, uploadCover]).then(result => {
@@ -122,10 +125,10 @@ exports.add_project = (req, res) => {
             totalInvestment: req.body.totalInvestment,
             categoryInvestment: req.body.categoryInvestment,
             description: req.body.description,
-            imageCover: result.filter(item => item.imageCover)[0].imageCover,
-            imageHero: result.filter(item => item.imageHero)[0].imageHero,
-            imageProject: result.filter(item => item.imageProject)[0].imageProject,
-            imageInfor: result.filter(item => item.imageInfor)[0].imageInfor
+            imageCover: result.filter(item => item.imageCover)[0]?.imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
+            imageHero: result.filter(item => item.imageHero)[0]?.imageHero ? result.filter(item => item.imageHero)[0].imageHero : null,
+            imageProject: result.filter(item => item.imageProject)[0]?.imageProject ? result.filter(item => item.imageProject)[0].imageProject : null,
+            imageInfor: result.filter(item => item.imageInfor)[0]?.imageInfor ? result.filter(item => item.imageInfor)[0].imageInfor : null
         }
         let newProject = new Project(objProject);
         newProject.save().then((project) => {
@@ -134,128 +137,8 @@ exports.add_project = (req, res) => {
             res.send(error)
         })
     }).catch(error => {
+        console.log(error)
         res.send(error)
-    })
-}
-
-exports.upload_cover_image = (req, res) => {
-    Upload.uploadSingleFile({
-        file: req.files[0],
-        path: 'ZoomX/Project'
-    }).then(result => {
-        const id = req.params.project_id;
-        const update_project = new Promise((resolve, reject) => {
-            Project.findByIdAndUpdate(id, { imageCover: result._id }, { new: true, useFindAndModify: false })
-                .then(investImg => {
-                    resolve(investImg)
-                })
-                .catch(err => {
-                    reject(err)
-                })
-        })
-        update_project
-            .then(investImg => {
-                res.send({ investImg })
-            })
-            .catch(err => {
-                res.send({ err })
-
-            })
-    })
-        .catch(error => {
-            res.send({ error })
-            console.log(error)
-        })
-}
-
-
-exports.upload_infor_image = (req, res) => {
-    Upload.uploadSingleFile({
-        file: req.files[0],
-        path: 'ZoomX/Project'
-    }).then(result => {
-        const id = req.params.project_id;
-        const update_project = new Promise((resolve, reject) => {
-            Project.findByIdAndUpdate(id, { imageInfor: result._id }, { new: true, useFindAndModify: false })
-                .then(investImg => {
-                    resolve(investImg)
-                })
-                .catch(err => {
-                    reject(err)
-                })
-        })
-        update_project
-            .then(investImg => {
-                res.send({ investImg })
-            })
-            .catch(err => {
-                res.send({ err })
-
-            })
-    })
-        .catch(error => {
-            res.send({ error })
-            console.log(error)
-        })
-}
-
-exports.upload_hero_image = (req, res) => {
-    Upload.uploadSingleFile({
-        file: req.files[0],
-        path: 'ZoomX/Project'
-    }).then(result => {
-        const id = req.params.project_id;
-        const update_project = new Promise((resolve, reject) => {
-            Project.findByIdAndUpdate(id, { imageHero: result._id }, { new: true, useFindAndModify: false })
-                .then(investImg => {
-                    resolve(investImg)
-                })
-                .catch(err => {
-                    reject(err)
-                })
-        })
-        update_project
-            .then(investImg => {
-                res.send({ investImg })
-            })
-            .catch(err => {
-                res.send({ err })
-
-            })
-    })
-        .catch(error => {
-            res.send({ error })
-            console.log(error)
-        })
-}
-
-exports.upload_project_image = (req, res) => {
-    Upload.uploadMultipleFile({
-        file: req.files,
-        path: 'ZoomX/Project'
-    }).then((result) => {
-        console.log(result);
-        const image_id = []
-        result.map(image => {
-            image_id.push(image._id)
-        })
-        const id = req.params.project_id
-        const update_project = new Promise((resolve, reject) => {
-            Project.findByIdAndUpdate(id, { imageProject: image_id }, { new: true, useFindAndModify: false })
-                .then((cinemaImg) => {
-                    resolve(cinemaImg)
-                }).catch((error) => {
-                    reject(error)
-                })
-        })
-        update_project
-            .then((cinemaImg) => {
-                res.send({ cinemaImg })
-            }).catch((error) => {
-                res.send({ error })
-            })
-    }).catch((error) => {
-        res.send({ error })
     })
 }
 
@@ -271,11 +154,18 @@ exports.update_project = (req, res) => {
         })
 }
 exports.delete_project = (req, res) => {
-    Project.findByIdAndDelete(req.params.project_id)
-        .then(pj => {
-            res.send(pj)
+    Project.findById(req.params.project_id).exec()
+    .then(project => {
+        let fileId = [];
+        fileId.push(project.imageCover);
+        fileId.push(project.imageHero);
+        fileId.push(project.imageInfor);
+        project.imageProject.map(item => {
+            fileId.push(item)
         })
-        .catch(err => {
-            res.send(err)
+        fileId.map(item => {
+            cloudinary.uploader.destroy(item)
         })
+        
+    })
 }

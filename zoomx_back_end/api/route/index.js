@@ -19,19 +19,20 @@ module.exports = app => {
     app.route('/investment')
         .get(investment_controller.get_investment)
         .post(investment_controller.add_investment)
-    app.route('/investment/:investment_id')
+    app.route('/investment/update/:investment_id')
         .put(investment_controller.update_investment)
+    app.route('/investment/delete/:investment_id')
         .put(investment_controller.delete_investment)
-    app.route('/investment/image/:investment_id')
-        .post(investment_controller.upload_image_actor)
+    // app.route('/investment/image/:investment_id')
+    //     .post(investment_controller.upload_image_actor)
 
     app.route('/images')
         .get(image_controller.get_image)
         .post(image_controller.add_a_image)
     app.route('/images/:image_id')
         .put(image_controller.update_image)
-        .delete(image_controller.delete_image)
-
+    app.route('/images/destroy/:image_id')
+        .post(image_controller.delete_image)
     app.route('/files')
         .get(file_controller.get_file)
         .post(file_controller.add_a_file)
@@ -45,14 +46,7 @@ module.exports = app => {
     app.route('/project/:project_id')
         .put(project_controller.update_project)
         .delete(project_controller.delete_project)
-    app.route('/project/image/cover/:project_id')
-        .post(project_controller.upload_cover_image)
-    app.route('/project/image/hero/:project_id')
-        .post(project_controller.upload_hero_image)
-    app.route('/project/image/project/:project_id')
-        .post(project_controller.upload_project_image)
-    app.route('/project/image/infor/:project_id')
-        .post(project_controller.upload_infor_image)
+
 
     app.route('/recruitment')
         .get(recruitment_controller.get_recruitment)
@@ -67,8 +61,9 @@ module.exports = app => {
     app.route('/partner')
         .get(partner_controller.get_partner)
         .post(partner_controller.add_partner)
-    app.route('/partner/image/:partner_id')
-        .post(partner_controller.upload_image_partner)
+    app.route('/partner/:partner_id')
+        .put(partner_controller.update_partner)
+        .delete(partner_controller.delete_partner)
 
     app.route('/timeline')
         .get(timeline_controller.get_timeline)
@@ -152,6 +147,6 @@ module.exports = app => {
         .delete(library_video_controller.delete_library_video)
     app.route('/library/video/image/:library_image_id')
         .post(library_video_controller.upload_image_library_video)
-   
+
 
 }

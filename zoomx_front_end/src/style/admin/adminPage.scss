@@ -1,7 +1,6 @@
-
+@import "../common.scss";
 .wrapper__admin{
-    width: 80vw;
-    height: 100vh;
+    flex: 1;
     // background-color: aqua;
     padding: 30px 40px 30px;
     display: flex;
@@ -16,7 +15,7 @@
         }
     }
     .find__input{
-        width: 70%;
+        width: 100%;
         margin: 0 auto 30px auto;
         display: flex;
         align-items: center;
@@ -72,8 +71,30 @@
 }
 
 .wrapper-adminPage{
-    width: 100vw;
     display: flex;
     flex-direction: row;
     overflow-x: hidden;
+}
+.sidebar__admin--menu--active{
+    background-color: #009900;
+}
+.sidebar__admin{
+    width: 200px;
+    &--menu{
+        position: fixed;
+        background-color: #282828;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        padding-left: 0;
+        width: 200px;
+        &--item{
+            cursor: pointer;
+            padding: 15px;
+            span{
+                color: #FFF;
+                font-family: Giroly;
+            }
+        }
+    }
 }

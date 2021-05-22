@@ -14,14 +14,23 @@ var self = module.exports = {
             }).then((result) => {
                 const filename = String(request.file).split("\\")
                 const fs = require('fs')
-                const unlinkP = util.promisify(fs.link)
-                unlinkP(request.file)
-                // fs.unlinkSync(request.file)
-                resolve({
-                    name: filename[filename.length - 1],
-                    url: result.secure_url,
-                    id: result.public_id
+                const unlinkP = util.promisify(fs.unlink)
+                console.log("result",result.public_id);
+
+                unlinkP(request.file).then(() => {
+                    resolve({
+                        url: result.secure_url,
+                        id: result.public_id
+
+                    })
+
+                }).catch((error) => {
+                    resolve({
+                        url: result.secure_url,
+                        id: result.public_id
+                    })
                 })
+
             }).catch((error) => {
                 reject(error)
             })
@@ -35,16 +44,22 @@ var self = module.exports = {
             }).then((result) => {
                 const filename = String(request.file).split("\\")
                 const fs = require('fs')
-                const unlinkP = util.promisify(fs.link)
-                unlinkP(request.file)
-                resolve({
-                    name: filename[filename.length - 1],
-                    url: result.secure_url,
-                    id: result.public_id
-    
+                const unlinkP = util.promisify(fs.unlink)
+                unlinkP(request.file).then(() => {
+                    resolve({
+                        url: result.secure_url,
+                        id: result.public_id
+
+                    })
                 }).catch((error) => {
-                    reject(error)
+                    resolve({
+                        url: result.secure_url,
+                        id: result.public_id
+                    })
                 })
+
+            }).catch((error) => {
+                reject(error)
             })
         })
     },
@@ -54,6 +69,13 @@ var self = module.exports = {
             width: w,
             crop: 'scale',
             format: 'jpg'
+        })
+    },
+    deleteSingle: (request) => {
+        cloudinary.uploader.destroy(request,{
+            resource_type:'image'
+        },function(error,result){
+            console.log(result,error)
         })
     }
 }
