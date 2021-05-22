@@ -25,7 +25,7 @@ var express = require('express'),
 
 
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb+srv://minhhoangzeno:5021985@cluster0.pw5ra.mongodb.net/ZoomX?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://minhhoang:521985@zoomx.x6xhr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
