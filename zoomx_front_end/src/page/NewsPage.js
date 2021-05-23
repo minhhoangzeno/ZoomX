@@ -6,6 +6,7 @@ import HeroPage from "../component/share/HeroPage";
 import "../style/news-page.scss";
 import ItemNews from "../component/news-page/ItemNews";
 import Category from "../component/news-page/Category";
+import Pagination from "../component/news-page/Pagination";
 export default function NewsPage() {
   return (
     <>
@@ -21,6 +22,7 @@ export default function NewsPage() {
         <div className="row item__home">
           <div className="col-xl-8 col-6 col-12 main__news__page">
             <ItemNews />
+            <Pagination />
           </div>
           <div className="col-xl-4 main__news--cover">
             <Category />
