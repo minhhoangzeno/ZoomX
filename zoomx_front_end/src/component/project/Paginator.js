@@ -1,5 +1,5 @@
 import React from 'react';
-export default function () {
+export default function Paginator() {
     return (
         <>
             <div className="paginator__block container-fluid">

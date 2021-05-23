@@ -1,5 +1,4 @@
 import React from 'react';
-import { MetaTags } from 'react-meta-tags';
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
 import BlogDetail from '../component/blog-detail/BlogDetail';

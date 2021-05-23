@@ -15,7 +15,6 @@ var self = module.exports = {
             })
                 .then((result) => {
                     File.create({
-                        fileName: result.name,
                         fileUrl: result.url,
                         fileId: result.id
                     })

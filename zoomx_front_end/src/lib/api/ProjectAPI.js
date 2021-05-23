@@ -1,4 +1,4 @@
-import { doGet, doPost, doDelete, doPut } from '../DataSource';
+import { doGet, doPost } from '../DataSource';
 import { useEffect, useState } from 'react';
 
 
@@ -17,7 +17,7 @@ export const useProject = () => {
         }
         try {
             var resp = await doGet(path, headers);
-            if (resp.status == 200) {
+            if (resp.status  ===  200) {
                 setData(resp.data)
             }
         } catch (e) {
@@ -38,7 +38,7 @@ export async function addProject(project, file) {
     }
     try {
         let resp = await doPost(path, headers, JSON.stringify(project));
-        if (resp.status == 200) {
+        if (resp.status  ===  200) {
             let pathUploadCover = `${pathUpload}/cover/${resp.data._id}`;
             let pathUploadHero = `${pathUpload}/hero/${resp.data._id}`;
             let pathUploadProject = `${pathUpload}/project/${resp.data._id}`;
@@ -56,7 +56,7 @@ export async function addProject(project, file) {
             try {
 
                 let pj = await doPost(pathUploadProject, headersUpload, dataProject);
-                if (pj.status == 200) {
+                if (pj.status  ===  200) {
                     doPost(pathUploadCover, headersUpload, dataCover);
                     doPost(pathUploadHero, headersUpload, dataHero);
                     doPost(pathUploadInfor, headersUpload, dataInfor);

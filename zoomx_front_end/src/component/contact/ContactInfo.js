@@ -8,12 +8,12 @@ export default function ContactInfo() {
                             <div className="contact__info--basic">
                                 <div className="row">
                                     <div className="col-6">
-                                        <p><strong>Địa chỉ: </strong>139 Cầu Giấy</p>
-                                        <p><strong>Thành phố: </strong>Hà Nội</p>
+                                        <p><strong>Địa chỉ: </strong><span>139 Cầu Giấy</span></p>
+                                        <p><strong>Thành phố: </strong><span>Hà Nội</span></p>
                                     </div>
                                     <div className="col-6">
-                                        <p><strong>Điện thoại: </strong>0766 282 838</p>
-                                        <p><strong>Email: </strong>support@zoomxhotels.com</p>
+                                        <p><strong>Điện thoại: </strong><span>0766 282 838</span></p>
+                                        <p><strong>Email: </strong><span>support@zoomxhotels.com</span></p>
                                     </div>
                                 </div>
                             </div>
