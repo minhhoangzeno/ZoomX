@@ -81,12 +81,9 @@ export async function updatePartner(partner, file, partner_id) {
 
 
 export async function deletePartner(partner_id) {
-    const path = `/partner/delete/${partner_id}`;
+    const path = `/partner/${partner_id}`;
     try {
-        let resp = await doPut(path);
-        if (resp.status === 200) {
-            console.log("Xoa thanh cong")
-        }
+        let resp = await doDelete(path);
     } catch (error) {
         console.log(error);
     }
