@@ -64,6 +64,7 @@
             &__main{
                 
                 .combo--item{
+                    
                     padding-bottom: 20px;
                     display: flex;
                     @media (max-width:1679px) {
@@ -85,6 +86,7 @@
                             @media (max-width:1190px) {
                                 margin-bottom: 10px;
                             }
+                            font-weight: 600;
                         }
                         input{
                             border: 1px solid rgba($color: #707070, $alpha: 0.6);
@@ -110,6 +112,10 @@
 
                 }
                 .form--mess{
+                    margin-top: 60px;
+                    p{
+                        font-weight: 600;
+                    }
                     textarea{
                         border: 1px solid rgba($color: #707070, $alpha: 0.6);
                         width: 552px;
@@ -165,6 +171,8 @@
                     border: 1px solid #E01042;
                     strong{
                         color: #E01042;
+                        letter-spacing: 1px;
+                        line-height: 27px;
                     }
                 }
             }
@@ -187,11 +195,22 @@
                     padding-top: 20px;
                     padding-bottom: 20px;
                 }
+                p{
+                    strong{
+                        color: black;
+                    }
+                    span{
+                        color: grey;
+                    }
+                }
             }
             &--hotline{
                 span{
                     padding-bottom: 20px;
                     border-bottom: 1px solid rgba($color: #707070, $alpha: 0.6);
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    line-height: 27px;
                 }
                 .hotline--number{
                     padding-top: 55px;
