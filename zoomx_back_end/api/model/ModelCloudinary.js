@@ -15,7 +15,6 @@ var self = module.exports = {
                 const filename = String(request.file).split("\\")
                 const fs = require('fs')
                 const unlinkP = util.promisify(fs.unlink)
-                console.log("result",result.public_id);
 
                 unlinkP(request.file).then(() => {
                     resolve({

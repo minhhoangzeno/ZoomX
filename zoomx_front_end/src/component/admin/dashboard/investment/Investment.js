@@ -8,6 +8,7 @@ import { useInvestment } from '../../../../lib/api/InvestmentAPI';
 export default function Investment() {
     const [modalShow, setModalShow] = React.useState(false);
     const { data, loading } = useInvestment();
+    console.log(data)
     return (
         <>
         {!loading ? <div className="wrapper__admin">

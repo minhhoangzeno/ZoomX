@@ -93,7 +93,6 @@ module.exports = {
                     })
                     fileId.map(item => {
                         ImageUtil.deleteSingleFile(item).then(() => {
-                            console.log("")
                         }).catch(error => {
                             console.log(error)
                         })
