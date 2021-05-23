@@ -56,6 +56,7 @@ var utils = module.exports = {
         return new Promise((resolve, reject) => {
             Image.findById(imageId).exec()
                 .then(async image => {
+                    console.log('image',image)
                     await cloudinary.uploader.destroy(image.cloudinaryId);
                     image.remove()
                     resolve(image)

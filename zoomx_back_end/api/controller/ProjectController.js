@@ -82,10 +82,23 @@ exports.add_project = (req, res) => {
 
 exports.update_project = (req, res) => {
     UpdateImageProject.updateImageProject(req.params.project_id,req).then(result => {
-        res.send(result)
+        Project.findByIdAndUpdate(req.params.project_id,{
+            projectName: req.body.projectName,
+            typeInvestment: req.body.typeInvestment,
+            address: req.body.address,
+            acreage: req.body.acreage,
+            totalInvestment: req.body.totalInvestment,
+            categoryInvestment: req.body.categoryInvestment,
+            description: req.body.description,
+            imageCover: result.filter(item => item.imageCover)[0].imageCover,
+            imageHero: result.filter(item => item.imageHero)[0].imageHero,
+            imageProject: result.filter(item => item.imageProject)[0].imageProject,
+            imageInfor: result.filter(item => item.imageInfor)[0].imageInfor,
+        }).exec().then(project => {
+            res.send(project)
+        })
     }).catch(error => {
         res.send(error)
-        console.log(error)
     })
     
 }

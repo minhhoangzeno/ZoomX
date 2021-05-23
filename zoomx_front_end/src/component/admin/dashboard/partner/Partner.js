@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PartnerItem from './PartnerItem';
 import ModalPartner from './ModalPartner';
 import '../../../../style/admin/investment.scss';
@@ -7,11 +7,13 @@ import { usePartner } from '../../../../lib/api/PartnerAPI';
 
 export default function Partner() {
     const [modalShow, setModalShow] = React.useState(false);
-    const { data, loading } = usePartner();
-    console.log(data)
+    const { data, loading, getPartner } = usePartner();
+    useEffect(() => {
+        getPartner()
+    },[data])
     return (
         <>
-        {!loading ? <div className="wrapper__admin">
+            {loading ? <div className="wrapper__admin">
                 <div className="title">
                     <h1>Đối tác</h1>
                 </div>
@@ -41,10 +43,10 @@ export default function Partner() {
                         <table id="example1" className="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th className="text-center" style={{verticalAlign:'middle'}}>STT</th>
-                                    <th className="text-center" style={{verticalAlign:'middle'}}>Tên đối tác</th>
-                                    <th className="text-center" style={{verticalAlign:'middle'}}>Logo</th>
-                                    <th className="text-center" style={{verticalAlign:'middle'}}>Trạng thái</th>
+                                    <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
+                                    <th className="text-center" style={{ verticalAlign: 'middle' }}>Tên đối tác</th>
+                                    <th className="text-center" style={{ verticalAlign: 'middle' }}>Logo</th>
+                                    <th className="text-center" style={{ verticalAlign: 'middle' }}>Trạng thái</th>
                                     <th className="text-center" width="12%">Setting</th>
                                 </tr>
                             </thead>
@@ -60,9 +62,9 @@ export default function Partner() {
                     </div>
                 </div>
             </div>
-            :  <img src={loadingGif} alt="" />   
-        }
-            
+                : <img src={loadingGif} alt="" />
+            }
+
         </>
     )
 }

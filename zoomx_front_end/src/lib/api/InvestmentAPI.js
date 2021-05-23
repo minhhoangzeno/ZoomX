@@ -41,7 +41,6 @@ export async function addInvestment(investment) {
     data.append("imageCover", investment?.imageCover)
     try {
         let res = await doPost(path, headers, data)
-        console.log(res)
         if (res.status === 200) {
             alert("ok")
         }
