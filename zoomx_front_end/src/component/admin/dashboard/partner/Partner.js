@@ -4,6 +4,7 @@ import ModalPartner from './ModalPartner';
 import '../../../../style/admin/investment.scss';
 import loadingGif from '../../../../image/loading.gif'
 import { usePartner } from '../../../../lib/api/PartnerAPI';
+import Loading from '../../../../image/Loading';
 
 export default function Partner() {
     const [modalShow, setModalShow] = React.useState(false);
@@ -62,7 +63,7 @@ export default function Partner() {
                     </div>
                 </div>
             </div>
-                : <img src={loadingGif} alt="" />
+                : <Loading />
             }
 
         </>
