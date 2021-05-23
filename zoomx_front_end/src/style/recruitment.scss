@@ -3,6 +3,7 @@
 .recruitment{
     font-family: Helvetica;
     padding-bottom: 60px;
+    width: 100%;
     strong{
         letter-spacing: 1px;
         line-height: 27px;
@@ -11,7 +12,6 @@
         padding-bottom: 30px;
     }
     .container-fluid{
-        width: 100vw;
         padding-left: 110px;
         padding-right: 110px;
         @media (max-width:1679px) {
