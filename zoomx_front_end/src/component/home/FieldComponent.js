@@ -60,7 +60,7 @@ export default function FieldComponent() {
               <p className="txt__adress">Lĩnh vực</p>
               <p className="txt__hotel">KHÁCH SẠN</p>
               <div className="empty__box"></div>
-              <button className="btn__field">Xem thêm</button>
+              <button className="btn__field">XEM THÊM</button>
             </div>
           </div>
           <div className="item__field__size">
@@ -70,7 +70,7 @@ export default function FieldComponent() {
               <p className="txt__adress">Lĩnh vực</p>
               <p className="txt__hotel">KHÁCH SẠN</p>
               <div className="empty__box"></div>
-              <button className="btn__field">Xem thêm</button>
+              <button className="btn__field">XEM THÊM</button>
             </div>
           </div>
           <div className="item__field__size">
@@ -80,7 +80,7 @@ export default function FieldComponent() {
               <p className="txt__adress">Lĩnh vực</p>
               <p className="txt__hotel">KHÁCH SẠN</p>
               <div className="empty__box"></div>
-              <button className="btn__field">Xem thêm</button>
+              <button className="btn__field">XEM THÊM</button>
             </div>
           </div>
           <div className="item__field__size">
@@ -90,7 +90,7 @@ export default function FieldComponent() {
               <p className="txt__adress">Lĩnh vực</p>
               <p className="txt__hotel">KHÁCH SẠN</p>
               <div className="empty__box"></div>
-              <button className="btn__field">Xem thêm</button>
+              <button className="btn__field">XEM THÊM</button>
             </div>
           </div>
           <div className="item__field__size">
@@ -100,7 +100,7 @@ export default function FieldComponent() {
               <p className="txt__adress">Lĩnh vực</p>
               <p className="txt__hotel">KHÁCH SẠN</p>
               <div className="empty__box"></div>
-              <button className="btn__field">Xem thêm</button>
+              <button className="btn__field">XEM THÊM</button>
             </div>
           </div>
           <div className="item__field__size">
@@ -110,7 +110,7 @@ export default function FieldComponent() {
               <p className="txt__adress">Lĩnh vực</p>
               <p className="txt__hotel">KHÁCH SẠN</p>
               <div className="empty__box"></div>
-              <button className="btn__field">Xem thêm</button>
+              <button className="btn__field">XEM THÊM</button>
             </div>
           </div>
         </Slider>
