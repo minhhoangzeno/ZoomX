@@ -24,10 +24,15 @@
   background-color: white;
   height: 100%;
   .img-inner {
+    margin-top: 20px;
     text-align: center;
     margin-bottom: 25px;
     .img-content {
-      margin-top: 70px;
+      // margin-top: 70px;
+      font-family: Helvetica !important;
+      font-size: 214px;
+      height: 150px;
+      color: #707070;
     }
   }
   .detail-content {
@@ -39,10 +44,10 @@
       font-family: Helvetica;
       font-weight: 600;
       font-size: 14px;
-      @media (max-width:426px){
-          width: 100%;
-          padding-left: 15px;
-          padding-right: 15px;
+      @media (max-width: 426px) {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
       }
     }
     .content-founder {
@@ -50,23 +55,25 @@
       font-size: 20px;
       font-weight: 700;
       font-family: Helvetica;
+      margin-bottom: 0;
     }
     .content {
       font-family: Helvetica;
-      font-size: 14px;
+      margin-bottom: 100px;
     }
   }
   .block {
     padding: 0 140px 0 140px;
-    
+
     @media (max-width: 1440px) {
-        padding: 0 50px;
-      }
-      @media (max-width: 426px) {
-        padding: 0 15px;
-      }
+      padding: 0 50px;
+    }
+    @media (max-width: 426px) {
+      padding: 0 15px;
+    }
     .item-content {
       .detail-introduce {
+        letter-spacing: 5px;
         font-size: 14px;
         font-family: sans-serif;
         margin-bottom: 10px;
@@ -78,27 +85,35 @@
         margin-bottom: 40px;
       }
       .great-title {
-        font-size: 30px;
+        font-size: 40px;
         margin-bottom: 40px;
+        font-family: 'Didot';
         @media (max-width: 768px) {
           font-size: 20px;
           margin-bottom: 40px;
         }
       }
       .title-content {
-        font-family: Helvetica;
+        font-family: Didot !important;
         margin-bottom: 25px;
+        font-size: 16px;
+        padding-right: 30px;
+        font-weight: 700;
       }
       .flex-item {
         display: flex;
+        justify-content: left;
+        align-items: center;
         @media (max-width: 768px) {
           display: flex;
+          margin-bottom: 20px;
         }
         @media (max-width: 576px) {
           display: table;
         }
         .item-file {
-          font-size: 30px;
+          font-size: 40px;
+          font-family: 'Didot';
           margin-right: 100px;
           @media (max-width: 768px) {
             font-size: 20px;
@@ -110,13 +125,22 @@
           }
         }
         .item-click {
-          width: 187px;
-          height: 53px;
-          font-size: 16px;
           color: white;
           background-color: #e01042;
           border: none;
-          font-weight: 600;
+          padding: 10px 15px;
+          font-size: 20px;
+        }
+        .item-click:hover {
+          border: 1px solid #e01042;
+          background-color: #ffffff;
+          color: #e01042;
+          transition: 0.5s;
+        }
+        .item-click:hover{
+          color: #e01042;
+          background-color: #ffffff;
+          border: 1px solid #e01042;
         }
       }
     }
@@ -127,19 +151,19 @@
         width: 100%;
         padding-bottom: 100%;
         position: relative;
-        @media (max-width:768px){
-            width: 50%;
-            padding-bottom: 50%;
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
+        @media (max-width: 768px) {
+          width: 50%;
+          padding-bottom: 50%;
+          margin-top: 20px;
+          margin-left: auto;
+          margin-right: auto;
         }
-        @media (max-width:768px){
-            width: 100%;
-            padding-bottom: 100%;
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
+        @media (max-width: 768px) {
+          width: 100%;
+          padding-bottom: 100%;
+          margin-top: 20px;
+          margin-left: auto;
+          margin-right: auto;
         }
       }
       .picture {
@@ -174,7 +198,8 @@
     .container-startup {
       text-align: center;
       .startup-title {
-        font-size: 30px;
+        font-size: 40px;
+        font-family: 'Didot';
         margin-top: 80px;
         margin-bottom: 40px;
         @media (max-width: 768px) {
@@ -187,8 +212,10 @@
         }
       }
       .title-lorem {
+        font-family: Didot !important;
         text-align: left;
         margin-bottom: 40px;
+        font-family: 'Helvetica';
       }
       .container-img {
         padding: 0 30px 0 30px;
@@ -197,8 +224,8 @@
           padding: 0 40px;
         }
         @media (max-width: 426px) {
-            padding: 0 15px;
-          }
+          padding: 0 15px;
+        }
         .img-startup {
           width: 100%;
           @media (max-width: 768px) {
@@ -213,37 +240,36 @@
   }
 }
 
-
-.wrapper__partner{
-    padding-left: 140px !important;
-    padding-right: 140px !important;
-    margin-bottom: 150px;
-    @media (max-width:1440px){
-        padding-left: 50px !important;
-        padding-right: 50px !important;
+.wrapper__partner {
+  padding-left: 140px !important;
+  padding-right: 140px !important;
+  margin-bottom: 150px;
+  @media (max-width: 1440px) {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+  @media (max-width: 426px) {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  &__item {
+    width: 150px !important;
+    height: 60px;
+    .img-partner {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
-    @media (max-width:426px){
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-    &__item{
-        width: 150px !important;
-        height: 60px;
-        .img-partner {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-    }
-    .row{
-        margin-right: 0;
-        margin-left: 0;
-    }
+  }
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
-.slick-slide{
-    display: flex !important;
-    justify-content: center !important;
+.slick-slide {
+  display: flex !important;
+  justify-content: center !important;
 }
-.slick-arrow{
-    display: none !important;
+.slick-arrow {
+  display: none !important;
 }

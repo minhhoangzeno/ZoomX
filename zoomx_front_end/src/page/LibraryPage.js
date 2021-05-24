@@ -2,7 +2,7 @@ import React from 'react';
 import '../style/library.scss';
 import MenuLibrary from '../component/library/MenuLibrary';
 import ListLibrary from '../component/library/ListLibrary';
-import Paginator from '../component/library/Paginator';
+// import Paginator from '../component/library/Paginator';
 import Header from '../component/share/Header';
 import Footer from '../component/share/Footer';
 import { MetaTags } from 'react-meta-tags';
@@ -20,7 +20,7 @@ export default function LibraryPage() {
 
             <MenuLibrary />
             <ListLibrary />
-            <Paginator />
+            {/* <Paginator /> */}
             <Footer />
         </>
     )

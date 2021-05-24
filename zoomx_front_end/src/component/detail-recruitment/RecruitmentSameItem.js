@@ -83,7 +83,7 @@ export default function RecruitmentSameItem() {
                 </div>
                 <div className="item--content">
                     <div className="item--content--title">
-                        <strong><a href="#">zoomx holding - chuyên viên thiết kế</a></strong>
+                        <strong><a href="http://www.github.com">zoomx holding - chuyên viên thiết kế</a></strong>
                     </div>
                     <div className="item--content--address">
                         <div className="icon">

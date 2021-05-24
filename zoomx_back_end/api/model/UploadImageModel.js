@@ -11,13 +11,12 @@ var self = module.exports = {
         return new Promise((resolve,reject) => {
             Cloudinary.uploadSingle({
                 file: request.file.path,
-                path: request.path
+                path: request?.path
             })
             .then((result) => {
                 Image.create({
-                    imageName: result.name,
                     url: result.url,
-                    imageId: result.id
+                    cloudinaryId: result.id
                 })
                 .then((image) => {
                     resolve(image)
@@ -33,16 +32,15 @@ var self = module.exports = {
     },
     uploadMultipleFile: (request) => {
         return new Promise((resolve, reject) => {
-            console.log(request);
+            // console.log(request);
             let resPromise = request.file.map(file => new Promise((resolve, reject) => {
                 Cloudinary.uploadMultiple({
                     file: file.path,
-                    path: request.path
+                    path: request?.path
                 }).then((result) => {
                     Image.create({
-                        imageName: result.name,
                         url: result.url,
-                        imageId: result.id,
+                        cloudinaryId: result.id,
                     }).then((image) => {
                         resolve(image)
                     }).catch((err) => {

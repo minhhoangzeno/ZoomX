@@ -1,6 +1,8 @@
 var mongoose = require('mongoose'),
     Image = mongoose.model('image'),
-    Upload = require('../model/UploadImageModel');
+    Upload = require('../model/UploadImageModel'),
+    cloudinary = require('cloudinary').v2
+    ;
 
 exports.get_image = (req, res) => {
     const getImagePromise = new Promise((resolve, reject) => {
@@ -13,7 +15,7 @@ exports.get_image = (req, res) => {
             })
     })
     getImagePromise.then((images) => {
-        res.send({ images })
+        res.send(images)
     })
         .catch((err) => {
             res.send({ err })
@@ -43,34 +45,37 @@ exports.add_images = (req, res) => {
 }
 
 exports.update_image = (req, res) => {
-    const image_id = req.params.image_id;
-    Image.findById(image_id).then((image) => {
-        console.log(image);
-        Cloudinary.uploadSingle(req.files[0].path).then((result) => {
-            console.log(result);
-            image.ImageName = result.name
-            image.Url = result.url
-            image.ImageId = result.id
-            image.save()
-                .then((imageSaved) => {
-                    res.send({ imageSaved })
-                }).catch((error) => {
-                    res.send({ error })
+    Image.findById(req.params.image_id).exec()
+        .then(async (image) => {
+            await cloudinary.uploader.destroy(image.imageId);
+            Upload.uploadSingleFile({
+                file:req.files[0],
+                path:'ZoomX/Image'
+            }).then(async img => {
+                await Image.findByIdAndUpdate(image._id,{
+                    imageName:img.imageName,
+                    url:img.url,
+                    imageId:img.imageId
                 })
-        }).catch((error) => {
-            res.send({ error })
+                res.send(img)
+            })
+            .catch(error => {
+                res.send(error)
+                console.log(error)
+            })
         })
-    })
 }
 
 /**
  * 
  */
 exports.delete_image = (req, res) => {
-    const image_id = req.params.image_id;
-    Image.findByIdAndUpdate(image_id, { isDeleted: true }, { new: true }).then((image) => {
-        res.json(image)
-    }).catch((err) => {
-        res.send({ err })
-    })
+    Image.findById(req.params.image_id).exec()
+        .then(async (image) => {
+            await cloudinary.uploader.destroy(image.imageId);
+            await image.remove()
+            res.send(image)
+        }).catch(error => {
+            res.send(error)
+        })
 }

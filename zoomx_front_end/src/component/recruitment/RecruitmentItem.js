@@ -83,7 +83,7 @@ export default function RecruitmentItem() {
                         </svg>
                     </div>
                     <div className="block__info--title">
-                        <strong><a href="#">zoomx holding - chuyên viên thiết kế</a></strong>
+                        <strong><a href="http://www.github.com" >zoomx holding - chuyên viên thiết kế</a></strong>
                     </div>
                     <div className="block__info--address">
                         <div className="icon">

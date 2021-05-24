@@ -5,6 +5,10 @@
     font-family: Helvetica;
     color: #676767;
     font-size: 16px;
+    strong{
+        letter-spacing: 1px;
+        line-height: 27px;
+    }
     @media (max-width:1679px) {
         font-size: 14px;
     }
@@ -106,11 +110,10 @@
                             .button{
                                 padding-top: 10px;
                                 button{
-                                    width: 163px;
-                                height: 35px;
-                                background-color: #E01042;
-                                color: #FFFFFF;
-                                border: none;
+                                    padding: 15px 38px;
+                                    background-color: #E01042;
+                                    color: #FFFFFF;
+                                    border: 3px solid #E01042;
                                 @media (max-width:767px) {
                                     width: 90px;
                                     height: 27px;
@@ -119,6 +122,13 @@
                                     width: 130px;
                                     height: 33px;
                                 }
+                                }
+                            }
+                            .button:hover{
+                                button{
+                                    background-color: #FFFFFF;
+                                    color: #E01042;
+                                    border: 3px solid #E01042;
                                 }
                             }
                             
@@ -316,7 +326,7 @@
     .modal__recruitment{
    
         color: #282828;     
-        font-family: 'Helvetica Neue';    
+        font-family: 'Helvetica';    
         padding-left: 140px;   
         padding-right: 140px;     
         padding-bottom: 80px;  
@@ -512,9 +522,8 @@
                                 }
                                 button{
                                     background-color: #E01042;
-                                    width: 187px;
-                                    height: 53px;
-                                    border: none;
+                                    padding: 15px 38px;
+                                    border: 3px solid #E01042;
                                     @media (max-width:1190px) {
                                         width: 160px;
                                         height: 40px;
@@ -529,6 +538,16 @@
                                             font-size: 10px;
                                         }
                                     }
+                                }
+                                
+                            }
+                            .button:hover{
+                                button{
+                                    background-color: #FFFFFF;
+                                    strong{
+                                        color:#E01042 ;
+                                    }
+                                    border: 3px solid #E01042;
                                 }
                             }
                         }

@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../image/zoomX/item4.png'
 export default function Login() {
     return (
         <>
@@ -12,14 +11,14 @@ export default function Login() {
                         <input className="mail-btn" placeholder="Email address" />
                         <input className="pw-btn" placeholder="Password" />
                         <div className="forgot-pw">
-                            <a className="text">Forgot password?</a>
+                            <a href="http://www.github.com" className="text">Forgot password?</a>
                         </div>
                         <div className="wrapper__sign">
                             <div className="sign-in">
-                                <a>ĐĂNG NHẬP</a>
+                                <a href="http://www.github.com">ĐĂNG NHẬP</a>
                             </div>
                             <div className="sign-up">
-                                <a>Chưa có tài khoản? <span>Đăng kí ngay</span></a>
+                                <a href="http://www.github.com">Chưa có tài khoản? <span>Đăng kí ngay</span></a>
                             </div>
                         </div>
                     </div>

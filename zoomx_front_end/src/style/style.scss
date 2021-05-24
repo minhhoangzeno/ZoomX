@@ -75,7 +75,7 @@ header{
                     align-items: center;
                     display: flex;
                     li{
-                        a{
+                        span{
                             padding-left: 40px;
                             padding-right: 40px;
                             font-size: 16px;
@@ -486,6 +486,7 @@ footer{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        font-family: 'Helvetica';
         &--top{
             font-size: 36px;
             font-weight: bold;

@@ -5,23 +5,24 @@ import Header from '../component/share/Header';
 import HeroPage from '../component/share/HeroPage';
 import MenuProject from '../component/project/MenuProject';
 import ListProject from '../component/project/ListProject';
-import Paginator from '../component/library/Paginator';
+// import Paginator from '../component/library/Paginator';
 import '../style/project.scss';
 import '../style/library.scss';
 
-export default function ProjectPage(){
-    return(
+export default function ProjectPage() {
+   
+    return (
         <>
-        <MetaTags>
+            <MetaTags>
                 <title>Dự án</title>
             </MetaTags>
-        <Header />
-        <HeroPage title="DỰ ÁN" title_sub="TRANG CHỦ / DỰ ÁN" />
-        <MenuProject />
-        <ListProject />
-        <Paginator />
+            <Header />
+            <HeroPage title="DỰ ÁN" title_sub="TRANG CHỦ / DỰ ÁN" />
+            <MenuProject />
+            <ListProject />
+            {/* <Paginator /> */}
 
-        <Footer />
+            <Footer />
         </>
     )
 }

@@ -19,7 +19,7 @@ export default function Investment() {
                                 <strong>01</strong><span>/</span>
                                 <h2>KHÁCH SẠN</h2>
                                 <p>Là một trong những thương hiệu dẫn đầu trong ngành khách sạn du lịch nghỉ dưỡng tại Việt Nam, Tập đoàn FLC sở hữu hệ…</p>
-                                <a className="read-more-btn" onClick={() => history.push('/detail-project')}>XEM THÊM</a>
+                                <a href="http://www.github.com"  className="read-more-btn" onClick={() => history.push('/detail-project')}>XEM THÊM</a>
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@ export default function Investment() {
                                 <strong>02</strong><span>/</span>
                                 <h2>KHÁCH SẠN</h2>
                                 <p>Là một trong những thương hiệu dẫn đầu trong ngành khách sạn du lịch nghỉ dưỡng tại Việt Nam, Tập đoàn FLC sở hữu hệ…</p>
-                                <a className="read-more-btn">XEM THÊM</a>
+                                <a href="http://www.github.com" className="read-more-btn">XEM THÊM</a>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ export default function Investment() {
                                 <span>/</span>
                                 <h2>KHÁCH SẠN</h2>
                                 <p>Là một trong những thương hiệu dẫn đầu trong ngành khách sạn du lịch nghỉ dưỡng tại Việt Nam, Tập đoàn FLC sở hữu hệ…</p>
-                                <a className="read-more-btn">XEM THÊM</a>
+                                <a href="http://www.github.com" className="read-more-btn">XEM THÊM</a>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@ export default function Investment() {
                                 <span>/</span>
                                 <h2>KHÁCH SẠN</h2>
                                 <p>Là một trong những thương hiệu dẫn đầu trong ngành khách sạn du lịch nghỉ dưỡng tại Việt Nam, Tập đoàn FLC sở hữu hệ…</p>
-                                <a className="read-more-btn">XEM THÊM</a>
+                                <a href="http://www.github.com" className="read-more-btn">XEM THÊM</a>
                             </div>
                         </div>
                     </div>

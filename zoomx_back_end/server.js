@@ -20,18 +20,23 @@ var express = require('express'),
     LibraryLookup = require('./api/model/LibraryLookupModel'),
     LibraryImage = require('./api/model/LibraryImageModel'),
     LibraryVideo = require('./api/model/LibraryVideoModel'),
-    path = require('path');
+    path = require('path')
 
-mongoose
-    .connect('mongodb://localhost:27017/zoomx', {
-        useNewUrlParser: true, useUnifiedTopology: true
-    })
-    .then(() => {
-        console.log('Connected!')
-    })
-    .catch(err => {
-        console.log(err)
-    })
+    ;
+
+
+
+mongoose.Promise = global.Promise
+mongoose.connect('mongodb+srv://minhhoang:521985@zoomx.x6xhr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+}).then(() => {
+    console.log('Connected to mongodb !!!');
+}).catch((err) => {
+    console.log(err);
+})
 
 app.use(cors({}))
 app.use(bodyParser.json());
@@ -49,8 +54,8 @@ app.use(multer({
 }).any())
 var routes = require('./api/route');
 routes(app)
-app.use((req,res) => {
-    res.status(404).send({url: req.originalUrl + ' not found'})
+app.use((req, res) => {
+    res.status(404).send({ url: req.originalUrl + ' not found' })
 });
 app.listen(port);
 console.log("Serever on port " + port)

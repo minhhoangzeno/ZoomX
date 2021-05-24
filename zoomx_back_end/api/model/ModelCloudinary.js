@@ -1,4 +1,5 @@
 var cloudinary = require('cloudinary').v2;
+const util = require('util');
 cloudinary.config({
     cloud_name: 'dbp8yfsyx',
     api_key: '757189822534373',
@@ -11,14 +12,19 @@ var self = module.exports = {
             cloudinary.uploader.upload(request.file, {
                 folder: request.path
             }).then((result) => {
-                const filename = String(request.file).split("\\")
                 const fs = require('fs')
-                fs.unlinkSync(request.file)
-                resolve({
-                    name: filename[filename.length - 1],
-                    url: result.secure_url,
-                    id: result.public_id
+                const unlinkP = util.promisify(fs.unlink)
+                unlinkP(request.file).then(() => {
+                    resolve({
+                        url: result.secure_url,
+                        id: result.public_id
+
+                    })
+
+                }).catch((error) => {
+                    console.log(error)
                 })
+
             }).catch((error) => {
                 reject(error)
             })
@@ -30,19 +36,23 @@ var self = module.exports = {
             cloudinary.uploader.upload(request.file, {
                 folder: request.path
             }).then((result) => {
-                const filename = String(request.file).split("\\")
-                console.log(filename[filename.length - 1]);
-                const fs = require('fs');
-                fs.unlinkSync(request.file)
-                console.log(result.secure_url)
-                resolve({
-                    name: filename[filename.length - 1],
-                    url: result.secure_url,
-                    id: result.public_id
-    
+                const fs = require('fs')
+                const unlinkP = util.promisify(fs.unlink)
+                unlinkP(request.file).then(() => {
+                    resolve({
+                        url: result.secure_url,
+                        id: result.public_id
+
+                    })
                 }).catch((error) => {
-                    reject(error)
+                    resolve({
+                        url: result.secure_url,
+                        id: result.public_id
+                    })
                 })
+
+            }).catch((error) => {
+                reject(error)
             })
         })
     },
@@ -52,6 +62,13 @@ var self = module.exports = {
             width: w,
             crop: 'scale',
             format: 'jpg'
+        })
+    },
+    deleteSingle: (request) => {
+        cloudinary.uploader.destroy(request,{
+            resource_type:'image'
+        },function(error,result){
+            console.log(result,error)
         })
     }
 }
