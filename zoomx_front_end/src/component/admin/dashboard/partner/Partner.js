@@ -9,12 +9,16 @@ export default function Partner() {
     const [modalShow, setModalShow] = React.useState(false);
     const [data, setData] = useState()
     const [loading, setLoading] = useState(false)
+    
+//vua vao trang web thi no se auto chay vao day dau tien
     useEffect(() => {
         getPartner()
     }, [])
+
     const handleLoading = (isLoading) => {
         setLoading(isLoading)
     }
+
     const getPartner = async () => {
         const path = "/partner";
         const headers = {
@@ -22,8 +26,9 @@ export default function Partner() {
         }
         try {
             var resp = await doGet(path, headers);
-            if (resp.status == 200) {
+            if (resp.status === 200) {
                 setData(resp.data)
+
             }
         } catch (e) {
             console.log(e)
@@ -70,7 +75,10 @@ export default function Partner() {
                                     <th className="text-center" width="12%">Setting</th>
                                 </tr>
                             </thead>
-                            {!loading ? <tbody>
+                            
+                            {!loading ? 
+                            
+                            <tbody>
                                 {data?.map((item, index) => {
                                     return (
                                         <Item dataPartner={item} handleLoading={handleLoading} key={index} indexNum={index + 1} getPartner={getPartner} />
@@ -79,6 +87,9 @@ export default function Partner() {
                             </tbody>
                                 : <Loading />
                             }
+
+
+                           
 
                         </table>
                     </div>

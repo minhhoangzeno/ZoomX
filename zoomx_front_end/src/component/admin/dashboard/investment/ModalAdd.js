@@ -5,29 +5,35 @@ import '../../../../style/admin/investment.scss';
 
 export default function ModalAdd(props) {
     const [fileCover, setFileCover] = useState();
-    const [partner, setPartner] = useState();
-    let handlePartner = (event) => {
-        const { name, value } = event.target
-        setPartner({
-            ...partner,
+    const [investment, setInvestment] = useState({
+        investmentName: null,
+        description:null,
+        imageCover:null
+    });
+    console.log(investment)
+    let handleInvestment = (e) => {
+        const { name, value } = e.target
+        setInvestment({
+            ...investment,
             [name]: value
         })
     }
 
-    const addPartner = async (partnerData) => {
+    const addInvestment = async (investmentData) => {
         props.handleLoading(true)
-        const path = "/partner";
+        const path = "/investment";
         const headers = {
             "Content-Type": "multipart/form-data"
         }
         const data = new FormData();
-        data.append("name", partnerData?.name);
-        data.append("logo", partnerData?.logo)
+        data.append("investmentName", investmentData?.investmentName);
+        data.append("description", investmentData?.description)
+        data.append("imageCover",investmentData?.imageCover)
         try {
             let res = await doPost(path, headers, data)
             if(res.status === 200){
                 props.handleLoading(false)
-                props.getPartner()
+                props.getInvestmet()
             }
     
         } catch (error) {
@@ -44,20 +50,25 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Nhập tên đối tác: </label> <input className="input-txt"
-                            name="name" onChange={handlePartner}
+                        <label className="label-txt">Nhập linh vuc dau tu: </label> <input className="input-txt"
+                            name="investmentName" onChange={handleInvestment}
                             type="text"
                         />
                     </div>
-                    
                     <div>
-                        <label>Logo:</label> <input id="file-input" type="file"
-                            name="logo"
+                        <label className="label-txt">Nhập mo ta linh vuc dau tu: </label> <input className="input-txt"
+                            name="description" onChange={handleInvestment}
+                            type="text"
+                        />
+                    </div>
+                    <div>
+                        <label>Anh linh vuc dau tu:</label> <input id="file-input" type="file"
+                            name="imageCover"
                             onChange={(e) => {
                                 setFileCover(URL.createObjectURL(e.target.files[0]))
-                                setPartner({
-                                    ...partner,
-                                    logo: e.target.files[0]
+                                setInvestment({
+                                    ...investment,
+                                    imageCover: e.target.files[0]
                                 })
                             }}
                         />
@@ -69,7 +80,7 @@ export default function ModalAdd(props) {
                         <div className="wrapper__btn">
                             <button className="back-btn" onClick={props.onHide}>Quay lại</button>
                             <button onClick={() => {
-                                addPartner(partner)
+                                addInvestment(investment)
                                 setFileCover(null)
                                 props.onHide()
                             }}>Xác nhận</button>
