@@ -1,3 +1,5 @@
+const ImageUtil = require('../utils/ImageUtil');
+
 const mongoose = require('mongoose'),
     Recruitment = mongoose.model('recruitment'),
     Upload = require('../model/UploadImageModel');
@@ -27,71 +29,79 @@ exports.get_recruitment = (req, res) => {
 }
 
 exports.add_recruitment = (req, res) => {
-    const newRecruitment = new Recruitment(req.body);
-    const addPromise = new Promise((resolve, reject) => {
-        newRecruitment.save()
-            .then((recruitment) => {
-                resolve(recruitment)
-            })
-            .catch(err => {
-                reject(err)
-            })
+    let imageRecruitment = req.files.filter(item => item.fieldname == 'imageRecruitment');
+    let uploadRecruitment = new Promise((resolve, reject) => {
+        Upload.uploadSingleFile({
+            file: imageRecruitment[0],
+            path: 'ZoomX/Recruitment'
+        }).then(resultRecruitment => {
+            resolve(resultRecruitment)
+        }).catch(err => {
+            reject(null)
+        })
     })
-    addPromise.then((recruitment) => {
-        res.send(recruitment)
-    }).catch(err => {
-        res.send({ err })
+    uploadRecruitment.then(result => {
+        Recruitment.create({
+            title: req.body.title,
+            address: req.body.address,
+            rank: req.body.rank,
+            typeRank: req.body.typeRank,
+            experience: req.body.experience,
+            salary: req.body.salary,
+            career: req.body.career,
+            dateReceived: req.body.dateReceived,
+            imageRecruitment: result._id,
+            welfare: req.body.welfare,
+            description: req.body.description,
+            requestCareer: req.body.requestCareer,
+        }).then(recruitment => {
+            res.send(recruitment)
+        }).catch(error => {
+            res.send(error)
+        })
+    }).catch(error => {
+        res.send(error)
+        console.log(error)
     })
-}
-exports.upload_image_recruitment = (req, res) => {
-    Upload.uploadSingleFile({
-        file: req.files[0],
-        path: 'ZoomX/Recruitment'
-    })
-        .then(result => {
-            const id = req.params.recruitment_id;
-            const update_recruitment = new Promise((resolve, reject) => {
-                Recruitment.findByIdAndUpdate(id, { imageRecruitment: result._id }, { new: true, useFindAndModify: false })
-                    .then(investImg => {
-                        resolve(investImg)
-                    })
-                    .catch(err => {
-                        reject(err)
-                    })
-            })
-            update_recruitment
-                .then(investImg => {
-                    res.send({ investImg })
-                })
-                .catch(err => {
-                    res.send({ err })
 
-                })
-        })
-        .catch(error => {
-            res.send({ error })
-            console.log(error)
-        })
 }
+
 exports.update_recruitment = (req, res) => {
     let id = req.params.recruitment_id;
-    let objRecruitment = req.body;
-    Recruitment.findByIdAndUpdate(id, objRecruitment)
-        .then((recruitment) => {
-            res.send(recruitment)
+    let imageRecruitment = req.files.filter(item => item.fieldname == 'imageRecruitment')[0];
+    Recruitment.findById(id).exec().then(recruitment => {
+        ImageUtil.updateSingeFile(imageRecruitment, recruitment.imageRecruitment, 'Recruitment').then(result => {
+            Recruitment.findByIdAndUpdate(id, {
+                title: req.body.title,
+                address: req.body.address,
+                rank: req.body.rank,
+                typeRank: req.body.typeRank,
+                experience: req.body.experience,
+                salary: req.body.salary,
+                career: req.body.career,
+                dateReceived: req.body.dateReceived,
+                welfare: req.body.welfare,
+                description: req.body.description,
+                requestCareer: req.body.requestCareer
+            }).then(rec => {
+                res.send(rec)
+            }).catch(error => {
+                res.send(error)
+            })
         })
-        .catch(err => {
-            res.send(err)
-        })
+    })
 }
 exports.delete_recruitment = (req, res) => {
-    Recruitment.findByIdAndDelete(req.params.recruitment_id)
-        .then(recruitment => {
-            res.send(recruitment)
+    let id = req.params.recruitment_id;
+    Recruitment.findById(id).exec().then(async recruitment => {
+        await ImageUtil.deleteSingleFile(recruitment.imageRecruitment).then(() => {
+            recruitment.remove()
         })
-        .catch(err => {
-            res.send(err)
-        })
+        res.send(recruitment)
+    }).catch(error => {
+        res.send(error)
+    })
+
 }
 exports.get_a_recruitment = (req, res) => {
     Recruitment.findById(req.params.recruitment_id)
