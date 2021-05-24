@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
-import { addPartner } from '../../../../lib/api/PartnerAPI';
+import { doPost } from '../../../../lib/DataSource';
 import '../../../../style/admin/investment.scss';
 
-export default function ModalPartner(props) {
+export default function ModalAdd(props) {
     const [fileCover, setFileCover] = useState();
     const [partner, setPartner] = useState();
     let handlePartner = (event) => {
@@ -12,6 +12,28 @@ export default function ModalPartner(props) {
             ...partner,
             [name]: value
         })
+    }
+
+    const addPartner = async (partnerData) => {
+        props.handleLoading(true)
+        const path = "/partner";
+        const headers = {
+            "Content-Type": "multipart/form-data"
+        }
+        const data = new FormData();
+        data.append("name", partnerData?.name);
+        data.append("logo", partnerData?.logo)
+        try {
+            let res = await doPost(path, headers, data)
+            if(res.status === 200){
+                props.handleLoading(false)
+                props.getPartner()
+            }
+    
+        } catch (error) {
+            props.handleLoading(false)
+            console.log(error)
+        }
     }
     return (
         <>
@@ -27,15 +49,15 @@ export default function ModalPartner(props) {
                             type="text"
                         />
                     </div>
-                    
+
                     <div>
                         <label>Logo:</label> <input id="file-input" type="file"
-                        name="logo"
+                            name="logo"
                             onChange={(e) => {
                                 setFileCover(URL.createObjectURL(e.target.files[0]))
                                 setPartner({
                                     ...partner,
-                                    logo:e.target.files[0]
+                                    logo: e.target.files[0]
                                 })
                             }}
                         />
@@ -46,9 +68,10 @@ export default function ModalPartner(props) {
                     <div className="btn--bottom">
                         <div className="wrapper__btn">
                             <button className="back-btn" onClick={props.onHide}>Quay lại</button>
-                            <button onClick={async () => {
-                              await addPartner(partner)
-                              props.onHide()
+                            <button onClick={() => {
+                                addPartner(partner)
+                                setFileCover(null)
+                                props.onHide()
                             }}>Xác nhận</button>
                         </div>
                     </div>

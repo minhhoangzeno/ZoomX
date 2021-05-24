@@ -64,6 +64,7 @@ module.exports = app => {
     app.route('/partner/:partner_id')
         .put(partner_controller.update_partner)
         .delete(partner_controller.delete_partner)
+        .get(partner_controller.get_a_partner)
 
     app.route('/timeline')
         .get(timeline_controller.get_timeline)

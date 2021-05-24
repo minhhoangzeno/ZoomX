@@ -8,7 +8,7 @@ export default function AdminPage() {
     return (
         <>
             <div className="wrapper-adminPage">
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'flex',width:'100%' }}>
                     <SideBar setIsPage={setIsPage} isPage={isPage} />
                     <Dashboard isPage={isPage} />
                 </div>
