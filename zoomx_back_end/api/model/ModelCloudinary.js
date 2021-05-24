@@ -12,10 +12,8 @@ var self = module.exports = {
             cloudinary.uploader.upload(request.file, {
                 folder: request.path
             }).then((result) => {
-                const filename = String(request.file).split("\\")
                 const fs = require('fs')
                 const unlinkP = util.promisify(fs.unlink)
-
                 unlinkP(request.file).then(() => {
                     resolve({
                         url: result.secure_url,
@@ -24,10 +22,7 @@ var self = module.exports = {
                     })
 
                 }).catch((error) => {
-                    resolve({
-                        url: result.secure_url,
-                        id: result.public_id
-                    })
+                    console.log(error)
                 })
 
             }).catch((error) => {
@@ -41,7 +36,6 @@ var self = module.exports = {
             cloudinary.uploader.upload(request.file, {
                 folder: request.path
             }).then((result) => {
-                const filename = String(request.file).split("\\")
                 const fs = require('fs')
                 const unlinkP = util.promisify(fs.unlink)
                 unlinkP(request.file).then(() => {

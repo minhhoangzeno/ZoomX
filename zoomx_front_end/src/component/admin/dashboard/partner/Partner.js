@@ -1,20 +1,37 @@
-import React, { useEffect } from 'react';
-import PartnerItem from './PartnerItem';
-import ModalPartner from './ModalPartner';
+import React, { useEffect, useState } from 'react';
 import '../../../../style/admin/investment.scss';
-import loadingGif from '../../../../image/loading.gif'
-import { usePartner } from '../../../../lib/api/PartnerAPI';
 import Loading from '../../../../image/Loading';
+import Item from './Item';
+import ModalAdd from './ModalAdd';
+import { doGet } from '../../../../lib/DataSource';
 
 export default function Partner() {
     const [modalShow, setModalShow] = React.useState(false);
-    const { data, loading, getPartner } = usePartner();
+    const [data, setData] = useState()
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
         getPartner()
-    },[data])
+    }, [])
+    const handleLoading = (isLoading) => {
+        setLoading(isLoading)
+    }
+    const getPartner = async () => {
+        const path = "/partner";
+        const headers = {
+            Accept: "*/*"
+        }
+        try {
+            var resp = await doGet(path, headers);
+            if (resp.status == 200) {
+                setData(resp.data)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
     return (
         <>
-            {loading ? <div className="wrapper__admin">
+            <div className="wrapper__admin">
                 <div className="title">
                     <h1>Đối tác</h1>
                 </div>
@@ -34,9 +51,11 @@ export default function Partner() {
                                     <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
                                 </svg>
                             </button>
-                            <ModalPartner
+                            <ModalAdd
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
+                                handleLoading={handleLoading}
+                                getPartner={getPartner}
                             />
                         </div>
                     </section>
@@ -51,20 +70,21 @@ export default function Partner() {
                                     <th className="text-center" width="12%">Setting</th>
                                 </tr>
                             </thead>
-
-                            <tbody>
+                            {!loading ? <tbody>
                                 {data?.map((item, index) => {
                                     return (
-                                        <PartnerItem dataPartner={item} key={index} indexNum={index + 1} />
+                                        <Item dataPartner={item} handleLoading={handleLoading} key={index} indexNum={index + 1} getPartner={getPartner} />
                                     )
                                 })}
                             </tbody>
+                                : <Loading />
+                            }
+
                         </table>
                     </div>
                 </div>
             </div>
-                : <Loading />
-            }
+
 
         </>
     )
