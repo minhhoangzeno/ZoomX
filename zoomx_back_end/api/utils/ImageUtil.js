@@ -16,6 +16,7 @@ var utils = module.exports = {
                         path: `ZoomX/${folder}`
 
                     }).then(result => {
+                        console.log("file",file)
                         Image.findByIdAndUpdate(imageId, {
                             url: result.url,
                             cloudinaryId: result.id
