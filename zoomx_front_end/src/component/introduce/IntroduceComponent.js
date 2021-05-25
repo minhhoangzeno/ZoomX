@@ -1,7 +1,6 @@
 import React from "react";
 // import home from "../../image/home/home.png";
 // import brackets from "../../image/zoomX/brackets.png";
-import hotel from "../../image/zoomX/hotel.png";
 import icon from "../../image/zoomX/icon.png";
 import icon1 from "../../image/zoomX/icon1.png";
 import icon2 from "../../image/zoomX/icon2.png";
@@ -12,7 +11,7 @@ export default function IntroduceComponent() {
         <>
             <div className="container-description">
                 <div className="img-inner">
-                    <img src={brackets} className="img-content" alt="#" />
+                    {/* <img src={brackets} className="img-content" alt="#" /> */}
                 </div>
                 <div className="detail-content">
                     <p className="detail-content-block">

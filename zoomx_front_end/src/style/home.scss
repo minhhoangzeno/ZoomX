@@ -49,11 +49,12 @@
       }
       .col-lg-6 {
         .img__page {
-          width: 100%;
-          height: 100vh;
-          padding-bottom: 100%;
-          background-position: center;
-          background-size: cover;
+          max-height: 890px;
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
           @media (max-width: 760px) {
             margin-bottom: 30px;
           }
@@ -70,6 +71,7 @@
         text-align: center;
         display: flex;
         justify-content: center;
+        align-items: center;
         font-family: "Helvetica";
         .empty__element {
           width: 50px;
@@ -92,7 +94,7 @@
         }
         .title__element {
           font-size: 16px;
-          letter-spacing: 4px;
+          letter-spacing: 1px;
           font-family: "Helvetica";
           line-height: 27px;
           margin-bottom: 40px;
@@ -126,6 +128,7 @@
   padding-top: 50px;
   background-color: #f9f9f9;
   font-family: "Helvetica";
+  display: none;
   .empty__element-block {
     width: 50px;
     height: 3px;
@@ -343,8 +346,8 @@
   }
 }
 .flex__element--top {
-  margin-top: 30%;
-  width: 80%;
+  height: 55%;
+  width: 70%;
   @media (max-width: 1024px) {
     width: 80%;
     margin-top: 32%;

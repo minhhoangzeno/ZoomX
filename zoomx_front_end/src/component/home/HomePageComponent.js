@@ -8,10 +8,9 @@ export default function HomePage() {
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-6 align-img">
-              <div
-                className={"img__page"}
-                style={{ backgroundImage: `url(${item})` }}
-              />
+              <div className={"img__page"}>
+              <img alt="" src={item} />
+            </div>
             </div>
             <div className="col-lg-6 wrap__element">
               <div className="flex__element--top">

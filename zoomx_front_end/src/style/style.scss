@@ -74,6 +74,7 @@ header {
           margin-bottom: 0;
           align-items: center;
           display: flex;
+          padding-left: 0px;
           li {
             span {
               padding-left: 40px;
@@ -300,6 +301,7 @@ footer {
   }
 }
 
+
 .header-menu-mobile {
   position: sticky;
   bottom: 0;
@@ -412,6 +414,10 @@ footer {
         font-size: 13px;
       }
       @media (max-width: 426px) {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+      @media (max-width:321px){
         font-size: 11px;
       }
     }
@@ -422,15 +428,26 @@ footer {
       font-size: 60px;
       text-align: center;
       @media (max-width: 1024px) {
-        font-size: 50px;
+        font-size: 45px;
       }
       @media (max-width: 768px) {
-        font-size: 35px;
+        font-size: 30px;
       }
       @media (max-width: 426px) {
+        font-size: 25px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        letter-spacing: 4px;
+      }
+      @media (max-width: 376px) {
+        font-size: 23px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        letter-spacing: 3px;
+      }
+      @media (max-width:321px){
         font-size: 20px;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        letter-spacing: 3px;
       }
     }
     &--bottom {
@@ -444,12 +461,17 @@ footer {
         font-weight: 600;
         @media (max-width: 1024px) {
           font-size: 16px;
+          padding: 9px 18px;
         }
         @media (max-width: 768px) {
-          font-size: 14px;
+          font-size: 13px;
+          border: 2px solid #fff;
+          padding: 7px 15px;
         }
         @media (max-width: 426px) {
-          font-size: 13px;
+          font-size: 12px;
+          padding: 5px 10px;
+          border: 1px solid #fff;
         }
       }
     }
