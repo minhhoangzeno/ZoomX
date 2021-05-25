@@ -51,7 +51,6 @@ module.exports = app => {
     app.route('/recruitment')
         .get(recruitment_controller.get_recruitment)
         .post(recruitment_controller.add_recruitment)
-   
     app.route('/recruitment/:recruitment_id')
         .put(recruitment_controller.update_recruitment)
         .delete(recruitment_controller.delete_recruitment)

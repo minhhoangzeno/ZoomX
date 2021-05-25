@@ -7,12 +7,12 @@ export default function HomePage() {
       <div className="home-page">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-lg-6 align-img">
+            <div className="col-12 col-sm-12 col-md-6 col-lg-6 align-img">
               <div className={"img__page"}>
               <img alt="" src={item} />
             </div>
             </div>
-            <div className="col-lg-6 wrap__element">
+            <div className="col-12 col-sm-12 col-md-6 col-lg-6 wrap__element">
               <div className="flex__element--top">
                 <p className="text__headline">
                   WELCOME &nbsp; TO&nbsp; ZOOMX&nbsp; HOTELS
