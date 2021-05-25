@@ -14,9 +14,7 @@ var utils = module.exports = {
                     Cloudinary.uploadSingle({
                         file: file.path,
                         path: `ZoomX/${folder}`
-                    }).then(async result => {
-                        const fs = require('fs');
-                        await fs.unlinkSync(file.path)
+                    }).then(result => {
                         Image.findByIdAndUpdate(imageId, {
                             url: result.url,
                             cloudinaryId: result.id

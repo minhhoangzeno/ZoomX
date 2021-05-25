@@ -1,8 +1,11 @@
 const LibraryLookupModel = require('../model/LibraryLookupModel');
+const UpdateImageLibrary = require('../utils/library/UpdateImageLibrary');
 
 const mongoose = require('mongoose'),
     LibraryImage = mongoose.model('libraryImage'),
-    Upload = require('../model/UploadImageModel');
+    Upload = require('../model/UploadImageModel'),
+    AddImageLibrary = require('../utils/library/AddImageLibrary')
+    ;
 
 exports.get_library_image = (req, res) => {
     LibraryImage.find({ isDeleted: false })
@@ -29,43 +32,44 @@ exports.get_library_image = (req, res) => {
             res.send(error)
         })
 }
+
 exports.add_librare_image = (req, res) => {
-    let objLibraryImage = new LibraryImage(req.body);
-    const addPromise = new Promise((resolve, reject) => {
-        objLibraryImage.save()
-            .then(result => {
-                resolve(result)
-            })
-            .catch(err => {
-                res.send(err)
-            })
-    })
-    addPromise.then(lb => {
-        res.send(lb)
-    })
-        .catch(error => {
+    AddImageLibrary.addImageLibrary(req).then(result => {
+        let objLibrary = {
+            name:req.body.name,
+            imageCover: result.filter(item => item.imageCover)[0]?.imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
+            imageList: result.filter(item => item.imageList)[0]?.imageList ? result.filter(item => item.imageList)[0].imageList : null,
+        }
+        let newLibImage = new LibraryImage(objLibrary);
+        newLibImage.save().then((libImage) => {
+            res.send(libImage)
+        }).catch(error => {
             res.send(error)
         })
+    }).catch(error => {
+        console.log(error)
+        res.send(error)
+    })
 }
 exports.update_library_image = (req, res) => {
-    let id = req.params.library_image_id;
-    LibraryImage.findByIdAndUpdate(id, req.body)
-        .then(lb => {
-            res.send(lb)
+    UpdateImageLibrary.updateImageLibrary(req.params.library_image_id,req).then(result => {
+        LibraryImage.findByIdAndUpdate(req.params.library_image_id,{
+            name: req.body.name,
+            imageCover: result.filter(item => item.imageCover)[0].imageCover,      
+            imageList: result.filter(item => item.imageList)[0].imageList,
+        }).exec().then(libImage => {
+            res.send(libImage)
         })
-        .catch(error => {
-            res.send(error)
-        })
+    }).catch(error => {
+        res.send(error)
+    })
 }
 exports.delete_library_image = (req, res) => {
-    let id = req.params.library_image_id;
-    LibraryImage.findByIdAndUpdate(id, { isDeleted: true })
-        .then(lb => {
-            res.send(lb)
-        })
-        .catch(error => {
-            res.send(error)
-        })
+    AddImageLibrary.deleteImageLibrary(req.params.library_image_id).then(result => {
+        res.send(result)
+    }).catch(error => {
+        res.send(error)
+    })
 }
 exports.upload_image_cover = (req, res) => {
     const id = req.params.library_image_id;

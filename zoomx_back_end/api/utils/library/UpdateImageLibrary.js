@@ -1,19 +1,19 @@
+const AddImageLibrary = require('./AddImageLibrary');
+
 const mongoose = require('mongoose'),
-    AddImageProject = require('./AddImageProject'),
-    Project = mongoose.model('project'),
-    ImageUtil = require('./ImageUtil')
+    Upload = require('../../model/UploadImageModel'),
+    LibraryImage = mongoose.model('libraryImage'),
+    ImageUtil = require('../ImageUtil')
     ;
 
 module.exports = {
-    updateImageProject: (projectId, req) => {
+    updateImageLibrary: (libraryImageId, req) => {
         return new Promise(async (resolve, reject) => {
-            await Project.findById(projectId).exec()
-                .then(project => {
+            await LibraryImage.findById(libraryImageId).exec()
+                .then(libImage => {
                     let fileId = [];
-                    fileId.push(project.imageCover);
-                    fileId.push(project.imageHero);
-                    fileId.push(project.imageInfor);
-                    project.imageProject.map(item => {
+                    fileId.push(libImage.imageCover);
+                    libImage.imageList.map(item => {
                         fileId.push(item)
                     })
                     fileId.map(item => {
@@ -22,19 +22,17 @@ module.exports = {
                             console.log(error)
                         })
                     })
-                    Project.findByIdAndUpdate(projectId, {
+                    LibraryImage.findByIdAndUpdate(libraryImageId, {
                         imageCover: null,
-                        imageHero: null,
-                        imageInfor: null,
-                        imageProject: []
+                        imageList: []
                     }).then(() => {
                         console.log('ok')
                     }).catch(error => {
                         console.log(error)
                     })
                 })
-            
-            AddImageProject.addImageProject(req).then(result => {
+
+            AddImageLibrary.addImageLibrary(req).then(result => {
                 resolve(result)
             }).catch(error => {
                 reject(error)

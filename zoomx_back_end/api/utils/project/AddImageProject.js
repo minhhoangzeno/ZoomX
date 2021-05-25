@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'),
-    Upload = require('../model/UploadImageModel'),
+    Upload = require('../../model/UploadImageModel'),
     Project = mongoose.model('project'),
-    ImageUtil = require('./ImageUtil')
+    ImageUtil = require('../ImageUtil')
     ;
 
 module.exports = {
