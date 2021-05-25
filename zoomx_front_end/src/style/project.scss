@@ -1,5 +1,9 @@
 @import "./common.scss";
 
+*{
+    letter-spacing: 1px;
+}
+
 .menu__wrapper {
     width: 100%;
     padding: 50px 0;
@@ -71,7 +75,7 @@
                 margin-right: 70px;
                 margin-bottom: 50px;
                 cursor: pointer;
-                box-shadow: 0px 0px 49px -13px #8c8c8c;
+                box-shadow: 0px 2px 3px -2px #bebebe;
                 &:hover {
                     text-decoration: none;
                 } 
@@ -126,14 +130,14 @@
                             margin-top: 10px;
                         }
                         span {
-                            padding: 5px 25px;
-                            background-color: #cc0000;
+                            padding: 9px 18px;
+                            background-color: #E01042;
                             color: #fff;
                             cursor: pointer;
+                            letter-spacing: 1px;
                             font-size: 15px;
                             font-weight: 700;
-                            transition: .5s;
-                            border: 1px solid #cc0000;
+                            border: 3px solid #E01042;
                             @media (max-width: 768px){
                                 padding: 3px 15px;
                                 font-size: 13px;
@@ -141,9 +145,8 @@
                             &:hover {
                                 text-decoration: none;
                                 background-color: #fff;
-                                border: 1px solid #cc0000;
-                                color: #cc0000;
-                                transition: .5s;
+                                border: 3px solid #E01042;
+                                color: #E01042;
                             }
                         }
                     }
@@ -153,6 +156,7 @@
                         font-weight: bold;
                         font-size: 17px;
                         width: 70%;
+                        letter-spacing: 1px;
                         font-family: 'Helvetica';
                         @media (max-width: 1024px){
                             width: 100%;
