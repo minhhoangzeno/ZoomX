@@ -6,6 +6,7 @@ import '../../../../style/admin/investment.scss';
 export default function ModalAdd(props) {
     const [fileCover, setFileCover] = useState();
     const [partner, setPartner] = useState();
+    
     let handlePartner = (event) => {
         const { name, value } = event.target
         setPartner({
