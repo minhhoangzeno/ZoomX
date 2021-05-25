@@ -1,11 +1,23 @@
 @import "./common.scss";
 
 .main__home {
+  padding-top: 50px;
+  @media (max-width: 1440px) {
+    padding: 50px 0;
+  }
+  @media (max-width: 768px) {
+    padding: 50px 0;
+  }
+  @media (max-width: 426px) {
+    padding: 15px 0;
+  }
   .item__home {
     background-color: #f9f9f9;
-    padding: 10px;
     margin-bottom: 50px;
-    margin-top: 0;
+    padding: 0 130px;
+    @media (max-width: 1440px) {
+      padding: 0 40px;
+    }
     @media (max-width: 760px) {
       padding: 0 20px;
     }
@@ -13,15 +25,17 @@
       padding: 0 15px;
     }
     .main__news__page {
-      margin-top: 50px;
+      // margin-top: 50px;
+      padding-right: 0;
       margin-bottom: 40px;
       @media (max-width: 425px) {
         padding: 0;
       }
     }
     .main__news--cover {
-      margin-top: 50px;
-      padding: 0 40px;
+      // margin-top: 50px;
+      // padding: 0 40px;
+      padding-left: 0;
       @media (max-width: 425px) {
         padding: 0;
       }
@@ -46,7 +60,10 @@
   .list__inner {
     padding: 0;
     margin: 0;
-    .wraper {
+    display: flex;
+    flex-wrap: wrap;
+    .wrappers {
+      padding: 0;
       @media (max-width: 425px) {
         padding: 0 !important;
       }
@@ -54,21 +71,14 @@
         padding: 0 !important;
       }
       .block__detail {
-        border: 1px solid #707070;
-        margin-bottom: 30px;
-        width: 90%;
-        // margin: 0 auto;
+        margin-bottom: 50px;
+        margin-right: 50px;
+        border: 1px solid #dbdbdb;
+        @media (max-width: 768px) {
+          width: 90%;
+        }
         @media (max-width: 425px) {
-          margin: 0 auto;
-          margin-bottom: 30px;
-        }
-        @media (max-width: 375px) {
-          margin: 0 auto;
-          margin-bottom: 30px;
-        }
-        @media (max-width: 320px) {
-          margin: 0 auto;
-          margin-bottom: 30px;
+          width: 100%;
         }
         .img__news {
           width: 100%;
@@ -83,7 +93,8 @@
             padding-left: 20px;
             padding-right: 20px;
             .txt__small {
-              font-size: 12px;
+              color: gray;
+              font-size: 14px;
               padding-top: 20px;
               margin-bottom: 5px;
             }
@@ -93,8 +104,10 @@
               background-color: #707070;
             }
             .txt__content {
+              font-weight: 600;
+              margin-top: 15px;
               font-size: 18px;
-              font-family: 'Helvetica';
+              font-family: "Helvetica";
               @media (max-width: 1024px) {
                 text-overflow: ellipsis;
                 overflow: hidden;
@@ -138,11 +151,15 @@
   }
 }
 .main__part {
+  width: 70%;
+  @media (max-width: 1440px) {
+    width: 100%;
+  }
   .main__category {
     .average__word {
       font-size: 20px;
       font-weight: 600;
-      font-family: 'Helvetica';
+      font-family: "Helvetica";
       margin-bottom: 20px;
     }
     .average__words {
@@ -185,12 +202,12 @@
     .list__item {
       display: flex;
       flex-wrap: wrap;
-      .content__little {
-        font-size: 12px;
-        border: 1px solid #d4d4d4;
-        padding: 0 15px 0 15px;
-        margin-right: 15px;
-      }
+      // .content__little {
+      //   font-size: 12px;
+      //   border: 1px solid #d4d4d4;
+      //   padding: 0 15px 0 15px;
+      //   margin-right: 15px;
+      // }
     }
   }
 }

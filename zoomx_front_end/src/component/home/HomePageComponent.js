@@ -6,20 +6,20 @@ export default function HomePage() {
     <>
       <div className="home-page">
         <div className="container-fluid">
-          <div className="row about__range">
-            <div className="col-lg-6">
+          <div className="row">
+            <div className="col-lg-6 align-img">
               <div
                 className={"img__page"}
                 style={{ backgroundImage: `url(${item})` }}
               />
             </div>
             <div className="col-lg-6 wrap__element">
-              <div className="flex__element">
-                <p className="text__headlines">WELCOME TO ZOOMX HOTELS</p>
-                <div className="empty__element"></div>
-                <p className="big__word--detail">
-                  Khách sạn quay ZoomX là gì ?
+              <div className="flex__element--top">
+                <p className="text__headline">
+                  WELCOME &nbsp; TO&nbsp; ZOOMX&nbsp; HOTELS
                 </p>
+                <div className="empty__element"></div>
+                <p className="bigs__words--mid">Khách sạn quay ZoomX là gì ?</p>
                 <p className="title__element">
                   Khách sạn quay ZoomX là khách sạn quay đầu tiên và duy nhất
                   tại Việt Nam. Lấy ý tưởng thiết kế khách sạn quay 360 độ tạo
