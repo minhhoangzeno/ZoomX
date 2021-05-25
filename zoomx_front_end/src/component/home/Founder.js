@@ -1,6 +1,5 @@
 import React from "react";
 import brackets from "../../image/homePage/brackets.png";
-
 export default function Founder() {
   return (
     <>

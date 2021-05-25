@@ -1,5 +1,6 @@
 import React from "react";
 import hotel from "../../image/homePage/hotel.png";
+import play from "../../image/home/play.png";
 export default function EnjoyVideo() {
   return (
     <>
@@ -9,9 +10,14 @@ export default function EnjoyVideo() {
           style={{ backgroundImage: `url(${hotel})` }}
         />
         <div className="enjoy__flex">
-          <p className="text__headline">WELCOME TO ZOOMX HOTELS</p>
+          <p className="content__mid">
+            WELCOME &nbsp; TO&nbsp; ZOOMX&nbsp; HOTELS
+          </p>
           <div className="empty__element"></div>
-          <p className="big__word-item">Tận hưởng những điều tuyệt vời</p>
+          <p className="txt__word-item">Tận hưởng những điều tuyệt vời</p>
+          <div className="play__item">
+            <img className="icon__plays" src={play} alt="#" />
+          </div>
         </div>
       </div>
     </>

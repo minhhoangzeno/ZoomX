@@ -6,7 +6,7 @@ export default function ItemNews() {
     <>
       <div className="container-fluid main__item__detail">
         <div className="row list__inner">
-          <div className="wrapper">
+          <div className="col-xl-6 col-lg-6 col-md-6 col-12 wrappers">
             <div className="block__detail">
               <img className="img__news" src={listItem} alt="#" />
               <div className="ingredient__item">
@@ -21,7 +21,7 @@ export default function ItemNews() {
               </div>
             </div>
           </div>
-          <div className="wrapper">
+          <div className="col-xl-6 col-lg-6 col-md-6 col-12 wrappers">
             <div className="block__detail">
               <img className="img__news" src={listItem} alt="#" />
               <div className="ingredient__item">
@@ -36,7 +36,7 @@ export default function ItemNews() {
               </div>
             </div>
           </div>
-          <div className="wrapper">
+          <div className="col-xl-6 col-lg-6 col-md-6 col-12 wrappers">
             <div className="block__detail">
               <img className="img__news" src={listItem} alt="#" />
               <div className="ingredient__item">

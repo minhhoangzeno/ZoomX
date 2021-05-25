@@ -59,14 +59,14 @@ export default function IntroduceComponent() {
                                     className={"img-home picture"}
                                     style={{ backgroundImage: `url(${icon})` }}
                                 />
-                                <div
+                                {/* <div
                                     className={"img-hotel picture"}
                                     style={{ backgroundImage: `url(${hotel})` }}
                                 />
                                 <div
                                     className={"img-icon picture"}
                                     style={{ backgroundImage: `url(${hotel})` }}
-                                />
+                                /> */}
                             </div>
                         </div>
                     </div>
