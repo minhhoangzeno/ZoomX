@@ -28,6 +28,11 @@ export function SideBar({ setIsPage, isPage }) {
                         onClick={() => setIsPage("partner")}>
                         <span>Doi tac</span>
                     </li>
+                    <li className={((isPage === "timeline") ? "sidebar__admin--menu--active sidebar__admin--menu--item " :
+                        "sidebar__admin--menu--item")}
+                        onClick={() => setIsPage("timeline")}>
+                        <span>Lo trinh trien khai</span>
+                    </li>
                 </ul>
             </div>
 

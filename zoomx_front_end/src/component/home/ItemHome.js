@@ -5,7 +5,9 @@ export default function ItemHome() {
   return (
     <>
       <div className="container__item-block">
-        <p className="text__headline-block">WELCOME TO ZOOMX HOTELS</p>
+        <p className="text__headline-block">
+          WELCOME &nbsp; TO&nbsp; ZOOMX&nbsp; HOTELS
+        </p>
         <div className="empty__element-block"></div>
         <p className="big__word-block">Tại sao chọn ZoomX Hotels ?</p>
         <div className="item__element">
@@ -13,6 +15,7 @@ export default function ItemHome() {
             className={"img__page-block"}
             style={{ backgroundImage: `url(${itemHome})` }}
           />
+          <div className="page__overlay"></div>
           <div className="content__element-block">
             <p className="txt__headline">Kích thích mọi giác quan</p>
             <div className="flex__item">

@@ -5,30 +5,25 @@ import Item from './Item';
 import ModalAdd from './ModalAdd';
 import { doGet } from '../../../../lib/DataSource';
 
-export default function Partner() {
+export default function Timeline() {
     const [modalShow, setModalShow] = React.useState(false);
     const [data, setData] = useState()
     const [loading, setLoading] = useState(false)
-    
-//vua vao trang web thi no se auto chay vao day dau tien
     useEffect(() => {
-        getPartner()
+        getTimeline()
     }, [])
-
     const handleLoading = (isLoading) => {
         setLoading(isLoading)
     }
-
-    const getPartner = async () => {
-        const path = "/partner";
+    const getTimeline = async () => {
+        const path = "/timeline";
         const headers = {
             Accept: "*/*"
         }
         try {
             var resp = await doGet(path, headers);
-            if (resp.status === 200) {
+            if (resp.status == 200) {
                 setData(resp.data)
-
             }
         } catch (e) {
             console.log(e)
@@ -38,7 +33,7 @@ export default function Partner() {
         <>
             <div className="wrapper__admin">
                 <div className="title">
-                    <h1>Đối tác</h1>
+                    <h1>Lộ trình triển khai</h1>
                 </div>
                 <div className="find__input">
                     <input className="input-txt" placeholder="Tìm kiếm..." />
@@ -60,7 +55,7 @@ export default function Partner() {
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
                                 handleLoading={handleLoading}
-                                getPartner={getPartner}
+                                getTimeline={getTimeline}
                             />
                         </div>
                     </section>
@@ -69,27 +64,21 @@ export default function Partner() {
                             <thead>
                                 <tr>
                                     <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
-                                    <th className="text-center" style={{ verticalAlign: 'middle' }}>Tên đối tác</th>
-                                    <th className="text-center" style={{ verticalAlign: 'middle' }}>Logo</th>
+                                    <th className="text-center" style={{ verticalAlign: 'middle' }}>Label</th>
+                                    <th className="text-center" style={{ verticalAlign: 'middle' }}>Content</th>
                                     <th className="text-center" style={{ verticalAlign: 'middle' }}>Trạng thái</th>
                                     <th className="text-center" width="12%">Setting</th>
                                 </tr>
                             </thead>
-                            
-                            {!loading ? 
-                            
-                            <tbody>
+                            {!loading ? <tbody>
                                 {data?.map((item, index) => {
                                     return (
-                                        <Item dataPartner={item} handleLoading={handleLoading} key={index} indexNum={index + 1} getPartner={getPartner} />
+                                        <Item dataTimeline={item} handleLoading={handleLoading} key={index} indexNum={index + 1} getTimeline={getTimeline} />
                                     )
                                 })}
                             </tbody>
                                 : <Loading />
                             }
-
-
-                           
 
                         </table>
                     </div>

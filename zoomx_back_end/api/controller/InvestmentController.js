@@ -10,16 +10,24 @@ var mongoose = require('mongoose'),
 exports.get_investment = (req, res) => {
     const getInvestmentPromise = new Promise((resolve, reject) => {
         Investment.find({ isDeleted: false })
-            .populate({
-                path: 'imageCover',
-                model: 'image',
-                select: 'url'
-            })
+            .populate([
+                {
+                    path: 'imageCover',
+                    model: 'image',
+                    select: 'url'
+                },
+                {
+                    path: 'imageHero',
+                    model: 'image',
+                    select: 'url'
+                }
+            ])
             .then((investments) => {
                 resolve(investments)
             })
             .catch((error) => {
                 reject(error)
+                console.log(error)
             })
 
     })
@@ -32,45 +40,82 @@ exports.get_investment = (req, res) => {
 
 exports.add_investment = (req, res) => {
     let fileCover = req.files.filter(item => item.fieldname == 'imageCover');
+    let fileHero = req.files.filter(item => item.fieldname == 'imageHero');
     let uploadCover = new Promise((resolve, reject) => {
         Upload.uploadSingleFile({
             file: fileCover[0],
             path: 'ZoomX/Investment'
         }).then(resultCover => {
-            resolve(resultCover)
+            resolve({
+                imageCover: resultCover._id
+            })
         }).catch(err => {
-            reject(null)
+            reject({
+                imageCover: null
+            })
         })
     })
-    uploadCover.then(result => {
+    let uploadHero = new Promise((resolve, reject) => {
+        Upload.uploadSingleFile({
+            file: fileHero[0],
+            path: 'ZoomX/Investment'
+        }).then(resultHero => {
+            console.log("hero", resultHero)
+
+            resolve({
+                imageHero: resultHero._id
+            })
+        }).catch(err => {
+            reject({
+                imageHero: null
+            })
+        })
+    })
+    Promise.all([uploadHero, uploadCover]).then(result => {
         Investment.create({
             investmentName: req.body.investmentName,
             description: req.body.description,
-            imageCover: result._id
+            imageCover: result.filter(item => item.imageCover)[0]?.imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
+            imageHero: result.filter(item => item.imageHero)[0]?.imageHero ? result.filter(item => item.imageHero)[0].imageHero : null
         }).then(investment => {
             res.send(investment)
         }).catch(error => {
-            res.send(error)
+            console.log(error)
         })
     }).catch(error => {
         res.send(error)
     })
-
 }
-exports.update_investment = (req, res) => {
-    let id = req.params.investment_id;
+exports.update_investment = async (req, res) => {
     let fileCover = req.files.filter(item => item.fieldname == 'imageCover')[0];
-    Investment.findById(id).exec().then(investment => {
+    let fileHero = req.files.filter(item => item.fieldname == 'imageHero')[0];
+    let investment = await Investment.findById(req.params.investment_id)
+    let updateCover = new Promise((resolve, reject) => {
         ImageUtil.updateSingeFile(fileCover, investment.imageCover, 'Investment').then(result => {
-            Investment.findByIdAndUpdate(id, {
-                investmentName: req.body.investmentName,
-                description: req.body.description
-            }).then(inv => {
-                res.send(inv)
-            }).catch(error => {
-                res.send(error)
-            })
+            resolve(result)
+        }).catch(error => {
+            reject(error)
         })
+    })
+    let updateHero = new Promise((resolve, reject) => {
+        ImageUtil.updateSingeFile(fileHero, investment.imageHero, 'Investment').then(result => {
+            resolve(result)
+        }).catch(error => {
+            reject(error)
+        })
+    })
+
+    Promise.all([updateCover, updateHero]).then(result => {
+        Investment.findByIdAndUpdate(req.params.investment_id, {
+            investmentName: req.body.investmentName,
+            description: req.body.description
+        }).then(data => {
+            res.send(data)
+        }).catch(error => {
+            res.send(error)
+        })
+    }).catch(error => {
+        console.log(error)
     })
 
 }

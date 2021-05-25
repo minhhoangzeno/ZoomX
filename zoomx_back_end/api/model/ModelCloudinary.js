@@ -20,9 +20,11 @@ var self = module.exports = {
                         id: result.public_id
 
                     })
-
                 }).catch((error) => {
-                    console.log(error)
+                    resolve({
+                        url: result.secure_url,
+                        id: result.public_id
+                    })
                 })
 
             }).catch((error) => {
@@ -65,10 +67,10 @@ var self = module.exports = {
         })
     },
     deleteSingle: (request) => {
-        cloudinary.uploader.destroy(request,{
-            resource_type:'image'
-        },function(error,result){
-            console.log(result,error)
+        cloudinary.uploader.destroy(request, {
+            resource_type: 'image'
+        }, function (error, result) {
+            console.log(result, error)
         })
     }
 }

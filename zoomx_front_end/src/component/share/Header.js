@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../style/style.scss';
 import logoCountry from '../../image/home/country.png'
 import { useHistory } from 'react-router';
 export default function Header() {
     let history = useHistory();
+    const [height,setHeight] = useState()
+    window.addEventListener("scroll",() => {
+        let heightWindow = window.pageYOffset;
+        setHeight(heightWindow)
+    })
     return (
         <>
             <header>
                 <div className="header__wrapper">
-                    <div className="header__wrapper--top">
-                        <div className="container-fluid wrapper__top">
-                            
+                    <div className="header__wrapper--top" style={{display: (height > 50) ? 'none' : 'flex'}}>
+                        <div className="container-fluid wrapper__top">   
                                 <div className="wrapper__top--left contact">
                                     <div className="contact__number">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14.439" height="14.46" viewBox="0 0 14.439 14.46">

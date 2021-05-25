@@ -54,6 +54,7 @@ export default function FieldComponent() {
         <p className="big__word--field">Lĩnh vực đầu tư</p>
         <Slider className="main__slider--item" {...item}>
           <div className="item__field__size">
+            {/* <div className="impact__item"></div> */}
             <img className="img__field" src={icon1} alt="#" />
             <div className="box__item">
               <p className="txt__number">01</p>

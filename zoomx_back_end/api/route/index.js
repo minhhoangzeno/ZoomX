@@ -51,8 +51,7 @@ module.exports = app => {
     app.route('/recruitment')
         .get(recruitment_controller.get_recruitment)
         .post(recruitment_controller.add_recruitment)
-    app.route('/recruitment/image/:recruitment_id')
-        .post(recruitment_controller.upload_image_recruitment)
+   
     app.route('/recruitment/:recruitment_id')
         .put(recruitment_controller.update_recruitment)
         .delete(recruitment_controller.delete_recruitment)
@@ -94,8 +93,7 @@ module.exports = app => {
     app.route('/hero/:hero_id')
         .put(hero_controller.update_hero)
         .delete(hero_controller.delete_hero)
-    app.route('/hero/image/:hero_id')
-        .post(hero_controller.upload_image_hero)
+   
 
     app.route('/blog')
         .get(blog_controller.get_all_blog)
@@ -124,10 +122,6 @@ module.exports = app => {
     app.route('/library/lookup/:library_lookup_id')
         .put(library_lookup_controller.update_library_lookup)
         .delete(library_lookup_controller.delete_library_lookup)
-    app.route('/library/lookup/image/:library_lookup_id')
-        .post(library_lookup_controller.upload_image_library_lookup)
-    app.route('/library/lookup/file/:library_lookup_id')
-        .post(library_lookup_controller.upload_file_library_lookup)
 
     app.route('/library/image')
         .get(library_image_controller.get_library_image)
@@ -135,10 +129,7 @@ module.exports = app => {
     app.route('/library/image/:library_image_id')
         .put(library_image_controller.update_library_image)
         .delete(library_image_controller.delete_library_image)
-    app.route('/library/image/image-cover/:library_image_id')
-        .post(library_image_controller.upload_image_cover)
-    app.route('/library/image/image-list/:library_image_id')
-        .post(library_image_controller.upload_image_list)
+   
 
     app.route('/library/video')
         .get(library_video_controller.get_libraryvideo)
@@ -146,8 +137,5 @@ module.exports = app => {
     app.route('/library/video/:library_video_id')
         .put(library_video_controller.update_library_video)
         .delete(library_video_controller.delete_library_video)
-    app.route('/library/video/image/:library_image_id')
-        .post(library_video_controller.upload_image_library_video)
-
 
 }

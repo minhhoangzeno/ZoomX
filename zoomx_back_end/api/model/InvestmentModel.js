@@ -22,6 +22,10 @@ const investmentSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'image'
     },
+    imageHero:{
+        type: Schema.Types.ObjectId,
+        ref: 'image'
+    },
     isDeleted: {
         type: Boolean,
         default: false

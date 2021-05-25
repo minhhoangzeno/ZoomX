@@ -14,7 +14,6 @@ var utils = module.exports = {
                     Cloudinary.uploadSingle({
                         file: file.path,
                         path: `ZoomX/${folder}`
-
                     }).then(result => {
                         Image.findByIdAndUpdate(imageId, {
                             url: result.url,

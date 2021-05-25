@@ -1,3 +1,5 @@
+const ImageUtil = require('../utils/ImageUtil');
+
 const mongoose = require('mongoose'),
     LibraryVideo = mongoose.model('libraryvideo'),
     Upload = require('../model/UploadImageModel');
@@ -17,68 +19,54 @@ exports.get_libraryvideo = (req, res) => {
         })
 }
 exports.add_libraryvideo = (req, res) => {
-    let objVideo = new LibraryVideo(req.body)
-    let addPromise = new Promise((resolve, reject) => {
-        objVideo.save()
-            .then(result => {
-                resolve(result)
-            })
-            .catch(err => {
-                reject(err)
-            })
-    })
-    addPromise.then(lb => {
-        res.send(lb)
-    })
-        .catch(err => {
-            res.send(err)
+    let uploadCover = new Promise((resolve, reject) => {
+        Upload.uploadSingleFile({
+            file: req.files[0],
+            path: 'ZoomX/Library/Video'
+        }).then(imageCover => {
+            resolve(imageCover)
+        }).catch(err => {
+            reject(null)
         })
+    })
+    uploadCover.then(result => {
+        LibraryVideo.create({
+            name: req.body.name,
+            videoUrl: req.body.videoUrl,
+            imageCover: result._id
+        }).then(libVideo => {
+            res.send(libVideo)
+        }).catch(error => {
+            res.send(error)
+        })
+    }).catch(error => {
+        res.send(error)
+    })
 }
 
-exports.upload_image_library_video = (req, res) => {
-    Upload.uploadSingleFile({
-        file: req.files[0],
-        path: 'ZoomX/Library/Video'
-    })
-        .then(result => {
-            const id = req.params.library_video_id;
-            const update_library_video = new Promise((resolve, reject) => {
-                LibraryVideo.findByIdAndUpdate(id, { imageCover: result._id }, { new: true, useFindAndModify: false })
-                    .then(lb => {
-                        resolve(lb)
-                    })
-                    .catch(err => {
-                        reject(err)
-                    })
-            })
-            update_library_video
-                .then(lb => {
-                    res.send({ lb })
-                })
-                .catch(err => {
-                    res.send({ err })
-
-                })
-        })
-        .catch(error => {
-            res.send({ error })
-        })
-}
 exports.update_library_video = (req, res) => {
-    LibraryVideo.findByIdAndUpdate(req.params.library_video_id, req.body)
-        .then(lb => {
-            res.send(lb)
+    let id = req.params.libary_video_id;
+    LibraryVideo.findById(id).exec().then(libVideo => {
+        ImageUtil.updateSingeFile(req.files[0], libVideo.imageCover, 'Library/Video').then(() => {
+            LibraryVideo.findByIdAndUpdate(id, {
+                name: req.body.name,
+                videoUrl: req.body.videoUrl
+            }).then(data => {
+                res.send(data)
+            }).catch(error => {
+                res.send(error)
+            })
         })
-        .catch(err => {
-            res.send(err)
-        })
+    })
 }
 exports.delete_library_video = (req, res) => {
-    LibraryVideo.findByIdAndUpdate(req.params.library_video_id, { isDeleted: true })
-        .then(lb => {
-            res.send(lb)
+    let id = req.params.libary_video_id;
+    LibraryVideo.findById(id).exec().then(async libVideo => {
+        await ImageUtil.deleteSingleFile(libVideo.imageCover).then(() => {
+            libVideo.remove()
         })
-        .catch(err => {
-            res.send(err)
-        })
+        res.send(hero)
+    }).catch(error => {
+        res.send(error)
+    })
 }

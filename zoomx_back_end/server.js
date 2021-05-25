@@ -20,6 +20,7 @@ var express = require('express'),
     LibraryLookup = require('./api/model/LibraryLookupModel'),
     LibraryImage = require('./api/model/LibraryImageModel'),
     LibraryVideo = require('./api/model/LibraryVideoModel'),
+    ContactPage = require('./api/model/ContactPageModel')
     path = require('path')
 
     ;

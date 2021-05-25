@@ -1,11 +1,8 @@
 
 const mongoose = require('mongoose'),
     Project = mongoose.model('project'),
-    Upload = require('../model/UploadImageModel'),
-    ImageUtil = require('../utils/ImageUtil'),
-    cloudinary = require('cloudinary').v2,
-    AddImageProject = require('../utils/AddImageProject'),
-    UpdateImageProject = require('../utils/UpdateImageProject')
+    AddImageProject = require('../utils/project/AddImageProject'),
+    UpdateImageProject = require('../utils/project/UpdateImageProject')
     ;
 
 exports.get_project = (req, res) => {
