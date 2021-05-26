@@ -126,7 +126,9 @@ export default function ProjectDetail() {
                         </div>
                     </div>
                     <div className="row row__back-ground">
-                        <img src={ImageBg} alt="" />
+                        <div className="wrapper__back-ground">
+                            <img src={ImageBg} alt="" />
+                        </div>
                     </div>
                     <div className="row row__text-content">
                         <div className="wrapper__text-content">
