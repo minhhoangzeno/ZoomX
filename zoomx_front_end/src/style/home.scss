@@ -377,7 +377,7 @@
   @media (max-width: 1024px) {
     font-size: 40px;
     line-height: 60px;
-    margin: 0;
+    margin: 10px 0;
   }
   @media (max-width: 768px) {
     font-size: 35px;
@@ -446,6 +446,7 @@
     color: #ffffff;
     background-color: #e01042;
     font-weight: 600;
+    transition: 0.5s;
   }
   .btn__item-click:hover {
     background-color: #ffffff;
