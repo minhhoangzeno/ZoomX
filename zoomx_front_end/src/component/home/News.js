@@ -21,7 +21,7 @@ export default function News() {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -50,48 +50,62 @@ export default function News() {
       <div className="empty__element-view"></div>
       <p className="big__word-view">Tin tức</p>
       <Slider className="main__slider" {...settings}>
-      <div className="slider__item__cover">
-          <div className="item-block">
-            <img className="news__img" src={vn1} alt="#" />
-            <p className="item__content"> Tháng 4 30, 2021</p>
-            <p className="item__content-cover">
-              Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-            </p>
-            <div className="item__btn-main">XEM THÊM</div>
+
+        <div className="slider__item__cover">
+          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
+
+            <div className="news-content">
+              <p className="item__content">Tháng 4 30, 2021</p>
+              <p className="item__content-cover">
+                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
+              </p>
+              <div className="item__btn-main">XEM THÊM</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="slider__item__cover">
+          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
+
+            <div className="news-content">
+              <p className="item__content">Tháng 4 30, 2021</p>
+              <p className="item__content-cover">
+                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
+              </p>
+              <div className="item__btn-main">XEM THÊM</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="slider__item__cover">
+          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
+
+            <div className="news-content">
+              <p className="item__content">Tháng 4 30, 2021</p>
+              <p className="item__content-cover">
+                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
+              </p>
+              <div className="item__btn-main">XEM THÊM</div>
+            </div>
           </div>
         </div>
         <div className="slider__item__cover">
-          <div className="item-block">
-            <img className="news__img" src={vn1} alt="#" />
-            <p className="item__content"> Tháng 4 30, 2021</p>
-            <p className="item__content-cover">
-              Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-            </p>
-            <div className="item__btn-main">XEM THÊM</div>
+          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
+
+            <div className="news-content">
+              <p className="item__content">Tháng 4 30, 2021</p>
+              <p className="item__content-cover">
+                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
+              </p>
+              <div className="item__btn-main">XEM THÊM</div>
+            </div>
           </div>
         </div>
-        <div className="slider__item__cover">
-          <div className="item-block">
-            <img className="news__img" src={vn1} alt="#" />
-            <p className="item__content"> Tháng 4 30, 2021</p>
-            <p className="item__content-cover">
-              Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-            </p>
-            <div className="item__btn-main">XEM THÊM</div>
-          </div>
-        </div>
-        <div className="slider__item__cover">
-          <div className="item-block">
-            <img className="news__img" src={vn} alt="#" />
-            <p className="item__content"> Tháng 4 30, 2021</p>
-            <p className="item__content-cover">
-              Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-            </p>
-            <div className="item__btn-main">XEM THÊM</div>
-          </div>
-        </div>
+
       </Slider>
-      <button className="btn__item-click">XEM THÊM</button>
+      <div className="btn__item-click">
+        <button>XEM THÊM</button>
+      </div>
     </div>
   );
 }
