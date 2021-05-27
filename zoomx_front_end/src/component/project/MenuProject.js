@@ -17,7 +17,8 @@ export default function MenuProject() {
                         <li>
                             <img src={iconNav} alt="" />
                             <a href="http://www.github.com">
-                                BẤT ĐỘNG SẢN        
+                                BẤT ĐỘNG SẢN  
+                                <div className="active-cpn"></div>      
                             </a>
                         </li>
                         /

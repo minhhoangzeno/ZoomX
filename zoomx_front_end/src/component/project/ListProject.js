@@ -9,10 +9,12 @@ export default function ListProject() {
                     <div className="row wrapper__item">
                         <a href="http://www.github.com" className="item item-left">
                             <div className="item__content--top">
-                                <img src={item} alt="" />
+                                <div className="wrapper-img">
+                                    <img src={item} alt="" />
+                                </div>
                             </div>
                             <div className="item__content--bottom">
-                                
+
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
                                 </div>
@@ -25,10 +27,12 @@ export default function ListProject() {
                         </a>
                         <a href="http://www.github.com" className="item item-right">
                             <div className="item__content--top">
-                                <img src={item} alt="" />
+                                <div className="wrapper-img">
+                                    <img src={item} alt="" />
+                                </div>
                             </div>
                             <div className="item__content--bottom">
-                                
+
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
                                 </div>
@@ -43,10 +47,12 @@ export default function ListProject() {
                     <div className="row wrapper__item">
                         <a href="http://www.github.com" className="item item-left">
                             <div className="item__content--top">
-                                <img src={item} alt="" />
+                                <div className="wrapper-img">
+                                    <img src={item} alt="" />
+                                </div>
                             </div>
                             <div className="item__content--bottom">
-                                
+
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
                                 </div>
@@ -59,10 +65,12 @@ export default function ListProject() {
                         </a>
                         <a href="http://www.github.com" className="item item-right">
                             <div className="item__content--top">
-                                <img src={item} alt="" />
+                                <div className="wrapper-img">
+                                    <img src={item} alt="" />
+                                </div>
                             </div>
                             <div className="item__content--bottom">
-                                
+
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
                                 </div>
@@ -77,10 +85,12 @@ export default function ListProject() {
                     <div className="row wrapper__item">
                         <a href="http://www.github.com" className="item item-left">
                             <div className="item__content--top">
-                                <img src={item} alt="" />
+                                <div className="wrapper-img">
+                                    <img src={item} alt="" />
+                                </div>
                             </div>
                             <div className="item__content--bottom">
-                                
+
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
                                 </div>
@@ -93,10 +103,12 @@ export default function ListProject() {
                         </a>
                         <a href="http://www.github.com" className="item item-right">
                             <div className="item__content--top">
-                                <img src={item} alt="" />
+                                <div className="wrapper-img">
+                                    <img src={item} alt="" />
+                                </div>
                             </div>
                             <div className="item__content--bottom">
-                                
+
                                 <div className="title">
                                     FLC Grand Hotel Quy Nhon 2020
                                 </div>
