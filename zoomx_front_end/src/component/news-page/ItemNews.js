@@ -16,7 +16,7 @@ export default function ItemNews() {
                   <p className="txt__content">
                     Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
                   </p>
-                  <button className="btn__news">Xem thêm</button>
+                  <button className="btn__news">XEM THÊM</button>
                 </div>
               </div>
             </div>
@@ -31,7 +31,7 @@ export default function ItemNews() {
                   <p className="txt__content">
                     Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
                   </p>
-                  <button className="btn__news">Xem thêm</button>
+                  <button className="btn__news">XEM THÊM</button>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ export default function ItemNews() {
                   <p className="txt__content">
                     Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
                   </p>
-                  <button className="btn__news">Xem thêm</button>
+                  <button className="btn__news">XEM THÊM</button>
                 </div>
               </div>
             </div>
