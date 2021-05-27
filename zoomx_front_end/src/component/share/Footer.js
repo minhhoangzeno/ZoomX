@@ -222,22 +222,22 @@ export default function Footer() {
                         </a>
                     </li>
                     <li>
-                        <a href="http://www.github.com" style={{ cursor: 'pointer' }} onClick={() => history.push('/')}>Trang chủ</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/')}>Trang chủ</span>
                     </li>
                     <li>
-                        <a href="http://www.github.com" style={{ cursor: 'pointer' }} onClick={() => history.push('/zoomx')}>Giới thiệu</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/zoomx')}>Giới thiệu</span>
                     </li>
                     <li>
-                        <a href="http://www.github.com" style={{ cursor: 'pointer' }} onClick={() => history.push('/project')}>Dự án</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/project')}>Dự án</span>
                     </li>
                     <li>
-                        <a href="http://www.github.com" style={{ cursor: 'pointer' }} onClick={() => history.push('/investment')}>Lĩnh vực đầu tư</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/investment')}>Lĩnh vực đầu tư</span>
                     </li>
                     <li>
-                        <a href="http://www.github.com" style={{ cursor: 'pointer' }} onClick={() => history.push('/news')}>Tin tức - Sự kiện</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/news')}>Tin tức - Sự kiện</span>
                     </li>
                     <li>
-                        <a href="http://www.github.com" style={{ cursor: 'pointer' }} onClick={() => history.push('/library')}>Thư viện</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/library')}>Thư viện</span>
                     </li>
                 </ul>
                 <div className="nav--mobile__close" onClick={() => setIsNavMobile(false)}>

@@ -55,6 +55,9 @@ export default function PartnerComponent() {
 
     <>
       <div className="container-fluid wrapper__partner">
+        <div className="wrapper__partner__label">
+          Đối tác
+        </div>
         <Slider className="slider-block row" {...settings}>
           <div className="wrapper__partner__item">
             <img className="img-partner" src={item1} alt="#" />
