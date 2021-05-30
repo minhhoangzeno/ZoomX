@@ -15,9 +15,9 @@ export default function ListProject() {
                             </div>
                             <div className="item__content--bottom">
 
-                                <div className="title">
+                                <h6 className="title">
                                     FLC Grand Hotel Quy Nhon 2020
-                                </div>
+                                </h6>
                                 <div className="label">
                                     <span>
                                         XEM THÊM
