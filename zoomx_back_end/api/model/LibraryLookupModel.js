@@ -18,10 +18,6 @@ const libraryLookupSchema = new Schema({
     fileBook: {
         type: Schema.Types.ObjectId,
         ref: 'file'
-    },
-    isDeleted: {
-        type: Boolean,
-        default: false
     }
 })
 

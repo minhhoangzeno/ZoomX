@@ -68,10 +68,6 @@ var ProjectSchema = new Schema({
     imageHero:{
         type: Schema.Types.ObjectId,
         ref:'image'
-    },
-    isDeleted: {
-        type: Boolean,
-        default: false
     }
 })
 

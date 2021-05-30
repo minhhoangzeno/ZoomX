@@ -3,6 +3,7 @@ const mongoose = require('mongoose'),
     Upload = require('../model/UploadImageModel'),
     ImageUtil = require('../utils/ImageUtil')
     ;
+
 exports.get_partner = (req, res) => {
     const getPartnerPromise = new Promise((resolve, reject) => {
         Partner.find({ isDeleted: false })

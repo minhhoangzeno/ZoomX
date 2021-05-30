@@ -7,7 +7,7 @@ const mongoose = require('mongoose'),
 
 exports.get_project = (req, res) => {
     const getProjectPromise = new Promise((resolve, reject) => {
-        Project.find({ isDeleted: false })
+        Project.find({})
             .populate([
                 {
                     path: 'imageProject',

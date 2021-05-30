@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
-import { doPut } from '../../../../lib/DataSource';
+import { doPost } from '../../../../../lib/DataSource';
 import '../../../../style/admin/investment.scss';
 
-export default function ModalUpdate(props) {
-    const { dataTimeline } = props;
-    const [timeline, setTimeline] = useState(dataTimeline);
-
+export default function ModalAdd(props) {
+    const [timeline, setTimeline] = useState();
     let handleTimeline = (event) => {
         const { name, value } = event.target
         setTimeline({
@@ -15,30 +13,27 @@ export default function ModalUpdate(props) {
         })
     }
 
-
-    const updateTimeline = async (timelineData, timeline_id) => {
-        props.handleLoading(true);
-        const path = `/timeline/${timeline_id}`;
+    const addTimeline = async (timelineData) => {
+        props.handleLoading(true)
+        const path = "/timeline";
         const headers = {
-            Accept: "*/*",
             "Content-Type": "multipart/form-data"
         }
-        let data = new FormData();
-        data.append("label", timelineData.label);
-        data.append("content", timelineData.content);
+        const data = new FormData();
+        data.append("label", timelineData?.label);
+        data.append("content", timelineData?.content)
         try {
-            let resp = await doPut(path, headers, data);
-            if (resp.status === 200) {
-                props.handleLoading(false);
+            let res = await doPost(path, headers, data)
+            if(res.status === 200){
+                props.handleLoading(false)
                 props.getTimeline()
             }
+    
         } catch (error) {
+            props.handleLoading(false)
             console.log(error)
-            props.handleLoading(false);
         }
     }
-
-
     return (
         <>
             <Modal
@@ -51,7 +46,6 @@ export default function ModalUpdate(props) {
                         <label className="label-txt">Label: </label> <input className="input-txt"
                             name="label" onChange={handleTimeline}
                             type="text"
-                            value={timeline.label}
                         />
                     </div>
 
@@ -59,15 +53,14 @@ export default function ModalUpdate(props) {
                         <label className="label-txt">Content: </label> <input className="input-txt"
                             name="content" onChange={handleTimeline}
                             type="text"
-                            value={timeline.content}
                         />
                     </div>
                     
                     <div className="btn--bottom">
                         <div className="wrapper__btn">
                             <button className="back-btn" onClick={props.onHide}>Quay lại</button>
-                            <button onClick={async () => {
-                                await updateTimeline(timeline,timeline._id)
+                            <button onClick={() => {
+                                addTimeline(timeline)
                                 props.onHide()
                             }}>Xác nhận</button>
                         </div>

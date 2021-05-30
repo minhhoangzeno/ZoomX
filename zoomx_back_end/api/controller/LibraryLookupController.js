@@ -6,7 +6,7 @@ const mongoose = require('mongoose'),
     UploadFile = require('../model/UploadFileModel');
 
 exports.get_library_lookup = (req, res) => {
-    LibraryLookup.find({ isDeleted: false })
+    LibraryLookup.find()
         .populate([
             {
                 path: 'fileBook',

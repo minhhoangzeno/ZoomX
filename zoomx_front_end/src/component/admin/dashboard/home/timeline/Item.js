@@ -1,5 +1,5 @@
 import React from 'react';
-import { doDelete } from '../../../../lib/DataSource';
+import { doDelete } from '../../../../../lib/DataSource';
 import ModalUpdate from './ModalUpdate';
 
 export default function Item({ dataTimeline, indexNum, getTimeline, handleLoading }) {

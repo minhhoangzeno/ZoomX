@@ -1,3 +1,5 @@
+const AddImageProject = require('./AddImageProject');
+
 const mongoose = require('mongoose'),
     Upload = require('../../model/UploadImageModel'),
     Project = mongoose.model('project'),

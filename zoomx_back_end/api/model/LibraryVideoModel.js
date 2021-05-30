@@ -18,10 +18,6 @@ const libraryVideoSchema = new Schema({
     videoUrl: {
         type: String,
         require: true
-    },
-    isDeleted: {
-        type: Boolean,
-        default: false
     }
 })
 module.exports = mongoose.model('libraryvideo', libraryVideoSchema);

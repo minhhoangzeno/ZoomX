@@ -7,7 +7,7 @@ const mongoose = require('mongoose'),
 
 exports.get_recruitment = (req, res) => {
     const getRecruitmentPromise = new Promise((resolve, reject) => {
-        Recruitment.find({ isDeleted: false })
+        Recruitment.find()
             .populate({
                 path: 'imageRecruitment',
                 model: 'image',

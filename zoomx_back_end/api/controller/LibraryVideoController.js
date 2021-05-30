@@ -5,7 +5,7 @@ const mongoose = require('mongoose'),
     Upload = require('../model/UploadImageModel');
 
 exports.get_libraryvideo = (req, res) => {
-    LibraryVideo.find({ isDeleted: false })
+    LibraryVideo.find()
         .populate({
             path: 'imageCover',
             model: 'image',
@@ -45,9 +45,9 @@ exports.add_libraryvideo = (req, res) => {
 }
 
 exports.update_library_video = (req, res) => {
-    let id = req.params.libary_video_id;
+    let id = req.params.library_video_id;
     LibraryVideo.findById(id).exec().then(libVideo => {
-        ImageUtil.updateSingeFile(req.files[0], libVideo.imageCover, 'Library/Video').then(() => {
+        ImageUtil.updateSingeFile(req.files[0], libVideo?.imageCover, 'Library/Video').then(() => {
             LibraryVideo.findByIdAndUpdate(id, {
                 name: req.body.name,
                 videoUrl: req.body.videoUrl
@@ -60,7 +60,7 @@ exports.update_library_video = (req, res) => {
     })
 }
 exports.delete_library_video = (req, res) => {
-    let id = req.params.libary_video_id;
+    let id = req.params.library_video_id;
     LibraryVideo.findById(id).exec().then(async libVideo => {
         await ImageUtil.deleteSingleFile(libVideo.imageCover).then(() => {
             libVideo.remove()
