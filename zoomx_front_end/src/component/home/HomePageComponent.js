@@ -14,8 +14,8 @@ export default function HomePage() {
             </div>
             <div className="col-12 col-sm-12 col-md-6 col-lg-6 wrap__element">
               <div className="flex__element--top">
-                <p className="text__headline">
-                  WELCOME &nbsp; TO&nbsp; ZOOMX&nbsp; HOTELS
+                <p className="text__headlines">
+                WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS
                 </p>
                 <div className="empty__element"></div>
                 <p className="bigs__words--mid">Khách sạn quay ZoomX là gì ?</p>
