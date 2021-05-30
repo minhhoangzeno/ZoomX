@@ -49,7 +49,7 @@ export default function FieldComponent() {
   return (
     <>
       <div className="main__field">
-        <p className="text__headline--field">WELCOME &nbsp; TO &nbsp; ZOOMX &nbsp; HOTELS</p>
+        <p className="text__headline--field"> WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS</p>
         <div className="empty__element--field"></div>
         <p className="big__word--field">Lĩnh vực đầu tư</p>
         <Slider className="main__slider--item" {...item}>
