@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import { doPost } from '../../../../../lib/DataSource';
-import '../../../../style/admin/investment.scss';
 
 export default function ModalAdd(props) {
     const [timeline, setTimeline] = useState();

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../../../../style/admin/investment.scss';
+import '../../../../../style/admin/investment.scss';
 import Loading from '../../../../../image/Loading';
 import Item from './Item';
 import ModalAdd from './ModalAdd';
