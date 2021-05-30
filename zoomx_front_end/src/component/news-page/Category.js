@@ -7,9 +7,9 @@ export default function Category() {
         <div className="main__category">
           <p className="average__word">DANH MỤC</p>
           <div className="box__content">
-            <p className="small__content">tin tức</p>
-            <p className="small__content">chia sẻ</p>
-            <p className="small__content">kỹ năng</p>
+            <p className="small__content">TIN TỨC</p>
+            <p className="small__content">CHIA SẺ</p>
+            <p className="small__content">KỸ NĂNG</p>
           </div>
           <p className="average__word">TÌM KIẾM</p>
           <input className="search__item" type="text" />

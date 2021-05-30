@@ -17,7 +17,7 @@ export default function TimeLine() {
           slidesToScroll: 1,
           infinite: true,
         },
-      },
+      },    
     ],
   };
   return (
