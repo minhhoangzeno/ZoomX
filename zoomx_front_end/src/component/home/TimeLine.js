@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from "react-slick";
-import '../../style/timeline.scss'
+import '../../style/timeline.scss';
+import timelineImg from '../../image/home/timeline.png';
 export default function TimeLine() {
     var settings = {
         // dots: true,
@@ -10,7 +11,7 @@ export default function TimeLine() {
         slidesToScroll: 1,
         responsive: [
             {
-                breakpoint: 425,
+                breakpoint: 427,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -20,65 +21,72 @@ export default function TimeLine() {
         ],
     };
     return (
-        <>
+        <div className="timelineBlock">
+            <div className="timeline-head">
+                <p className="timeline-head__title">WELCOME  &nbsp; TO &nbsp; ZOOMX&nbsp;  HOTELS</p>
+                <div className="timeline-head__border"></div>
+                <p className="timeline-head__label">Lộ trình triển khai</p>
+            </div>
             <div className="timeline__wrapper timeline__web">
-                <div className="container-fluid timeline">
+                <div className="container timeline">
                     <div className="row timeline__content">
-                        <div className="col-4">
-                            <div className="timeline__content__item">
-                                <div className="timeline__content__item--text">
-                                    <div className="wrapper__text">
-                                        <p>Tham vọng</p>
-                                        <p>
-                                            Mang ý tưởng và thiết kế
-                                            khách sạn quay ZoomX đến với nhiều quốc gia khác trên thế giới.Khẳng định giá trị trí tuệ của con người Việt Nam.
+
+                        <div className="timeline__content__item">
+                            <div className="timeline__content__item--text">
+                                <div className="wrapper__text">
+                                    <p>Tham vọng</p>
+                                    <p>
+                                        Mang ý tưởng và thiết kế
+                                        khách sạn quay ZoomX đến với nhiều quốc gia khác trên thế giới.Khẳng định giá trị trí tuệ của con người Việt Nam.
                             </p>
-                                    </div>
                                 </div>
-                                <div className="timeline__content__item--number">
-                                    1
                             </div>
-                                <div className="timeline__content__item--border"></div>
+                            <div className="timeline__content__item--number">
+                                1
                             </div>
+                            <div className="timeline__content__item--border"></div>
                         </div>
-                        <div className="col-4">
-                            <div className="timeline__content__item">
-                                <div className="timeline__content__item--text">
-                                    <div className="wrapper__text">
-                                        <p>Tham vọng</p>
-                                        <p>
-                                            Mang ý tưởng và thiết kế
-                                            khách sạn quay ZoomX đến với nhiều quốc gia khác trên thế giới.Khẳng định giá trị trí tuệ của con người Việt Nam.
+
+
+                        <div className="timeline__content__item">
+                            <div className="timeline__content__item--text">
+                                <div className="wrapper__text">
+                                    <p>Tham vọng</p>
+                                    <p>
+                                        Mang ý tưởng và thiết kế
+                                        khách sạn quay ZoomX đến với nhiều quốc gia khác trên thế giới.Khẳng định giá trị trí tuệ của con người Việt Nam.
                             </p>
-                                    </div>
                                 </div>
-                                <div className="timeline__content__item--number">
-                                    2
                             </div>
-                                <div className="timeline__content__item--border"></div>
+                            <div className="timeline__content__item--number">
+                                2
                             </div>
+                            <div className="timeline__content__item--border"></div>
                         </div>
-                        <div className="col-4">
-                            <div className="timeline__content__item">
-                                <div className="timeline__content__item--text">
-                                    <div className="wrapper__text">
-                                        <p>Tham vọng</p>
-                                        <p>
-                                            Mang ý tưởng và thiết kế
-                                            khách sạn quay ZoomX đến với nhiều quốc gia khác trên thế giới.Khẳng định giá trị trí tuệ của con người Việt Nam.
+
+
+                        <div className="timeline__content__item">
+                            <div className="timeline__content__item--text">
+                                <div className="wrapper__text">
+                                    <p>Tham vọng</p>
+                                    <p>
+                                        Mang ý tưởng và thiết kế
+                                        khách sạn quay ZoomX đến với nhiều quốc gia khác trên thế giới.Khẳng định giá trị trí tuệ của con người Việt Nam.
                              </p>
-                                    </div>
                                 </div>
-                                <div className="timeline__content__item--number">
-                                    3
-                             </div>
-                                <div className="timeline__content__item--border"></div>
                             </div>
+                            <div className="timeline__content__item--number">
+                                3
+                             </div>
+                            <div className="timeline__content__item--border"></div>
                         </div>
+
                     </div>
                 </div>
             </div>
-
+            <div className="img-borderBottom">
+                <img alt="" src={timelineImg} />
+            </div>
             <div className="timeline-mobile">
 
                 <div className="container-fluid timeline-mobile__content">
@@ -142,6 +150,6 @@ export default function TimeLine() {
                 </div>
             </div>
 
-        </>
+        </div>
     )
 }

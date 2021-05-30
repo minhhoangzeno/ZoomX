@@ -14,7 +14,6 @@ var utils = module.exports = {
                     Cloudinary.uploadSingle({
                         file: file.path,
                         path: `ZoomX/${folder}`
-
                     }).then(result => {
                         Image.findByIdAndUpdate(imageId, {
                             url: result.url,
@@ -29,33 +28,36 @@ var utils = module.exports = {
         })
     },
     updateMutipleFile: (requests, folder) => {
-        requests.map(req => {
             return new Promise((resolve, reject) => {
-                Image.findById(req.imageId).exec()
+                requests.map(req => {
+                    Image.findById(req.imageId).exec()
                     .then(async image => {
                         await cloudinary.uploader.destroy(image.cloudinaryId);
                         Cloudinary.uploadSingle({
                             file: req.path,
                             path: `ZoomX/${folder}`
-
                         }).then(result => {
                             Image.findByIdAndUpdate(imageId, {
                                 url: result.url,
                                 cloudinaryId: result.id
                             }).exec()
-                            resolve(result)
+                           resolve(result)
                         })
                     })
                     .catch(error => {
+                        console.log(error)
                         reject(error)
                     })
+                })
+                
             })
-        })
+
     },
     deleteSingleFile: (imageId) => {
         return new Promise((resolve, reject) => {
             Image.findById(imageId).exec()
                 .then(async image => {
+                  
                     await cloudinary.uploader.destroy(image.cloudinaryId);
                     image.remove()
                     resolve(image)

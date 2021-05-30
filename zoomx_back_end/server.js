@@ -20,6 +20,11 @@ var express = require('express'),
     LibraryLookup = require('./api/model/LibraryLookupModel'),
     LibraryImage = require('./api/model/LibraryImageModel'),
     LibraryVideo = require('./api/model/LibraryVideoModel'),
+    ContactPage = require('./api/model/ContactPageModel'),
+    YoungBusiness = require('./api/model/YoungBusinessModel'),
+    Slogan = require('./api/model/SloganModel'),
+    ReasonSelect = require('./api/model/ReasonSelectModel'),
+    DefineHome = require('./api/model/DefineHomeModel')
     path = require('path')
 
     ;

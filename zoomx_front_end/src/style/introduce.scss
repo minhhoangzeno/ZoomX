@@ -1,261 +1,293 @@
 @import "./common.scss";
-
-.home-container {
-  position: relative;
-  .img-container {
-    width: 100%;
-    height: 295px;
+.introduce{
+  padding-left: 140px;
+  padding-right: 140px;
+  margin-top: 90px;
+  width: 100%;
+  margin-bottom: 140px;
+  @media(max-width:1441px){
+    margin-top: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
-  .detail-inner {
-    position: absolute;
-    top: 50%;
-    left: 100px;
-    .content-headline {
-      color: #ffffff;
-      margin-bottom: 20px;
-    }
-    .content-intro {
-      color: #ffffff;
-      font-size: 13px;
-    }
+  @media(max-width:426px){
+    margin-top: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media(max-width:769px){
+    margin-bottom: 50px;
   }
 }
-.container-description {
-  background-color: white;
-  height: 100%;
-  .img-inner {
-    text-align: center;
-    margin-bottom: 25px;
-    .img-content {
-      margin-top: 70px;
+.introduce-detail{
+    width: 90%;
+    @media(max-width:1025px){
+      width: 95%;
     }
-  }
-  .detail-content {
-    text-align: center;
-    .detail-content-block {
-      letter-spacing: 1px;
-      font-weight: 800;
-      font-size: 30px;
-      width: 52%;
-      margin: 0 auto;
-      margin-bottom: 25px;
+    @media(max-width:426px){
+      width: 100%;
+    }
+    &__title{
       font-family: Helvetica;
-      @media (max-width: 1440px) {
-        width: 52%;
-        font-size: 25px;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      @media (max-width: 768px) {
-        font-size: 20;
-      }
-      @media (max-width: 426px) {
-        margin-bottom: 0;
-        width: 90%;
-        font-size: 18px;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-    }
-    .content-founder {
-      letter-spacing: 1px;
-      margin-top: 50px;
-      color: #e01042;
-      font-size: 20px;
-      font-weight: 700;
-      font-family: Helvetica;
-      @media (max-width: 425px) {
-        margin-top: 20px;
-      }
-    }
-    .content {
-      letter-spacing: 1px;
-      margin-bottom: 50px;
-    }
-  }
-  .block {
-    padding: 0 140px 0 140px;
-
-    @media (max-width: 1440px) {
-      padding: 0 50px;
-    }
-    @media (max-width: 426px) {
-      padding: 0 15px;
-    }
-    .item-content {
-      padding: 0 80px 0 20px;
-      @media (max-width: 425px) {
-        padding: 0 15px;
-      }
-      @media (max-width: 375px) {
-        padding: 0 15px;
-      }
-      @media (max-width: 320px) {
-        padding: 0 15px;
-      }
-      .detail-introduce {
+      margin-bottom: 20px;
+      letter-spacing: 4px;
+      font-size: 16px;
+      @media(max-width: 1025px){
         font-size: 14px;
-        font-family: sans-serif;
         margin-bottom: 10px;
       }
-      .empty {
-        width: 60px;
-        height: 2px;
-        background-color: #707070;
-        margin-bottom: 40px;
+      @media(max-width: 769px){
+        font-size: 10px;
+        margin-bottom: 5px;
       }
-      .great-title {
-        font-size: 70px;
-        margin-bottom: 40px;
-        font-family: "Didot";
-        @media (max-width: 1440px) {
-          font-size: 50px;
-          margin-bottom: 30px;
-        }
-        @media (max-width: 768px) {
-          font-size: 30px;
-          margin-bottom: 10px;
-        }
-        @media (max-width: 576px) {
-          font-size: 20px;
-          margin-bottom: 10px;
-        }
+      @media(max-width:426px){
+        text-align: center;
       }
-      .title-content {
-        font-size: 25px;
-        font-family: Helvetica;
-        margin-bottom: 40px;
+      @media(max-width:376px){
+        letter-spacing: 1.5px;
+      }
+    }
+    &__empty{
+      width: 50px;
+      height: 3px;
+      background-color: #707070;
+      @media(max-width:426px){
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+    &__label{
+      font-size: 50px;
+      font-family: "Didot";
+      letter-spacing: 4px;
+      line-height: 82px;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      @media(max-width:1441px){
+        font-size: 38px;
+      }
+      @media (max-width: 1025px) {
+        font-size: 35px;
+        line-height: 60px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+      @media (max-width: 769px) {
+        font-size: 35px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        line-height: 45px;
+      }
+      @media (max-width: 426px) {
+        margin-top: 10px;
+        font-size: 23px;
+        line-height: 40px;
+        letter-spacing: 3px;
+      }
+      @media (max-width: 376px) {
+        margin-top: 10px;
+        font-size: 20px;
+        line-height: 40px;
         letter-spacing: 1px;
-        @media (max-width: 1440px) {
-          font-size: 20px;
-          margin-bottom: 25px;
+      }
+    }
+    &__content{
+      font-size: 16px;
+      p{
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+      @media(max-width:1025px){
+        font-size: 14px;
+      }
+      @media(max-width:769px){
+        font-size: 12px;
+      }
+    }
+    &__profile{
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      &--text{
+        font-size: 50px;
+        font-family: "Didot";
+        letter-spacing: 4px;
+        line-height: 82px;
+        @media(max-width:1441px){
+          font-size: 38px;
+        } 
+        @media (max-width: 1025px) {
+          font-size: 35px;
+          line-height: 40px;
+          margin-bottom: 20px;
+          margin-top: 20px;
         }
-        @media (max-width: 1024px) {
-          font-size: 15px;
+        @media (max-width: 769px) {
+          font-size: 20px;
+          margin-top: 10px;
           margin-bottom: 15px;
         }
-        @media (max-width: 798px) {
-          font-size: 10px;
-          margin-bottom: 10px;
+        @media (max-width: 426px) {
+          margin-top: 10px;
+          font-size: 23px;
+          line-height: 40px;
+          letter-spacing: 3px;
+        }
+        @media (max-width: 321px) {
+          font-size: 20px;
+          letter-spacing: 1px;
         }
       }
-      .flex-item {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        margin-top: 20px;
-        @media (max-width: 1024px) {
-          justify-content: space-between;
-        }
-        @media (max-width: 768px) {
-          display: table;
-          justify-content: space-between;
-        }
-        @media (max-width: 425px) {
-          justify-content: space-between;
-        }
-        .file__flex--item {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          .item-file {
-            font-size: 50px;
-            font-family: "Didot";
-            // margin-right: 100px;
-            margin: 0 auto;
-            margin-right: 100px;
-            @media (max-width: 1440px) {
-              font-size: 40px;
-              // margin-bottom: 40px;
-            }
-            @media (max-width: 1024px) {
-              margin: 0 auto;
-              font-size: 30px;
-              // margin-bottom: 40px;
-            }
-            @media (max-width: 768px) {
-              font-size: 20px;
-              margin-bottom: 40px;
-              // margin: 0 auto;
-            }
-            @media (max-width: 576px) {
-              font-size: 20px;
-              // margin-bottom: 40px;
-            }
-          }
-        }
-        .item-click {
-          width: 187px;
-          height: 53px;
-          font-size: 16px;
-          color: white;
+      &--btn{
+        button {
+          border: 3px solid transparent;
           background-color: #e01042;
-          border: none;
+          padding: 15px 38px;
+          font-size: 16px;
+          color: #fff;
+          letter-spacing: 2px;
           font-weight: 600;
+          @media (max-width: 1024px) {
+            font-size: 16px;
+            padding: 9px 18px;
+          }
           @media (max-width: 768px) {
-            width: 120px;
-            // text-align: left;
+            font-size: 13px;
+            border: 2px solid #fff;
+            padding: 7px 15px;
+          }
+          @media (max-width: 426px) {
+            font-size: 12px;
+            padding: 5px 10px;
+            border: 1px solid #fff;
           }
         }
-        .item-click:hover {
-          color: #e01042;
+        &:hover{
+          button{
           background-color: #ffffff;
-          border: 1px solid #e01042;
+          color: #e01042;
+          border: 3px solid #e01042;
+          }
         }
       }
     }
-    .container-startup {
-      text-align: center;
-      .startup-title {
-        font-size: 50px;
-        font-family: "Didot";
-        padding-top: 80px;
-        margin-bottom: 40px;
-        @media (max-width: 768px) {
-          font-size: 40px;
-          margin-bottom: 40px;
-        }
-        @media (max-width: 576px) {
-          font-size: 20px;
-          margin-bottom: 40px;
-        }
+}
+.introduce-image{
+  @media(max-width:1025px){
+    padding-top: 50px;
+  }
+  @media(max-width:769px){
+    padding-top: 30px;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.young-wrapper{
+  width: 100%;
+  padding-left: 140px;
+  padding-right: 140px;
+  margin-bottom: 140px;
+  @media(max-width:1441px){
+    padding-left: 50px;
+    margin-bottom: 50px;
+    padding-right: 50px;
+  }
+  @media(max-width:426px){
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.young-wrapper__label{
+  text-align: center;
+  font-size: 50px;
+  font-family: "Didot";
+  letter-spacing: 4px;
+  line-height: 82px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  @media(max-width:1441px){
+    font-size: 38px;
+  }
+  @media (max-width: 1025px) {
+    font-size: 35px;
+    line-height: 60px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  @media (max-width: 769px) {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    line-height: 45px;
+    letter-spacing: 2px;
+  }
+  @media (max-width: 426px) {
+    margin-top: 10px;
+    font-size: 23px;
+    line-height: 40px;
+    letter-spacing: 2px;
+  }
+  @media (max-width: 376px) {
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 40px;
+    letter-spacing: 1px;
+  }
+}
+.young-wrapper__content{
+  font-size: 16px;
+  font-family: Helvetica;
+  line-height: 27px;
+  @media(max-width: 769px){
+    font-size: 14px;
+
+  }
+}
+.young-wrapper__image{
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  @media(max-width:1026px){
+    margin-top: 40px;
+  }
+  &--item{
+    margin-left: 70px;
+    margin-top: 20;
+    &:nth-child(1){
+      margin-left: 0px;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @media(max-width:1441px){
+      width: 20%;
+      margin-left: 70px;
+    }
+    @media(max-width:1026px){
+      width: 20%;
+      margin-left: 50px;
+    }
+    @media(max-width: 769px){
+      margin-top: 30px;
+      width: 45%;
+      &:nth-child(3){
+        margin-left: 0;
       }
-      .title-lorem {
-        text-align: left;
-        margin-bottom: 50px;
-        font-family: "Helvetica";
-        font-size: 25px;
-        margin-bottom: 40px;
-        letter-spacing: 1px;
-        @media (max-width: 1440px) {
-          font-size: 15px;
-        }
-        @media (max-width: 1024px) {
-          font-size: 15px;
-        }
-        @media (max-width: 798px) {
-          font-size: 10px;
-        }
-      }
-      .container-img {
-        padding: 0 30px 0 30px;
-        // screen la co man hinh
-        @media (max-width: 768px) {
-          padding: 0 40px;
-        }
-        @media (max-width: 426px) {
-          padding: 0 15px;
-        }
-        .img-startup {
-          width: 100%;
-          @media (max-width: 768px) {
-            margin-bottom: 30px;
-          }
-          @media (max-width: 992px) {
-            margin-bottom: 30px;
-          }
-        }
-      }
+    }
+    @media(max-width: 426px){
+      width: 100%;
+      margin-left: 0;
     }
   }
 }
@@ -263,8 +295,48 @@
 .wrapper__partner {
   padding-left: 140px !important;
   padding-right: 140px !important;
-  margin-bottom: 150px;
-  @media (max-width: 1440px) {
+  margin-bottom: 140px;
+  @media(max-width:769px){
+    margin-bottom: 50px;
+  }
+  &__label{
+    text-align: center;
+    font-size: 50px;
+    font-family: "Didot";
+    letter-spacing: 4px;
+    line-height: 82px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    @media(max-width:1441px){
+      font-size: 38px;
+    }
+    @media (max-width: 1025px) {
+      font-size: 35px;
+      line-height: 60px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+    @media (max-width: 769px) {
+      font-size: 30px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      line-height: 45px;
+      letter-spacing: 2px;
+    }
+    @media (max-width: 426px) {
+      margin-top: 10px;
+      font-size: 23px;
+      line-height: 40px;
+      letter-spacing: 2px;
+    }
+    @media (max-width: 376px) {
+      margin-top: 10px;
+      font-size: 20px;
+      line-height: 40px;
+      letter-spacing: 1px;
+    }
+  }
+  @media (max-width: 1441px) {
     padding-left: 50px !important;
     padding-right: 50px !important;
   }
@@ -325,24 +397,5 @@
         width: 91%;
       }
     }
-  }
-}
-.main__cover {
-  height: 1400px;
-  padding-bottom: 50px;
-  @media (max-width: 1440px) {
-    height: 800px;
-  }
-  @media (max-width: 1042px) {
-    height: 800px;
-  }
-  @media (max-width: 768px) {
-    height: 600px;
-  }
-  @media (max-width: 425px) {
-    height: 900px;
-  }
-  @media (max-width: 375px) {
-    height: 850px;
   }
 }

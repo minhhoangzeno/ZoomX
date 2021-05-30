@@ -12,18 +12,14 @@ var self = module.exports = {
             cloudinary.uploader.upload(request.file, {
                 folder: request.path
             }).then((result) => {
-                const filename = String(request.file).split("\\")
                 const fs = require('fs')
                 const unlinkP = util.promisify(fs.unlink)
-                console.log("result",result.public_id);
-
                 unlinkP(request.file).then(() => {
                     resolve({
                         url: result.secure_url,
                         id: result.public_id
 
                     })
-
                 }).catch((error) => {
                     resolve({
                         url: result.secure_url,
@@ -42,7 +38,6 @@ var self = module.exports = {
             cloudinary.uploader.upload(request.file, {
                 folder: request.path
             }).then((result) => {
-                const filename = String(request.file).split("\\")
                 const fs = require('fs')
                 const unlinkP = util.promisify(fs.unlink)
                 unlinkP(request.file).then(() => {
@@ -72,10 +67,10 @@ var self = module.exports = {
         })
     },
     deleteSingle: (request) => {
-        cloudinary.uploader.destroy(request,{
-            resource_type:'image'
-        },function(error,result){
-            console.log(result,error)
+        cloudinary.uploader.destroy(request, {
+            resource_type: 'image'
+        }, function (error, result) {
+            console.log(result, error)
         })
     }
 }

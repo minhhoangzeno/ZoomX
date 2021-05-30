@@ -6,6 +6,7 @@ import HeroPage from "../component/share/HeroPage";
 import "../style/news-page.scss";
 import ItemNews from "../component/news-page/ItemNews";
 import Category from "../component/news-page/Category";
+import Pagination from "../component/news-page/Pagination";
 export default function NewsPage() {
   return (
     <>

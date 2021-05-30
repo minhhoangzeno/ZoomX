@@ -4,7 +4,7 @@ import listItem from "../../image/newPage/listItem.png";
 export default function ItemNews() {
   return (
     <>
-      <div className="container-fluid main__item__detail">
+      <div className="container main__item__detail">
         <div className="row list__inner">
           <div className="col-xl-6 col-lg-6 col-md-6 col-12 wrappers">
             <div className="block__detail">

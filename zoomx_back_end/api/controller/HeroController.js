@@ -1,3 +1,5 @@
+const ImageUtil = require('../utils/ImageUtil');
+
 const mongoose = require('mongoose'),
     Hero = mongoose.model('hero'),
     Upload = require('../model/UploadImageModel');
@@ -27,67 +29,54 @@ exports.get_hero = (req, res) => {
 }
 
 exports.add_hero = (req, res) => {
-    const newPartnet = new Hero(req.body);
-    const addPromise = new Promise((resolve, reject) => {
-        newPartnet.save()
-            .then((hero) => {
-                resolve(hero)
-            })
-            .catch(err => {
-                reject(err)
-            })
-    })
-    addPromise.then((hero) => {
-        res.send(hero)
-    }).catch(err => {
-        res.send({ err })
-    })
-}
-
-exports.upload_image_hero = (req, res) => {
-    Upload.uploadSingleFile({
-        file: req.files[0],
-        path: 'ZoomX/Hero'
-    })
-        .then(result => {
-            const id = req.params.hero_id;
-            const update_hero = new Promise((resolve, reject) => {
-                Hero.findByIdAndUpdate(id, { imageCover: result._id }, { new: true, useFindAndModify: false })
-                    .then(hero => {
-                        resolve(hero)
-                    })
-                    .catch(err => {
-                        reject(err)
-                    })
-            })
-            update_hero
-                .then(hero => {
-                    res.send({ hero })
-                })
-                .catch(err => {
-                    res.send({ err })
-
-                })
+    let uploadCover = new Promise((resolve, reject) => {
+        Upload.uploadSingleFile({
+            file: req.files[0],
+            path: 'ZoomX/Hero'
+        }).then(imageCover => {
+            resolve(imageCover)
+        }).catch(err => {
+            reject(null)
         })
-        .catch(error => {
-            res.send({ error })
-        })
-}
-exports.update_hero = (req, res) => {
-    Hero.findByIdAndUpdate(req.params.hero_id, req.body)
-        .then(hero => {
+    })
+    uploadCover.then(result => {
+        Hero.create({
+            title: req.body.title,
+            label: req.body.label,
+            imageCover: result._id
+        }).then(hero => {
             res.send(hero)
+        }).catch(error => {
+            res.send(error)
         })
-        .catch(err => {
-            res.send(err)
-        })
-}
-exports.delete_hero = (req,res) => {
-    Hero.findByIdAndDelete(req.params.hero_id)
-    .then(hero => {
-        res.send(hero)
+    }).catch(error => {
+        res.send(error)
     })
-    .catch(err => {
-        res.send(err)
+}
+
+exports.update_hero = (req, res) => {
+    let id = req.params.hero_id;
+    Hero.findById(id).exec().then(hero => {
+        ImageUtil.updateSingeFile(req.files[0], hero.imageCover, 'Hero').then(() => {
+            Hero.findByIdAndUpdate(id, {
+                title: req.body.title,
+                label: req.body.label
+            }).then(data => {
+                res.send(data)
+            }).catch(error => {
+                res.send(error)
+            })
+        })
+    })
+}
+exports.delete_hero = (req, res) => {
+    let id = req.params.hero_id;
+    Hero.findById(id).exec().then(async hero => {
+        await ImageUtil.deleteSingleFile(hero.imageCover).then(() => {
+            hero.remove()
+        })
+        res.send(hero)
+    }).catch(error => {
+        res.send(error)
     })
 }

@@ -3,6 +3,7 @@ const mongoose = require('mongoose'),
     Upload = require('../model/UploadImageModel'),
     ImageUtil = require('../utils/ImageUtil')
     ;
+
 exports.get_partner = (req, res) => {
     const getPartnerPromise = new Promise((resolve, reject) => {
         Partner.find({ isDeleted: false })
@@ -25,7 +26,22 @@ exports.get_partner = (req, res) => {
         res.send({ err })
     })
 }
+exports.get_a_partner = (req, res) => {
+    Partner.findById(req.params.partner_id)
+        .populate({
+            path: 'logo',
+            model: 'image',
+            select: 'url'
+        })
+        .then((partner) => {
+            res.send(partner)
+        })
+        .catch((error) => {
+            console.log(error)
+            res.send(error)
+        })
 
+}
 exports.add_partner = (req, res) => {
     let uploadLogo = new Promise((resolve, reject) => {
         Upload.uploadSingleFile({
@@ -66,10 +82,10 @@ exports.update_partner = (req, res) => {
     })
 }
 
-exports.delete_partner = (req,res) => {
+exports.delete_partner = (req, res) => {
     let id = req.params.partner_id;
     Partner.findById(id).exec().then(async partner => {
-       await  ImageUtil.deleteSingleFile(partner.logo).then(() => {
+        await ImageUtil.deleteSingleFile(partner.logo).then(() => {
             partner.remove()
         })
         res.send(partner)
@@ -77,3 +93,4 @@ exports.delete_partner = (req,res) => {
         res.send(error)
     })
 }
+

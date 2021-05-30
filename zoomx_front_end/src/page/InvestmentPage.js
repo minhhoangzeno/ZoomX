@@ -5,8 +5,11 @@ import Header from '../component/share/Header';
 import HeroPage from '../component/share/HeroPage';
 import Investment from './../component/investment/Investment';
 import '../style/investment.scss'
+import { useInvestment } from '../lib/api/InvestmentAPI';
 
 export default function InvestmentPage() {
+    const { data } = useInvestment();
+    console.log(data)
     return (
         <>
             <MetaTags>
@@ -15,7 +18,7 @@ export default function InvestmentPage() {
             <Header />
             <HeroPage title="LĨNH VỰC ĐẦU TƯ" title_sub="TRANG CHỦ / LĨNH VỰC ĐẦU TƯ" />
 
-            <Investment />
+            <Investment data={data} />
 
             <Footer />
         </>

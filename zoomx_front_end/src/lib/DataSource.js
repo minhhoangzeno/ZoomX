@@ -28,6 +28,6 @@ export const doPut = async (path, headers, formData) => {
 export const doDelete = async (path) => {
     return axios({
         url: BASE_URL + path,
-        mathod: 'DELETE',
+        method: 'DELETE',
     })
 }
