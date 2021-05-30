@@ -110,16 +110,18 @@
               font-family: "Helvetica";
             }
             .btn__news {
-              padding: 10px;
-              color: white;
+              background-color: #f9f9f9;
+              padding: 7px 14px;
+              color: #e01042;
               border: 1px solid #e01042;
-              background-color: #e01042;
               margin-bottom: 20px;
+              font-weight: 500;
+              font-size: 14px;
             }
             .btn__news:hover {
               border: 1px solid #e01042;
-              background-color: #ffffff;
-              color: #e01042;
+              background-color: #e01042;
+              color: #ffffff;
               transition: 0.5s;
             }
           }
