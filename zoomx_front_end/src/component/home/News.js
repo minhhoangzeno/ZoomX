@@ -46,14 +46,15 @@ export default function News() {
   };
   return (
     <div className="main__view--slider">
-      <p className="text__headline--view">WELCOME TO ZOOMX HOTELS</p>
+      <p className="text__headline--view">
+        {" "}
+        WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS
+      </p>
       <div className="empty__element-view"></div>
       <p className="big__word-view">Tin tức</p>
       <Slider className="main__slider" {...settings}>
-
         <div className="slider__item__cover">
           <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-
             <div className="news-content">
               <p className="item__content">Tháng 4 30, 2021</p>
               <p className="item__content-cover">
@@ -66,7 +67,6 @@ export default function News() {
 
         <div className="slider__item__cover">
           <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-
             <div className="news-content">
               <p className="item__content">Tháng 4 30, 2021</p>
               <p className="item__content-cover">
@@ -79,7 +79,6 @@ export default function News() {
 
         <div className="slider__item__cover">
           <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-
             <div className="news-content">
               <p className="item__content">Tháng 4 30, 2021</p>
               <p className="item__content-cover">
@@ -91,7 +90,6 @@ export default function News() {
         </div>
         <div className="slider__item__cover">
           <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-
             <div className="news-content">
               <p className="item__content">Tháng 4 30, 2021</p>
               <p className="item__content-cover">
@@ -101,7 +99,6 @@ export default function News() {
             </div>
           </div>
         </div>
-
       </Slider>
       <div className="btn__item-click">
         <button>XEM THÊM</button>
