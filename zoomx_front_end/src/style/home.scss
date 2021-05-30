@@ -567,7 +567,7 @@
         cursor: pointer;
         &:hover {
           .news-content {
-            transform: translateY(143px);
+            transform: translateY(166px);
           }
           @media (max-width: 1025px) {
             .news-content {
@@ -604,7 +604,7 @@
           // padding-top: 200px;
           &:hover {
             .news-content {
-              transform: translateY(143px);
+              transform: translateY(166px);
             }
             @media (max-width: 1025px) {
               transform: translateY(152px);
