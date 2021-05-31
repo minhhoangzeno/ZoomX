@@ -115,18 +115,18 @@ export default function RecruitmentMain() {
                 <div className="main__content--detail">
                     <strong>Phúc lợi</strong>
                     <div className="content">
-                        <div className="row">
-                            <div className="col-6">
-                                <p>Bảo hiểm</p>
-                                <p>Thưởng</p>
-                                <p>Đào tạo</p>
-                            </div>
-                            <div className="col-6">
-                                <p>Du lịch</p>
-                                <p>Chăm sóc sức khỏe</p>
-                                <p>Tăng lương</p>
-                            </div>
-                        </div>
+                        <tr>
+                            <td><p>Bảo hiểm</p></td>
+                            <td><p>Du lịch</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Thưởng</p></td>
+                            <td><p>Chăm sóc sức khỏe</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Đào tạo</p></td>
+                            <td><p>Tăng lương</p></td>
+                        </tr>
                     </div>
                 </div>
                 <div className="main__content--detail">

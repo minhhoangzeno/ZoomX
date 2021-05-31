@@ -4,9 +4,12 @@
     background-color: #f9f9f9;
     font-family: Helvetica;
     color: #676767;
-    font-size: 16px;
+    font-size: 18px;
     strong{
         letter-spacing: 1px;
+        line-height: 27px;
+    }
+    p{
         line-height: 27px;
     }
     @media (max-width:1679px) {
@@ -114,14 +117,16 @@
                                     background-color: #E01042;
                                     color: #FFFFFF;
                                     border: 3px solid #E01042;
-                                @media (max-width:767px) {
-                                    width: 90px;
-                                    height: 27px;
-                                }
-                                @media (max-width:1679px) {
-                                    width: 130px;
-                                    height: 33px;
-                                }
+                                    @media (max-width:1679px) {
+                                        font-size: 12px;
+                                    }
+                                    @media (max-width:1190px) {
+                                        padding: 10px 28px;
+                                    }
+                                    @media (max-width:767px) {
+                                        font-size: 10px;
+                                        padding: 5px 5px;
+                                    }
                                 }
                             }
                             .button:hover{
@@ -160,6 +165,7 @@
                         padding-left: 60px;
                         padding-right: 60px;
                         padding-top: 30px;
+                        width: 100%;
                         @media (max-width:1679px) {
                             padding-left: 40px;
                             padding-right: 40px;
@@ -168,6 +174,9 @@
                             padding-left: 30px;
                             padding-right: 30px;
                             padding-top: 20px;
+                        }
+                        td{
+                            width: 70%;
                         }
                     }
     
@@ -219,7 +228,7 @@
                 }
                 .recruitment__same{
                     
-                    font-size: 12px;
+                    font-size: 14px;
                     @media (max-width:1679px) {
                         font-size: 11px;
                     }
