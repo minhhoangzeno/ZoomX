@@ -134,3 +134,31 @@ export const useTimeLine = () => {
     }
     return { data, error, loading: (data || error ? false : true) }
 }
+
+
+export const useRecruitmentDetail = () => {
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        getRecruitment()
+    }, []);
+
+    async function getRecruitment() {
+        const path = "/recruitment";
+        const headers = {
+            Accept: "*/*"
+        }
+        try {
+            var resp = await doGet(path, headers);
+            if (resp.status == 200) {
+                setData(resp.data)
+            }
+        } catch (e) {
+            setError(e)
+        }
+    }
+    return { data, error, loading: (data || error ? false : true) }
+}
+
+
