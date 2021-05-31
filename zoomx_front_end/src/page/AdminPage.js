@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import Dashboard from '../component/admin/dashboard/Dashboard';
-import { SideBar } from '../component/admin/sidebar/SideBar';
+import Dashboard from '../component/admin/Dashboard';
+import { SideBar } from '../component/admin/SideBar';
 import '../style/admin.scss';
-import '../style/admin/adminPage.scss';
 export default function AdminPage() {
-    const [isPage, setIsPage] = useState("investment")
+    const [isPage, setIsPage] = useState("home")
+    console.log(isPage)
+    let handlePage = (page) => {
+        setIsPage(page)
+    }
     return (
         <>
             <div className="wrapper-adminPage">
-                <div style={{ display: 'flex',width:'100%' }}>
-                    <SideBar setIsPage={setIsPage} isPage={isPage} />
+                <div style={{ display: 'flex', width: '100%' }}>
+                    <SideBar handlePage={handlePage} isPage={isPage} />
                     <Dashboard isPage={isPage} />
                 </div>
             </div>
-
-
         </>
     )
 }

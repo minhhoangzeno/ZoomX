@@ -16,7 +16,7 @@ export default function InvestmentItem({ data, indexNum }) {
                     <div className="content-wrapper">
                         <strong>{indexNum}</strong><span>/</span>
                         <h2 src={data?.InvestmentName}></h2>
-                        <p>Là một trong những thương hiệu dẫn đầu trong ngành khách sạn du lịch nghỉ dưỡng tại Việt Nam, Tập đoàn FLC sở hữu hệ…</p>
+                        <p src={data?.description}></p>
                         <a href="http://www.github.com" className="read-more-btn" onClick={() => history.push('/detail-project')}>XEM THÊM</a>
                     </div>
                 </div>
