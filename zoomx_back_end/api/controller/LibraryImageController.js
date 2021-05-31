@@ -37,8 +37,8 @@ exports.add_librare_image = (req, res) => {
     AddImageLibrary.addImageLibrary(req).then(result => {
         let objLibrary = {
             name:req.body.name,
-            imageCover: result.filter(item => item.imageCover)[0]?.imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
-            imageList: result.filter(item => item.imageList)[0]?.imageList ? result.filter(item => item.imageList)[0].imageList : null,
+            imageCover: result.filter(item => item.imageCover)[0].imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
+            imageList: result.filter(item => item.imageList)[0].imageList ? result.filter(item => item.imageList)[0].imageList : null,
         }
         let newLibImage = new LibraryImage(objLibrary);
         newLibImage.save().then((libImage) => {

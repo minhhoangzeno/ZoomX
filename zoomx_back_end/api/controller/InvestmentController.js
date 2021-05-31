@@ -75,8 +75,8 @@ exports.add_investment = (req, res) => {
         Investment.create({
             investmentName: req.body.investmentName,
             description: req.body.description,
-            imageCover: result.filter(item => item.imageCover)[0]?.imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
-            imageHero: result.filter(item => item.imageHero)[0]?.imageHero ? result.filter(item => item.imageHero)[0].imageHero : null
+            imageCover: result.filter(item => item.imageCover)[0].imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
+            imageHero: result.filter(item => item.imageHero)[0].imageHero ? result.filter(item => item.imageHero)[0].imageHero : null
         }).then(investment => {
             res.send(investment)
         }).catch(error => {

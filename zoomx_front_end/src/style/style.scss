@@ -136,6 +136,12 @@ footer {
             font-weight: bold;
             letter-spacing: 2px;
             font-size: 24px;
+            @media (max-width: 1441px) {
+              font-size: 21px;
+            }
+            @media (max-width: 1024px) {
+              font-size: 21px;
+            }
             @media (max-width: 769px) {
               font-size: 16px;
             }
@@ -282,11 +288,17 @@ footer {
             color: rgba($color: #ffffff, $alpha: 0.63);
             font-weight: 600;
             letter-spacing: 1px;
+            @media (max-width: 1025px) {
+              font-size: 14px;
+            }
           }
           &--nav {
             display: flex;
             margin-bottom: 0px;
             padding-left: 0;
+            @media (max-width: 1025px) {
+              font-size: 14px;
+            }
             li {
               a {
                 color: #ffffff;
@@ -311,7 +323,6 @@ footer {
     }
   }
 }
-
 
 .header-menu-mobile {
   position: sticky;
@@ -421,6 +432,9 @@ footer {
       padding-bottom: 20px;
       font-size: 14px;
       letter-spacing: 4px;
+      @media (max-width: 1025px) {
+        font-size: 12px;
+      }
       @media (max-width: 768px) {
         font-size: 13px;
       }
@@ -428,7 +442,7 @@ footer {
         font-size: 12px;
         letter-spacing: 2px;
       }
-      @media (max-width:321px){
+      @media (max-width: 321px) {
         font-size: 11px;
       }
     }
@@ -438,8 +452,8 @@ footer {
       padding-bottom: 20px;
       font-size: 60px;
       text-align: center;
-      @media (max-width: 1024px) {
-        font-size: 45px;
+      @media (max-width: 1025px) {
+        font-size: 40px;
       }
       @media (max-width: 768px) {
         font-size: 30px;
@@ -456,7 +470,7 @@ footer {
         margin-bottom: 0px;
         letter-spacing: 3px;
       }
-      @media (max-width:321px){
+      @media (max-width: 321px) {
         font-size: 20px;
         letter-spacing: 3px;
       }
@@ -535,7 +549,7 @@ footer {
       margin-top: 10px;
       font-size: 16px;
       @media (max-width: 1025px) {
-        font-size: 14px;
+        font-size: 12px;
       }
       @media (max-width: 769px) {
         font-size: 13px;
@@ -557,4 +571,10 @@ footer {
     background-color: rgba($color: #000000, $alpha: 0.17);
     z-index: 3;
   }
+}
+.hero__empty {
+  width: 50px;
+  height: 3px;
+  background-color: white;
+  margin: 0 auto;
 }

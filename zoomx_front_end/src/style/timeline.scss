@@ -133,6 +133,9 @@
         letter-spacing: 2px;
         line-height: 26px;
         padding-left: 26px;
+        @media (max-width: 1441px) {
+          font-size: 14px;
+        }
         @media (max-width: 1025px) {
           font-size: 14px;
         }
@@ -145,6 +148,9 @@
           text-align: center;
           margin-bottom: 50px;
           padding-left: 0;
+          @media (max-width: 1441px) {
+            font-size: 27px;
+          }
           @media (max-width: 1025px) {
             margin-bottom: 20px;
           }

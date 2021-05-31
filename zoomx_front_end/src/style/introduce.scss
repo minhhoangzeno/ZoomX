@@ -33,7 +33,7 @@
     letter-spacing: 4px;
     font-size: 16px;
     @media (max-width: 1025px) {
-      font-size: 14px;
+      font-size: 12px;
       margin-bottom: 10px;
     }
     @media (max-width: 769px) {
@@ -94,7 +94,7 @@
     }
   }
   &__content {
-    font-size: 18px;
+    font-size: 20px;
     p {
       letter-spacing: 1px;
     }
@@ -244,6 +244,9 @@
 .young-wrapper__content {
   font-size: 18px;
   line-height: 27px;
+  @media (max-width: 1025px) {
+    font-size: 14px;
+  }
   @media (max-width: 769px) {
     font-size: 14px;
   }
