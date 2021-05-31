@@ -23,7 +23,7 @@ var ProjectSchema = new Schema({
     },
     typeInvestment: {
         type: String,
-        default: "60960ef382f9591138cf3a0a"
+        require: true
     },
     address:{
         type: String,
@@ -68,10 +68,6 @@ var ProjectSchema = new Schema({
     imageHero:{
         type: Schema.Types.ObjectId,
         ref:'image'
-    },
-    isDeleted: {
-        type: Boolean,
-        default: false
     }
 })
 

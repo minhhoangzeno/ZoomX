@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../style/style.scss';
 import logoCountry from '../../image/home/country.png'
 import { useHistory } from 'react-router';
 export default function Header() {
     let history = useHistory();
+    const [height,setHeight] = useState()
+    window.addEventListener("scroll",() => {
+        let heightWindow = window.pageYOffset;
+        setHeight(heightWindow)
+    })
     return (
         <>
             <header>
                 <div className="header__wrapper">
-                    <div className="header__wrapper--top">
-                        <div className="container-fluid wrapper__top">
-                            
+                    <div className="header__wrapper--top" style={{display: (height > 50) ? 'none' : 'flex'}}>
+                        <div className="container-fluid wrapper__top">   
                                 <div className="wrapper__top--left contact">
                                     <div className="contact__number">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14.439" height="14.46" viewBox="0 0 14.439 14.46">
@@ -123,22 +127,22 @@ export default function Header() {
                                 </div>
                                 <ul className="wrapper__bottom--nav">
                                     <li>
-                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/')}>Trang chủ</a>
+                                        <span style={{cursor:'pointer'}} onClick={() => history.push('/')}>Trang chủ</span>
                                     </li>
                                     <li>
-                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/zoomx')}>Giới thiệu</a>
+                                        <span style={{cursor:'pointer'}} onClick={() => history.push('/zoomx')}>Giới thiệu</span>
                                     </li>
                                     <li>
-                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/project')}>Dự án</a>
+                                        <span style={{cursor:'pointer'}} onClick={() => history.push('/project')}>Dự án</span>
                                     </li>
                                     <li>
-                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/investment')}>Lĩnh vực đầu tư</a>
+                                        <span style={{cursor:'pointer'}} onClick={() => history.push('/investment')}>Lĩnh vực đầu tư</span>
                                     </li>
                                     <li>
-                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/news')}>Tin tức - Sự kiện</a>
+                                        <span style={{cursor:'pointer'}} onClick={() => history.push('/news')}>Tin tức - Sự kiện</span>
                                     </li>
                                     <li>
-                                        <a style={{cursor:'pointer'}} onClick={() => history.push('/library')}>Thư viện</a>
+                                        <span style={{cursor:'pointer'}} onClick={() => history.push('/library')}>Thư viện</span>
                                     </li>
                                 </ul>
                                 <div className="wrapper__bottom--right">

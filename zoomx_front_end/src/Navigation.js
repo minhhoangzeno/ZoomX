@@ -2,8 +2,7 @@ import React from 'react'
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 import LibraryPage from './page/LibraryPage';
 import ContactPage from './page/ContactPage';
@@ -16,6 +15,9 @@ import ProjectPage from './page/ProjectPage';
 import RecruitmentPage from './page/RecruitmentPage';
 import ZoomXPage from './page/ZoomXPage';
 import BlogDetailPage from './page/BlogDetailPage';
+import AdminPage from './page/AdminPage';
+import LoginPage from './page/LoginPage';
+import SignupPage from './page/SignupPage';
 
 export default function Navigation() {
     return (
@@ -23,6 +25,12 @@ export default function Navigation() {
             <Switch>
                 <Route exact path="/">
                     <HomePage />
+                </Route>
+                <Route exact path="/login">
+                    <LoginPage />
+                </Route>
+                <Route exact path="/signup">
+                    <SignupPage />
                 </Route>
                 <Route exact path="/library">
                     <LibraryPage />
@@ -53,6 +61,9 @@ export default function Navigation() {
                 </Route>
                 <Route exact path="/blog-detail">
                     <BlogDetailPage />
+                </Route>
+                <Route exact path="/admin">
+                    <AdminPage />
                 </Route>
             </Switch>
         </Router>

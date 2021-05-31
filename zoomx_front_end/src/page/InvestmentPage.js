@@ -7,6 +7,7 @@ import Investment from './../component/investment/Investment';
 import '../style/investment.scss'
 
 export default function InvestmentPage() {
+  
     return (
         <>
             <MetaTags>
@@ -15,7 +16,7 @@ export default function InvestmentPage() {
             <Header />
             <HeroPage title="LĨNH VỰC ĐẦU TƯ" title_sub="TRANG CHỦ / LĨNH VỰC ĐẦU TƯ" />
 
-            <Investment />
+            <Investment  />
 
             <Footer />
         </>

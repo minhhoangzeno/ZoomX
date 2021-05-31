@@ -4,9 +4,9 @@ import listItem from "../../image/newPage/listItem.png";
 export default function ItemNews() {
   return (
     <>
-      <div className="container-fluid main__item__detail">
+      <div className="container main__item__detail">
         <div className="row list__inner">
-          <div className="wrapper">
+          <div className="col-xl-6 col-lg-6 col-md-6 col-12 wrappers">
             <div className="block__detail">
               <img className="img__news" src={listItem} alt="#" />
               <div className="ingredient__item">
@@ -16,12 +16,12 @@ export default function ItemNews() {
                   <p className="txt__content">
                     Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
                   </p>
-                  <button className="btn__news">Xem thêm</button>
+                  <button className="btn__news">XEM THÊM</button>
                 </div>
               </div>
             </div>
           </div>
-          <div className="wrapper">
+          <div className="col-xl-6 col-lg-6 col-md-6 col-12 wrappers">
             <div className="block__detail">
               <img className="img__news" src={listItem} alt="#" />
               <div className="ingredient__item">
@@ -31,12 +31,12 @@ export default function ItemNews() {
                   <p className="txt__content">
                     Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
                   </p>
-                  <button className="btn__news">Xem thêm</button>
+                  <button className="btn__news">XEM THÊM</button>
                 </div>
               </div>
             </div>
           </div>
-          <div className="wrapper">
+          <div className="col-xl-6 col-lg-6 col-md-6 col-12 wrappers">
             <div className="block__detail">
               <img className="img__news" src={listItem} alt="#" />
               <div className="ingredient__item">
@@ -46,7 +46,7 @@ export default function ItemNews() {
                   <p className="txt__content">
                     Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
                   </p>
-                  <button className="btn__news">Xem thêm</button>
+                  <button className="btn__news">XEM THÊM</button>
                 </div>
               </div>
             </div>

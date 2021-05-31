@@ -10,21 +10,23 @@ export default function MenuLibrary() {
                     <ul className="menu__library">
                         <li>
                             <img src={iconNav} alt="" />
-                            <a>
+                            <a href="http://www.github.com">
                                 LOOK
                             </a>
                         </li>
                         /
                         <li>
                             <img src={iconNav} alt="" />
-                            <a>
+                            <a href="http://www.github.com">
                                 HÌNH ẢNH
+                                <div className="active-cpn"></div>
                             </a>
+
                         </li>
                         /
                         <li>
                             <img src={iconNav} alt="" />
-                            <a>
+                            <a href="http://www.github.com">
                                 VIDEO
                             </a>
                         </li>

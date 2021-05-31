@@ -64,10 +64,6 @@ const recruitmentSchema = new Schema({
     requestCareer:{
         type: String,
         require: true
-    },
-    isDeleted: {
-        type: Boolean,
-        default: false
     }
 });
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../style/detail-recruitment.scss';
 import Modal from 'react-bootstrap/Modal';
 

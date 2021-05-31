@@ -103,11 +103,11 @@ export default function Footer() {
                                     </svg> - All Rights Reserved
                         </div>
                                 <ul className="wrapper__bottom--nav">
-                                    <li><a>Giới thiệu</a></li>
-                                    <li><a>Điều khoản</a></li>
-                                    <li><a>Bảo mật</a></li>
-                                    <li><a>Hỗ trợ</a></li>
-                                    <li><a>Liên hệ</a></li>
+                                    <li><a href="http://www.github.com">Giới thiệu</a></li>
+                                    <li><a href="http://www.github.com">Điều khoản</a></li>
+                                    <li><a href="http://www.github.com">Bảo mật</a></li>
+                                    <li><a href="http://www.github.com">Hỗ trợ</a></li>
+                                    <li><a href="http://www.github.com">Liên hệ</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -124,18 +124,18 @@ export default function Footer() {
                         </svg>
                     </div>
                     <ul className="header__wrapper--nav">
-                        <li><a><svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
+                        <li><a href="http://www.github.com"><svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
                             <path fill="currentColor" d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" />
                         </svg></a></li>
-                        <li><a>
+                        <li><a href="http://www.github.com">
                             <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z" />
                             </svg>
                         </a></li>
-                        <li><a>
+                        <li><a href="http://www.github.com">
                             <img src={logoCountry} alt="" />
                         </a></li>
-                        <li><a>
+                        <li><a href="http://www.github.com">
                             <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
                             </svg>
@@ -146,7 +146,7 @@ export default function Footer() {
             <div className={isNavMobile ? "nav--mobile openNavMobile" : "nav--mobile"}>
                 <ul className="nav--mobile__content">
                     <li>
-                        <a>
+                        <a href="http://www.github.com">
                             <svg xmlns="http://www.w3.org/2000/svg" width="71.348" height="52.437" viewBox="0 0 71.348 52.437">
                                 <g id="Group_540" data-name="Group 540" transform="translate(831.021 147.649)">
                                     <g id="Group_532" data-name="Group 532" transform="translate(-828.858 -98.508)">
@@ -222,22 +222,22 @@ export default function Footer() {
                         </a>
                     </li>
                     <li>
-                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/')}>Trang chủ</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/')}>Trang chủ</span>
                     </li>
                     <li>
-                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/zoomx')}>Giới thiệu</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/zoomx')}>Giới thiệu</span>
                     </li>
                     <li>
-                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/project')}>Dự án</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/project')}>Dự án</span>
                     </li>
                     <li>
-                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/investment')}>Lĩnh vực đầu tư</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/investment')}>Lĩnh vực đầu tư</span>
                     </li>
                     <li>
-                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/news')}>Tin tức - Sự kiện</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/news')}>Tin tức - Sự kiện</span>
                     </li>
                     <li>
-                        <a style={{ cursor: 'pointer' }} onClick={() => history.push('/library')}>Thư viện</a>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/library')}>Thư viện</span>
                     </li>
                 </ul>
                 <div className="nav--mobile__close" onClick={() => setIsNavMobile(false)}>

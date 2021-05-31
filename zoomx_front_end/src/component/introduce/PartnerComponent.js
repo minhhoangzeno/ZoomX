@@ -6,6 +6,7 @@ import item3 from "../../image/zoomX/item3.png";
 import item4 from "../../image/zoomX/item4.png";
 import item5 from "../../image/zoomX/item5.png";
 import item6 from "../../image/zoomX/item6.png";
+
 export default function PartnerComponent() {
   var settings = {
     // dots: true,
@@ -48,9 +49,15 @@ export default function PartnerComponent() {
       },
     ],
   };
+
+
   return (
+
     <>
       <div className="container-fluid wrapper__partner">
+        <div className="wrapper__partner__label">
+          Đối tác
+        </div>
         <Slider className="slider-block row" {...settings}>
           <div className="wrapper__partner__item">
             <img className="img-partner" src={item1} alt="#" />

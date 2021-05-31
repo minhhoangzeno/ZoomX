@@ -9,21 +9,22 @@ export default function MenuProject() {
                     <ul className="menu__project">
                         <li>
                             <img src={iconNav} alt="" />
-                            <a>
+                            <a href="http://www.github.com">
                                 KHÁCH SẠN
                             </a>
                         </li>
                         /
                         <li>
                             <img src={iconNav} alt="" />
-                            <a>
-                                BẤT ĐỘNG SẢN        
+                            <a href="http://www.github.com">
+                                BẤT ĐỘNG SẢN  
+                                <div className="active-cpn"></div>      
                             </a>
                         </li>
                         /
                         <li>
                             <img src={iconNav} alt="" />
-                            <a>
+                            <a href="http://www.github.com">
                                 DU LỊCH
                             </a>
                         </li>
