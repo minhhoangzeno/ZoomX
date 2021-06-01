@@ -2,7 +2,7 @@
 
 .contact{
     font-family: Helvetica;
-    font-size: 16px;
+    font-size: 18px;
     @media (max-width:1679px) {
         font-size: 14px;
     }
@@ -45,7 +45,7 @@
                 p{
                     font-family:'Didot' !important;
                 }
-                font-size: 30px;
+                font-size: 38px;
                 padding-bottom: 20px;
                 @media (max-width:1679px) {
                     font-size: 28px;
@@ -105,6 +105,11 @@
                             }
 
                         }
+                        input:focus{
+                            outline: none !important;
+                            border: 1px solid rgba($color: #707070, $alpha: 0.6);
+                        }
+                        
                         
                         
                     }
@@ -119,6 +124,8 @@
                         border: 1px solid rgba($color: #707070, $alpha: 0.6);
                         width: 552px;
                         height: 135px;
+                        padding-left: 10px;
+                        padding-top: 10px;
                         @media (max-width:1679px) {
                             width: 512px;
                             height: 100px;
@@ -131,6 +138,10 @@
                             width: 100%;
                             height: 70px;
                         }
+                    }
+                    textarea:focus{
+                        outline: none !important;
+                        border: 1px solid rgba($color: #707070, $alpha: 0.6);
                     }
                 }
 

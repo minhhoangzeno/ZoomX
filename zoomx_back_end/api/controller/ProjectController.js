@@ -48,6 +48,40 @@ exports.get_project = (req, res) => {
     })
 }
 
+exports.get_project_investment = (req, res) => {
+    Project.find({ typeInvestment: req.params.typeInvestmentId })
+        .populate([
+            {
+                path: 'imageProject',
+                populate: {
+                    path: 'imageProject',
+                    model: 'image',
+                    select: 'url'
+                },
+                select: 'url'
+            },
+            {
+                path: 'imageCover',
+                model: 'image',
+                select: 'url'
+            },
+            {
+                path: 'imageHero',
+                model: 'image',
+                select: 'url'
+            },
+            {
+                path: 'imageInfor',
+                model: 'image',
+                select: 'url'
+            }
+        ]).then(data => {
+            res.send(data)
+        }).catch(error => {
+            res.send(error)
+        })
+}
+
 exports.add_project = (req, res) => {
     AddImageProject.addImageProject(req).then(result => {
         let objProject = {
@@ -78,8 +112,8 @@ exports.add_project = (req, res) => {
 }
 
 exports.update_project = (req, res) => {
-    UpdateImageProject.updateImageProject(req.params.project_id,req).then(result => {
-        Project.findByIdAndUpdate(req.params.project_id,{
+    UpdateImageProject.updateImageProject(req.params.project_id, req).then(result => {
+        Project.findByIdAndUpdate(req.params.project_id, {
             projectName: req.body.projectName,
             typeInvestment: req.body.typeInvestment,
             address: req.body.address,
@@ -97,7 +131,7 @@ exports.update_project = (req, res) => {
     }).catch(error => {
         res.send(error)
     })
-    
+
 }
 exports.delete_project = (req, res) => {
     AddImageProject.deleteImageProject(req.params.project_id).then(result => {

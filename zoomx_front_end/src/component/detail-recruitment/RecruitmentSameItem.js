@@ -100,7 +100,7 @@ export default function RecruitmentSameItem() {
                             <img width="24px" height="24px" src={icon_money} alt="" />
                         </div>
                         <div className="value">
-                            <p>Lương: 7.000.000đ-12.000.000đ</p>
+                            <p> 7.000.000đ-12.000.000đ</p>
                         </div>
                     </div>
                     <div className="item--content--deadline">
