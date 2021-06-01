@@ -68,6 +68,7 @@ module.exports = app => {
         .put(partner_controller.update_partner)
         .delete(partner_controller.delete_partner)
         .get(partner_controller.get_a_partner)
+        // doi tac
 
     app.route('/timeline')
         .get(timeline_controller.get_timeline)
