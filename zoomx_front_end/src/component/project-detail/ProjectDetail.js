@@ -142,12 +142,12 @@ export default function ProjectDetail() {
                     </div>
                     <div className="row row__img-content">
                         <div className="wrapper__img-content">
-                            <div className="col-xl-6 col-lg-6 col-sm-12 col-img col__img--left">
+                            <div className="col-img col__img--left">
                                 <div className="wrapper__img">
                                     <img src={infoImg} alt="" />
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-6 col-sm-12 col-img col__img--right">
+                            <div className="col-img col__img--right">
                                 <div className="wrapper__img">
                                     <img src={infoImg} alt="" />
                                 </div>

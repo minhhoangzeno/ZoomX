@@ -38,21 +38,30 @@
                 position: relative;
                 cursor: pointer;
                 letter-spacing: 1px;
+                @media (max-width: 1920px){
+                    font-size: 14px;
+                }
+                @media (max-width: 1440px) {
+                    font-size: 14px;
+                }
+                @media (max-width: 1024px){
+                    font-size: 14px;
+                }
                 @media (max-width: 768px) {
                     padding: 0 20px !important;
-                    font-size: 13px !important;
+                    font-size: 13px;
                 }
                 @media (max-width: 526px) {
                     padding: 0 10px !important;
-                    font-size: 11px !important;
+                    font-size: 11px;
                 }
                 @media (max-width: 425px) {
                     font-size: 10px !important;
-                    padding: 0 8px !important;
+                    padding: 0 8px;
                 }
                 @media (max-width: 375px) {
                     font-size: 8px !important;
-                    padding: 0 5px !important;
+                    padding: 0 5px;
                 }
                 img {
                     position: absolute;
@@ -179,13 +188,15 @@
                             font-size: 14px;
                             font-weight: 700;
                             border: 2px solid #e01042;
+                            @media (max-width: 1440px) {
+                                font-size: 12px;
+                            }
                             @media (max-width: 1024px) {
-                                // font-size: 18px;
-                                padding: 5px 25px;
+                                font-size: 12px;
                             }
                             @media (max-width: 768px) {
                                 padding: 3px 15px;
-                                font-size: 13px;
+                                font-size: 12px;
                             }
                             &:hover {
                                 text-decoration: none;
@@ -200,13 +211,16 @@
                         // font-family: Giroly;
                         font-weight: 700;
                         font-size: 21px;
+                        @media (max-width: 1440px) {
+                            font-size: 18px;
+                        }
                         @media (max-width: 1024px) {
                             width: 100%;
                             text-align: center;
-                            font-size: 18px;
+                            font-size: 14px;
                         }
                         @media (max-width: 768px) {
-                            font-size: 15px;
+                            font-size: 13px;
                         }
                         &:hover {
                             color: #af8d41;

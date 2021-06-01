@@ -2,9 +2,9 @@
 
 .investment-wrapper {
     width: 100%;
-    padding: 140px 140px;
+    padding: 100px 140px;
     @media (max-width: 1440px) {
-        padding: 50px 50px;
+        padding: 100px 50px;
     }
     @media (max-width: 768px) {
         padding: 50px 15px;
@@ -79,8 +79,11 @@
                         font-size: 32px;
                         font-weight: bold;
                         opacity: 80%;
+                        @media (max-width: 1024px){
+                            font-size: 26px;
+                        }
                         @media (max-width: 425px) {
-                            font-size: 27px;
+                            font-size: 22px;
                         }
                     }
                     span {
@@ -92,6 +95,9 @@
                         color: #e01042;
                         margin-top: 10px;
                         margin-bottom: 20px;
+                        @media (max-width: 1024px){
+                            font-size: 18px;
+                        }
                         @media (max-width: 768px) {
                             margin-top: 5px;
                             margin-bottom: 15px;
@@ -104,6 +110,9 @@
                         margin-bottom: 25px;
                         font-family: Helvetica;
                         font-size: 16px;
+                        @media (max-width: 1024px){
+                            font-size: 14px;
+                        }
                         @media (max-width: 768px){
                             font-size: 14px;
                         }
@@ -119,10 +128,10 @@
                         font-size: 14px;
                         font-weight: 700;
                         transition: 0.5s;
-                        border: 3px solid #e01042;
+                        border: 2px solid #e01042;
                         @media (max-width: 1024px) {
-                            font-size: 18px;
-                            padding: 5px 20px;
+                            font-size: 14px;
+                            padding: 5px 18px;
                         }
                         @media (max-width: 375px) {
                             padding: 3px 12px;
@@ -131,7 +140,7 @@
                         &:hover {
                             text-decoration: none;
                             background-color: #fff;
-                            border: 3px solid #e01042;
+                            border: 2px solid #e01042;
                             color: #e01042;
                             transition: 0.5s;
                         }
