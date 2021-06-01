@@ -9,6 +9,7 @@ import YoungBusiness from './zoomx/young-business/YoungBusiness';
 import ZoomX from './zoomx/zoom-x/ZoomX';
 import Slogan from './zoomx/slogan/Slogan';
 import Recruitment from './recruitment/Recruitment';
+import Project from './project/Project';
 export default function Dashboard({ isPage }) {
     return (
         <div className="wrapper__admin">
@@ -22,6 +23,8 @@ export default function Dashboard({ isPage }) {
             {isPage === "partner" && <Partner />}
             {isPage === "investment" && <Investment />}
             {isPage === "recruitment" && <Recruitment />}
+            {isPage === "project" && <Project />}
+
         </div>
     )
 }
