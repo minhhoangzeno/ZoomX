@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
-import { doPost } from '../../../lib/DataSource';
-import { Editor } from '@tinymce/tinymce-react';
-import { tinyconfig } from '../../../TinyConfig';
+import { doPost } from '../../../../lib/DataSource';
+import '../../../../style/admin/investment.scss';
+
 export default function ModalAdd(props) {
     const [fileCover, setFileCover] = useState();
-    const [recruitment, setRecruitment] = useState({})
-
-
-    let handleRecruitment = (e) => {
-        const { name, value } = e.target
+    const [recruitment, setRecruitment] = useState();
+    let handleRecruitment = (event) => {
+        const { name, value } = event.target
         setRecruitment({
             ...recruitment,
             [name]: value
@@ -23,25 +21,25 @@ export default function ModalAdd(props) {
             "Content-Type": "multipart/form-data"
         }
         const data = new FormData();
-        data.append("title", recruitment?.title);
-        data.append("address", recruitment?.address)
-        data.append("rank", recruitment?.rank)
-        data.append("typeRank", recruitment?.typeRank);
-        data.append("experience", recruitment?.experience)
-        data.append("salary", recruitment?.salary)
-        data.append("career", recruitment?.career);
-        data.append("dateReceived", recruitment?.dateReceived)
-        data.append("imageRecruitment", recruitment?.imageRecruitment)
-        data.append("welfare", recruitment?.welfare);
-        data.append("description", recruitment?.description)
-        data.append("requestCareer", recruitment?.requestCareer)
+        data.append("title", recruitmentData.title);
+        data.append("imageRecruitment", recruitmentData.imageRecruitment);
+        data.append("address", recruitmentData.address);
+        data.append("rank", recruitmentData.rank);
+        data.append("typeRank", recruitmentData.typeRank);
+        data.append("experience", recruitmentData.experience);
+        data.append("salary", recruitmentData.salary);
+        data.append("career", recruitmentData.career);
+        data.append("dateReceived", recruitmentData.dateReceived);
+        data.append("welfare", recruitmentData.welfare);
+        data.append("description", recruitmentData.description);
+        data.append("requestCareer", recruitmentData.requestCareer);
         try {
             let res = await doPost(path, headers, data)
-            if (res.status === 200) {
+            if(res.status === 200){
                 props.handleLoading(false)
-                props.getSearch()
+                props.getRecruitment()
             }
-
+    
         } catch (error) {
             props.handleLoading(false)
             console.log(error)
@@ -56,21 +54,21 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Tiêu đề: </label> <input className="input-txt"
-                            name="title"
+                        <label className="label-txt">Nhập tiêu đề tuyển dụng: </label> <input className="input-txt"
+                            name="title" onChange={handleRecruitment}
                             type="text"
-                            onChange={handleRecruitment}
                         />
                     </div>
+
                     <div>
-                        <label>Ảnh hiển thị:</label> <input id="file-input" type="file"
+                        <label>Ảnh:</label> <input id="file-input" type="file"
                             name="imageRecruitment"
                             onChange={(e) => {
+                                setFileCover(URL.createObjectURL(e.target.files[0]))
                                 setRecruitment({
                                     ...recruitment,
                                     imageRecruitment: e.target.files[0]
                                 })
-                                setFileCover(URL.createObjectURL(e.target.files[0]))
                             }}
                         />
                     </div>
@@ -78,100 +76,63 @@ export default function ModalAdd(props) {
                         <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
                     </div>
                     <div>
-                        <label className="label-txt">Địa chỉ làm việc: </label> <input className="input-txt"
-                            name="address"
+                        <label className="label-txt">Nhập địa chỉ : </label> <input className="input-txt"
+                            name="address" onChange={handleRecruitment}
                             type="text"
-                            onChange={handleRecruitment}
-
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Cấp bậc: </label> <input className="input-txt"
-                            name="rank"
+                        <label className="label-txt">Nhập rank : </label> <input className="input-txt"
+                            name="rank" onChange={handleRecruitment}
                             type="text"
-                            onChange={handleRecruitment}
-
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Hình thức: </label> <input className="input-txt"
-                            name="typeRank"
+                        <label className="label-txt">Nhập type rank : </label> <input className="input-txt"
+                            name="typeRank" onChange={handleRecruitment}
                             type="text"
-                            onChange={handleRecruitment}
-
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Kinh nghiệm: </label> <input className="input-txt"
-                            name="experience"
+                        <label className="label-txt">Nhập experience : </label> <input className="input-txt"
+                            name="experience" onChange={handleRecruitment}
                             type="text"
-                            onChange={handleRecruitment}
-
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Mức lương: </label> <input className="input-txt"
-                            name="salary"
+                        <label className="label-txt">Nhập lương : </label> <input className="input-txt"
+                            name="salary" onChange={handleRecruitment}
                             type="text"
-                            onChange={handleRecruitment}
-
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Ngành nghề: </label> <input className="input-txt"
-                            name="career"
+                        <label className="label-txt">Nhập nghề nghiệp : </label> <input className="input-txt"
+                            name="career" onChange={handleRecruitment}
                             type="text"
-                            onChange={handleRecruitment}
-
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Hạn chót nhận hồ sơ: </label> <input className="input-txt"
-                            name="dateReceived"
+                        <label className="label-txt">Nhập ngày : </label> <input className="input-txt"
+                            name="dateReceived" onChange={handleRecruitment}
                             type="date"
-                            onChange={handleRecruitment}
-
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Phúc lợi: </label>
-                        <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
-                            init={tinyconfig}
-                            onEditorChange={(event) => {
-                                setRecruitment({
-                                    ...recruitment,
-                                    welfare: event
-                                })
-                            }}
-
+                        <label className="label-txt">Nhập phúc lợi : </label> <input className="input-txt"
+                            name="welfare" onChange={handleRecruitment}
+                            type="text"
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Mô tả công việc: </label>
-                        <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
-                            init={tinyconfig}
-
-                            onEditorChange={(event) => {
-                                setRecruitment({
-                                    ...recruitment,
-                                    description: event
-                                })
-                            }}
-
+                        <label className="label-txt">Nhập chi tiết : </label> <input className="input-txt"
+                            name="description" onChange={handleRecruitment}
+                            type="text"
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Yêu cầu công việc: </label>
-                        <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
-                            init={tinyconfig}
-
-                            onEditorChange={(event) => {
-                                setRecruitment({
-                                    ...recruitment,
-                                    requestCareer: event
-                                })
-                            }}
-
+                        <label className="label-txt">Nhập : </label> <input className="input-txt"
+                            name="requestCareer" onChange={handleRecruitment}
+                            type="text"
                         />
                     </div>
                     <div className="btn--bottom">
