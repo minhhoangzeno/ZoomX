@@ -3,16 +3,16 @@ import { doDelete } from '../../../../lib/DataSource';
 import ModalUpdate from './ModalUpdate';
 
 
-export default function Item({ dataTimeline ,indexNum, getTimeline, handleLoading }) {
+export default function Item({ dataDefineHome ,indexNum, getDefineHome, handleLoading }) {
     const [modalShow, setModalShow] = React.useState(false);
-    const deleteTimeline = async (timeline_id) => {
+    const deleteDefineHome = async (define_home_id) => {
         handleLoading(true)
-        const path = `/timeline/${timeline_id}`;
+        const path = `/define-home/${define_home_id}`;
         try {
             let resp = await doDelete(path);
             if (resp.status === 200) {
                 handleLoading(false)
-                getTimeline()
+                getDefineHome()
             }
         } catch (error) {
             console.log(error);
@@ -24,9 +24,12 @@ export default function Item({ dataTimeline ,indexNum, getTimeline, handleLoadin
         <>
             <tr >
                 <td className="text-center" style={{verticalAlign:'middle'}}>{indexNum}</td>
-                <td className="text-center" style={{verticalAlign:'middle'}}>{dataTimeline?.label}</td>
-                <td className="text-center" style={{verticalAlign:'middle'}}>{dataTimeline?.content}</td>
-                <td className="text-center">{dataTimeline?.isDeleted ? "Không hoạt động" : "Hoạt động"}</td> 
+                <td className="text-center" style={{verticalAlign:'middle'}}>{dataDefineHome?.title}</td>
+                <td className="text-center" style={{verticalAlign:'middle'}}>{dataDefineHome?.content}</td>
+                <td className="text-center" style={{verticalAlign:'middle'}}>
+                    <img alt="" src={dataDefineHome?.imageCover?.url} style={{width:50,height:'auto'}} />
+                </td>
+                <td className="text-center">{dataDefineHome?.isDeleted ? "Không hoạt động" : "Hoạt động"}</td> 
                 <td style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <button id="setting-btn" onClick={() => setModalShow(true)}>
                         <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
@@ -36,11 +39,11 @@ export default function Item({ dataTimeline ,indexNum, getTimeline, handleLoadin
                    <ModalUpdate
                    show={modalShow}
                    onHide={() => setModalShow(false)}
-                   dataTimeline={dataTimeline}
-                   getTimeline={getTimeline}
+                   dataDefineHome={dataDefineHome}
+                   getDefineHome={getDefineHome}
                    handleLoading={handleLoading}
                    />
-                    <button onClick={() => deleteTimeline(dataTimeline._id)}>
+                    <button onClick={() => deleteDefineHome(dataDefineHome._id)}>
                         <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
                             <path fill="currentColor" d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8.46,11.88L9.87,10.47L12,12.59L14.12,10.47L15.53,11.88L13.41,14L15.53,16.12L14.12,17.53L12,15.41L9.88,17.53L8.47,16.12L10.59,14L8.46,11.88M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z" />
                         </svg>

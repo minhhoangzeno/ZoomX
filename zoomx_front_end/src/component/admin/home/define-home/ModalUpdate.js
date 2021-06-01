@@ -3,31 +3,32 @@ import Modal from 'react-bootstrap/Modal'
 import { doPut } from '../../../../lib/DataSource';
 
 export default function ModalUpdate(props) {
-    const [timeline, setTimeline] = useState(props.dataTimeline);
+    const [fileCover, setFileCover] = useState(props.dataDefineHome.imageCover.url);
+    const [define_home, setDefineHome] = useState(props.dataDefineHome);
     
-    let handleTimeline = (e) => {
+    let handleDefineHome = (e) => {
         const { name, value } = e.target
-        setTimeline({
-            ...timeline,
+        setDefineHome({
+            ...define_home,
             [name]: value
         })
     }
 
-    const updateTimeline = async (timelineData) => {
+    const updateDefineHome = async (define_homeData) => {
         props.handleLoading(true)
-        const path = `/timeline/${timelineData._id}`;
-
+        const path = "/define-home";
         const headers = {
             "Content-Type": "multipart/form-data"
         }
         const data = new FormData();
-        data.append("content", timelineData?.content);
-        data.append("label", timelineData?.label)
+        data.append("title", define_homeData?.title);
+        data.append("content", define_homeData?.content)
+        data.append("imageCover",define_homeData?.imageCover)
         try {
             let res = await doPut(path, headers, data)
             if(res.status === 200){
                 props.handleLoading(false)
-                props.getTimeline()
+                props.getDefineHome()
             }
     
         } catch (error) {
@@ -44,24 +45,39 @@ export default function ModalUpdate(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Label: </label> <input className="input-txt"
-                            name="label" onChange={handleTimeline}
+                        <label className="label-txt">Title: </label> <input className="input-txt"
+                            name="title" onChange={handleDefineHome}
                             type="text"
-                            value={timeline.label}
+                            value={define_home.title}
                         />
                     </div>
                     <div>
                         <label className="label-txt">Content: </label> <input className="input-txt"
-                            name="content" onChange={handleTimeline}
+                            name="content" onChange={handleDefineHome}
                             type="text"
-                            value={timeline.content}
+                            value={define_home.content}
                         />
+                    </div>
+                    <div>
+                        <label>Anh :</label> <input id="file-input" type="file"
+                            name="imageCover"
+                            onChange={(e) => {
+                                setFileCover(URL.createObjectURL(e.target.files[0]))
+                                setDefineHome({
+                                    ...define_home,
+                                    imageCover: e.target.files[0]
+                                })
+                            }}
+                        />
+                    </div>
+                    <div>
+                        <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
                     </div>
                     <div className="btn--bottom">
                         <div className="wrapper__btn">
                             <button className="back-btn" onClick={props.onHide}>Quay lại</button>
                             <button onClick={() => {
-                                updateTimeline(timeline)
+                                updateDefineHome(define_home)
                                
                                 props.onHide()
                             }}>Xác nhận</button>
