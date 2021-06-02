@@ -1,5 +1,8 @@
 @import "./common.scss";
 
+.scrollTransform{
+  transform: translateY(-42px);
+}
 header {
   width: 100%;
   @media (max-width: 1024px) {
@@ -11,6 +14,7 @@ header {
     top: 0%;
     z-index: 39;
     width: 100%;
+    transition-duration: .8s;
     &--top {
       min-height: 40px;
       border: 1px solid #eaeaea;
@@ -432,6 +436,11 @@ footer {
         font-size: 11px;
       }
     }
+    &--empty{
+      width: 56px;
+      height: 2px;
+      background-color: #FFF;
+    }
     &--mid {
       letter-spacing: 10px;
       font-family: didot;
@@ -522,10 +531,10 @@ footer {
       font-weight: bold;
       letter-spacing: 3px;
       @media (max-width: 1441px) {
-        font-size: 30px;
+        font-size: 21px;
       }
       @media (max-width: 1025px) {
-        font-size: 25px;
+        font-size: 21px;
       }
       @media (max-width: 769px) {
         font-size: 20px;
@@ -535,10 +544,10 @@ footer {
       margin-top: 10px;
       font-size: 16px;
       @media (max-width: 1025px) {
-        font-size: 14px;
+        font-size: 12px;
       }
       @media (max-width: 769px) {
-        font-size: 13px;
+        font-size: 12px;
         margin-top: 5px;
       }
     }

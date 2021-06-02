@@ -12,8 +12,8 @@ export default function Header() {
     return (
         <>
             <header>
-                <div className="header__wrapper">
-                    <div className="header__wrapper--top" style={{display: (height > 50) ? 'none' : 'flex'}}>
+                <div className={(height>50 ? "header__wrapper scrollTransform" : "header__wrapper")} >
+                    <div className="header__wrapper--top" >
                         <div className="container-fluid wrapper__top">   
                                 <div className="wrapper__top--left contact">
                                     <div className="contact__number">

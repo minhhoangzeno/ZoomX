@@ -146,7 +146,7 @@ export default function Footer() {
             <div className={isNavMobile ? "nav--mobile openNavMobile" : "nav--mobile"}>
                 <ul className="nav--mobile__content">
                     <li>
-                        <a href="http://www.github.com">
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/')}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="71.348" height="52.437" viewBox="0 0 71.348 52.437">
                                 <g id="Group_540" data-name="Group 540" transform="translate(831.021 147.649)">
                                     <g id="Group_532" data-name="Group 532" transform="translate(-828.858 -98.508)">
@@ -219,7 +219,7 @@ export default function Footer() {
                                 </g>
                             </svg>
 
-                        </a>
+                        </span>
                     </li>
                     <li>
                         <span style={{ cursor: 'pointer' }} onClick={() => history.push('/')}>Trang chủ</span>
@@ -238,6 +238,12 @@ export default function Footer() {
                     </li>
                     <li>
                         <span style={{ cursor: 'pointer' }} onClick={() => history.push('/library')}>Thư viện</span>
+                    </li>
+                    <li>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/contact')}>Liên hệ</span>
+                    </li>
+                    <li>
+                        <span style={{ cursor: 'pointer' }} onClick={() => history.push('/recruitment')}>Tuyển dụng</span>
                     </li>
                 </ul>
                 <div className="nav--mobile__close" onClick={() => setIsNavMobile(false)}>
