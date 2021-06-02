@@ -18,9 +18,7 @@
     @media (max-width:1190px) {
         font-size: 12px;
     }
-    @media (max-width:767px) {
-        font-size: 10px;
-    }
+    
     .container-fluid{
         width: 100vw;
         padding: 140px;
@@ -32,6 +30,13 @@
         }
         .recruitment__main{
             
+            @media (max-width:1190px) {
+                padding-right: 30px;
+                
+            }
+            @media (max-width:769px) {
+                padding-right: 0px;
+            }
             .main__content{
                 background-color: #fff;
                 padding: 75px;
@@ -42,9 +47,10 @@
                 }
                 @media (max-width:1190px) {
                     padding: 25px;
+                    
                 }
                 @media (max-width:767px) {
-                    padding: 10px;
+                    padding: 15px;
                 }
                 
                 &--info{
@@ -59,6 +65,9 @@
                     }
                     @media (max-width:767px) {
                         padding-bottom: 20px;
+                    }
+                    @media (max-width:767px) {
+                        display: block;
                     }
                     .logo{
                         padding-right: 80px;
@@ -92,6 +101,9 @@
                         @media (max-width:767px) {
                             padding-top: 20px;
                         }
+                        @media (max-width:500px) {
+                            padding-top: 0px;
+                        }
                         .title{
                             font-size: 36px;
                             color: #282828;
@@ -117,15 +129,16 @@
                                     background-color: #E01042;
                                     color: #FFFFFF;
                                     border: 3px solid #E01042;
+                                    font-weight: 600;
                                     @media (max-width:1679px) {
                                         font-size: 12px;
                                     }
                                     @media (max-width:1190px) {
-                                        padding: 10px 28px;
+                                        padding: 5px 18px;
                                     }
                                     @media (max-width:767px) {
-                                        font-size: 10px;
-                                        padding: 5px 5px;
+                                        font-size: 12px;
+                                        padding: 5px 10px;
                                     }
                                 }
                             }
@@ -148,6 +161,9 @@
                     }
                     @media (max-width:1190px) {
                         padding-top: 20px;
+                    }
+                    @media (max-width:500px) {
+                        padding-top: 15px;
                     }
                     strong{
                         font-size: 21px;
@@ -175,8 +191,16 @@
                             padding-right: 30px;
                             padding-top: 20px;
                         }
+                        @media (max-width:500px) {
+                            padding-left: 15px;
+                            padding-right: 15px;
+                            padding-top: 20px;
+                        }
                         td{
                             width: 70%;
+                            @media (max-width:500px) {
+                                width: 57%;
+                            }
                         }
                     }
     
@@ -533,14 +557,11 @@
                                     background-color: #E01042;
                                     padding: 15px 38px;
                                     border: 3px solid #E01042;
-                                    @media (max-width:1190px) {
-                                        width: 160px;
-                                        height: 40px;
-                                    } 
+                                    
                                     @media (max-width:767px) {
-                                        width: 100px;
-                                        height: 25px;
+                                        padding: 10px 18px;
                                     }
+                                    
                                     strong{
                                         color:#FFFFFF ;
                                         @media (max-width:767px) {
