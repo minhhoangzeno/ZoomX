@@ -11,7 +11,7 @@ var self = module.exports = {
         return new Promise((resolve,reject) => {
             Cloudinary.uploadSingle({
                 file: request.file.path,
-                path: request?.path
+                path: request.path
             })
             .then((result) => {
                 Image.create({
@@ -36,7 +36,7 @@ var self = module.exports = {
             let resPromise = request.file.map(file => new Promise((resolve, reject) => {
                 Cloudinary.uploadMultiple({
                     file: file.path,
-                    path: request?.path
+                    path: request.path
                 }).then((result) => {
                     Image.create({
                         url: result.url,

@@ -60,6 +60,15 @@
                     padding-bottom: 5px;
                 }
             }
+            &__content{
+                @media(max-width: 768px){
+                    padding-right: 20px;
+                }
+                @media(max-width: 425px){
+                    padding-right: 0;
+                    // text-align: center;
+                }
+            }
             &__main{
                 
                 .combo--item{
@@ -189,10 +198,24 @@
         }
         .contact__info{
             color: #676767;
+            width: 100%;
+            height: 100%;
+            @media (max-width: 1920px){
+                max-height: 400px;
+            }
+            @media (max-width: 1440px){
+                max-height: 310px;
+            }
+            @media(max-width: 1024px){
+                max-height: 280px;
+            }
+            @media(max-width: 768px){
+                max-height: 230px;
+            }
             img{
                 width: 100%;
-                height: auto;
-                object-fit: contain;
+                height: 100%;
+                // object-fit: contain;
             }
             &--basic{
                 padding-top: 40px;

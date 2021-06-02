@@ -92,10 +92,10 @@ exports.add_project = (req, res) => {
             totalInvestment: req.body.totalInvestment,
             categoryInvestment: req.body.categoryInvestment,
             description: req.body.description,
-            imageCover: result.filter(item => item.imageCover)[0]?.imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
-            imageHero: result.filter(item => item.imageHero)[0]?.imageHero ? result.filter(item => item.imageHero)[0].imageHero : null,
-            imageProject: result.filter(item => item.imageProject)[0]?.imageProject ? result.filter(item => item.imageProject)[0].imageProject : null,
-            imageInfor: result.filter(item => item.imageInfor)[0]?.imageInfor ? result.filter(item => item.imageInfor)[0].imageInfor : null
+            imageCover: result.filter(item => item.imageCover)[0].imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
+            imageHero: result.filter(item => item.imageHero)[0].imageHero ? result.filter(item => item.imageHero)[0].imageHero : null,
+            imageProject: result.filter(item => item.imageProject)[0].imageProject ? result.filter(item => item.imageProject)[0].imageProject : null,
+            imageInfor: result.filter(item => item.imageInfor)[0].imageInfor ? result.filter(item => item.imageInfor)[0].imageInfor : null
         }
         let newProject = new Project(objProject);
         newProject.save().then((project) => {

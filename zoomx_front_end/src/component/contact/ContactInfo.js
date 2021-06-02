@@ -1,10 +1,10 @@
 import React from 'react';
 import hotel from '../../image/contact/hotel.png'
-export default function ContactInfo() {
+export default function ContactInfo({ data }) {
     return(
         <div className="col-md-6 col-12">
                         <div className="contact__info">
-                            <img src={hotel} alt="" />
+                            <img src={data.imageCover.url} alt="" />
                             <div className="contact__info--basic">
                                 <div className="row">
                                     <div className="col-6">

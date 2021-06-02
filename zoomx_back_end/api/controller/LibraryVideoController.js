@@ -47,7 +47,7 @@ exports.add_libraryvideo = (req, res) => {
 exports.update_library_video = (req, res) => {
     let id = req.params.library_video_id;
     LibraryVideo.findById(id).exec().then(libVideo => {
-        ImageUtil.updateSingeFile(req.files[0], libVideo?.imageCover, 'Library/Video').then(() => {
+        ImageUtil.updateSingeFile(req.files[0], libVideo.imageCover, 'Library/Video').then(() => {
             LibraryVideo.findByIdAndUpdate(id, {
                 name: req.body.name,
                 videoUrl: req.body.videoUrl

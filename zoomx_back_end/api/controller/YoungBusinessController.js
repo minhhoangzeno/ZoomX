@@ -46,7 +46,7 @@ exports.add_young_business = (req, res) => {
         YoungBusiness.create({
             title: req.body.title,
             content: req.body.content,
-            imageYoung: result?.imageYoung
+            imageYoung: result.imageYoung
         }).then(data => {
             res.send(data)
         })
@@ -59,7 +59,7 @@ exports.update_youngbusiness = async (req, res) => {
     let id = req.params.youngbusiness_id;
     let fileYoungs = req.files.filter(item => item.fieldname == 'imageYoung');
     await YoungBusiness.findById(id).then(youngbusiness => {
-        youngbusiness.imageYoung?.map(item => {
+        youngbusiness.imageYoung.map(item => {
             ImageUtil.deleteSingleFile(item)
         })
     })
@@ -85,7 +85,7 @@ exports.update_youngbusiness = async (req, res) => {
         YoungBusiness.findByIdAndUpdate(id, {
             title: req.body.title,
             content: req.body.content,
-            imageYoung: result?.imageYoung
+            imageYoung: result.imageYoung
         }).then(data => {
             res.send(data)
         }).catch(error => {
@@ -97,7 +97,7 @@ exports.update_youngbusiness = async (req, res) => {
 exports.delete_young_business = (req, res) => {
     let id = req.params.youngbusiness_id;
     YoungBusiness.findById(id).then(youngbusiness => {
-        youngbusiness.imageYoung?.map(item => {
+        youngbusiness.imageYoung.map(item => {
             console.log(item)
             ImageUtil.deleteSingleFile(item).then(() => {
                 youngbusiness.remove()

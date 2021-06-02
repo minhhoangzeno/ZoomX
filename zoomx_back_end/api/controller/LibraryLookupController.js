@@ -59,8 +59,8 @@ exports.add_library_lookup = (req, res) => {
     Promise.all([uploadPDF, uploadCover]).then(result => {
         LibraryLookup.create({
             name: req.body.name,
-            imageCover: result.filter(item => item.imageCover)[0]?.imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
-            fileBook: result.filter(item => item.fileBook)[0]?.fileBook ? result.filter(item => item.fileBook)[0].fileBook : null
+            imageCover: result.filter(item => item.imageCover)[0].imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
+            fileBook: result.filter(item => item.fileBook)[0].fileBook ? result.filter(item => item.fileBook)[0].fileBook : null
         }).then(libLookup => {
             res.send(libLookup)
         }).catch(error => {
