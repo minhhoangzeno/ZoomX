@@ -98,7 +98,8 @@ module.exports = app => {
     app.route('/hero/:hero_id')
         .put(hero_controller.update_hero)
         .delete(hero_controller.delete_hero)
-
+    app.route('/hero/upload/:hero_id')
+        .put(hero_controller.upload_hero)
 
     app.route('/blog')
         .get(blog_controller.get_all_blog)

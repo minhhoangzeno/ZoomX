@@ -42,7 +42,6 @@ exports.add_young_business = (req, res) => {
         })
     })
     uploadProject.then(result => {
-        console.log(result)
         YoungBusiness.create({
             title: req.body.title,
             content: req.body.content,

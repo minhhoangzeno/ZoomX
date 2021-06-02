@@ -13,7 +13,7 @@ export default function ModalUpdate(props) {
             [name]: value
         })
     }
-
+    console.log(typeof(hero.imageCover))
     const updateHero = async (heroData) => {
         props.handleLoading(true)
         const path = `/hero/${heroData._id}`;
