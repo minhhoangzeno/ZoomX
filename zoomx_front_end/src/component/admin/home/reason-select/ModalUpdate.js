@@ -3,31 +3,32 @@ import Modal from 'react-bootstrap/Modal'
 import { doPut } from '../../../../lib/DataSource';
 
 export default function ModalUpdate(props) {
-    const [timeline, setTimeline] = useState(props.dataTimeline);
+    const [fileCover, setFileCover] = useState(props.dataReasonSelect.imageCover.url);
+    const [reason_select, setReasonSelect] = useState(props.dataReasonSelect);
     
-    let handleTimeline = (e) => {
+    let handleReasonSelect = (e) => {
         const { name, value } = e.target
-        setTimeline({
-            ...timeline,
+        setReasonSelect({
+            ...reason_select,
             [name]: value
         })
     }
 
-    const updateTimeline = async (timelineData) => {
+    const updateReasonSelect = async (reason_selectData) => {
         props.handleLoading(true)
-        const path = `/timeline/${timelineData._id}`;
-
+        const path = `/reason-select/${reason_selectData._id}`;
         const headers = {
             "Content-Type": "multipart/form-data"
         }
         const data = new FormData();
-        data.append("content", timelineData?.content);
-        data.append("label", timelineData?.label)
+        data.append("title", reason_selectData?.title);
+        data.append("content", reason_selectData?.content)
+        data.append("imageCover",reason_selectData?.imageCover)
         try {
             let res = await doPut(path, headers, data)
             if(res.status === 200){
                 props.handleLoading(false)
-                props.getTimeline()
+                props.getReasonSelect()
             }
     
         } catch (error) {
@@ -44,24 +45,39 @@ export default function ModalUpdate(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Label: </label> <input className="input-txt"
-                            name="label" onChange={handleTimeline}
+                        <label className="label-txt">Title: </label> <input className="input-txt"
+                            name="title" onChange={handleReasonSelect}
                             type="text"
-                            value={timeline.label}
+                            value={reason_select.title}
                         />
                     </div>
                     <div>
                         <label className="label-txt">Content: </label> <input className="input-txt"
-                            name="content" onChange={handleTimeline}
+                            name="content" onChange={handleReasonSelect}
                             type="text"
-                            value={timeline.content}
+                            value={reason_select.content}
                         />
+                    </div>
+                    <div>
+                        <label>Anh :</label> <input id="file-input" type="file"
+                            name="imageCover"
+                            onChange={(e) => {
+                                setFileCover(URL.createObjectURL(e.target.files[0]))
+                                setReasonSelect({
+                                    ...reason_select,
+                                    imageCover: e.target.files[0]
+                                })
+                            }}
+                        />
+                    </div>
+                    <div>
+                        <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
                     </div>
                     <div className="btn--bottom">
                         <div className="wrapper__btn">
                             <button className="back-btn" onClick={props.onHide}>Quay lại</button>
                             <button onClick={() => {
-                                updateTimeline(timeline)
+                                updateReasonSelect(reason_select)
                                
                                 props.onHide()
                             }}>Xác nhận</button>

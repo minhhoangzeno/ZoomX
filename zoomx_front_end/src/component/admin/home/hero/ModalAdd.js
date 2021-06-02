@@ -3,33 +3,36 @@ import Modal from 'react-bootstrap/Modal'
 import { doPost } from '../../../../lib/DataSource';
 
 export default function ModalAdd(props) {
-    const [timeline, setTimeline] = useState({
-        content: null,
-        label:null
+    const [fileCover, setFileCover] = useState();
+    const [hero, setHero] = useState({
+        title: null,
+        label:null,
+        imageCover:null
     });
-    console.log(timeline)
-    let handleTimeline = (e) => {
+    console.log(hero)
+    let handleHero = (e) => {
         const { name, value } = e.target
-        setTimeline({
-            ...timeline,
+        setHero({
+            ...hero,
             [name]: value
         })
     }
 
-    const addTimeline = async (timelineData) => {
+    const addHero = async (heroData) => {
         props.handleLoading(true)
-        const path = "/timeline";
+        const path = "/hero";
         const headers = {
             "Content-Type": "multipart/form-data"
         }
         const data = new FormData();
-        data.append("content", timelineData?.content);
-        data.append("label", timelineData?.label)
+        data.append("title", heroData?.title);
+        data.append("label", heroData?.label)
+        data.append("imageCover",heroData?.imageCover)
         try {
             let res = await doPost(path, headers, data)
             if(res.status === 200){
                 props.handleLoading(false)
-                props.getTimeline()
+                props.getHero()
             }
     
         } catch (error) {
@@ -46,22 +49,38 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Label: </label> <input className="input-txt"
-                            name="label" onChange={handleTimeline}
+                        <label className="label-txt">Title: </label> <input className="input-txt"
+                            name="title" onChange={handleHero}
                             type="text"
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Content: </label> <input className="input-txt"
-                            name="content" onChange={handleTimeline}
+                        <label className="label-txt">Label: </label> <input className="input-txt"
+                            name="label" onChange={handleHero}
                             type="text"
                         />
+                    </div>
+                    <div>
+                        <label>Anh :</label> <input id="file-input" type="file"
+                            name="imageCover"
+                            onChange={(e) => {
+                                setFileCover(URL.createObjectURL(e.target.files[0]))
+                                setHero({
+                                    ...hero,
+                                    imageCover: e.target.files[0]
+                                })
+                            }}
+                        />
+                    </div>
+                    <div>
+                        <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
                     </div>
                     <div className="btn--bottom">
                         <div className="wrapper__btn">
                             <button className="back-btn" onClick={props.onHide}>Quay lại</button>
                             <button onClick={() => {
-                                addTimeline(timeline)
+                                addHero(hero)
+                                setFileCover(null)
                                 props.onHide()
                             }}>Xác nhận</button>
                         </div>
