@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
-import { doGet, doPost } from '../../../lib/DataSource';
+import { doGet,  doPut } from '../../../lib/DataSource';
 import { Editor } from '@tinymce/tinymce-react';
 import { tinyconfig } from '../../../TinyConfig';
 export default function ModalUpdate(props) {
@@ -8,10 +8,10 @@ export default function ModalUpdate(props) {
     props.data.imageProject.map(item => {
         pj.push(item.url)
     })
-    const [fileCover, setFileCover] = useState(props.data.imageCover.url);
+    const [fileCover, setFileCover] = useState(props.data.imageCover?.url);
     const [project, setProject] = useState(props.data)
-    const [fileHero, setFileHero] = useState(props.data.imageHero.url);
-    const [fileInfor, setFileInfor] = useState(props.data.imageInfor.url);
+    const [fileHero, setFileHero] = useState(props.data.imageHero?.url);
+    const [fileInfor, setFileInfor] = useState(props.data.imageInfor?.url);
     const [fileProject, setFileProject] = useState(pj);
     const [investment, setInvestment] = useState();
 
@@ -50,9 +50,9 @@ export default function ModalUpdate(props) {
         }
         setFileProject(listImage)
     }
-    const addProject = async (projectData) => {
+    const updateProject = async (projectData) => {
         props.handleLoading(true)
-        const path = "/project";
+        const path = `/project/${project._id}`;
         const headers = {
             "Content-Type": "multipart/form-data"
         }
@@ -67,13 +67,17 @@ export default function ModalUpdate(props) {
         data.append("imageCover", project?.imageCover);
         data.append("imageHero", project?.imageHero);
         data.append("imageInfor", project?.imageInfor);
-        data.append("imageProject", project?.imageProject);
+        let listPj = Array.from(project.imageProject)
+        for (let i = 0; i < listPj.length; i++) {
+            data.append("imageProject", listPj[i]);
+        } 
         data.append("dateStart", project?.dateStart);
         data.append("dateFinish", project?.dateFinish);
 
         try {
-            let res = await doPost(path, headers, data)
+            let res = await doPut(path, headers, data)
             if (res.status === 200) {
+                console.log("1")
                 props.handleLoading(false)
                 props.getSearch()
             }
@@ -81,6 +85,8 @@ export default function ModalUpdate(props) {
         } catch (error) {
             props.handleLoading(false)
             console.log(error)
+            console.log("2")
+
         }
     }
     return (
@@ -96,6 +102,7 @@ export default function ModalUpdate(props) {
                             name="projectName"
                             type="text"
                             onChange={handleProject}
+                            value={project.projectName}
                         />
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 20, marginBottom: 20 }}>
@@ -176,7 +183,10 @@ export default function ModalUpdate(props) {
                     </div>
                     <div>
                         <label className="label-txt">Chọn lĩnh vực đầu tư: </label>
-                        <select name="typeInvestment" id="cars" onChange={handleProject}>
+                        <select name="typeInvestment" id="cars" onChange={handleProject}
+                            value={project.typeInvestment}
+
+                        >
                             {investment?.map((item, idx) => {
                                 return (
                                     <option key={idx} value={item._id}>{item.investmentName}</option>
@@ -190,6 +200,7 @@ export default function ModalUpdate(props) {
                             name="address"
                             type="text"
                             onChange={handleProject}
+                            value={project.address}
 
                         />
                     </div>
@@ -198,6 +209,7 @@ export default function ModalUpdate(props) {
                             name="dateStart"
                             type="date"
                             onChange={handleProject}
+                            value={project.dateStart}
 
                         />
                     </div>
@@ -206,6 +218,7 @@ export default function ModalUpdate(props) {
                             name="dateFinish"
                             type="date"
                             onChange={handleProject}
+                            value={project.dateFinish}
 
                         />
                     </div>
@@ -214,6 +227,7 @@ export default function ModalUpdate(props) {
                             name="acreage"
                             type="text"
                             onChange={handleProject}
+                            value={project.acreage}
 
                         />
                     </div>
@@ -222,6 +236,7 @@ export default function ModalUpdate(props) {
                             name="totalInvestment"
                             type="text"
                             onChange={handleProject}
+                            value={project.totalInvestment}
 
                         />
                     </div>
@@ -236,6 +251,7 @@ export default function ModalUpdate(props) {
                                     categoryInvestment: event
                                 })
                             }}
+                            value={project.categoryInvestment}
 
                         />
                     </div>
@@ -250,6 +266,7 @@ export default function ModalUpdate(props) {
                                     description: event
                                 })
                             }}
+                            value={project.description}
 
                         />
                     </div>
@@ -265,8 +282,8 @@ export default function ModalUpdate(props) {
                                 setFileProject(null)
                             }}>Quay lại</button>
                             <button
-                                onClick={() => {
-                                    addProject(project)
+                                onClick={async () => {
+                                   await updateProject(project)
                                     setFileCover(null)
                                     setFileHero(null)
                                     setFileInfor(null)

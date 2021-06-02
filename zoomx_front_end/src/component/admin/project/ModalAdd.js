@@ -10,11 +10,9 @@ export default function ModalAdd(props) {
     const [fileInfor, setFileInfor] = useState();
     const [fileProject, setFileProject] = useState([]);
     const [investment, setInvestment] = useState();
-
     useEffect(() => {
         getInvestment()
     }, [])
-    console.log(project)
     const getInvestment = async () => {
         const path = "/investment";
         const headers = {
@@ -64,10 +62,10 @@ export default function ModalAdd(props) {
         data.append("imageCover", project?.imageCover);
         data.append("imageHero", project?.imageHero);
         data.append("imageInfor", project?.imageInfor);
-        for(let i=0;i<project.imageProject?.length;i++){
-            data.append("imageProject", project.imageProject[i]);
+        let listPj = Array.from(project.imageProject)
+        for(let i=0;i<listPj.length;i++){
+            data.append("imageProject", listPj[i]);
         }
-        // data.append("imageProject", project?.imageProject);
         data.append("dateStart", project?.dateStart);
         data.append("dateFinish", project?.dateFinish);
 
