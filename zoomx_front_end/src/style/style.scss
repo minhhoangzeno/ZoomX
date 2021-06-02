@@ -141,7 +141,7 @@ footer {
             letter-spacing: 2px;
             font-size: 24px;
             @media (max-width: 769px) {
-              font-size: 16px;
+              font-size: 21px;
             }
             @media (max-width: 426px) {
               font-size: 12px;
@@ -199,6 +199,10 @@ footer {
                 height: 100%;
                 &:focus {
                   outline-width: 0;
+                }
+                @media (max-width: 768px) {
+                 padding-left: 25px;
+                 padding-right: 0;
                 }
                 @media (max-width: 426px) {
                   font-size: 12px;
@@ -302,6 +306,7 @@ footer {
                 }
                 @media (max-width: 769px) {
                   padding: 8px;
+                  color: #ffffffA1;
                 }
               }
             }
@@ -426,10 +431,10 @@ footer {
       font-size: 14px;
       letter-spacing: 4px;
       @media (max-width: 768px) {
-        font-size: 13px;
+        font-size: 12px;
       }
       @media (max-width: 426px) {
-        font-size: 12px;
+        font-size: 10px;
         letter-spacing: 2px;
       }
       @media (max-width:321px){
@@ -454,7 +459,7 @@ footer {
         font-size: 30px;
       }
       @media (max-width: 426px) {
-        font-size: 25px;
+        font-size: 32px;
         margin-top: 5px;
         margin-bottom: 5px;
         letter-spacing: 4px;
