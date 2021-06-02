@@ -13,6 +13,7 @@ export default function YoungBusiness() {
             <div className="young-wrapper" key={index}>
               <div className="young-wrapper__label">{item.title}</div>
               <div className="young-wrapper__content">{item.content}</div>
+            
               <div className="young-wrapper__image">
                 {item.imageYoung?.map((image, idx) => {
                   return (
@@ -21,6 +22,7 @@ export default function YoungBusiness() {
                     </div>
                   );
                 })}
+            
                 {/* <div className="young-wrapper__image--item">
                   <img src={icon2} alt="" />
                 </div>

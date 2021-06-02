@@ -57,6 +57,7 @@ export default function PartnerComponent() {
       <div className="container-fluid wrapper__partner">
         <div className="wrapper__partner__label">Đối tác</div>
         <Slider className="slider-block row" {...settings}>
+          {/* <div className="controller__flex"> */}
           {data?.map((img, index) => {
             return (
               <>
@@ -66,6 +67,7 @@ export default function PartnerComponent() {
               </>
             );
           })}
+
           {/* <div className="wrapper__partner__item">
             <img className="img-partner" src={item2} alt="#" />
           </div>
@@ -90,6 +92,7 @@ export default function PartnerComponent() {
           <div className="wrapper__partner__item">
             <img className="img-partner" src={item6} alt="#" />
           </div> */}
+          {/* </div> */}
         </Slider>
       </div>
     </>
