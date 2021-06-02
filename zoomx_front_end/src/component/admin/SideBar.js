@@ -73,13 +73,6 @@ export function SideBar({ handlePage, isPage }) {
                         <span>Dự án</span>
                     </div>
                     <hr />
-                    <div className={handleStyle("detail-project")}
-                        onClick={() => handlePage('detail-project')}
-
-                    >
-                        <span>Chi tiết dự án</span>
-                    </div>
-                    <hr />
                     <div className={handleStyle("investment")}
                         onClick={() => handlePage('investment')}
 

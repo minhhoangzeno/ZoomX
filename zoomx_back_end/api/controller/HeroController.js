@@ -80,3 +80,14 @@ exports.delete_hero = (req, res) => {
         res.send(error)
     })
 }
+
+exports.upload_hero = (req, res) => {
+    Hero.findByIdAndUpdate(req.params.hero_id, {
+        title: req.body.title,
+        label: req.body.label
+    }).then(data => {
+        res.send(data)
+    }).catch(error => {
+        res.send(error)
+    })
+}

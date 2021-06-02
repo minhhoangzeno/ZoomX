@@ -24,7 +24,6 @@ export default function Dashboard({ isPage }) {
             {isPage === "investment" && <Investment />}
             {isPage === "recruitment" && <Recruitment />}
             {isPage === "project" && <Project />}
-
         </div>
     )
 }
