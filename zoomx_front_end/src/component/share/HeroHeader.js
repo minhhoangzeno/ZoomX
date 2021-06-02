@@ -10,6 +10,7 @@ export default function HeroHeader() {
           <div className="hero__content--top">
             WELCOME &nbsp; TO&nbsp; ZOOMX&nbsp; HOTELS
           </div>
+          <div className="hero__content--empty"></div>
           <div className="hero__content--mid">Difference in every second</div>
           <div className="hero__content--bottom">
             <button onClick={() => history.push("/zoomx")}>XEM THÊM</button>
