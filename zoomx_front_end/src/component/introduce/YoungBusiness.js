@@ -14,10 +14,10 @@ export default function YoungBusiness() {
               <div className="young-wrapper__label">{item.title}</div>
               <div className="young-wrapper__content">{item.content}</div>
               <div className="young-wrapper__image">
-                {data?.map((image, idx) => {
+                {item.imageYoung?.map((image, idx) => {
                   return (
                     <div className="young-wrapper__image--item" key={idx}>
-                      <img src={image.imageYoung.url} alt="#" />
+                      <img src={image.url} alt="#" />
                     </div>
                   );
                 })}

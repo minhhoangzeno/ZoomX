@@ -281,3 +281,4 @@ export const usePartner = () => {
   }
   return { data, error, loading: data || error ? false : true };
 };
+

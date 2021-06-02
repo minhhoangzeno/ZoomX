@@ -60,9 +60,9 @@ export default function PartnerComponent() {
           {data?.map((img, index) => {
             return (
               <>
-                {/* <div className="wrapper__partner__item" key={index}> */}
+                <div className="wrapper__partner__item" key={index}>
                   <img className="img-partner" src={img.logo.url} alt="#" />
-                {/* </div> */}
+                </div>
               </>
             );
           })}
