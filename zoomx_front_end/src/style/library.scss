@@ -1,5 +1,7 @@
 @import "./common.scss";
-
+img{
+    object-fit: cover;
+}
 .menu__wrapper {
     width: 100%;
     padding: 80px;

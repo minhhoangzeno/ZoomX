@@ -1,5 +1,7 @@
 @import "../style/common.scss";
-
+img{
+    object-fit: cover;
+}
 .project__wrapper {
     width: 100%;
     padding-bottom: 50px;
