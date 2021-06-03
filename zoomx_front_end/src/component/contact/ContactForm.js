@@ -2,8 +2,7 @@ import React from 'react';
 
 export default function ContactForm() {
     return(
-        <div className="col-md-6 col-12">
-                        <div className="contact__form">
+        <div className="contact__form">
                             <div className="contact__form__title">
                                 <p>Hãy cho chúng tôi biết suy nghĩ của bạn</p>
                             </div>
@@ -50,7 +49,5 @@ export default function ContactForm() {
                                 </button>
                         </div>
                         </div>
-                        
-                    </div>
     )
 }
