@@ -75,7 +75,7 @@ export default function Footer() {
 
                                     </div>
                                 </div>
-                                <div className="col-lg-4 col-md-8 col-sm-12 wrapper__top__item">
+                                <div className="col-lg-4 col-md-9 col-sm-12 wrapper__top__item">
                                     <div className="wrapper__top__item--top">
                                         Tin mới
                                 </div>

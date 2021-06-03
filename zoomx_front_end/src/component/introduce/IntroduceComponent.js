@@ -5,8 +5,8 @@ export default function IntroduceComponent() {
     <>
       <div className="introduce">
         <div className="container-fluid">
-          <div className="row">
-            <div className="col-12 col-sm-12 col-md-6" style={{paddingLeft:0}}>
+          <div className="row" style={{flexWrap:'wrap-reverse'}}>
+            <div className="col-12 col-sm-12 col-xs-12 col-md-6" style={{paddingLeft:0}}>
               <div className="introduce-detail">
                 <p className="introduce-detail__title">WELCOME &nbsp; TO &nbsp; ZOOMX &nbsp; HOTELS</p>
                 <div className="introduce-detail__empty"></div>
@@ -38,8 +38,8 @@ export default function IntroduceComponent() {
               </div>
 
             </div>
-            <div className="col-12 col-sm-12 col-md-6 introduce-image">
-              <img src={hotel} />
+            <div className="col-12 col-sm-12 col-xs-12 col-md-6 introduce-image">
+              <img src={hotel} alt="" />
 
             </div>
           </div>
