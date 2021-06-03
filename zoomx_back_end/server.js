@@ -25,7 +25,7 @@ var express = require('express'),
     Slogan = require('./api/model/SloganModel'),
     ReasonSelect = require('./api/model/ReasonSelectModel'),
     DefineHome = require('./api/model/DefineHomeModel'),
-    ZoomX = require('./api/model/ZoomXModel');
+    ZoomX = require('./api/model/ZoomXModel'),
     path = require('path')
 
     ;

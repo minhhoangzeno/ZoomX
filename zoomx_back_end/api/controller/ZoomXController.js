@@ -82,7 +82,6 @@ exports.update_zoomx = async (req, res) => {
             reject(error)
         })
     })
-    console.log("filePdf",filePDF)
     let updateFile = new Promise((resolve, reject) => {
         FileUtil.updateSingeFile(filePDF, zoomx.profile, 'ZoomX').then(result => {
             resolve(result)
@@ -92,6 +91,7 @@ exports.update_zoomx = async (req, res) => {
     })
 
     Promise.all([updateCover, updateFile]).then(result => {
+        console.log(result)
         ZoomX.findByIdAndUpdate(req.params.zoomx_id, {
             content: req.body.content
         }).then(data => {
@@ -113,7 +113,7 @@ exports.delete_zoomx = async (req, res) => {
         })
     })
     let deleteFileBook = new Promise((resolve, reject) => {
-        ImageUtil.deleteSingleFile(zoomx.profile).then(result => {
+        FileUtil.deleteSingleFile(zoomx.profile).then(result => {
             resolve(result)
         }).catch(error => {
             res.send(error)

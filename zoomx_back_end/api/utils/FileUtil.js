@@ -8,12 +8,11 @@ const mongoose = require('mongoose'),
 var utils = module.exports = {
     updateSingeFile: (file, fileId, folder) => {
         return new Promise((resolve, reject) => {
-            console.log("file",file)
             File.findById(fileId).exec()
-                .then(async data => {
-                    await cloudinary.uploader.destroy(data.fileId);
+                .then(async filePDF => {
+                    await cloudinary.uploader.destroy(filePDF.fileId);
                     Cloudinary.uploadSingle({
-                        file: file?.path,
+                        file: file.path,
                         path: `ZoomX/${folder}`
                     }).then(result => {
                         File.findByIdAndUpdate(fileId, {
@@ -25,6 +24,7 @@ var utils = module.exports = {
                 })
                 .catch(error => {
                     reject(error)
+                    console.log(error)
                 })
         })
     },
