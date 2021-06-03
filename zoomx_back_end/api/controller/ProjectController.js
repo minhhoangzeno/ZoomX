@@ -5,84 +5,6 @@ const mongoose = require('mongoose'),
     UpdateImageProject = require('../utils/project/UpdateImageProject')
     ;
 
-exports.get_project = (req, res) => {
-    const getProjectPromise = new Promise((resolve, reject) => {
-        Project.find({})
-            .populate([
-                {
-                    path: 'imageProject',
-                    populate: {
-                        path: 'imageProject',
-                        model: 'image',
-                        select: 'url'
-                    },
-                    select: 'url'
-                },
-                {
-                    path: 'imageCover',
-                    model: 'image',
-                    select: 'url'
-                },
-                {
-                    path: 'imageHero',
-                    model: 'image',
-                    select: 'url'
-                },
-                {
-                    path: 'imageInfor',
-                    model: 'image',
-                    select: 'url'
-                }
-            ])
-            .then(project => {
-                resolve(project)
-            })
-            .catch(err => {
-                reject(err)
-            })
-    })
-    getProjectPromise.then(project => {
-        res.send(project)
-    }).catch(err => {
-        res.send(err)
-    })
-}
-
-exports.get_project_investment = (req, res) => {
-    Project.find({ typeInvestment: req.params.typeInvestmentId })
-        .populate([
-            {
-                path: 'imageProject',
-                populate: {
-                    path: 'imageProject',
-                    model: 'image',
-                    select: 'url'
-                },
-                select: 'url'
-            },
-            {
-                path: 'imageCover',
-                model: 'image',
-                select: 'url'
-            },
-            {
-                path: 'imageHero',
-                model: 'image',
-                select: 'url'
-            },
-            {
-                path: 'imageInfor',
-                
-                model: 'image',
-                select: 'url'
-            }
-        ]).then(data => {
-            res.send(data)
-        }).catch(error => {
-            res.send(error)
-        })
-}
-
 exports.add_project = (req, res) => {
     AddImageProject.addImageProject(req).then(result => {
         let objProject = {
@@ -135,9 +57,110 @@ exports.update_project = (req, res) => {
 
 }
 exports.delete_project = (req, res) => {
-    AddImageProject.deleteImageProject(req.params.project_id).then(result => {
-        res.send(result)
+    Project.findByIdAndDelete(req.params.project_id).then(() => {
+        AddImageProject.deleteImageProject(req.params.project_id).then(result => {
+            res.send(result)
+        }).catch(error => {
+            res.send(error)
+        })
     }).catch(error => {
         res.send(error)
     })
 }
+
+
+exports.get_paginate_project = async (req, res, next) => {
+    let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
+    let page = req.query.page;
+    let totalPage;
+    await Project.find().then(result => totalPage = result)
+    Project
+        .find() // find tất cả các data
+        .populate([
+            {
+                path: 'imageProject',
+                populate: {
+                    path: 'imageProject',
+                    model: 'image',
+                    select: 'url'
+                },
+                select: 'url'
+            },
+            {
+                path: 'imageCover',
+                model: 'image',
+                select: 'url'
+            },
+            {
+                path: 'imageHero',
+                model: 'image',
+                select: 'url'
+            },
+            {
+                path: 'imageInfor',
+                model: 'image',
+                select: 'url'
+            }
+        ])
+        .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+        .limit(perPage)
+        .exec((err, data) => {
+            Project.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+                if (err) return next(err);
+                res.send({
+                    data,
+                    totalPage: totalPage?.length
+                }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+            });
+        });
+}
+
+exports.get_paginate_investment_project = (req, res, next) => {
+    let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
+    let page = req.query.page;
+    let investment = req.query.investment;
+    let totalPage;
+    Project.find({ typeInvestment: investment }).then(result => totalPage = result)
+    Project
+        .find({
+            typeInvestment: investment
+        }) // find tất cả các data
+        .populate([
+            {
+                path: 'imageProject',
+                populate: {
+                    path: 'imageProject',
+                    model: 'image',
+                    select: 'url'
+                },
+                select: 'url'
+            },
+            {
+                path: 'imageCover',
+                model: 'image',
+                select: 'url'
+            },
+            {
+                path: 'imageHero',
+                model: 'image',
+                select: 'url'
+            },
+            {
+                path: 'imageInfor',
+                model: 'image',
+                select: 'url'
+            }
+        ])
+        .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+        .limit(perPage)
+        .exec((err, data) => {
+            Project.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+                if (err) return next(err);
+                res.send({
+                    data,
+                    totalPage: totalPage.length
+                }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+            });
+        });
+}
+

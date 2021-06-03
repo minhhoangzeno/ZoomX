@@ -39,13 +39,7 @@ exports.delete_blog = (req, res) => {
                 typeBlog: req.params.blog_id
             }).then(result => {
                 result.map(rs => {
-                    Blog.findByIdAndUpdate(rs._id, { typeBlog: null })
-                    .then(blog => {
-                        res.send(blog)
-                    })
-                    .catch(err => {
-                        res.send(err)
-                    })
+                   rs.remove()
                 })
             })
         })
