@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import { doPut } from '../../../../lib/DataSource';
-
+import { Editor } from '@tinymce/tinymce-react';
+import { tinyconfig } from '../../../../TinyConfig';
 export default function ModalUpdate(props) {
     const [fileCover, setFileCover] = useState(props.dataReasonSelect.imageCover.url);
     const [reason_select, setReasonSelect] = useState(props.dataReasonSelect);
@@ -52,9 +53,14 @@ export default function ModalUpdate(props) {
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Content: </label> <input className="input-txt"
-                            name="content" onChange={handleReasonSelect}
-                            type="text"
+                        <label className="label-txt">Content: </label> <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
+                            init={tinyconfig}
+                            onEditorChange={(event) => {
+                                setReasonSelect({
+                                    ...reason_select,
+                                    content: event
+                                })
+                            }}
                             value={reason_select.content}
                         />
                     </div>

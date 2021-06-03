@@ -24,8 +24,8 @@ export default function Item({ dataReasonSelect ,indexNum, getReasonSelect, hand
         <>
             <tr >
                 <td className="text-center" style={{verticalAlign:'middle'}}>{indexNum}</td>
-                <td className="text-center" style={{verticalAlign:'middle'}}>{dataReasonSelect?.title}</td>
-                <td className="text-center" style={{verticalAlign:'middle'}}>{dataReasonSelect?.content}</td>
+                <td className="text-center" style={{verticalAlign:'middle'}}>{dataReasonSelect?.title} </td>
+                <td className="text-center" style={{verticalAlign:'middle'}} dangerouslySetInnerHTML={{ __html: dataReasonSelect?.content }}></td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>
                     <img alt="" src={dataReasonSelect?.imageCover?.url} style={{width:50,height:'auto'}} />
                 </td>
