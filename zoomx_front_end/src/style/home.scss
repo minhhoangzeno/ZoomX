@@ -129,7 +129,7 @@
             margin-bottom: 20px;
           }
           @media (max-width: 425px) {
-            font-size: 12px;
+            font-size: 10px !important;
           }
         }
         .next_element:hover {
@@ -558,7 +558,7 @@
       font-size: 12px;
     }
     @media (max-width: 426px) {
-      font-size: 10px;
+      font-size: 8px;
       letter-spacing: 2px;
     }
   }
@@ -603,6 +603,10 @@
       }
       @media (max-width: 769px) {
         width: 300px !important;
+        height: 250px !important;
+      }
+      @media (max-width: 426px) {
+        width: 340px !important;
         height: 250px !important;
       }
       .item-block {
@@ -733,11 +737,11 @@
       }
       @media (max-width: 768px) {
         font-size: 13px;
-        padding: 7px 15px;
+        padding: 8px 20px;
       }
       @media (max-width: 426px) {
-        font-size: 12px;
-        padding: 10px 30px;
+        font-size: 10px;
+        padding: 8px 20px;
         border: 1px solid #fff;
       }
       &:hover {
