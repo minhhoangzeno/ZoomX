@@ -51,7 +51,7 @@ export default function ModalUpdate(props) {
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Content: </label> <input className="input-txt"
+                        <label className="label-txt">Nội dung: </label> <textarea className="input-txt"
                             name="content" onChange={handleTimeline}
                             type="text"
                             value={timeline.content}

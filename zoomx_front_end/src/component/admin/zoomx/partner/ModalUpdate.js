@@ -48,7 +48,7 @@ export default function ModalUpdate(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Nhập tên đối tác: </label> <input className="input-txt"
+                        <label className="label-txt">Tên đối tác: </label> <input className="input-txt"
                             name="name" onChange={handlePartner}
                             type="text"
                             value={partner.name}

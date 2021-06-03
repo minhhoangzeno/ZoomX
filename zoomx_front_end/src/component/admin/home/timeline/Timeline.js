@@ -56,7 +56,7 @@ export default function Timeline() {
                             <tr>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Label</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Content</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Nội dung</th>
                                 <th className="text-center" width="12%">Setting</th>
                             </tr>
                         </thead>

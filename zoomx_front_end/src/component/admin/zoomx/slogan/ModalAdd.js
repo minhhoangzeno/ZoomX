@@ -47,7 +47,7 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Content: </label> <input className="input-txt"
+                        <label className="label-txt">Trích dẫn: </label> <input className="input-txt"
                             name="content" onChange={handleSlogan}
                             type="text"
                         />

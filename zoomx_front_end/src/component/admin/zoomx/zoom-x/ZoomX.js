@@ -64,10 +64,9 @@ export default function ZoomX() {
                         <thead>
                             <tr>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Title</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Label</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Nội dung</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Profile</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Ảnh cover</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Trạng thái</th>
                                 <th className="text-center" width="12%">Setting</th>
                             </tr>
                         </thead>

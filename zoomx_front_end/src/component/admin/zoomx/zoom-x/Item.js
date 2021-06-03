@@ -24,12 +24,13 @@ export default function Item({ dataZoomX ,indexNum, getZoomX, handleLoading }) {
         <>
             <tr >
                 <td className="text-center" style={{verticalAlign:'middle'}}>{indexNum}</td>
-                <td className="text-center" style={{verticalAlign:'middle'}}>{dataZoomX?.title}</td>
-                <td className="text-center" style={{verticalAlign:'middle'}}>{dataZoomX?.label}</td>
+                <td className="text-center" style={{verticalAlign:'middle'}}>{dataZoomX?.content}</td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>
-                    <img alt="" src={dataZoomX?.imageCover?.url} style={{width:50,height:'auto'}} />
+                    <a href={dataZoomX?.profile?.url}>File</a>
                 </td>
-                <td className="text-center">{dataZoomX?.isDeleted ? "Không hoạt động" : "Hoạt động"}</td> 
+                <td className="text-center" style={{verticalAlign:'middle'}}>
+                    <img alt="" src={dataZoomX?.imageCover?.url} style={{width:200,height:'auto'}} />
+                </td>
                 <td style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <button id="setting-btn" onClick={() => setModalShow(true)}>
                         <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">

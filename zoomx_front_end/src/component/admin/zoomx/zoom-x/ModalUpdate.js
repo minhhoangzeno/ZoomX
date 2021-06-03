@@ -4,6 +4,7 @@ import { doPut } from '../../../../lib/DataSource';
 
 export default function ModalUpdate(props) {
     const [fileCover, setFileCover] = useState(props.dataZoomX.imageCover.url);
+    const [file, setFile] = useState(props.dataZoomX.profile.url);
     const [ZoomX, setZoomX] = useState(props.dataZoomX);
     
     let handleZoomX = (e) => {
@@ -21,8 +22,8 @@ export default function ModalUpdate(props) {
             "Content-Type": "multipart/form-data"
         }
         const data = new FormData();
-        data.append("title", ZoomXData?.title);
-        data.append("label", ZoomXData?.label)
+        data.append("content", ZoomXData?.content);
+        data.append("profile", ZoomXData?.profile)
         data.append("imageCover",ZoomXData?.imageCover)
         try {
             let res = await doPut(path, headers, data)
@@ -46,19 +47,25 @@ export default function ModalUpdate(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Title: </label> <input className="input-txt"
-                            name="title" onChange={handleZoomX}
+                        <label className="label-txt">Nội dung: </label> <input className="input-txt"
+                            name="content" onChange={handleZoomX}
                             type="text"
-                            value={ZoomX.title}
+                            value={ZoomX.content}
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Label: </label> <input className="input-txt"
-                            name="label" onChange={handleZoomX}
-                            type="text"
-                            value={ZoomX.label}
+                        <label className="label-txt">Profile: </label> <input id="file-input" type="file"
+                            name="profile" 
+                            onChange={(e) => {
+                                setFile(URL.createObjectURL(e.target.files[0]))
+                                setZoomX({
+                                    ...ZoomX,
+                                    profile: e.target.files[0]
+                                })
+                            }}
                         />
                     </div>
+                    
                     <div>
                         <label>Ảnh :</label> <input id="file-input" type="file"
                             name="imageCover"
