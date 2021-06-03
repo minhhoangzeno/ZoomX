@@ -1,5 +1,7 @@
 @import "../style/common.scss";
-
+img{
+    object-fit: cover;
+}
 .project__wrapper {
     width: 100%;
     .container-fluid {
@@ -8,16 +10,26 @@
             width: 100%;
             margin-left: 0;
             margin-right: 0;
+            @media(max-width: 768px){
+                font-size: 14px;
+            }
+            @media(max-width: 426px){
+                font-size: 12px;
+            }
         }
 
         .row__info-project-detail {
             padding: 0 140px 50px 140px;
-            margin-top: 60px;
+            margin-top: 50px;
             @media (max-width: 1440px) {
-                padding: 60px 50px;
+                padding: 50px 50px;
             }
-            @media (max-width: 769px) {
+            @media(max-width: 1024px){
+                margin-top: 30px;
+            }
+            @media (max-width: 768px) {
                 padding: 50px 15px;
+                margin-top: 0;
             }
             .wrapper__info {
                 width: 100%;
@@ -65,6 +77,12 @@
                             padding-left: 30px;
                             font-size: 16px;
                             font-family: Helvetica;
+                            @media(max-width: 768px){
+                                font-size: 14px;
+                            }
+                            @media(max-width: 426px){
+                                font-size: 12px;
+                            }
                             svg {
                                 position: absolute;
                                 left: 0;

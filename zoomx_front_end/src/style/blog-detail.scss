@@ -1,4 +1,7 @@
 @import "common.scss";
+img{
+    object-fit: cover;
+}
 .blog-detail__page{
     padding: 100px 0;
     @media (max-width: 1440px) {

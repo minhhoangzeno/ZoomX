@@ -1,5 +1,8 @@
 @import "./common.scss";
 
+img{
+    object-fit: cover;
+}
 *{
     letter-spacing: 1px;
 }
