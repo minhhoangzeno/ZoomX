@@ -14,10 +14,11 @@ const library_lookup_controller = require('../controller/LibraryLookupController
 const library_image_controller = require('../controller/LibraryImageController');
 const library_video_controller = require('../controller/LibraryVideoController');
 const slogan_controller = require('../controller/SloganController');
-const contact_page_controller = require('../controller/ContactPageController')
+const contact_page_controller = require('../controller/ContactPageController');
 const youngbusiness_controller = require('../controller/YoungBusinessController');
-const reason_select_controller = require('../controller/ReasonSelectController')
-const define_home_controller = require('../controller/DefineHomeController')
+const reason_select_controller = require('../controller/ReasonSelectController');
+const define_home_controller = require('../controller/DefineHomeController');
+const zoomx_controller = require('../controller/ZoomXController');
 module.exports = app => {
 
 
@@ -98,7 +99,8 @@ module.exports = app => {
     app.route('/hero/:hero_id')
         .put(hero_controller.update_hero)
         .delete(hero_controller.delete_hero)
-
+    app.route('/hero/upload/:hero_id')
+        .put(hero_controller.upload_hero)
 
     app.route('/blog')
         .get(blog_controller.get_all_blog)
@@ -179,10 +181,11 @@ module.exports = app => {
         .put(define_home_controller.update_define_home)
         .delete(define_home_controller.delete_define_home)
 
-    // app.route('/zoomx')
-    //     .get(zoomx_controller.get_zoomx)
-    //     .post(zoomx_controller.add_zoomx)
-    // app.route('/zoomx/:zoomx_id')
-    //     .put(zoomx_controller.update_zoomx)
-    //     .delete(zoomx_controller.delete_zoomx)
+    app.route('/zoomx')
+        .get(zoomx_controller.get_zoomx)
+        .post(zoomx_controller.add_zoomx)
+    app.route('/zoomx/:zoomx_id')
+        .put(zoomx_controller.update_zoomx)
+        .delete(zoomx_controller.delete_zoomx)
+    
 }

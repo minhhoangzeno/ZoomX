@@ -72,6 +72,7 @@ exports.get_project_investment = (req, res) => {
             },
             {
                 path: 'imageInfor',
+                
                 model: 'image',
                 select: 'url'
             }

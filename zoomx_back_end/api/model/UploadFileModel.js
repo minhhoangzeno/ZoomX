@@ -1,7 +1,4 @@
 'use strict';
-const { request } = require('express');
-const { resolve } = require('path');
-
 var Cloudinary = require('./ModelCloudinary'),
     mongoose = require('mongoose'),
     File = mongoose.model('file')

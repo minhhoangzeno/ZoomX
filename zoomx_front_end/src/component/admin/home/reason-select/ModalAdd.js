@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import { doPost } from '../../../../lib/DataSource';
-
+import { Editor } from '@tinymce/tinymce-react';
+import { tinyconfig } from '../../../../TinyConfig';
 export default function ModalAdd(props) {
     const [fileCover, setFileCover] = useState();
     const [reason_select, setReasonSelect] = useState({
@@ -55,9 +56,16 @@ export default function ModalAdd(props) {
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Content: </label> <textarea className="input-txt"
-                            name="content" onChange={handleReasonSelect}
-                            type="text"
+                        <label className="label-txt">Content: </label> 
+                        <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
+                            init={tinyconfig}
+                            onEditorChange={(event) => {
+                                setReasonSelect({
+                                    ...reason_select,
+                                    content: event
+                                })
+                            }}
+
                         />
                     </div>
                     <div>

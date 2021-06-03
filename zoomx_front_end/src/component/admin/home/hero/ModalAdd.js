@@ -28,6 +28,7 @@ export default function ModalAdd(props) {
         data.append("title", heroData?.title);
         data.append("label", heroData?.label)
         data.append("imageCover",heroData?.imageCover)
+        
         try {
             let res = await doPost(path, headers, data)
             if(res.status === 200){
