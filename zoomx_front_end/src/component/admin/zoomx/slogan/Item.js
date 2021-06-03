@@ -27,7 +27,6 @@ export default function Item({ dataSlogan ,indexNum, getSlogan, handleLoading })
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataSlogan?.content}</td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataSlogan?.author}</td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataSlogan?.career}</td>
-                <td className="text-center">{dataSlogan?.isDeleted ? "Không hoạt động" : "Hoạt động"}</td> 
                 <td style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <button id="setting-btn" onClick={() => setModalShow(true)}>
                         <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">

@@ -179,5 +179,10 @@ module.exports = app => {
         .put(define_home_controller.update_define_home)
         .delete(define_home_controller.delete_define_home)
 
-    
+    // app.route('/zoomx')
+    //     .get(zoomx_controller.get_zoomx)
+    //     .post(zoomx_controller.add_zoomx)
+    // app.route('/zoomx/:zoomx_id')
+    //     .put(zoomx_controller.update_zoomx)
+    //     .delete(zoomx_controller.delete_zoomx)
 }

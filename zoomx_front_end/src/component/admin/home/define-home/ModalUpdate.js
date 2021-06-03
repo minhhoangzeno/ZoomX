@@ -16,7 +16,7 @@ export default function ModalUpdate(props) {
 
     const updateDefineHome = async (define_homeData) => {
         props.handleLoading(true)
-        const path = "/define-home";
+        const path = `/define-home/${define_homeData._id}`;
         const headers = {
             "Content-Type": "multipart/form-data"
         }

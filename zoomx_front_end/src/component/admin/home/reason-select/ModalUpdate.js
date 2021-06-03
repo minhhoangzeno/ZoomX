@@ -52,7 +52,7 @@ export default function ModalUpdate(props) {
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Content: </label> <input className="input-txt"
+                        <label className="label-txt">Content: </label> <textarea className="input-txt"
                             name="content" onChange={handleReasonSelect}
                             type="text"
                             value={reason_select.content}

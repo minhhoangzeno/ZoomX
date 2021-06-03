@@ -1,34 +1,35 @@
-import React, {  useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import { doPut } from '../../../../lib/DataSource';
 
 export default function ModalUpdate(props) {
-    const [slogan, setSlogan] = useState(props.dataSlogan);
+    const [fileCover, setFileCover] = useState(props.dataZoomX.imageCover.url);
+    const [ZoomX, setZoomX] = useState(props.dataZoomX);
     
-    let handleSlogan = (e) => {
+    let handleZoomX = (e) => {
         const { name, value } = e.target
-        setSlogan({
-            ...slogan,
+        setZoomX({
+            ...ZoomX,
             [name]: value
         })
     }
 
-    const updateSlogan = async (sloganData) => {
+    const updateZoomX = async (ZoomXData) => {
         props.handleLoading(true)
-        const path = `/slogan/${sloganData._id}`;
-
+        const path = `/zoomx/${ZoomXData._id}`;
         const headers = {
             "Content-Type": "multipart/form-data"
         }
         const data = new FormData();
-        data.append("content", sloganData?.content);
-        data.append("author", sloganData?.author)
-        data.append("career", sloganData?.career)
+        data.append("title", ZoomXData?.title);
+        data.append("label", ZoomXData?.label)
+        data.append("imageCover",ZoomXData?.imageCover)
         try {
             let res = await doPut(path, headers, data)
             if(res.status === 200){
                 props.handleLoading(false)
-                props.getSlogan()
+                props.getZoomX()
+            
             }
     
         } catch (error) {
@@ -45,31 +46,39 @@ export default function ModalUpdate(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Content: </label> <input className="input-txt"
-                            name="content" onChange={handleSlogan}
+                        <label className="label-txt">Title: </label> <input className="input-txt"
+                            name="title" onChange={handleZoomX}
                             type="text"
-                            value={slogan.content}
+                            value={ZoomX.title}
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Tác giả: </label> <input className="input-txt"
-                            name="author" onChange={handleSlogan}
+                        <label className="label-txt">Label: </label> <input className="input-txt"
+                            name="label" onChange={handleZoomX}
                             type="text"
-                            value={slogan.author}
+                            value={ZoomX.label}
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Chức danh: </label> <input className="input-txt"
-                            name="career" onChange={handleSlogan}
-                            type="text"
-                            value={slogan.career}
+                        <label>Ảnh :</label> <input id="file-input" type="file"
+                            name="imageCover"
+                            onChange={(e) => {
+                                setFileCover(URL.createObjectURL(e.target.files[0]))
+                                setZoomX({
+                                    ...ZoomX,
+                                    imageCover: e.target.files[0]
+                                })
+                            }}
                         />
+                    </div>
+                    <div>
+                        <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
                     </div>
                     <div className="btn--bottom">
                         <div className="wrapper__btn">
                             <button className="back-btn" onClick={props.onHide}>Quay lại</button>
                             <button onClick={() => {
-                                updateSlogan(slogan)
+                                updateZoomX(ZoomX)
                                
                                 props.onHide()
                             }}>Xác nhận</button>

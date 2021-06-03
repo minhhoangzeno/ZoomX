@@ -27,9 +27,8 @@ export default function Item({ dataHero ,indexNum, getHero, handleLoading }) {
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataHero?.title}</td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataHero?.label}</td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>
-                    <img alt="" src={dataHero?.imageCover?.url} style={{width:50,height:'auto'}} />
+                    <img alt="" src={dataHero?.imageCover?.url} style={{width:200,height:'auto'}} />
                 </td>
-                <td className="text-center">{dataHero?.isDeleted ? "Không hoạt động" : "Hoạt động"}</td> 
                 <td style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <button id="setting-btn" onClick={() => setModalShow(true)}>
                         <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
