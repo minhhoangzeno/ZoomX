@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
-import '../../style/timeline.scss';
-import timelineImg from '../../image/home/timeline1.png';
+import "../../style/timeline.scss";
+import timelineImg from "../../image/home/timeline1.png";
 export default function TimeLine() {
   var settings = {
     // dots: true,
@@ -9,6 +9,8 @@ export default function TimeLine() {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 427,
@@ -16,6 +18,8 @@ export default function TimeLine() {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
     ],

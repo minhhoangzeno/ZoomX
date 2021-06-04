@@ -5,14 +5,9 @@ import IconHome from "./IconHome";
 import itemHome from "../../image/homePage/itemHome.png";
 export default function ItemHome() {
   const settings = {
-    arrows: false,
-    dots: false,
-    pauseOnHover: false,
     infinite: true,
-    speed: 3000,
+    speed: 4000,
     autoplay: true,
-    fade: true,
-    variableWidth: false,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
