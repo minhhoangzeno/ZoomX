@@ -11,6 +11,8 @@ export default function FieldComponent() {
     speed: 1000,
     slidesToShow: 4,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 1040,
@@ -18,30 +20,38 @@ export default function FieldComponent() {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
       {
         breakpoint: 578,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
       {
         breakpoint: 376,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
     ],
@@ -49,7 +59,10 @@ export default function FieldComponent() {
   return (
     <>
       <div className="main__field">
-        <p className="text__headline--field"> WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS</p>
+        <p className="text__headline--field">
+          {" "}
+          WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS
+        </p>
         <div className="empty__element--field"></div>
         <p className="big__word--field">Lĩnh vực đầu tư</p>
         <Slider className="main__slider--item" {...item}>
@@ -63,9 +76,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
@@ -79,9 +90,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
@@ -95,9 +104,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
@@ -111,9 +118,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
@@ -127,9 +132,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
@@ -143,9 +146,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
@@ -159,9 +160,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
@@ -175,9 +174,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
@@ -191,9 +188,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
@@ -207,9 +202,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
@@ -223,9 +216,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
@@ -239,9 +230,7 @@ export default function FieldComponent() {
                 <div className="empty__box"></div>
                 <button className="btn__field">XEM THÊM</button>
               </div>
-              <div className="img__field--overlay">
-
-              </div>
+              <div className="img__field--overlay"></div>
             </div>
             {/* <div className="impact__item"></div> */}
           </div>
