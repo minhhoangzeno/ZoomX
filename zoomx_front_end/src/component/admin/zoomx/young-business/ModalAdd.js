@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import { doPost } from '../../../../lib/DataSource';
 
@@ -70,6 +70,7 @@ export default function ModalAdd(props) {
                                     imageYoung: e.target.files[0]
                                 })
                             }}
+                            multiple
                         />
                     </div>
                     <div>

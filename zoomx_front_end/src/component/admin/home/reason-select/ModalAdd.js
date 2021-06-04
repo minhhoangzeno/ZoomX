@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import { doPost } from '../../../../lib/DataSource';
 import { Editor } from '@tinymce/tinymce-react';

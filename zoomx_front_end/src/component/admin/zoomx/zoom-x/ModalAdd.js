@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import { doPost } from '../../../../lib/DataSource';
 
@@ -18,7 +18,15 @@ export default function ModalAdd(props) {
             [name]: value
         })
     }
-
+    let handleFileCover = (e) => {
+        let image = [];
+        image.push(e.target.files);
+        let listImage = []
+        for (let i = 0; i < image[0].length; i++) {
+            listImage.push(URL.createObjectURL(image[0][i]))
+        }
+        setFileCover(listImage)
+    }
     const addZoomX = async (ZoomXData) => {
         props.handleLoading(true)
         const path = "/zoomx";
@@ -69,18 +77,26 @@ export default function ModalAdd(props) {
                     </div>
                     <div>
                         <label>Ảnh :</label> <input id="file-input" type="file"
-                            name="imageCover"
+                            name="imageInfor"
                             onChange={(e) => {
-                                setFileCover(URL.createObjectURL(e.target.files[0]))
                                 setZoomX({
                                     ...ZoomX,
-                                    imageCover: e.target.files[0]
+                                    imageCover: e.target.files
                                 })
+                                handleFileCover(e)
+
                             }}
+                            multiple
                         />
                     </div>
-                    <div>
-                        <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
+                    <div style={{ display: 'flex' }}>
+                        {fileCover?.map(item => {
+                            return (
+                                <div style={{ margin: 10 }}>
+                                    <img id="target" src={item} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
+                                </div>
+                            )
+                        })}
                     </div>
                     <div className="btn--bottom">
                         <div className="wrapper__btn">
@@ -88,6 +104,7 @@ export default function ModalAdd(props) {
                             <button onClick={() => {
                                 addZoomX(ZoomX)
                                 setFileCover(null)
+                                setFile(null)
                                 props.onHide()
                             }}>Xác nhận</button>
                         </div>
