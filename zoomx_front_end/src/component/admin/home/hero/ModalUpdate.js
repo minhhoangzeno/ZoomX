@@ -46,7 +46,7 @@ export default function ModalUpdate(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Title: </label> <input className="input-txt"
+                        <label className="label-txt">Tiêu đề: </label> <input className="input-txt"
                             name="title" onChange={handleHero}
                             type="text"
                             value={hero.title}
@@ -60,7 +60,7 @@ export default function ModalUpdate(props) {
                         />
                     </div>
                     <div>
-                        <label>Ảnh :</label> <input id="file-input" type="file"
+                        <label>Ảnh Cover :</label> <input id="file-input" type="file"
                             name="imageCover"
                             onChange={(e) => {
                                 setFileCover(URL.createObjectURL(e.target.files[0]))

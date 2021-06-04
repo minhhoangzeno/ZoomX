@@ -47,7 +47,7 @@ export function SideBar({ handlePage, isPage }) {
                         <li onClick={() => handlePage('slogan')}
                         className={handleStyle("slogan")}
                         >
-                            <span>Slogan</span>
+                            <span>Trích dẫn</span>
                         </li>
                         <li onClick={() => handlePage('zoomx')}
                         className={handleStyle("zoomx")}
@@ -57,12 +57,12 @@ export function SideBar({ handlePage, isPage }) {
                         <li onClick={() => handlePage('youngBusiness')}
                         className={handleStyle("youngBusiness")}
                         >
-                            <span>Khoi nghiep khat vong tuoi tre</span>
+                            <span>Khởi nghiệp khát vọng tuổi trẻ</span>
                         </li>
                         <li onClick={() => handlePage('partner')}
                         className={handleStyle("partner")}
                         >
-                            <span>Doi tac</span>
+                            <span>Đối tác</span>
                         </li>
                     </ul>
                     <hr />

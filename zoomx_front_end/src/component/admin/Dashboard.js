@@ -13,6 +13,7 @@ import Project from './project/Project';
 import UserContact from './user-contact/UserContact';
 import CategoryBlog from './category-blog/CategoryBlog';
 import Blog from './blog/Blog';
+import Contact from './contact/Contact';
 export default function Dashboard({ isPage }) {
     return (
         <div className="wrapper__admin">
@@ -31,6 +32,7 @@ export default function Dashboard({ isPage }) {
             {isPage === "category-blog" && <CategoryBlog />}
             {isPage === "blog" && <Blog />}
 
+            {isPage === "contact" && <Contact />}
         </div>
     )
 }

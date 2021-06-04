@@ -46,21 +46,21 @@ export default function ModalUpdate(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Title: </label> <input className="input-txt"
+                        <label className="label-txt">Tiêu đề: </label> <input className="input-txt"
                             name="title" onChange={handleDefineHome}
                             type="text"
                             value={define_home.title}
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Content: </label> <input className="input-txt"
+                        <label className="label-txt">Nội dung: </label> <textarea className="input-txt"
                             name="content" onChange={handleDefineHome}
                             type="text"
                             value={define_home.content}
                         />
                     </div>
                     <div>
-                        <label>Anh :</label> <input id="file-input" type="file"
+                        <label>Ảnh :</label> <input id="file-input" type="file"
                             name="imageCover"
                             onChange={(e) => {
                                 setFileCover(URL.createObjectURL(e.target.files[0]))

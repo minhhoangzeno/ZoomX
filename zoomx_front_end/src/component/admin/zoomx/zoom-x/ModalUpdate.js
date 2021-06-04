@@ -1,39 +1,36 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
-import { doPost } from '../../../../lib/DataSource';
-import { Editor } from '@tinymce/tinymce-react';
-import { tinyconfig } from '../../../../TinyConfig';
-export default function ModalAdd(props) {
-    const [fileCover, setFileCover] = useState();
-    const [reason_select, setReasonSelect] = useState({
-        title: null,
-        content:null,
-        imageCover:null
-    });
-    console.log(reason_select)
-    let handleReasonSelect = (e) => {
+import { doPut } from '../../../../lib/DataSource';
+
+export default function ModalUpdate(props) {
+    const [fileCover, setFileCover] = useState(props.dataZoomX.imageCover.url);
+    const [file, setFile] = useState(props.dataZoomX.profile.url);
+    const [ZoomX, setZoomX] = useState(props.dataZoomX);
+    
+    let handleZoomX = (e) => {
         const { name, value } = e.target
-        setReasonSelect({
-            ...reason_select,
+        setZoomX({
+            ...ZoomX,
             [name]: value
         })
     }
 
-    const addReasonSelect = async (reason_selectData) => {
+    const updateZoomX = async (ZoomXData) => {
         props.handleLoading(true)
-        const path = "/reason-select";
+        const path = `/zoomx/${ZoomXData._id}`;
         const headers = {
             "Content-Type": "multipart/form-data"
         }
         const data = new FormData();
-        data.append("title", reason_selectData?.title);
-        data.append("content", reason_selectData?.content)
-        data.append("imageCover",reason_selectData?.imageCover)
+        data.append("content", ZoomXData?.content);
+        data.append("profile", ZoomXData?.profile)
+        data.append("imageCover",ZoomXData?.imageCover)
         try {
-            let res = await doPost(path, headers, data)
+            let res = await doPut(path, headers, data)
             if(res.status === 200){
                 props.handleLoading(false)
-                props.getReasonSelect()
+                props.getZoomX()
+            
             }
     
         } catch (error) {
@@ -50,31 +47,32 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Tiêu đề: </label> <input className="input-txt"
-                            name="title" onChange={handleReasonSelect}
+                        <label className="label-txt">Nội dung: </label> <input className="input-txt"
+                            name="content" onChange={handleZoomX}
                             type="text"
+                            value={ZoomX.content}
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Nội dung: </label> 
-                        <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
-                            init={tinyconfig}
-                            onEditorChange={(event) => {
-                                setReasonSelect({
-                                    ...reason_select,
-                                    content: event
+                        <label className="label-txt">Profile: </label> <input id="file-input" type="file"
+                            name="profile" 
+                            onChange={(e) => {
+                                setFile(URL.createObjectURL(e.target.files[0]))
+                                setZoomX({
+                                    ...ZoomX,
+                                    profile: e.target.files[0]
                                 })
                             }}
-
                         />
                     </div>
+                    
                     <div>
                         <label>Ảnh :</label> <input id="file-input" type="file"
                             name="imageCover"
                             onChange={(e) => {
                                 setFileCover(URL.createObjectURL(e.target.files[0]))
-                                setReasonSelect({
-                                    ...reason_select,
+                                setZoomX({
+                                    ...ZoomX,
                                     imageCover: e.target.files[0]
                                 })
                             }}
@@ -87,8 +85,8 @@ export default function ModalAdd(props) {
                         <div className="wrapper__btn">
                             <button className="back-btn" onClick={props.onHide}>Quay lại</button>
                             <button onClick={() => {
-                                addReasonSelect(reason_select)
-                                setFileCover(null)
+                                updateZoomX(ZoomX)
+                               
                                 props.onHide()
                             }}>Xác nhận</button>
                         </div>
