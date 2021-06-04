@@ -94,3 +94,10 @@ exports.delete_partner = (req, res) => {
     })
 }
 
+exports.search_partner = (req, res) => {
+    let regex = new RegExp(req.params.name,'i');
+    Partner.find({name:regex}).then((result) => {
+        res.status(200).json(result)
+    })
+}
+

@@ -94,11 +94,24 @@ export function SideBar({ handlePage, isPage }) {
                         <span>Blog</span>
                     </div>
                     <hr />
+                    <div className={handleStyle("category-blog")}
+                        onClick={() => handlePage('category-blog')}
+
+                    >
+                        <span>Danh muc bai viet</span>
+                    </div>
+                    <hr />
                     <div className={handleStyle("contact")}
                         onClick={() => handlePage('contact')}
 
                     >
                         <span>Liên hệ</span>
+                    </div>
+                    <hr />
+                    <div className={handleStyle("user-contact")}
+                        onClick={() => handlePage("user-contact")}
+                    >
+                        <span>Người Liên Hệ</span>
                     </div>
                     <hr />
                     <div className={handleStyle("library")}
