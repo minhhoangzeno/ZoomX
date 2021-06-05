@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import Modal from 'react-bootstrap/Modal'
-import {  doPut } from '../../../lib/DataSource';
 import { Editor } from '@tinymce/tinymce-react';
-import { FormatDate } from '../../../utils/FormatDate';
+import React, { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import { doPut } from '../../../lib/DataSource';
 export default function ModalUpdate(props) {
     const [fileCover, setFileCover] = useState(props.data.imageRecruitment.url);
     const [recruitment, setRecruitment] = useState(props.data)
@@ -17,7 +16,7 @@ export default function ModalUpdate(props) {
 
     const updateRecruitment = async (recruitmentData) => {
         props.handleLoading(true)
-        const path = "/recruitment";
+        const path = `/recruitment/${recruitment._id}`;
         const headers = {
             "Content-Type": "multipart/form-data"
         }

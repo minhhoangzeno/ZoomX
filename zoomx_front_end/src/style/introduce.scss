@@ -37,11 +37,12 @@
       margin-bottom: 10px;
     }
     @media (max-width: 769px) {
-      font-size: 10px;
+      font-size: 12px;
       margin-bottom: 5px;
     }
     @media (max-width: 426px) {
       text-align: center;
+      font-size: 8px;
     }
     @media (max-width: 376px) {
       letter-spacing: 1.5px;
@@ -160,6 +161,7 @@
           padding: 7px 15px;
         }
         @media (max-width: 426px) {
+          letter-spacing: 1px;
           font-size: 12px;
           padding: 5px 10px;
           border: 1px solid #fff;
@@ -245,7 +247,7 @@
   font-size: 18px;
   line-height: 27px;
   @media (max-width: 769px) {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 .young-wrapper__image {
@@ -255,6 +257,9 @@
   justify-content: center;
   @media (max-width: 1026px) {
     margin-top: 40px;
+  }
+  @media (max-width: 426px) {
+    flex-wrap: wrap-reverse !important;
   }
   &--item {
     margin-left: 70px;

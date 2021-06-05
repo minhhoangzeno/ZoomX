@@ -1,23 +1,42 @@
 import React, { useEffect, useState } from 'react';
+import Pagination from "react-js-pagination";
 import { doGet } from '../../../lib/DataSource';
-import Item from './Item';
-// import { doGet } from '../../../lib/DataSource';
 import Loading from '../../image/Loading';
-// import Item from './Item';
+import Item from './Item';
 import ModalAdd from './ModalAdd';
 export default function Project() {
     const [data, setData] = useState();
-    const [investmentId, setInvestmentId] = useState(null);
+    const [investmentId, setInvestmentId] = useState("1");
     const handleInvestment = (id) => {
         setInvestmentId(id)
     }
+    const [activePage, setActivePage] = useState(1)
     const [loading, setLoading] = useState(true);
-    const [modalShow,setModalShow] = useState(false)
+    const [modalShow, setModalShow] = useState(false)
     useEffect(() => {
+        let getSearch = async () => {
+            let path = (investmentId === "1") ? `/project?page=${activePage}` : `/project-investment?page=${activePage}&investment=${investmentId}`;
+            const headers = {
+                Accept: "*/*"
+            }
+            try {
+                var resp = await doGet(path, headers);
+                if (resp.status === 200) {
+                    setData(resp.data)
+                    handleLoading(false)
+                }
+            } catch (e) {
+                console.log(e)
+                handleLoading(false)
+            }
+        }
         getSearch()
-    },[investmentId])
-    const getSearch = async () => {
-        let path = (investmentId==null) ? '/project' : `/project/${investmentId}`;      
+    }, [investmentId, activePage])
+    const handleChangData = (item) => {
+        setActivePage(item)
+    }
+    let getSearch = async () => {
+        let path = (investmentId === "1") ? `/project?page=${activePage}` : `/project-investment?page=${activePage}&investment=${investmentId}`;
         const headers = {
             Accept: "*/*"
         }
@@ -35,7 +54,6 @@ export default function Project() {
     const handleLoading = (isLoading) => {
         setLoading(isLoading)
     }
-   
     return (
         <>
             <div className="title">
@@ -53,7 +71,7 @@ export default function Project() {
             </div> */}
             <InvestmentSelect handleInvestment={handleInvestment} />
             <div className="wrapper__table">
-                <section className="content-header">
+                <section className="content-header" >
                     <div className="button__add" >
                         <button onClick={() => setModalShow(true)}>
                             <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
@@ -70,7 +88,7 @@ export default function Project() {
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Ảnh</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Tên dự án</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Tổng vốn đầu tư</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Địa điểm</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Lĩnh vực đầu tư</th>
                                 <th className="text-center" width="12%">Setting</th>
                             </tr>
                         </thead>
@@ -83,17 +101,29 @@ export default function Project() {
                         />
                         {!loading ?
                             <tbody>
-                                {data?.map((item, index) => {
+                                {data?.data.map((item, index) => {
                                     return (
-                                        <Item data={item} key={index} handleLoading={handleLoading} indexNum={index + 1} getSearch={getSearch} />
+                                        <Item data={item} key={index} handleLoading={handleLoading}
+                                            indexNum={parseInt((5 * (activePage - 1)) + index + 1)}
+                                            getSearch={getSearch} />
                                     )
                                 })}
                             </tbody>
                             : <Loading />
                         }
-
                     </table>
                 </div>
+            </div>
+            <div className="wrapper-paginate">
+
+                <Pagination
+                    activePage={activePage}
+                    itemsCountPerPage={5}
+                    totalItemsCount={parseInt(data?.totalPage)}
+                    pageRangeDisplayed={3}
+                    onChange={handleChangData}
+
+                />
             </div>
         </>
     )
@@ -119,13 +149,18 @@ function InvestmentSelect({ handleInvestment }) {
             console.log(e)
         }
     }
-    
+
     return (
         <>
-            <label for="cars">Chon linh vuc dau tu:</label>
-            <select name="cars" id="cars" onChange={(e) => handleInvestment(e.target.value)}>
-            <option value="">Tat ca</option>
-                {investment?.map((item, idx) => {
+            <label htmlFor="cars">Chon linh vuc dau tu:</label>
+            <select name="cars" id="cars" onChange={(e) => handleInvestment(e.target.value)} style={{
+                border: '1px solid #eaeaea'
+                , padding: 10,
+                marginTop: 15,
+                marginBottom: 15
+            }}>
+                <option value="1">Tat ca</option>
+                {investment?.data?.map((item, idx) => {
                     return (
                         <option key={idx} value={item._id}>{item.investmentName}</option>
                     )

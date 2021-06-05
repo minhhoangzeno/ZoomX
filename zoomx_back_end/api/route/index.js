@@ -21,7 +21,7 @@ const define_home_controller = require('../controller/DefineHomeController');
 const zoomx_controller = require('../controller/ZoomXController');
 module.exports = app => {
 
-
+    //get linh vuc dau tu hoat dong co phan trang
     app.route('/investment')
         .get(investment_controller.get_investment)
         .post(investment_controller.add_investment)
@@ -29,8 +29,18 @@ module.exports = app => {
         .put(investment_controller.update_investment)
     app.route('/investment/delete/:investment_id')
         .put(investment_controller.delete_investment)
-    // app.route('/investment/image/:investment_id')
-    //     .post(investment_controller.upload_image_actor)
+    //get tat ca linh vuc dau tu co phan trang
+    app.route('/investment-paginate-all')
+        .get(investment_controller.get_all_paginate_investment)
+    //get tat ca linh vuc dau tu
+    app.route('/investment-all')
+        .get(investment_controller.get_all_investment)
+    app.route('/investment/:investment_id')
+        .get(investment_controller.get_a_investment)
+    app.route('/investment/remove/:investment_id')
+        .delete(investment_controller.remove_investment)
+    app.route('/investment/set/:investment_id')
+        .put(investment_controller.set_investment)
 
     app.route('/images')
         .get(image_controller.get_image)
@@ -47,13 +57,13 @@ module.exports = app => {
         .delete(file_controller.delete_file)
 
     app.route('/project')
-        .get(project_controller.get_project)
+        .get(project_controller.get_paginate_project)
         .post(project_controller.add_project)
     app.route('/project/:project_id')
         .put(project_controller.update_project)
         .delete(project_controller.delete_project)
-    app.route('/project/:typeInvestmentId')
-        .get(project_controller.get_project_investment)
+    app.route('/project-investment')
+        .get(project_controller.get_paginate_investment_project)
 
     app.route('/recruitment')
         .get(recruitment_controller.get_recruitment)
@@ -70,6 +80,8 @@ module.exports = app => {
         .put(partner_controller.update_partner)
         .delete(partner_controller.delete_partner)
         .get(partner_controller.get_a_partner)
+    app.route("/partner/search/:name")
+        .get(partner_controller.search_partner)
 
     app.route('/timeline')
         .get(timeline_controller.get_timeline)
@@ -103,25 +115,27 @@ module.exports = app => {
         .put(hero_controller.upload_hero)
 
     app.route('/blog')
-        .get(blog_controller.get_all_blog)
-        .post(blog_controller.add_blog)
+        .get(blog_controller.get_all_blogs)
+        .post(blog_controller.add_a_blog)
+    app.route('/blog/category')
+        .get(blog_controller.get_category_blogs)
     app.route('/blog/:blog_id')
-        .get(blog_controller.get_a_blog)
-        .put(blog_controller.update_blog)
+        .get(blog_controller.get_a_blog)  
+        .put(blog_controller.update_blog) 
         .delete(blog_controller.delete_blog)
-    app.route('/blog/image/start/:blog_id')
-        .post(blog_controller.upload_imgae_start)
-    app.route('/blog/image/mid/:blog_id')
-        .post(blog_controller.upload_imgae_mid)
-    app.route('/blog/image/begin/:blog_id')
-        .post(blog_controller.upload_imgae_begin)
+    app.route('/blog-search')
+        .get(blog_controller.search_blog)
+    app.route('/demo')
+        .get(blog_controller.get_demo_search)
 
     app.route('/categoryblog')
         .get(categoryblog_controller.get_all_blogs)
         .post(categoryblog_controller.add_blog)
     app.route('/categoryblog/:categoryblog_id')
         .put(categoryblog_controller.update_blog)
-        .delete(categoryblog_controller.delete_blog)
+        .get(categoryblog_controller.get_a_category)
+    app.route('/categoryblog/delete/:categoryblog_id')
+        .get(categoryblog_controller.delete_blog)
 
     app.route('/library/lookup')
         .get(library_lookup_controller.get_library_lookup)
@@ -187,5 +201,5 @@ module.exports = app => {
     app.route('/zoomx/:zoomx_id')
         .put(zoomx_controller.update_zoomx)
         .delete(zoomx_controller.delete_zoomx)
-    
+
 }

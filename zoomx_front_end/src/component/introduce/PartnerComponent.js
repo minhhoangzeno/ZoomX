@@ -14,6 +14,8 @@ export default function PartnerComponent() {
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 3,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 1025,
@@ -21,6 +23,8 @@ export default function PartnerComponent() {
           slidesToShow: 4,
           slidesToScroll: 3,
           infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
       {
@@ -29,6 +33,8 @@ export default function PartnerComponent() {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
       {
@@ -37,6 +43,8 @@ export default function PartnerComponent() {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
       {
@@ -45,19 +53,17 @@ export default function PartnerComponent() {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
     ],
   };
 
-
   return (
-
     <>
       <div className="container-fluid wrapper__partner">
-        <div className="wrapper__partner__label">
-          Đối tác
-        </div>
+        <div className="wrapper__partner__label">Đối tác</div>
         <Slider className="slider-block row" {...settings}>
           <div className="wrapper__partner__item">
             <img className="img-partner" src={item1} alt="#" />

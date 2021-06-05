@@ -3,13 +3,8 @@ import Modal from 'react-bootstrap/Modal'
 import { doPost } from '../../../../lib/DataSource';
 
 export default function ModalAdd(props) {
-    const [fileCover, setFileCover] = useState();
-    const [young_business, setYoungBusiness] = useState({
-        title: null,
-        content:null,
-        imageYoung:null
-    });
-    console.log(young_business)
+    const [fileImageYoung, setFileImageYoung] = useState();
+    const [young_business, setYoungBusiness] = useState();
     let handleYoungBusiness = (e) => {
         const { name, value } = e.target
         setYoungBusiness({
@@ -17,17 +12,28 @@ export default function ModalAdd(props) {
             [name]: value
         })
     }
-
-    const addYoungBusiness = async (young_businessData) => {
+    let handleFileImageYoung = (e) => {
+        let image = [];
+        image.push(e.target.files);
+        let listImage = []
+        for (let i = 0; i < image[0].length; i++) {
+            listImage.push(URL.createObjectURL(image[0][i]))
+        }
+        setFileImageYoung(listImage)
+    }
+    const addYoungBusiness = async () => {
         props.handleLoading(true)
         const path = "/youngbusiness";
         const headers = {
             "Content-Type": "multipart/form-data"
         }
         const data = new FormData();
-        data.append("title", young_businessData?.title);
-        data.append("content", young_businessData?.content)
-        data.append("imageYoung",young_businessData?.imageYoung)
+        data.append("title", young_business?.title);
+        data.append("content", young_business?.content)
+        let listPj = Array.from(young_business.imageYoung)
+        for (let i = 0; i < listPj.length; i++) {
+            data.append("imageYoung", listPj[i]);
+        }
         try {
             let res = await doPost(path, headers, data)
             if(res.status === 200){
@@ -64,24 +70,30 @@ export default function ModalAdd(props) {
                         <label>Ảnh :</label> <input id="file-input" type="file"
                             name="imageYoung"
                             onChange={(e) => {
-                                setFileCover(URL.createObjectURL(e.target.files[0]))
                                 setYoungBusiness({
                                     ...young_business,
-                                    imageYoung: e.target.files[0]
+                                    imageYoung: e.target.files
                                 })
+                                handleFileImageYoung(e)
                             }}
                             multiple
                         />
                     </div>
-                    <div>
-                        <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
+                    <div style={{ display: 'flex' }}>
+                        {fileImageYoung?.map((item,idx) => {
+                            return (
+                                <div key={idx} style={{ margin: 10 }}>
+                                    <img id="target" src={item} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
+                                </div>
+                            )
+                        })}
                     </div>
                     <div className="btn--bottom">
                         <div className="wrapper__btn">
                             <button className="back-btn" onClick={props.onHide}>Quay lại</button>
                             <button onClick={() => {
-                                addYoungBusiness(young_business)
-                                setFileCover(null)
+                                addYoungBusiness()
+                                setFileImageYoung(null)
                                 props.onHide()
                             }}>Xác nhận</button>
                         </div>

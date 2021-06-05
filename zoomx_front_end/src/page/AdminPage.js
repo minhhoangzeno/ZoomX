@@ -4,7 +4,6 @@ import { SideBar } from '../component/admin/SideBar';
 import '../style/admin.scss';
 export default function AdminPage() {
     const [isPage, setIsPage] = useState("home")
-    console.log(isPage)
     let handlePage = (page) => {
         setIsPage(page)
     }

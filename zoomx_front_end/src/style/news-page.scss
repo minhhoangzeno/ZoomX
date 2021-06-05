@@ -28,6 +28,9 @@
       // margin-top: 50px;
       padding-right: 0;
       // margin-bottom: 40px;
+      @media (max-width: 768px) {
+        padding: 0;
+      }
       @media (max-width: 425px) {
         padding: 0;
       }
@@ -97,6 +100,9 @@
               font-size: 14px;
               padding-top: 20px;
               margin-bottom: 5px;
+              @media (max-width: 426px) {
+                font-size: 12px;
+              }
             }
             .empty__item {
               width: 30px;
@@ -141,6 +147,9 @@
       font-weight: 600;
       font-family: "Helvetica";
       margin-bottom: 20px;
+      @media (max-width: 426px) {
+        font-size: 18px;
+      }
     }
     .average__words {
       font-size: 20px;

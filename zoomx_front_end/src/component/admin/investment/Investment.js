@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import Item from './Item';
-import Loading from "../../image/Loading"
-import ModalAdd from './ModalAdd';
+import Pagination from "react-js-pagination";
+import { doGet } from '../../../lib/DataSource';
 import '../../../style/admin-investment.scss';
-import { doGet } from '../../../lib/DataSource'
+import Loading from "../../image/Loading";
+import Item from './Item';
+import ModalAdd from './ModalAdd';
+
 export default function Investment() {
     const [modalShow, setModalShow] = React.useState(false);
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
+    const [activePage, setActivePage] = useState(1)
 
-    //vua vao trang web thi no se auto chay vao day dau tien
     useEffect(() => {
         getInvestment()
-    }, [])
+    }, [activePage]) // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleLoading = (isLoading) => {
         setLoading(isLoading)
     }
-
+    const handleChangData = (item) => {
+        setActivePage(item)
+    }
     const getInvestment = async () => {
-        const path = "/investment";
+        const path = `/investment-paginate-all?page=${activePage}`;
         const headers = {
             Accept: "*/*"
         }
@@ -81,9 +85,14 @@ export default function Investment() {
                         />
                         {!loading ?
                             <tbody>
-                                {data?.map((item, index) => {
+                                {data?.data?.map((item, index) => {
                                     return (
-                                        <Item dataInvestment={item} key={index} handleLoading={handleLoading} indexNum={index + 1} getInvestment={getInvestment} />
+                                        <Item
+                                            dataInvestment={item}
+                                            key={index}
+                                            handleLoading={handleLoading}
+                                            indexNum={parseInt((5 * (activePage - 1)) + index + 1)}
+                                            getInvestment={getInvestment} />
                                     )
                                 })}
                             </tbody>
@@ -91,6 +100,17 @@ export default function Investment() {
                         }
                     </table>
                 </div>
+            </div>
+            <div className="wrapper-paginate">
+
+                <Pagination
+                    activePage={activePage}
+                    itemsCountPerPage={5}
+                    totalItemsCount={parseInt(data?.totalPage)}
+                    pageRangeDisplayed={3}
+                    onChange={handleChangData}
+
+                />
             </div>
         </>
     )

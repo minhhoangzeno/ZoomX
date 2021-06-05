@@ -58,7 +58,7 @@ export default function YoungBusiness() {
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Tiêu đề</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Nội dung</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ảnh</th>
+                               
                                 <th className="text-center" width="12%">Setting</th>
                             </tr>
                         </thead>

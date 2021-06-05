@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Item from './Item';
-import Loading from "../../image/Loading"
-import ModalAdd from './ModalAdd';
+import { doGet } from '../../../lib/DataSource';
 import '../../../style/admin-investment.scss';
-import { doGet } from '../../../lib/DataSource'
+import Loading from "../../image/Loading";
+import Item from './Item';
+import ModalAdd from './ModalAdd';
 export default function Contact() {
     const [modalShow, setModalShow] = React.useState(false);
     const [data, setData] = useState();
@@ -11,7 +11,7 @@ export default function Contact() {
 
     useEffect(() => {
         getContact()
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleLoading = (isLoading) => {
         setLoading(isLoading)

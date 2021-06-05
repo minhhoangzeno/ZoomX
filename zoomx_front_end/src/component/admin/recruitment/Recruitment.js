@@ -6,10 +6,7 @@ import ModalAdd from './ModalAdd';
 export default function Recruitment() {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
-    const [modalShow,setModalShow] = useState(false)
-    useEffect(() => {
-        getSearch()
-    },[])
+    const [modalShow,setModalShow] = useState(false);
     const getSearch = async () => {
         const path = "/recruitment";
         const headers = {
@@ -26,6 +23,26 @@ export default function Recruitment() {
             handleLoading(false)
         }
     }
+    useEffect(() => {
+        let getSearch = async () => {
+            const path = "/recruitment";
+            const headers = {
+                Accept: "*/*"
+            }
+            try {
+                var resp = await doGet(path, headers);
+                if (resp.status === 200) {
+                    setData(resp.data)
+                    handleLoading(false)
+                }
+            } catch (e) {
+                console.log(e)
+                handleLoading(false)
+            }
+        }
+        getSearch()
+    },[])
+   
     const handleLoading = (isLoading) => {
         setLoading(isLoading)
     }
