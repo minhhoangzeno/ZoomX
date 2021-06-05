@@ -126,9 +126,8 @@ exports.add_investment = (req, res) => {
         }).catch(error => {
             console.log(error)
         })
-        .catch((error) => {
-          console.log(error);
-        });
+    }).catch(error => {
+        res.send(error)
     })
 
 }
@@ -160,26 +159,29 @@ exports.update_investment = async (req, res) => {
 }
 
 exports.delete_investment = (req, res) => {
-  let id = req.params.investment_id;
-  Investment.findByIdAndUpdate(id, { isDeleted: true })
-    .exec()
-    .then((investment) => {
-      console.log(investment);
-      Project.find({
-        typeInvestment: investment._id,
-      })
-        .then((result) => {
-          result.map((pj) => {
-            Project.findByIdAndUpdate(pj._id, {
-              typeInvestment: null,
+    let id = req.params.investment_id;
+    Investment.findByIdAndUpdate(id, { isDeleted: true }).exec()
+        .then(investment => {
+            console.log(investment)
+            Project.find({
+                typeInvestment: investment._id
+            }).then(result => {
+                result.map((pj) => {
+                    Project.findByIdAndUpdate(pj._id, {
+                        typeInvestment: null
+                    }).then(project => {
+                        res.send(project)
+                    }).catch(error => {
+                        res.send(error)
+                    })
+                })
+            }).catch(err => {
+                res.send(err)
             })
-              .then((project) => {
-                res.send(project);
-              })
-              .catch((error) => {
-                res.send(error);
-              });
-          });
+            res.send(investment)
+        })
+        .catch(err => {
+            res.send(err)
         })
 
 }
