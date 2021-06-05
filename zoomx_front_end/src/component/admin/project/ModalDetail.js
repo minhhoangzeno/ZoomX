@@ -35,7 +35,7 @@ export default function ModalDetail(props) {
             }
         }
         getInvestment()
-    }, [])
+    }, [])  // eslint-disable-line react-hooks/exhaustive-deps
     
     return (
         <>

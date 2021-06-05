@@ -11,6 +11,24 @@ export default function CategoryBlog() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        let getData = async () => {
+            handleLoading(true)
+            const path = `/categoryblog`;
+            const headers = {
+                Accept: "*/*"
+            }
+            try {
+                var resp = await doGet(path, headers);
+                if (resp.status === 200) {
+                    setData(resp.data)
+                    handleLoading(false)
+    
+                }
+            } catch (e) {
+                console.log(e)
+                handleLoading(false)
+            }
+        }
         getData()
     }, [])
 

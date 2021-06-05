@@ -14,7 +14,7 @@ export default function Investment() {
 
     useEffect(() => {
         getInvestment()
-    }, [activePage])
+    }, [activePage]) // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleLoading = (isLoading) => {
         setLoading(isLoading)

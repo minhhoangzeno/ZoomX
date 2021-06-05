@@ -9,29 +9,28 @@ export default function Item({ data, indexNum, getSearch, handleLoading }) {
     const [investment, setInvestment] = useState({
         investmentName:null
     });
-
-    useEffect(() => {
-        const getInvestment = async () => {
-            if (data.typeInvestment) {
-                const path = `/investment/${data.typeInvestment}`;
-                const headers = {
-                    Accept: "*/*"
-                }
-                try {
-                    var resp = await doGet(path, headers);
-                    if (resp.status === 200) {
-                        setInvestment(resp.data)
-    
-                    }
-                } catch (e) {
-                    console.log(e)
-                }
-            }else{
-                setInvestment(null)
+    const getInvestment = async () => {
+        if (data.typeInvestment) {
+            const path = `/investment/${data.typeInvestment}`;
+            const headers = {
+                Accept: "*/*"
             }
+            try {
+                var resp = await doGet(path, headers);
+                if (resp.status === 200) {
+                    setInvestment(resp.data)
+
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }else{
+            setInvestment(null)
         }
+    }
+    useEffect(() => {
         getInvestment()
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
     
 
     const deleteProject = async () => {
