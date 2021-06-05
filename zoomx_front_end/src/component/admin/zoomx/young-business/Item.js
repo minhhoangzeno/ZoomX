@@ -28,7 +28,6 @@ export default function Item({ dataYoungBusiness, indexNum, getYoungBusiness, ha
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{indexNum}</td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{dataYoungBusiness?.title}</td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{dataYoungBusiness?.content}</td>
-
                 <td style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <button onClick={() => setModalShowDetail(true)}>Xem chi tiet</button>
                     <button id="setting-btn" onClick={() => setModalShow(true)}>

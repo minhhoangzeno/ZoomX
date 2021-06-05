@@ -16,7 +16,7 @@ export default function ModalUpdate(props) {
 
     const updateRecruitment = async (recruitmentData) => {
         props.handleLoading(true)
-        const path = "/recruitment";
+        const path = `/recruitment/${recruitment._id}`;
         const headers = {
             "Content-Type": "multipart/form-data"
         }
