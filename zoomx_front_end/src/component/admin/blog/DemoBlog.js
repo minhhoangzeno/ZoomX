@@ -5,75 +5,30 @@ import Loading from '../../image/Loading';
 import ModalAdd from './ModalAdd';
 import Pagination from "react-js-pagination";
 import SearchBlog from './SearchBlog';
-export default function Blog() {
-
-    //data tra ve co {data,totalPage}
+export default function DemoBlog() {
     const [data, setData] = useState();
-    const [loading, setLoading] = useState(true);
-    //modal Add
-    const [modalShow, setModalShow] = useState(false)
-
-    //tao bien select de update component {textSearch,activePage,categoryId}
-    const [select, setSelect] = useState({
-        textSearch: "",
-        activePage: 1,
-        categoryId: 1
-    })
-
-    //chon danh muc bai viet va set lai gia tri textSearch
+    const [categoryId, setCategoryId] = useState(1);
     const handleCategory = (id) => {
-        setSelect({
-            ...select,
-            categoryId: id,
-            activePage: 1,
-            textSearch: ""
+        setCategoryId(id)
+        setTextSearch("")
+    }
+    const [activePage, setActivePage] = useState(1)
+    const [loading, setLoading] = useState(true);
+    const [modalShow, setModalShow] = useState(false)
+    const [textSearch, setTextSearch] = useState("");
+    const [page,setPage] = useState({
+        activePage:1,
+        categoryId:1
+    })
+    const handlePage = (num) => {
+        setPage({
+            ...page,
+            categoryId:num
         })
     }
-    //chon textSearch
-    const handleTextSearch = (text) => {
-        setSelect({
-            ...select,
-            textSearch: text
-        })
-    }
-    //chon activePage
-    const handleActivePage = (item) => {
-        setSelect({
-            ...select,
-            activePage: item
-        })
-    }
-    //thay doi Loading
-    const handleLoading = (isLoading) => {
-        setLoading(isLoading)
-    }
-
-    useEffect(() => {
-        getSearch()
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
-    useEffect(() => {
-        async function fetchData() {
-            let path = `/demo?page=${select.activePage}&q=${select.textSearch}&categoryId=${select.categoryId}`;
-            const headers = {
-                Accept: "*/*"
-            }
-            try {
-                let resp = await doGet(path, headers);
-                if (resp.status === 200) {
-                    setLoading(false)
-                    setData(resp.data)
-                }
-            } catch (error) {
-                setLoading(false)
-            }
-        }
-        fetchData()
-    }, [select]) // eslint-disable-line react-hooks/exhaustive-deps
-
     const getSearch = async () => {
         setLoading(true)
-        let path = `/demo?page=${select.activePage}&q=${select.textSearch}&categoryId=${select.categoryId}`;
+        let path = `/demo?page=${page.activePage}&q=${textSearch}&categoryId=${page.categoryId}`;
         const headers = {
             Accept: "*/*"
         }
@@ -82,22 +37,62 @@ export default function Blog() {
             if (resp.status === 200) {
                 setLoading(false)
                 setData(resp.data)
+                console.log(data)
             }
         } catch (error) {
             setLoading(false)
+            console.log(error)
         }
     }
+    useEffect(() => {
+        getSearch()
+    }, [])
+    useEffect(() => {
+        getSearch()
+    }, [page])
+    const handleChangeSearch = (text) => {
+        setTextSearch(text)
+    }
+    const handleChangData = async (item) => {
+        setPage({
+            ...page,
+            activePage:item
+        })
+    }
+    const handleData = (res) => {
+        setData(res)
+    }
 
+    const handleLoading = (isLoading) => {
+        setLoading(isLoading)
+    }
+
+    const handleSearch = async () => {
+        handleLoading(true);
+        let path = `/blog-search?q=${textSearch}&page=${activePage}`;
+        try {
+            let resp = await doGet(path);
+            if (resp.status === 200) {
+                setData(resp.data)
+                handleLoading(false)
+            }
+        } catch (error) {
+            console.log(error)
+            handleLoading(false)
+        }
+    }
     return (
         <>
             <div className="title">
                 <h1>Blog</h1>
             </div>
 
-            <SearchBlog select={select} handleTextSearch={handleTextSearch} />
-
-            <CategorySelect handleCategory={handleCategory} getSearch={getSearch} handleLoading={handleLoading} select={select} />
-
+            <SearchBlog activePage={activePage}
+                textSearch={textSearch} handleChangeSearch={handleChangeSearch}
+                handleLoading={handleLoading}
+                handleSearch={handleSearch}
+            />
+            <CategorySelect handleCategory={handleCategory} handleLoading={handleLoading} getSearch={getSearch} handlePage={handlePage} />
             <div className="wrapper__table">
                 <section className="content-header" >
                     <div className="button__add" >
@@ -129,10 +124,10 @@ export default function Blog() {
                         {!loading ?
                             <tbody>
                                 {data?.data.map((item, index) => {
-                                    return (           
+                                    return (
                                         <Item data={item} key={index} handleLoading={handleLoading}
-                                            indexNum={parseInt((5 * (select?.activePage - 1)) + index + 1)}
-                                            getSearch={getSearch} />         
+                                            indexNum={parseInt((5 * (activePage - 1)) + index + 1)}
+                                            getSearch={getSearch} />
                                     )
                                 })}
                             </tbody>
@@ -144,22 +139,23 @@ export default function Blog() {
             <div className="wrapper-paginate">
 
                 <Pagination
-                    activePage={select.activePage}
+                    activePage={activePage}
                     itemsCountPerPage={5}
                     totalItemsCount={parseInt(data?.totalPage)}
                     pageRangeDisplayed={3}
-                    onChange={(item) => handleActivePage(item)}
+                    onChange={handleChangData}
+
                 />
             </div>
         </>
     )
 }
 
-function CategorySelect({ handleCategory, select }) {
+function CategorySelect({ handleCategory, getSearch, handlePage }) {
     const [categoryBlog, setCategoryBlog] = useState();
     useEffect(() => {
         getCategory()
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [])
     const getCategory = async () => {
         const path = "/categoryblog";
         const headers = {
@@ -178,19 +174,16 @@ function CategorySelect({ handleCategory, select }) {
 
     return (
         <>
-            <label htmlFor="cars">Chon danh muc bai viet:</label>
-            <select name="category" onChange={(e) => {
-                handleCategory(e.target.value)
-
-            }}
-                value={select?.categoryId}
-                style={{
-                    border: '1px solid #eaeaea'
-                    , padding: 10,
-                    marginTop: 15,
-                    marginBottom: 15
-                }}>
-                <option value={1}>Tat ca</option>
+            <label for="cars">Chon danh muc bai viet:</label>
+            <select name="category" onChange={  (e) => {
+               handlePage(e.target.value)
+            }} style={{
+                border: '1px solid #eaeaea'
+                , padding: 10,
+                marginTop: 15,
+                marginBottom: 15
+            }}>
+                <option value="1">Tat ca</option>
                 {categoryBlog?.map((item, idx) => {
                     return (
                         <option key={idx} value={item._id}>{item.name}</option>

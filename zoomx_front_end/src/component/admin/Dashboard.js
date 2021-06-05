@@ -1,4 +1,5 @@
 import React from 'react';
+import Blog from './blog/Blog';
 import CategoryBlog from './category-blog/CategoryBlog';
 import Contact from './contact/Contact';
 import DefineHome from './home/define-home/DefineHome';
@@ -29,7 +30,7 @@ export default function Dashboard({ isPage }) {
             {isPage === "project" && <Project />}
             {isPage === "user-contact" && <UserContact />}
             {isPage === "category-blog" && <CategoryBlog />}
-            {/* {isPage === "blog" && <Blog />} */}
+            {isPage === "blog" && <Blog />}
 
             {isPage === "contact" && <Contact />}
         </div>

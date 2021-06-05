@@ -9,7 +9,6 @@ export default function ModalAdd(props) {
         label:null,
         imageCover:null
     });
-    console.log(contact)
     let handleContact = (e) => {
         const { name, value } = e.target
         setContact({

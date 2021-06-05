@@ -11,7 +11,7 @@ export default function Contact() {
 
     useEffect(() => {
         getContact()
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleLoading = (isLoading) => {
         setLoading(isLoading)

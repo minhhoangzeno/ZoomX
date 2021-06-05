@@ -152,7 +152,7 @@ function InvestmentSelect({ handleInvestment }) {
 
     return (
         <>
-            <label for="cars">Chon linh vuc dau tu:</label>
+            <label htmlFor="cars">Chon linh vuc dau tu:</label>
             <select name="cars" id="cars" onChange={(e) => handleInvestment(e.target.value)} style={{
                 border: '1px solid #eaeaea'
                 , padding: 10,
