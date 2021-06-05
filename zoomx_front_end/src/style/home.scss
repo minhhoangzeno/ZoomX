@@ -989,7 +989,8 @@
 }
 .img__page-blocks {
   height: 100%;
-  background-image: cover;
+  max-width: 100%;
+  object-fit: cover;
   @media (max-width: 1441px) {
     height: 600px;
   }

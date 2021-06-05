@@ -60,7 +60,6 @@ export default function FieldComponent() {
     <>
       <div className="main__field">
         <p className="text__headline--field">
-          {" "}
           WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS
         </p>
         <div className="empty__element--field"></div>
@@ -78,7 +77,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
           <div className="item__field__size">
             <div className="item__field__wrapper">
@@ -92,7 +90,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
           <div className="item__field__size">
             <div className="item__field__wrapper">
@@ -106,7 +103,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
           <div className="item__field__size">
             <div className="item__field__wrapper">
@@ -120,7 +116,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
           <div className="item__field__size">
             <div className="item__field__wrapper">
@@ -134,7 +129,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
           <div className="item__field__size">
             <div className="item__field__wrapper">
@@ -148,7 +142,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
           <div className="item__field__size">
             <div className="item__field__wrapper">
@@ -162,7 +155,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
           <div className="item__field__size">
             <div className="item__field__wrapper">
@@ -176,7 +168,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
           <div className="item__field__size">
             <div className="item__field__wrapper">
@@ -190,7 +181,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
           <div className="item__field__size">
             <div className="item__field__wrapper">
@@ -204,7 +194,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
           <div className="item__field__size">
             <div className="item__field__wrapper">
@@ -218,7 +207,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
           <div className="item__field__size">
             <div className="item__field__wrapper">
@@ -232,7 +220,6 @@ export default function FieldComponent() {
               </div>
               <div className="img__field--overlay"></div>
             </div>
-            {/* <div className="impact__item"></div> */}
           </div>
         </Slider>
       </div>
