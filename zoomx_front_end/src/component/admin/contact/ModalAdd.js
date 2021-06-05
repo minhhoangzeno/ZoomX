@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import Modal from 'react-bootstrap/Modal'
+import React, { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
 import { doPost } from '../../../lib/DataSource';
 
 export default function ModalAdd(props) {

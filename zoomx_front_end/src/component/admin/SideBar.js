@@ -49,11 +49,11 @@ export function SideBar({ handlePage, isPage }) {
                         >
                             <span>Trích dẫn</span>
                         </li>
-                        <li onClick={() => handlePage('zoomx')}
+                        {/* <li onClick={() => handlePage('zoomx')}
                         className={handleStyle("zoomx")}
                         >
                             <span>ZoomX</span>
-                        </li>
+                        </li> */}
                         <li onClick={() => handlePage('youngBusiness')}
                         className={handleStyle("youngBusiness")}
                         >

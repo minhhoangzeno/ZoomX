@@ -1,7 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
 import vn from "../../image/homePage/vn.png";
-import vn1 from "../../image/homePage/vn1.png";
 export default function News() {
   const settings = {
     // dots: true,

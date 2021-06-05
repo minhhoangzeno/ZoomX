@@ -11,27 +11,28 @@ export default function Item({ data, indexNum, getSearch, handleLoading }) {
     });
 
     useEffect(() => {
+        const getInvestment = async () => {
+            if (data.typeInvestment) {
+                const path = `/investment/${data.typeInvestment}`;
+                const headers = {
+                    Accept: "*/*"
+                }
+                try {
+                    var resp = await doGet(path, headers);
+                    if (resp.status === 200) {
+                        setInvestment(resp.data)
+    
+                    }
+                } catch (e) {
+                    console.log(e)
+                }
+            }else{
+                setInvestment(null)
+            }
+        }
         getInvestment()
     }, [])
-    const getInvestment = async () => {
-        if (data.typeInvestment) {
-            const path = `/investment/${data.typeInvestment}`;
-            const headers = {
-                Accept: "*/*"
-            }
-            try {
-                var resp = await doGet(path, headers);
-                if (resp.status === 200) {
-                    setInvestment(resp.data)
-
-                }
-            } catch (e) {
-                console.log(e)
-            }
-        }else{
-            setInvestment(null)
-        }
-    }
+    
 
     const deleteProject = async () => {
         const path = `/project/${data._id}`

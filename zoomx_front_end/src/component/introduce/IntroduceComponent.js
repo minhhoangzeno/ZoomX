@@ -39,7 +39,7 @@ export default function IntroduceComponent() {
 
             </div>
             <div className="col-12 col-sm-12 col-md-6 introduce-image">
-              <img src={hotel} />
+              <img src={hotel} alt="" />
 
             </div>
           </div>

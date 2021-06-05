@@ -1,9 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
 import icon1 from "../../image/homePage/icon1.png";
-import icon2 from "../../image/homePage/icon2.png";
-import icon3 from "../../image/homePage/icon3.png";
-import icon4 from "../../image/homePage/icon4.png";
 export default function FieldComponent() {
   const item = {
     // dots: true,

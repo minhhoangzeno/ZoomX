@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Modal from 'react-bootstrap/Modal'
-import { doPut } from '../../../../lib/DataSource';
 import { Editor } from '@tinymce/tinymce-react';
+import React, { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import { doPut } from '../../../../lib/DataSource';
 import { tinyconfig } from '../../../../TinyConfig';
 export default function ModalUpdate(props) {
     const [fileCover, setFileCover] = useState(props.dataReasonSelect.imageCover.url);

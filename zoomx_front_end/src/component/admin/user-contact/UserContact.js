@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Item from './Item';
 import Pagination from "react-js-pagination";
 import { doGet } from '../../../lib/DataSource';
-import Loading from "../../image/Loading"
+import Loading from "../../image/Loading";
+import Item from './Item';
 
 export default function UserContact(){
     const [data, setData] = useState();
@@ -10,6 +10,21 @@ export default function UserContact(){
     const [activePage, setActivePage] = useState(1)
     
     useEffect(() => {
+        let getData = async () => {
+            const path = `/person-contact?page=${activePage}`;
+            const headers = {
+                Accept: "*/*"
+            }
+            try {
+                var resp = await doGet(path, headers);
+                if (resp.status === 200) {
+                    setData(resp.data)
+    
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }
         getData()
     }, [activePage])
 

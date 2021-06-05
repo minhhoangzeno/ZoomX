@@ -13,7 +13,6 @@ export default function ModalAdd(props) {
     useEffect(() => {
         getInvestment()
     }, [])
-    console.log(project)
     const getInvestment = async () => {
         const path = "/investment-all";
         const headers = {

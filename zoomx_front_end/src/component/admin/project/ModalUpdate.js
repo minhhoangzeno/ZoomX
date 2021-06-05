@@ -7,6 +7,7 @@ export default function ModalUpdate(props) {
     let pj = [];
     props.data.imageProject.map(item => {
         pj.push(item.url)
+        return pj;
     })
     const [fileCover, setFileCover] = useState(props.data.imageCover?.url);
     const [project, setProject] = useState(props.data)

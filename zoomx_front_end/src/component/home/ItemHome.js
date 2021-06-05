@@ -1,8 +1,8 @@
 // import React from "react";
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
-import IconHome from "./IconHome";
 import itemHome from "../../image/homePage/itemHome.png";
+import IconHome from "./IconHome";
 export default function ItemHome() {
   const settings = {
     infinite: true,
