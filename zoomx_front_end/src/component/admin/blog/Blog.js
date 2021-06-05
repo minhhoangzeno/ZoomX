@@ -7,46 +7,79 @@ import Pagination from "react-js-pagination";
 import SearchBlog from './SearchBlog';
 export default function Blog() {
     const [data, setData] = useState();
-    const [categoryId, setCategoryId] = useState("1");
+    const [categoryId, setCategoryId] = useState(1);
     const handleCategory = (id) => {
         setCategoryId(id)
+        setTextSearch("")
     }
     const [activePage, setActivePage] = useState(1)
     const [loading, setLoading] = useState(true);
     const [modalShow, setModalShow] = useState(false)
-    const [textSearch, setTextSearch] = useState();
-    const handleChangeSearch = (text) => {
-        setTextSearch(text)
-    }
-    useEffect(() => {
-        getSearch()
-    }, [activePage, categoryId])
-    const handleChangData = (item) => {
-        setActivePage(item)
-    }
-    const handleData = (res) => {
-        setData(res)
+    const [textSearch, setTextSearch] = useState("");
+    const [page,setPage] = useState({
+        activePage:1,
+        categoryId:1
+    })
+    const handlePage = (num) => {
+        setPage({
+            ...page,
+            categoryId:num
+        })
     }
     const getSearch = async () => {
-        let path = (categoryId == "1") ? `/blog?page=${activePage}` : `/blog/category?page=${activePage}&categoryId=${categoryId}`;
+        setLoading(true)
+        let path = `/demo?page=${page.activePage}&q=${textSearch}&categoryId=${page.categoryId}`;
         const headers = {
             Accept: "*/*"
         }
         try {
-            var resp = await doGet(path, headers);
+            let resp = await doGet(path, headers);
             if (resp.status === 200) {
+                setLoading(false)
                 setData(resp.data)
-                handleLoading(false)
             }
-        } catch (e) {
-            console.log(e)
-            handleLoading(false)
+        } catch (error) {
+            setLoading(false)
+            console.log(error)
         }
     }
+    useEffect(() => {
+        getSearch()
+    }, [])
+    useEffect(() => {
+        getSearch()
+    }, [page])
+    const handleChangeSearch = (text) => {
+        setTextSearch(text)
+    }
+    const handleChangData = async (item) => {
+        setPage({
+            ...page,
+            activePage:item
+        })
+    }
+    const handleData = (res) => {
+        setData(res)
+    }
+
     const handleLoading = (isLoading) => {
         setLoading(isLoading)
     }
 
+    const handleSearch = async () => {
+        handleLoading(true);
+        let path = `/blog-search?q=${textSearch}&page=${activePage}`;
+        try {
+            let resp = await doGet(path);
+            if (resp.status === 200) {
+                setData(resp.data)
+                handleLoading(false)
+            }
+        } catch (error) {
+            console.log(error)
+            handleLoading(false)
+        }
+    }
     return (
         <>
             <div className="title">
@@ -54,9 +87,11 @@ export default function Blog() {
             </div>
 
             <SearchBlog activePage={activePage}
-            textSearch={textSearch} handleChangeSearch={handleChangeSearch}
-            handleData={handleData} handleLoading={handleLoading} />
-            <CategorySelect handleCategory={handleCategory} handleLoading={handleLoading} />
+                textSearch={textSearch} handleChangeSearch={handleChangeSearch}
+                handleLoading={handleLoading}
+                handleSearch={handleSearch}
+            />
+            <CategorySelect handleCategory={handleCategory} handleLoading={handleLoading} getSearch={getSearch} handlePage={handlePage} />
             <div className="wrapper__table">
                 <section className="content-header" >
                     <div className="button__add" >
@@ -115,12 +150,12 @@ export default function Blog() {
     )
 }
 
-function CategorySelect({ handleCategory }) {
+function CategorySelect({ handleCategory, getSearch, handlePage }) {
     const [categoryBlog, setCategoryBlog] = useState();
     useEffect(() => {
-        getSearch()
+        getCategory()
     }, [])
-    const getSearch = async () => {
+    const getCategory = async () => {
         const path = "/categoryblog";
         const headers = {
             Accept: "*/*"
@@ -139,7 +174,9 @@ function CategorySelect({ handleCategory }) {
     return (
         <>
             <label for="cars">Chon danh muc bai viet:</label>
-            <select name="category" onChange={(e) => handleCategory(e.target.value)} style={{
+            <select name="category" onChange={  (e) => {
+               handlePage(e.target.value)
+            }} style={{
                 border: '1px solid #eaeaea'
                 , padding: 10,
                 marginTop: 15,

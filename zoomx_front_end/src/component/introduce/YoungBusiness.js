@@ -1,6 +1,4 @@
 import React from 'react';
-import icon from "../../image/zoomX/icon.png";
-import icon1 from "../../image/zoomX/icon1.png";
 import icon2 from "../../image/zoomX/icon2.png";
 import icon3 from "../../image/zoomX/icon3.png";
 import icon4 from "../../image/zoomX/icon4.png";

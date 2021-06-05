@@ -80,13 +80,6 @@ export function SideBar({ handlePage, isPage }) {
                         <span>Lĩnh vực đầu tư</span>
                     </div>
                     <hr />
-                    <div className={handleStyle("news")}
-                        onClick={() => handlePage('news')}
-
-                    >
-                        <span>Tin tức - Sự kiện</span>
-                    </div>
-                    <hr />
                     <div className={handleStyle("blog")}
                         onClick={() => handlePage('blog')}
 

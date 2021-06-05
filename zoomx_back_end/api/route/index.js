@@ -125,6 +125,8 @@ module.exports = app => {
         .delete(blog_controller.delete_blog)
     app.route('/blog-search')
         .get(blog_controller.search_blog)
+    app.route('/demo')
+        .get(blog_controller.get_demo_search)
 
     app.route('/categoryblog')
         .get(categoryblog_controller.get_all_blogs)

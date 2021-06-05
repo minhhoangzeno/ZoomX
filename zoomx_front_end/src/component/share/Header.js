@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import '../../style/style.scss';
-import logoCountry from '../../image/home/country.png'
+import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import logoCountry from '../../image/home/country.png';
+import '../../style/style.scss';
 export default function Header() {
     let history = useHistory();
     const [height,setHeight] = useState()

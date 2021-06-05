@@ -134,7 +134,7 @@ exports.search_blog = async (req, res) => {
                 // res.status(200).json(data)
                 res.send({
                     data: data,
-                    totalPage:totalPage?.length
+                    totalPage: totalPage?.length
                 })
             });
         });
@@ -234,4 +234,92 @@ exports.delete_blog = (req, res) => {
             })
         })
     })
+}
+
+exports.get_demo_search = async (req,res) => {
+    let page = req.query.page;
+    let q = req.query.q;
+    let categoryId = req.query.categoryId;
+    let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
+    let regex = new RegExp(q, 'i');
+    let totalPage;
+    if (categoryId == 1) {
+        await Blog.find({ title: regex}).then(result => {
+            totalPage = result
+        }).catch(error => {
+            console.log(error)
+        })
+        Blog
+            .find({
+                title: regex
+            }) // find tất cả các data
+            .populate(
+                {
+                    path: 'imageBlog',
+                    populate: {
+                        path: 'imageBlog',
+                        model: 'image',
+                        select: 'url'
+                    },
+                    select: 'url'
+                },
+
+            )
+            .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+            .limit(perPage)
+            .exec((err, data) => {
+                Blog.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+                    if (err) return next(err);
+                    // res.send({
+                    //     data,
+                    //     totalPage: totalPage?.length
+                    // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+                    // res.status(200).json(data)
+                    res.send({
+                        data: data,
+                        totalPage: totalPage?.length
+                    })
+                });
+            });
+    } else {
+        await Blog.find({ title: regex, categoryId: categoryId }).then(result => {
+            totalPage = result
+        }).catch(error => {
+            console.log(error)
+        })
+        Blog
+            .find({
+                title: regex,
+                categoryId: categoryId
+            }) // find tất cả các data
+            .populate(
+                {
+                    path: 'imageBlog',
+                    populate: {
+                        path: 'imageBlog',
+                        model: 'image',
+                        select: 'url'
+                    },
+                    select: 'url'
+                },
+
+            )
+            .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+            .limit(perPage)
+            .exec((err, data) => {
+                Blog.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+                    if (err) return next(err);
+                    // res.send({
+                    //     data,
+                    //     totalPage: totalPage?.length
+                    // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+                    // res.status(200).json(data)
+                    res.send({
+                        data: data,
+                        totalPage: totalPage?.length
+                    })
+                });
+            });
+    }
+
 }

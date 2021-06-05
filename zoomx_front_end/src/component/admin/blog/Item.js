@@ -6,12 +6,12 @@ import ModalUpdate from './ModalUpdate';
 export default function Item({ data, indexNum, getSearch, handleLoading }) {
     const [modalShow, setModalShow] = React.useState(false);
     const [modalShowDetail, setModalShowDetail] = React.useState(false);
-
+    const [blog,setBlog] = useState(); 
     const [categoryBlog, setCategoryBlog] = useState();
-    useEffect(() => {
+    useEffect(async () => {
         getCategory()
+        await setBlog(data)
     }, [])
-
     const getCategory = async () => {
         const path = `/categoryblog/${data.categoryId}`;
         const headers = {
@@ -29,7 +29,7 @@ export default function Item({ data, indexNum, getSearch, handleLoading }) {
     }
 
     const deleteBlog = async () => {
-        const path = `/blog/${data._id}`
+        const path = `/blog/${blog._id}`
         handleLoading(true)
         try {
             let resp = await doDelete(path);
@@ -46,9 +46,9 @@ export default function Item({ data, indexNum, getSearch, handleLoading }) {
     return (
         <tr >
             <td className="text-center" style={{ verticalAlign: 'middle' }}>{indexNum}</td>
-            <td className="text-center" style={{ verticalAlign: 'middle' }}>{data.title}</td>
+            <td className="text-center" style={{ verticalAlign: 'middle' }}>{blog?.title}</td>
             <td className="text-center" style={{ verticalAlign: 'middle' }}>
-                {moment(data.date).format("DD-MM-YYYY")}
+                {moment(blog?.date).format("DD-MM-YYYY")}
             </td>
             <td className="text-center"
                 style={{ verticalAlign: 'middle' }}>

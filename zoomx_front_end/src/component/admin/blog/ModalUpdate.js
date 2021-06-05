@@ -12,10 +12,10 @@ export default function ModalUpdate(props) {
     const [blog, setBlog] = useState(props.data)
     const [fileImage, setFileImage] = useState(pj);
     const [categoryBlog, setCategoryBlog] = useState([]);
-    useEffect(() => {
+    useEffect( async () => {
         getCategory()
+        await setBlog(props.data)
     }, [])
-
 
     const handleBlog = (e) => {
         const { value, name } = e.target;
@@ -93,7 +93,7 @@ export default function ModalUpdate(props) {
                         <label className="label-txt">Tieu de: </label> <input className="input-txt"
                             name="title"
                             type="text"
-                            value={blog.title}
+                            value={blog?.title}
                             onChange={handleBlog}
                         />
                     </div>
@@ -101,7 +101,7 @@ export default function ModalUpdate(props) {
                         <label className="label-txt">Ngày viet: </label> <input className="input-txt"
                             name="date"
                             type="date"
-                            value={moment(blog.date).format("YYYY-MM-DD")}
+                            value={moment(blog?.date).format("YYYY-MM-DD")}
                             onChange={handleBlog}
 
                         />
@@ -133,7 +133,7 @@ export default function ModalUpdate(props) {
                     <div>
                         <label className="label-txt">Danh muc bai viet: </label>
                         <select name="categoryId" 
-                            value={blog.categoryId}
+                            value={blog?.categoryId}
                             onChange={handleBlog}
                         >
 
@@ -156,7 +156,7 @@ export default function ModalUpdate(props) {
                                     contentStart: event
                                 })
                             }}
-                            value={blog.contentStart}
+                            value={blog?.contentStart}
 
                         />
                     </div>
@@ -164,7 +164,7 @@ export default function ModalUpdate(props) {
                         <label className="label-txt">Than bai: </label>
                         <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
                             init={tinyconfig}
-                            value={blog.contentMain}
+                            value={blog?.contentMain}
                             onEditorChange={(event) => {
                                 setBlog({
                                     ...blog,
@@ -177,7 +177,7 @@ export default function ModalUpdate(props) {
                         <label className="label-txt">Ket bai: </label>
                         <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
                             init={tinyconfig}
-                            value={blog.contentBegin}
+                            value={blog?.contentBegin}
                             onEditorChange={(event) => {
                                 setBlog({
                                     ...blog,
