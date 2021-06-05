@@ -19,7 +19,7 @@ export default function ModalUpdate(props) {
         getInvestment()
     }, [])
     const getInvestment = async () => {
-        const path = "/investment";
+        const path = "/investment-all";
         const headers = {
             Accept: "*/*"
         }

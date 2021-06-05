@@ -71,6 +71,8 @@ exports.delete_library_image = (req, res) => {
         res.send(error)
     })
 }
+
+
 exports.upload_image_cover = (req, res) => {
     const id = req.params.library_image_id;
     Upload.uploadSingleFile({

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import { doPut } from '../../../../lib/DataSource';
-
+import { Editor } from '@tinymce/tinymce-react';
+import { tinyconfig } from '../../../../TinyConfig';
 export default function ModalUpdate(props) {
     const [fileCover, setFileCover] = useState(props.dataReasonSelect.imageCover.url);
     const [reason_select, setReasonSelect] = useState(props.dataReasonSelect);
@@ -45,21 +46,26 @@ export default function ModalUpdate(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Title: </label> <input className="input-txt"
+                        <label className="label-txt">Tiêu đề: </label> <input className="input-txt"
                             name="title" onChange={handleReasonSelect}
                             type="text"
                             value={reason_select.title}
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Content: </label> <input className="input-txt"
-                            name="content" onChange={handleReasonSelect}
-                            type="text"
+                        <label className="label-txt">Nội dung: </label> <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
+                            init={tinyconfig}
+                            onEditorChange={(event) => {
+                                setReasonSelect({
+                                    ...reason_select,
+                                    content: event
+                                })
+                            }}
                             value={reason_select.content}
                         />
                     </div>
                     <div>
-                        <label>Anh :</label> <input id="file-input" type="file"
+                        <label>Ảnh :</label> <input id="file-input" type="file"
                             name="imageCover"
                             onChange={(e) => {
                                 setFileCover(URL.createObjectURL(e.target.files[0]))

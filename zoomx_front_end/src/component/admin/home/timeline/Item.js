@@ -26,7 +26,6 @@ export default function Item({ dataTimeline ,indexNum, getTimeline, handleLoadin
                 <td className="text-center" style={{verticalAlign:'middle'}}>{indexNum}</td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataTimeline?.label}</td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataTimeline?.content}</td>
-                <td className="text-center">{dataTimeline?.isDeleted ? "Không hoạt động" : "Hoạt động"}</td> 
                 <td style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <button id="setting-btn" onClick={() => setModalShow(true)}>
                         <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">

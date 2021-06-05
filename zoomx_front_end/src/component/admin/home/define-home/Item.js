@@ -29,7 +29,6 @@ export default function Item({ dataDefineHome ,indexNum, getDefineHome, handleLo
                 <td className="text-center" style={{verticalAlign:'middle'}}>
                     <img alt="" src={dataDefineHome?.imageCover?.url} style={{width:50,height:'auto'}} />
                 </td>
-                <td className="text-center">{dataDefineHome?.isDeleted ? "Không hoạt động" : "Hoạt động"}</td> 
                 <td style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <button id="setting-btn" onClick={() => setModalShow(true)}>
                         <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">

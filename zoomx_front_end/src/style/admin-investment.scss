@@ -16,8 +16,18 @@
             outline: none;
         }
     }
+    textarea{
+        border:2px solid #d5d5d5; 
+        &:focus{
+            outline: none;
+        }
+    }
     input.input-txt{
         width: 74%;
+    }
+    textarea.input-txt{
+        width: 74%;
+        padding: 10px;
     }
     #file-input{
         border: none;

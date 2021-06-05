@@ -13,8 +13,9 @@ export default function ModalAdd(props) {
     useEffect(() => {
         getInvestment()
     }, [])
+    console.log(project)
     const getInvestment = async () => {
-        const path = "/investment";
+        const path = "/investment-all";
         const headers = {
             Accept: "*/*"
         }
@@ -45,7 +46,7 @@ export default function ModalAdd(props) {
         }
         setFileProject(listImage)
     }
-    const addProject = async (projectData) => {
+    const addProject = async () => {
         props.handleLoading(true)
         const path = "/project";
         const headers = {
@@ -63,7 +64,7 @@ export default function ModalAdd(props) {
         data.append("imageHero", project?.imageHero);
         data.append("imageInfor", project?.imageInfor);
         let listPj = Array.from(project.imageProject)
-        for(let i=0;i<listPj.length;i++){
+        for (let i = 0; i < listPj.length; i++) {
             data.append("imageProject", listPj[i]);
         }
         data.append("dateStart", project?.dateStart);
@@ -72,6 +73,7 @@ export default function ModalAdd(props) {
         try {
             let res = await doPost(path, headers, data)
             if (res.status === 200) {
+                setProject(null)
                 props.handleLoading(false)
                 props.getSearch()
             }
@@ -174,7 +176,14 @@ export default function ModalAdd(props) {
                     </div>
                     <div>
                         <label className="label-txt">Chọn lĩnh vực đầu tư: </label>
-                        <select name="typeInvestment" id="cars" onChange={handleProject}>
+                        <select name="typeInvestment" id="cars" onChange={(e) => {
+                            setProject({
+                                ...project,
+                                typeInvestment: e.target.value
+                            })
+                        }}>
+                            <option value="0">Chon linh vuc dau tu</option>
+
                             {investment?.map((item, idx) => {
                                 return (
                                     <option key={idx} value={item._id}>{item.investmentName}</option>
@@ -264,7 +273,7 @@ export default function ModalAdd(props) {
                             }}>Quay lại</button>
                             <button
                                 onClick={() => {
-                                    addProject(project)
+                                    addProject()
                                     setFileCover(null)
                                     setFileHero(null)
                                     setFileInfor(null)

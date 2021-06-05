@@ -1,3 +1,4 @@
+const FileUtil = require('../utils/FileUtil');
 const ImageUtil = require('../utils/ImageUtil');
 
 const mongoose = require('mongoose'),
@@ -82,7 +83,7 @@ exports.update_library_lookup = async (req, res) => {
         })
     })
     let updateFile = new Promise((resolve, reject) => {
-        ImageUtil.updateSingeFile(filePDF, libraryLookup.imageCover, 'Library/LookUp').then(result => {
+        FileUtil.updateSingeFile(filePDF, libraryLookup.fileBook, 'Library/LookUp').then(result => {
             resolve(result)
         }).catch(error => {
             reject(error)
@@ -111,7 +112,7 @@ exports.delete_library_lookup = async (req, res) => {
         })
     })
     let deleteFileBook = new Promise((resolve,reject) => {
-        ImageUtil.deleteSingleFile(libraryLookup.fileBook).then(result => {
+        FileUtil.deleteSingleFile(libraryLookup.fileBook).then(result => {
             resolve(result)
         }).catch(error => {
             res.send(error)
