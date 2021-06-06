@@ -19,6 +19,7 @@ header {
       min-height: 40px;
       border: 1px solid #eaeaea;
       background: #fff;
+      font-size: 16px;
       .wrapper__top {
         width: 100%;
         display: flex;
@@ -28,7 +29,7 @@ header {
         justify-content: space-between;
         align-items: center;
         color: #1b1c1b;
-        font-size: 14px;
+        font-size: 16px;
         @media (max-width: 1440px) {
           padding-left: 50px;
           padding-right: 50px;
@@ -141,7 +142,7 @@ footer {
             letter-spacing: 2px;
             font-size: 24px;
             @media (max-width: 769px) {
-              font-size: 21px;
+              font-size: 18px;
             }
             @media (max-width: 426px) {
               font-size: 12px;
@@ -396,12 +397,16 @@ footer {
   transition-duration: 1s;
   transform: translateX(-100%);
   &__content {
-    li {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: center;
-    }
+   
+      flex: 1;
+      li {
+        margin-top: 40px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+      }
+    
+   
   }
 }
 .openNavMobile {
@@ -429,7 +434,8 @@ footer {
     &--top {
       padding-bottom: 20px;
       font-size: 14px;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
+      font-family: Helvtica;
       @media (max-width: 768px) {
         font-size: 12px;
       }
@@ -535,6 +541,7 @@ footer {
       font-size: 36px;
       font-weight: bold;
       letter-spacing: 3px;
+      font-family: Helvetica;
       @media (max-width: 1441px) {
         font-size: 21px;
       }

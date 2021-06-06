@@ -13,6 +13,9 @@
         .row__info-project-detail {
             padding: 0 140px 50px 140px;
             margin-top: 60px;
+            @media(max-width:426px){
+                margin-top: 0;
+            }
             @media (max-width: 1440px) {
                 padding: 60px 50px;
             }
@@ -22,7 +25,7 @@
             .wrapper__info {
                 width: 100%;
                 height: 100%;
-                box-shadow: 0px 2px 3px 2px #bebebe;
+                box-shadow: 0px 2px 3px 2px #efefef;
                 letter-spacing: 1px !important;
                 h1 {
                     width: 100%;
@@ -65,6 +68,9 @@
                             padding-left: 30px;
                             font-size: 16px;
                             font-family: Helvetica;
+                            @media(max-width:769px){
+                                font-size: 12px;
+                            }
                             svg {
                                 position: absolute;
                                 left: 0;
@@ -85,7 +91,6 @@
                         .img-wrapper {
                             width: 100%;
                             height: 100%;
-                            box-shadow: 0px 2px 3px 2px #bebebe;
                             img {
                                 height: 100%;
                                 width: 100%;
@@ -130,6 +135,10 @@
             }
             .wrapper__text-content {
                 padding: 0 15px;
+                font-size: 16px;
+                @media(max-width: 769px){
+                    font-size: 12px;
+                }
             }
         }
         .row__img-content {

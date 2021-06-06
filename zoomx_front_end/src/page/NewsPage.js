@@ -20,7 +20,7 @@ export default function NewsPage() {
       <main className="main__container">
         <div className="container-fluid main__home">
           <div className="row item__home">
-            <div className="col-xl-8 col-6 col-12 main__news__page">
+            <div className="col-xl-8 col-6 col-12 main__news__page" style={{paddingLeft:0}}>
               <ItemNews />
             </div>
             <div className="col-xl-4 main__news--cover">

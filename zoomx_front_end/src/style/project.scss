@@ -195,9 +195,9 @@
                             } 
                             font-weight: 700;
                             border: 2px solid #E01042;
-                            @media (max-width: 768px){
+                            @media (max-width: 769px){
                                 padding: 3px 15px;
-                                // font-size: 13px;
+                                font-size: 12px;
                             }
                             &:hover {
                                 text-decoration: none;
@@ -221,8 +221,8 @@
                             text-align: center;
                             font-size: 18px;
                         }
-                        @media (max-width: 768px){
-                            font-size: 15px;
+                        @media (max-width: 769px){
+                            font-size: 14px;
                         }
                         &:hover {
                             color: #af8d41;

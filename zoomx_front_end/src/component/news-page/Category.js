@@ -13,7 +13,7 @@ export default function Category() {
           </div>
           <p className="average__word">TÌM KIẾM</p>
           <input className="search__item" type="text" />
-          <button className="btn__search">Tìm kiếm</button>
+          <button className="btn__search">TÌM KIẾM</button>
           {/* <p className="average__word">TAGS</p>
           <div className="list__item">
             <p className="content__little">Tin tức</p>
