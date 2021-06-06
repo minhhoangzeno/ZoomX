@@ -1,6 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router";
 import "../../style/style.scss";
+import hero from "../../image/home/hero.png";
+
 export default function HeroHeader() {
   const history = useHistory();
   return (
