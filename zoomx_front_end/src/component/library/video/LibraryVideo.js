@@ -1,7 +1,7 @@
 import React from 'react';
-import item from '../../image/home/librarypage/itemOfList.jpg';
+import item from '../../../image/home/librarypage/itemOfList.jpg';
 
-export default function ListLibrary() {
+export default function LibraryVIDEO() {
     return (
         <>
             <div className="list__wrapper">
@@ -14,7 +14,7 @@ export default function ListLibrary() {
                             <div className="item__content--bottom">
                                 <div className="label">
                                     <span>
-                                        HÌNH ẢNH
+                                        VIDEO
                                     </span>
                                 </div>
                                 <div className="title">
@@ -29,7 +29,7 @@ export default function ListLibrary() {
                             <div className="item__content--bottom">
                                 <div className="label">
                                     <span>
-                                        HÌNH ẢNH
+                                        VIDEO
                                     </span>
                                 </div>
                                 <div className="title">
@@ -44,7 +44,7 @@ export default function ListLibrary() {
                             <div className="item__content--bottom">
                                 <div className="label">
                                     <span>
-                                        HÌNH ẢNH
+                                        VIDEO
                                     </span>
                                 </div>
                                 <div className="title">
@@ -59,7 +59,7 @@ export default function ListLibrary() {
                             <div className="item__content--bottom">
                                 <div className="label">
                                     <span>
-                                        HÌNH ẢNH
+                                        VIDEO
                                     </span>
                                 </div>
                                 <div className="title">
@@ -74,7 +74,7 @@ export default function ListLibrary() {
                             <div className="item__content--bottom">
                                 <div className="label">
                                     <span>
-                                        HÌNH ẢNH
+                                        VIDEO
                                     </span>
                                 </div>
                                 <div className="title">
@@ -89,7 +89,7 @@ export default function ListLibrary() {
                             <div className="item__content--bottom">
                                 <div className="label">
                                     <span>
-                                        HÌNH ẢNH
+                                        VIDEO
                                     </span>
                                 </div>
                                 <div className="title">
@@ -104,7 +104,7 @@ export default function ListLibrary() {
                             <div className="item__content--bottom">
                                 <div className="label">
                                     <span>
-                                        HÌNH ẢNH
+                                        VIDEO
                                     </span>
                                 </div>
                                 <div className="title">
@@ -119,7 +119,7 @@ export default function ListLibrary() {
                             <div className="item__content--bottom">
                                 <div className="label">
                                     <span>
-                                        HÌNH ẢNH
+                                        VIDEO
                                     </span>
                                 </div>
                                 <div className="title">
@@ -134,7 +134,7 @@ export default function ListLibrary() {
                             <div className="item__content--bottom">
                                 <div className="label">
                                     <span>
-                                        HÌNH ẢNH
+                                        VIDEO
                                     </span>
                                 </div>
                                 <div className="title">

@@ -2,33 +2,37 @@ import React from 'react';
 import '../../style/library.scss'
 import iconNav from '../../image/home/librarypage/icon-menu.png'
 
-export default function MenuLibrary() {
+export default function MenuLibrary({ isPage, handlePage }) {
     return (
         <>
             <div className="menu__wrapper">
                 <div className="container-fluid">
                     <ul className="menu__library">
-                        <li>
+                        <li onClick={() => handlePage("lookup")}>
                             <img src={iconNav} alt="" />
-                            <a href="http://www.github.com">
+                            <span>
                                 LOOK
-                            </a>
+                                <div style={{display: (isPage === "lookup") ? 'block' : 'none'}} className="active-cpn"></div>
+                            </span>
                         </li>
                         /
-                        <li>
+                        <li onClick={() => handlePage("image")}>
                             <img src={iconNav} alt="" />
-                            <a href="http://www.github.com">
+                            <span>
                                 HÌNH ẢNH
-                                <div className="active-cpn"></div>
-                            </a>
+                                <div style={{display: (isPage === "image") ? 'block' : 'none'}} className="active-cpn"></div>
+
+                            </span>
 
                         </li>
                         /
-                        <li>
+                        <li onClick={() => handlePage("video")}>
                             <img src={iconNav} alt="" />
-                            <a href="http://www.github.com">
+                            <span>
                                 VIDEO
-                            </a>
+                                <div style={{display: (isPage === "video") ? 'block' : 'none'}} className="active-cpn"></div>
+
+                            </span>
                         </li>
                     </ul>
                 </div>
