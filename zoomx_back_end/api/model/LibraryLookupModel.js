@@ -19,6 +19,9 @@ const libraryLookupSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'file'
     }
+}, {
+    bufferCommands: true,
+    autoCreate: true
 })
 
 module.exports = mongoose.model('librarylookup', libraryLookupSchema)

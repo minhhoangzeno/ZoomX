@@ -18,22 +18,22 @@ export function SideBar({ handlePage, isPage }) {
                     </div>
                     <ul className="sub__menu">
                         <li onClick={() => handlePage('heroHome')}
-                        className={handleStyle("heroHome")}
+                            className={handleStyle("heroHome")}
                         >
                             <span>Hero Trang chủ</span>
                         </li>
                         <li onClick={() => handlePage('defineHome')}
-                        className={handleStyle("defineHome")}
+                            className={handleStyle("defineHome")}
                         >
                             <span>Khách sạn quay ZoomX là gì</span>
                         </li>
                         <li onClick={() => handlePage('reasonSelect')}
-                        className={handleStyle("reasonSelect")}
+                            className={handleStyle("reasonSelect")}
                         >
                             <span>Tại sao chọn ZoomX Hotels</span>
                         </li>
                         <li onClick={() => handlePage('timeLine')}
-                        className={handleStyle("timeLine")}
+                            className={handleStyle("timeLine")}
                         >
                             <span>Lộ trình triển khai</span>
                         </li>
@@ -45,22 +45,22 @@ export function SideBar({ handlePage, isPage }) {
                     </div>
                     <ul className="sub__menu">
                         <li onClick={() => handlePage('slogan')}
-                        className={handleStyle("slogan")}
+                            className={handleStyle("slogan")}
                         >
                             <span>Trích dẫn</span>
                         </li>
                         <li onClick={() => handlePage('zoomx')}
-                        className={handleStyle("zoomx")}
+                            className={handleStyle("zoomx")}
                         >
                             <span>ZoomX</span>
                         </li>
                         <li onClick={() => handlePage('youngBusiness')}
-                        className={handleStyle("youngBusiness")}
+                            className={handleStyle("youngBusiness")}
                         >
                             <span>Khởi nghiệp khát vọng tuổi trẻ</span>
                         </li>
                         <li onClick={() => handlePage('partner')}
-                        className={handleStyle("partner")}
+                            className={handleStyle("partner")}
                         >
                             <span>Đối tác</span>
                         </li>
@@ -113,6 +113,23 @@ export function SideBar({ handlePage, isPage }) {
                     >
                         <span>Thư viện</span>
                     </div>
+                    <ul className="sub__menu">
+                        <li onClick={() => handlePage('library-lookup')}
+                            className={handleStyle('library-lookup')}
+                        >
+                            <span>Thư viện Lookup</span>
+                        </li>
+                        <li onClick={() => handlePage('library-image')}
+                            className={handleStyle('library-image')}
+                        >
+                            <span>Thư viện ảnh</span>
+                        </li>
+                        <li onClick={() => handlePage('library-video')}
+                            className={handleStyle('library-video')}
+                        >
+                            <span>Thư viện Video</span>
+                        </li>
+                    </ul>
                     <hr />
                     <div className={handleStyle("recruitment")}
                         onClick={() => handlePage('recruitment')}
@@ -120,7 +137,7 @@ export function SideBar({ handlePage, isPage }) {
                     >
                         <span>Tuyển dụng</span>
                     </div>
-                   
+
                 </div>
             </div>
 

@@ -7,8 +7,17 @@ const mongoose = require('mongoose'),
     AddImageLibrary = require('../utils/library/AddImageLibrary')
     ;
 
-exports.get_library_image = (req, res) => {
-    LibraryImage.find({ isDeleted: false })
+exports.get_library_image = async (req, res) => {
+    let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
+    let page = req.query.page;
+    let totalPage;
+    await LibraryImage.find().then(result => {
+        totalPage = result
+    }).catch(error => {
+        console.log(error)
+    })
+    LibraryImage
+        .find() // find tất cả các data
         .populate([
             {
                 path: 'imageCover',
@@ -25,18 +34,23 @@ exports.get_library_image = (req, res) => {
                 select: 'url'
             },
         ])
-        .then(lb => {
-            res.send(lb)
-        })
-        .catch(error => {
-            res.send(error)
-        })
+        .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+        .limit(perPage)
+        .exec((err, data) => {
+            LibraryImage.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+                if (err) return next(err);
+                res.send({
+                    data: data,
+                    totalPage: totalPage?.length
+                })
+            });
+        });
 }
 
 exports.add_librare_image = (req, res) => {
     AddImageLibrary.addImageLibrary(req).then(result => {
         let objLibrary = {
-            name:req.body.name,
+            name: req.body.name,
             imageCover: result.filter(item => item.imageCover)[0]?.imageCover ? result.filter(item => item.imageCover)[0].imageCover : null,
             imageList: result.filter(item => item.imageList)[0]?.imageList ? result.filter(item => item.imageList)[0].imageList : null,
         }
@@ -52,10 +66,10 @@ exports.add_librare_image = (req, res) => {
     })
 }
 exports.update_library_image = (req, res) => {
-    UpdateImageLibrary.updateImageLibrary(req.params.library_image_id,req).then(result => {
-        LibraryImage.findByIdAndUpdate(req.params.library_image_id,{
+    UpdateImageLibrary.updateImageLibrary(req.params.library_image_id, req).then(result => {
+        LibraryImage.findByIdAndUpdate(req.params.library_image_id, {
             name: req.body.name,
-            imageCover: result.filter(item => item.imageCover)[0].imageCover,      
+            imageCover: result.filter(item => item.imageCover)[0].imageCover,
             imageList: result.filter(item => item.imageList)[0].imageList,
         }).exec().then(libImage => {
             res.send(libImage)

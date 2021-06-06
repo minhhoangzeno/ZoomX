@@ -6,8 +6,17 @@ const mongoose = require('mongoose'),
     Upload = require('../model/UploadImageModel'),
     UploadFile = require('../model/UploadFileModel');
 
-exports.get_library_lookup = (req, res) => {
-    LibraryLookup.find()
+exports.get_library_lookup = async (req, res) => {
+    let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
+    let page = req.query.page;
+    let totalPage;
+    await LibraryLookup.find().then(result => {
+        totalPage = result
+    }).catch(error => {
+        console.log(error)
+    })
+    LibraryLookup
+        .find() // find tất cả các data
         .populate([
             {
                 path: 'fileBook',
@@ -18,12 +27,22 @@ exports.get_library_lookup = (req, res) => {
                 model: 'image'
             }
         ])
-        .then(lookup => {
-            res.send(lookup)
-        })
-        .catch(error => {
-            res.send(error)
-        })
+        .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+        .limit(perPage)
+        .exec((err, data) => {
+            LibraryLookup.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+                if (err) return next(err);
+                // res.send({
+                //     data,
+                //     totalPage: totalPage?.length
+                // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+                // res.status(200).json(data)
+                res.send({
+                    data: data,
+                    totalPage: totalPage?.length
+                })
+            });
+        });
 }
 
 exports.add_library_lookup = (req, res) => {
@@ -104,21 +123,21 @@ exports.update_library_lookup = async (req, res) => {
 }
 exports.delete_library_lookup = async (req, res) => {
     let libraryLookup = await LibraryLookup.findById(req.params.library_lookup_id)
-    let deleteImageCover = new Promise((resolve,reject) => {
+    let deleteImageCover = new Promise((resolve, reject) => {
         ImageUtil.deleteSingleFile(libraryLookup.imageCover).then(result => {
             resolve(result)
         }).catch(error => {
             res.send(error)
         })
     })
-    let deleteFileBook = new Promise((resolve,reject) => {
+    let deleteFileBook = new Promise((resolve, reject) => {
         FileUtil.deleteSingleFile(libraryLookup.fileBook).then(result => {
             resolve(result)
         }).catch(error => {
             res.send(error)
         })
     })
-    Promise.all([deleteFileBook,deleteImageCover]).then(() => {
+    Promise.all([deleteFileBook, deleteImageCover]).then(() => {
         libraryLookup.remove();
         res.send("Xoa thanh cong")
     }).catch(error => {

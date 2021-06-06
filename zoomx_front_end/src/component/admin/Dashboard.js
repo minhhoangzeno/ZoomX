@@ -7,6 +7,9 @@ import Hero from './home/hero/Hero';
 import ReasonSelect from './home/reason-select/ReasonSelect';
 import Timeline from './home/timeline/Timeline';
 import Investment from './investment/Investment';
+import LibraryImage from './library/library-image/LibraryImage';
+import LibraryLookup from './library/library-lookup/LibraryLookup';
+import LibraryVideo from './library/library-video/LibraryVideo';
 import Project from './project/Project';
 import Recruitment from './recruitment/Recruitment';
 import UserContact from './user-contact/UserContact';
@@ -31,7 +34,9 @@ export default function Dashboard({ isPage }) {
             {isPage === "user-contact" && <UserContact />}
             {isPage === "category-blog" && <CategoryBlog />}
             {isPage === "blog" && <Blog />}
-
+            {isPage === "library-video" && <LibraryVideo />}
+            {isPage === "library-image" && <LibraryImage />}
+            {isPage === "library-lookup" && <LibraryLookup />}
             {isPage === "contact" && <Contact />}
         </div>
     )

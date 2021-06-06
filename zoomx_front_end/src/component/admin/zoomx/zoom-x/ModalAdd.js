@@ -4,7 +4,6 @@ import { doPost } from '../../../../lib/DataSource';
 
 export default function ModalAdd(props) {
     const [fileCover, setFileCover] = useState();
-    const [file, setFile] = useState();
     const [zoomx, setZoomX] = useState({
         content: null,
         profile:null,
