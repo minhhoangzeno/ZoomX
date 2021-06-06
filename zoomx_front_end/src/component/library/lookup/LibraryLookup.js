@@ -34,7 +34,7 @@ function Item() {
         </div>
         <div className="item__content--bottom">
           <div className="label">
-            <span>VIDEO</span>
+            <span>LOOKUP</span>
           </div>
           <div className="title">FLC Grand Hotel Quy Nhon 2020</div>
         </div>
