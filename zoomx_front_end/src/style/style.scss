@@ -1,6 +1,6 @@
 @import "./common.scss";
 
-.scrollTransform{
+.scrollTransform {
   transform: translateY(-42px);
 }
 header {
@@ -14,7 +14,7 @@ header {
     top: 0%;
     z-index: 39;
     width: 100%;
-    transition-duration: .8s;
+    transition-duration: 0.8s;
     &--top {
       min-height: 40px;
       border: 1px solid #eaeaea;
@@ -141,7 +141,7 @@ footer {
             letter-spacing: 2px;
             font-size: 24px;
             @media (max-width: 769px) {
-              font-size: 18px;
+              font-size: 21px;
             }
             @media (max-width: 426px) {
               font-size: 12px;
@@ -201,8 +201,8 @@ footer {
                   outline-width: 0;
                 }
                 @media (max-width: 768px) {
-                 padding-left: 25px;
-                 padding-right: 0;
+                  padding-left: 25px;
+                  padding-right: 0;
                 }
                 @media (max-width: 426px) {
                   font-size: 12px;
@@ -306,7 +306,7 @@ footer {
                 }
                 @media (max-width: 769px) {
                   padding: 8px;
-                  color: #ffffffA1;
+                  color: #ffffffa1;
                 }
               }
             }
@@ -320,7 +320,6 @@ footer {
     }
   }
 }
-
 
 .header-menu-mobile {
   position: sticky;
@@ -410,11 +409,19 @@ footer {
 .hero {
   width: 100%;
   height: 100vh;
-  background-image: url("../image/home/hero.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  &__slider {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  &__image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
   &__content {
     position: absolute;
     color: #fff;
@@ -437,14 +444,14 @@ footer {
         font-size: 8px;
         letter-spacing: 2px;
       }
-      @media (max-width:321px){
+      @media (max-width: 321px) {
         font-size: 11px;
       }
     }
-    &--empty{
+    &--empty {
       width: 56px;
       height: 2px;
-      background-color: #FFF;
+      background-color: #fff;
     }
     &--mid {
       letter-spacing: 10px;
@@ -470,7 +477,7 @@ footer {
         margin-bottom: 0px;
         letter-spacing: 3px;
       }
-      @media (max-width:321px){
+      @media (max-width: 321px) {
         font-size: 20px;
         letter-spacing: 3px;
       }
