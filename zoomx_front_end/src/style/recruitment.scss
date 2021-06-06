@@ -1,118 +1,118 @@
-@import './common.scss';
+@import "./common.scss";
 
-.recruitment{
-    font-family: Helvetica;
-    padding-bottom: 60px;
-    width: 100%;
-    strong{
-        letter-spacing: 1px;
-        line-height: 27px;
+.recruitment {
+  font-family: Helvetica;
+  padding-bottom: 60px;
+  width: 100%;
+  strong {
+    letter-spacing: 1px;
+    line-height: 27px;
+  }
+  @media (max-width: 1190px) {
+    padding-bottom: 30px;
+  }
+  .container-fluid {
+    padding-left: 110px;
+    padding-right: 110px;
+    @media (max-width: 1679px) {
+      padding-left: 70px;
+      padding-right: 70px;
     }
-    @media (max-width:1190px) {
-        padding-bottom: 30px;
+    @media (max-width: 1190px) {
+      padding-left: 50px;
+      padding-right: 50px;
     }
-    .container-fluid{
-        padding-left: 110px;
-        padding-right: 110px;
-        @media (max-width:1679px) {
-            padding-left: 70px;
-            padding-right: 70px;
+    @media (max-width: 426px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .recruitment__list {
+      padding-top: 110px;
+      @media (max-width: 1190px) {
+        padding-top: 60px;
+      }
+      &__block {
+        background-color: #f9f9f9;
+        box-shadow: 0px 2px 3px 2px #bebebe;
+        margin: 0px 30px;
+        margin-bottom: 70px;
+        @media (max-width: 1679px) {
+          margin: 0px 20px;
+          margin-bottom: 50px;
         }
-        @media (max-width:1190px) {
-            padding-left: 50px;
-            padding-right: 50px;
+        @media (max-width: 1190px) {
+          margin: 0px 10px;
+          margin-bottom: 30px;
         }
-        @media (max-width:426px) {
-            padding-left: 15px;
-            padding-right: 15px;
+        @media (max-width: 767px) {
+          margin-left: auto;
+          margin-right: auto;
         }
-        .recruitment__list{
-            padding-top: 110px;
-            @media (max-width:1190px) {
-                padding-top: 60px;
+        .block__info {
+          font-size: 16px;
+          @media (max-width: 1679px) {
+            font-size: 13px;
+          }
+          padding-left: 35px;
+          padding-right: 45px;
+          padding-top: 40px;
+          color: rgba($color: #282828, $alpha: 0.6);
+          @media (max-width: 1679px) {
+            padding-left: 25px;
+            padding-right: 35px;
+            padding-top: 30px;
+          }
+          @media (max-width: 1190px) {
+            padding-left: 20px;
+            padding-right: 25px;
+            padding-top: 25px;
+          }
+          &--logo {
+            padding-bottom: 20px;
+          }
+          &--title {
+            padding-bottom: 30px;
+            margin-top: 10px;
+            strong {
+              text-transform: uppercase;
+              font-size: 18px;
+              @media (max-width: 1679px) {
+                font-size: 16px;
+              }
+              @media (max-width: 1190px) {
+                font-size: 14px;
+              }
+              a {
+                color: #282828;
+              }
+              a:hover {
+                text-decoration: none;
+              }
             }
-            &__block{
-                background-color: #F9F9F9;
-                box-shadow: 0px 2px 3px 2px #bebebe;
-                margin: 0px 30px;
-                margin-bottom: 70px;
-                @media (max-width:1679px) {
-                    margin: 0px 20px;
-                    margin-bottom: 50px;
-                }
-                @media (max-width:1190px) {
-                    margin: 0px 10px;
-                    margin-bottom: 30px;
-                }
-                @media (max-width:767px) {
-                        margin-left: auto;
-                        margin-right: auto;
-                }
-                .block__info{
-                    font-size: 16px;
-                        @media (max-width:1679px) {
-                            font-size: 13px;
-                        }
-                    padding-left: 35px;
-                    padding-right: 45px;
-                    padding-top: 40px;
-                    color: rgba($color: #282828, $alpha: 0.6);
-                    @media (max-width:1679px) {
-                        padding-left: 25px;
-                        padding-right: 35px;
-                        padding-top: 30px;
-                    }
-                    @media (max-width:1190px) {
-                        padding-left: 20px;
-                        padding-right: 25px;
-                        padding-top: 25px;
-                    }
-                    &--logo{
-                        padding-bottom: 20px;
-                    }
-                    &--title{
-                        padding-bottom: 30px;
-                        margin-top: 10px;
-                        strong{
-                            text-transform: uppercase;
-                            font-size: 18px;
-                            @media (max-width:1679px) {
-                                font-size: 16px;
-                            }
-                            @media (max-width:1190px) {
-                                font-size: 14px;
-                            }
-                            a{
-                                color: #282828;
-                            }
-                            a:hover{
-                                text-decoration: none;
-                            }
-                        }
-                    }
-                    &--address{
-                        display: flex;
-                        margin-bottom: 8px;
-                        .value{
-                            padding-left: 5px;
-                        }
-                    }
-                    &--salary{
-                        display: flex;
-                        margin-bottom: 8px;
-                        img{
-                            opacity: 0.6;
-                        }
-                        .value{
-                            padding-left: 5px;
-                        }
-                    }
-                }
-                .block__bottom{
-                    height: 15px;
-                    background-color: #E01042;
-                }
+          }
+          &--address {
+            display: flex;
+            margin-bottom: 8px;
+            .value {
+              padding-left: 5px;
             }
+          }
+          &--salary {
+            display: flex;
+            margin-bottom: 8px;
+            img {
+              opacity: 0.6;
+            }
+            .value {
+              padding-left: 5px;
+            }
+          }
         }
+        .block__bottom {
+          height: 15px;
+          background-color: #e01042;
+        }
+      }
     }
+  }
 }
