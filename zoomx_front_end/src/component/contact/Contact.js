@@ -8,10 +8,8 @@ export default function Contact() {
     return(
         <div className="contact">
             <div className="container-fluid">
-                <div className="row no-gutters">
-                    <ContactForm />
-                    <ContactInfo />
-                </div>
+                <ContactForm />
+                <ContactInfo />
             </div>
         </div>
     )

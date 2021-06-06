@@ -2,8 +2,7 @@ import React from 'react';
 import hotel from '../../image/contact/hotel.png'
 export default function ContactInfo() {
     return(
-        <div className="col-md-6 col-12">
-                        <div className="contact__info">
+        <div className="contact__info">
                             <img src={hotel} alt="" />
                             <div className="contact__info--basic">
                                 <div className="row">
@@ -23,6 +22,5 @@ export default function ContactInfo() {
                                 <div className="hotline--number"><strong>(+84) 766 262 838</strong></div>
                             </div>
                         </div>
-                    </div>
     )
 }

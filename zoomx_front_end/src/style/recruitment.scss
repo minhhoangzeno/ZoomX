@@ -33,7 +33,7 @@
             }
             &__block{
                 background-color: #F9F9F9;
-                box-shadow: 0px 2px 3px 2px #bebebe;
+                box-shadow: 0px 2px 3px 2px #cecece;
                 margin: 0px 30px;
                 margin-bottom: 70px;
                 @media (max-width:1679px) {
@@ -53,6 +53,9 @@
                         @media (max-width:1679px) {
                             font-size: 13px;
                         }
+                        @media (max-width:1190px) {
+                            font-size: 12px;
+                        }
                     padding-left: 35px;
                     padding-right: 45px;
                     padding-top: 40px;
@@ -69,10 +72,20 @@
                     }
                     &--logo{
                         padding-bottom: 20px;
+                        @media (max-width:500px) {
+                            padding-bottom: 0px;
+                            svg{
+                                width: 50px;
+                            }
+                        }
                     }
                     &--title{
                         padding-bottom: 30px;
                         margin-top: 10px;
+                        @media (max-width:500px) {
+                            padding-bottom: 10px;
+                            margin-top: 0px;
+                        }
                         strong{
                             text-transform: uppercase;
                             font-size: 18px;
@@ -95,6 +108,11 @@
                         margin-bottom: 8px;
                         .value{
                             padding-left: 5px;
+                            p{
+                                @media (max-width:500px) {
+                                    margin-bottom: 0px;
+                                }
+                            }
                         }
                     }
                     &--salary{
@@ -105,6 +123,11 @@
                         }
                         .value{
                             padding-left: 5px;
+                            p{
+                                @media (max-width:500px) {
+                                    margin-bottom: 0px;
+                                }
+                            }
                         }
                     }
                 }

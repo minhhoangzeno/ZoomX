@@ -1,5 +1,7 @@
 @import "./common.scss";
-
+img {
+  object-fit: cover;
+}
 .menu__wrapper {
   width: 100%;
   padding: 80px;
@@ -205,8 +207,99 @@
               text-align: center;
               font-size: 18px;
             }
-            @media (max-width: 768px) {
-              font-size: 15px;
+            a.item {
+              width: calc((100% - 60px) / 3);
+              margin-right: 30px;
+              margin-bottom: 40px;
+              cursor: pointer;
+              box-shadow: 0px 2px 3px 2px #e8e8e8;
+              &:hover {
+                text-decoration: none;
+              }
+              &:hover {
+                img {
+                  transform: scale(1.5);
+                  transition: 1s;
+                }
+              }
+              @media (max-width: 426px) {
+                width: 100%;
+                margin-right: 0;
+              }
+              .item__content--top {
+                width: 100%;
+                height: 251px;
+                background-size: cover;
+                background-position: center center;
+                overflow: hidden;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  transition: 1s;
+                }
+              }
+              .item__content--bottom {
+                padding: 30px;
+                @media (max-width: 1024px) {
+                  padding: 20px;
+                }
+                @media (max-width: 768px) {
+                  padding: 10px;
+                }
+                @media (max-width: 425px) {
+                  padding: 20px;
+                }
+                .label {
+                  font-family: Giroly;
+                  margin-bottom: 20px;
+                  @media (max-width: 1024px) {
+                    display: flex;
+                    justify-content: center;
+                  }
+                  @media (max-width: 768px) {
+                    margin-bottom: 10px;
+                  }
+                  span {
+                    padding: 5px 18px;
+                    background-color: #e01042;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 14px;
+                    font-weight: 700;
+                    border: 2px solid #e01042;
+                    @media (max-width: 1024px) {
+                      padding: 5px 25px;
+                    }
+                    @media (max-width: 768px) {
+                      padding: 3px 15px;
+                      font-size: 10px;
+                    }
+                    &:hover {
+                      text-decoration: none;
+                      background-color: #fff;
+                      border: 2px solid #e01042;
+                      color: #e01042;
+                    }
+                  }
+                }
+                .title {
+                  color: #333;
+                  // font-family: Giroly;
+                  font-weight: 700;
+                  font-size: 21px;
+                  @media (max-width: 1024px) {
+                    width: 100%;
+                    text-align: center;
+                    font-size: 18px;
+                  }
+                  @media (max-width: 768px) {
+                    font-size: 15px;
+                  }
+                  &:hover {
+                    color: #af8d41;
+                  }
+                }
+              }
             }
             &:hover {
               color: #af8d41;

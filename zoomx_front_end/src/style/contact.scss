@@ -9,12 +9,10 @@
     @media (max-width:1190px) {
         font-size: 12px;
     }
-    @media (max-width:768px) {
-        font-size: 11px;
-    }
     .container-fluid{
         padding: 140px;
         padding-top: 100px;
+        display: flex;
         @media (max-width:1679px) {
             padding-top: 70px;
             padding: 100px;
@@ -23,27 +21,33 @@
             padding: 50px;
             padding-top: 50px;
         }
-        @media (max-width:768px) {
+        @media (max-width:769px) {
             padding: 20px;
+            display: block;
         }
         .contact__form{
             color: #282828;
             padding-right: 125px;
             padding-top: 40px;
+            width: 50%;
             @media (max-width:1679px) {
                 padding-right: 70px;
                 padding-top: 30px;
             }
-            @media (max-width:1190px) {
+            @media (max-width:1300px) {
                 padding-right: 20px;
                 padding-top: 20px;
             }
-            @media (max-width:768px) {
+            @media (max-width:769px) {
                 padding-right: 0px;
+                width: 100%;
             }
             &__title{
                 p{
                     font-family:'Didot' !important;
+                    @media (max-width:500px) {
+                        line-height: 33px;
+                    }
                 }
                 font-size: 38px;
                 padding-bottom: 20px;
@@ -51,13 +55,22 @@
                     font-size: 28px;
                     padding-bottom: 15px;
                 }
-                @media (max-width:1190px) {
+                @media (max-width:1300px) {
                     font-size: 24px;
                     padding-bottom: 10px;
                 }
-                @media (max-width:768px) {
-                    font-size: 18px;
+                @media (max-width:769px) {
+                    font-size: 27px;
                     padding-bottom: 5px;
+                }
+                
+                
+            }
+            &__content{
+                p{
+                    @media (max-width:500px) {
+                        line-height: 24px;
+                    }
                 }
             }
             &__main{
@@ -69,23 +82,28 @@
                     @media (max-width:1679px) {
                         padding-bottom: 10px;
                     }
-                    @media (max-width:1190px) {
+                    @media (max-width:1300px) {
                         padding-bottom: 10px;
                     }
                     @media (max-width:990px) {
                         display: block;
                     }
+                    
                     .form--item{
                         
-                        @media (max-width:768px) {
+                        @media (max-width:769px) {
                             padding-bottom: 10px;
                         }
                         padding-right: 46px;
+                        @media (max-width:500px) {
+                            padding-right: 0px;
+                        }
                         p{
-                            @media (max-width:1190px) {
+                            @media (max-width:1300px) {
                                 margin-bottom: 10px;
                             }
                             font-weight: 600;
+                            
                         }
                         input{
                             border: 1px solid rgba($color: #707070, $alpha: 0.6);
@@ -99,12 +117,19 @@
                                 width: 233px;
                                 height: 30px;
                             }
-                            @media (max-width:1190px) {
+                            @media (max-width:1300px) {
                                 width: 183px;
                                 height: 25px;
                             }
-
+                            @media (max-width:769px) {
+                                width: 460px;
+                                height: 25px;
+                            }
+                            @media (max-width:500px) {
+                                width: 100%;
+                            }
                         }
+
                         input:focus{
                             outline: none !important;
                             border: 1px solid rgba($color: #707070, $alpha: 0.6);
@@ -114,9 +139,13 @@
                         
                     }
 
+
                 }
                 .form--mess{
                     margin-top: 60px;
+                    @media (max-width:769px) {
+                        margin-top: -9px;
+                    }
                     p{
                         font-weight: 600;
                     }
@@ -130,13 +159,20 @@
                             width: 512px;
                             height: 100px;
                         }
-                        @media (max-width:1190px) {
+                        @media (max-width:1300px) {
                             width: 412px;
                             height: 70px;
                         }
                         @media (max-width:990px) {
                             width: 100%;
                             height: 70px;
+                        }
+                        @media (max-width:769px) {
+                            width: 63%;
+                            height: 110px;
+                        }
+                        @media (max-width:500px) {
+                            width: 100%;
                         }
                     }
                     textarea:focus{
@@ -152,7 +188,7 @@
                 @media (max-width:1190px) {
                     padding-top: 20px;
                 }
-                @media (max-width:768px) {
+                @media (max-width:769px) {
                     padding-bottom: 20px;
                 }
                 button{
@@ -168,7 +204,7 @@
                         width: 127px;
                         height: 43px;
                     }
-                    @media (max-width:768px) {
+                    @media (max-width:769px) {
                         width: 100px;
                         height: 35px;
                     }
@@ -188,7 +224,10 @@
             }
         }
         .contact__info{
-            color: #676767;
+            color: #676967;
+            @media (max-width:769px) {
+                margin-top: 30px;
+            }
             img{
                 width: 100%;
                 height: auto;
@@ -201,7 +240,7 @@
                     padding-top: 30px;
                     padding-bottom: 30px;
                 }
-                @media (max-width:768px) {
+                @media (max-width:769px) {
                     padding-top: 20px;
                     padding-bottom: 20px;
                 }
@@ -224,7 +263,7 @@
                 }
                 .hotline--number{
                     padding-top: 55px;
-                    @media (max-width:768px) {
+                    @media (max-width:769px) {
                         padding-top: 40px;
                     }
                     strong{
@@ -236,7 +275,7 @@
                         @media (max-width:1190px) {
                             font-size: 28px;
                         }
-                        @media (max-width:768px) {
+                        @media (max-width:769px) {
                             font-size: 18px;
                         }
                     }
