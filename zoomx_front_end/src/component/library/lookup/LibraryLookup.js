@@ -1,7 +1,7 @@
 import React from "react";
-import item from "../../image/home/librarypage/itemOfList.jpg";
+import item from "../../../image/home/librarypage/itemOfList.jpg";
 
-export default function ListLibrary() {
+export default function LibraryLookup() {
   return (
     <>
       <div className="list__wrapper">
@@ -13,7 +13,7 @@ export default function ListLibrary() {
               </div>
               <div className="item__content--bottom">
                 <div className="label">
-                  <span>HÌNH ẢNH</span>
+                  <span>LOOKUP</span>
                 </div>
                 <div className="title">FLC Grand Hotel Quy Nhon 2020</div>
               </div>
@@ -24,7 +24,7 @@ export default function ListLibrary() {
               </div>
               <div className="item__content--bottom">
                 <div className="label">
-                  <span>HÌNH ẢNH</span>
+                  <span>LOOKUP</span>
                 </div>
                 <div className="title">FLC Grand Hotel Quy Nhon 2020</div>
               </div>
@@ -35,7 +35,7 @@ export default function ListLibrary() {
               </div>
               <div className="item__content--bottom">
                 <div className="label">
-                  <span>HÌNH ẢNH</span>
+                  <span>LOOKUP</span>
                 </div>
                 <div className="title">FLC Grand Hotel Quy Nhon 2020</div>
               </div>
@@ -46,7 +46,7 @@ export default function ListLibrary() {
               </div>
               <div className="item__content--bottom">
                 <div className="label">
-                  <span>HÌNH ẢNH</span>
+                  <span>LOOKUP</span>
                 </div>
                 <div className="title">FLC Grand Hotel Quy Nhon 2020</div>
               </div>
@@ -57,7 +57,7 @@ export default function ListLibrary() {
               </div>
               <div className="item__content--bottom">
                 <div className="label">
-                  <span>HÌNH ẢNH</span>
+                  <span>LOOKUP</span>
                 </div>
                 <div className="title">FLC Grand Hotel Quy Nhon 2020</div>
               </div>
@@ -68,7 +68,7 @@ export default function ListLibrary() {
               </div>
               <div className="item__content--bottom">
                 <div className="label">
-                  <span>HÌNH ẢNH</span>
+                  <span>LOOKUP</span>
                 </div>
                 <div className="title">FLC Grand Hotel Quy Nhon 2020</div>
               </div>
@@ -79,7 +79,7 @@ export default function ListLibrary() {
               </div>
               <div className="item__content--bottom">
                 <div className="label">
-                  <span>HÌNH ẢNH</span>
+                  <span>LOOKUP</span>
                 </div>
                 <div className="title">FLC Grand Hotel Quy Nhon 2020</div>
               </div>
@@ -90,7 +90,7 @@ export default function ListLibrary() {
               </div>
               <div className="item__content--bottom">
                 <div className="label">
-                  <span>HÌNH ẢNH</span>
+                  <span>LOOKUP</span>
                 </div>
                 <div className="title">FLC Grand Hotel Quy Nhon 2020</div>
               </div>
@@ -101,7 +101,7 @@ export default function ListLibrary() {
               </div>
               <div className="item__content--bottom">
                 <div className="label">
-                  <span>HÌNH ẢNH</span>
+                  <span>LOOKUP</span>
                 </div>
                 <div className="title">FLC Grand Hotel Quy Nhon 2020</div>
               </div>
