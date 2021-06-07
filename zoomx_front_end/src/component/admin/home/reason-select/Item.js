@@ -27,9 +27,8 @@ export default function Item({ dataReasonSelect ,indexNum, getReasonSelect, hand
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataReasonSelect?.title} </td>
                 <td className="text-center" style={{verticalAlign:'middle'}} dangerouslySetInnerHTML={{ __html: dataReasonSelect?.content }}></td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>
-                    <img alt="" src={dataReasonSelect?.imageCover?.url} style={{width:50,height:'auto'}} />
+                    <img alt="" src={dataReasonSelect?.imageCover?.url} style={{width:200,height:'auto'}} />
                 </td>
-                <td className="text-center">{dataReasonSelect?.isDeleted ? "Không hoạt động" : "Hoạt động"}</td> 
                 <td style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <button id="setting-btn" onClick={() => setModalShow(true)}>
                         <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">

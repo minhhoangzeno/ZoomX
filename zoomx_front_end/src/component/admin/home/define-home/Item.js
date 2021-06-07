@@ -27,7 +27,7 @@ export default function Item({ dataDefineHome ,indexNum, getDefineHome, handleLo
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataDefineHome?.title}</td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataDefineHome?.content}</td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>
-                    <img alt="" src={dataDefineHome?.imageCover?.url} style={{width:50,height:'auto'}} />
+                    <img alt="" src={dataDefineHome?.imageCover?.url} style={{width:200,height:'auto'}} />
                 </td>
                 <td style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <button id="setting-btn" onClick={() => setModalShow(true)}>
