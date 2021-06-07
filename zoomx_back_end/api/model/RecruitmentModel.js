@@ -65,8 +65,6 @@ const recruitmentSchema = new Schema({
         type: String,
         require: true
     }
-}, {
-    bufferCommands: true,
-    autoCreate: true
-})
+});
+
 module.exports = mongoose.model('recruitment',recruitmentSchema)
