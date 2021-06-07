@@ -23,8 +23,11 @@
             padding-top: 50px;
         }
         @media (max-width:769px) {
-            padding: 20px;
+            padding: 50px;
             display: block;
+        }
+        @media (max-width:500px) {
+            padding: 15px;
         }
         .contact__form{
             color: #282828;
