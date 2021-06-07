@@ -1,7 +1,7 @@
 import React from 'react';
 import { doDelete } from '../../../../lib/DataSource';
 import ModalUpdate from './ModalUpdate';
-
+import {Link} from 'react-router-dom';
 
 export default function Item({ dataZoomX ,indexNum, getZoomX, handleLoading }) {
     const [modalShow, setModalShow] = React.useState(false);
@@ -26,7 +26,7 @@ export default function Item({ dataZoomX ,indexNum, getZoomX, handleLoading }) {
                 <td className="text-center" style={{verticalAlign:'middle'}}>{indexNum}</td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataZoomX?.content}</td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>
-                    <a href={dataZoomX?.profile?.url}>File</a>
+                    <Link to={dataZoomX?.profile?.fileUrl}>File PDF</Link>
                 </td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>
                     <img alt="" src={dataZoomX?.imageCover?.url} style={{width:200,height:'auto'}} />

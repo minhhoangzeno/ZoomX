@@ -27,7 +27,7 @@ export default function Item({ dataReasonSelect ,indexNum, getReasonSelect, hand
                 <td className="text-center" style={{verticalAlign:'middle'}}>{dataReasonSelect?.title} </td>
                 <td className="text-center" style={{verticalAlign:'middle'}} dangerouslySetInnerHTML={{ __html: dataReasonSelect?.content }}></td>
                 <td className="text-center" style={{verticalAlign:'middle'}}>
-                    <img alt="" src={dataReasonSelect?.imageCover?.url} style={{width:50,height:'auto'}} />
+                    <img alt="" src={dataReasonSelect?.imageCover?.url} style={{width:200,height:'auto'}} />
                 </td>
                 <td style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <button id="setting-btn" onClick={() => setModalShow(true)}>

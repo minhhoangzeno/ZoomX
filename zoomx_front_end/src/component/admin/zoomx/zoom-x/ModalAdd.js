@@ -1,24 +1,17 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { doPost } from '../../../../lib/DataSource';
-
+import { tinyconfig } from '../../../../TinyConfig';
+import { Editor } from '@tinymce/tinymce-react';
 export default function ModalAdd(props) {
     const [fileCover, setFileCover] = useState();
     const [file, setFile] = useState();
     const [zoomx, setZoomX] = useState({
         content: null,
-        profile:null,
-        imageCover:null
+        profile: null,
+        imageCover: null
     });
-  
-    let handleZoomX = (e) => {
-        const { name, value } = e.target
-        setZoomX({
-            ...zoomx,
-            [name]: value
-        })
-    }
-    console.log(zoomx)
+
     const addZoomX = async () => {
         console.log("a")
         props.handleLoading(true)
@@ -29,14 +22,14 @@ export default function ModalAdd(props) {
         const data = new FormData();
         data.append("content", zoomx?.content);
         data.append("profile", zoomx?.profile)
-        data.append("imageCover",zoomx?.imageCover)
+        data.append("imageCover", zoomx?.imageCover)
         try {
-            let res = await doPost(path,headers,data)
-            if(res.status === 200){
+            let res = await doPost(path, headers, data)
+            if (res.status === 200) {
                 props.handleLoading(false)
                 props.getZoomX()
             }
-    
+
         } catch (error) {
             props.handleLoading(false)
             console.log(error)
@@ -51,14 +44,21 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Nội dung: </label> <input className="input-txt"
-                            name="content" onChange={handleZoomX}
-                            type="text"
+                        <label className="label-txt">Nội dung: </label>
+                        <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
+                            init={tinyconfig}
+                            onEditorChange={(event) => {
+                                setZoomX({
+                                    ...zoomx,
+                                    content: event
+                                })
+                            }}
+
                         />
                     </div>
                     <div>
                         <label className="label-txt">Profile: </label> <input id="file-input" type="file"
-                            name="profile" 
+                            name="profile"
                             onChange={(e) => {
                                 setZoomX({
                                     ...zoomx,
