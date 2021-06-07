@@ -21,10 +21,6 @@ const personRecruitment = new Schema({
         type: String,
         require: true
     },
-    personContact: {
-        type: String,
-        require: true
-    },
     firstName: {
         type: String,
         require: true

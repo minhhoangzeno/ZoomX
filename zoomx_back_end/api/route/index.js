@@ -104,11 +104,8 @@ module.exports = app => {
         .get(person_recruitment_controller.get_person_recruitment)
         .post(person_recruitment_controller.add_person_recruitment)
     app.route('/person-recruitment/:person_recruitment_id')
-        .put(person_recruitment_controller.update_person_recruitment)
         .delete(person_recruitment_controller.delete_person_recruitment)
-    app.route('/person-recruitment/file/:person_recruitment_id')
-        .post(person_recruitment_controller.upload_file_person_recruitment)
-
+   
     app.route('/person-contact')
         .get(person_contact_controller.get_person_contact)
         .post(person_contact_controller.add_person_contact)
