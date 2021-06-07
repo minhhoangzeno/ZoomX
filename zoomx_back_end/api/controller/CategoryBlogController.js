@@ -37,14 +37,11 @@ exports.update_blog = (req, res) => {
 exports.delete_blog = (req, res) => {
     let id = req.params.categoryblog_id;
     CategoryBlog.findById(id).then(result => {
-        Blog.find({categoryId: result._id}).then(
+        Blog.find({ categoryId: result._id }).then(
             listBlog => {
-               listBlog.map( async blog => {
-                   blog.imageBlog.map(image => {
-                       ImageUtil.deleteSingleFile(image)
-                   })
-                   await blog.remove()
-               })
+                listBlog.map(blog => {
+                    blog.remove()
+                })
             }
         )
         result.remove()
@@ -55,7 +52,7 @@ exports.delete_blog = (req, res) => {
     })
 }
 
-exports.get_a_category = (req,res) => {
+exports.get_a_category = (req, res) => {
     CategoryBlog.findById(req.params.categoryblog_id).then(data => {
         res.send(data)
     }).catch(error => {

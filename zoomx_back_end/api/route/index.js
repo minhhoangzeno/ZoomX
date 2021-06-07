@@ -44,6 +44,14 @@ module.exports = app => {
     app.route('/investment/set/:investment_id')
         .put(investment_controller.set_investment)
 
+    app.route('/blog')
+        .get(blog_controller.get_blog)
+        .post(blog_controller.add_a_blog)
+    app.route('/blog/:blog_id')
+        .put(blog_controller.update_blog)
+        .delete(blog_controller.delete_blog)
+        .get(blog_controller.get_a_blog)
+
     app.route('/images')
         .get(image_controller.get_image)
         .post(image_controller.add_a_image)
@@ -116,19 +124,7 @@ module.exports = app => {
     app.route('/hero/upload/:hero_id')
         .put(hero_controller.upload_hero)
 
-    app.route('/blog')
-        .get(blog_controller.get_all_blogs)
-        .post(blog_controller.add_a_blog)
-    app.route('/blog/category')
-        .get(blog_controller.get_category_blogs)
-    app.route('/blog/:blog_id')
-        .get(blog_controller.get_a_blog)
-        .put(blog_controller.update_blog)
-        .delete(blog_controller.delete_blog)
-    app.route('/blog-search')
-        .get(blog_controller.search_blog)
-    app.route('/demo')
-        .get(blog_controller.get_demo_search)
+    
 
     app.route('/categoryblog')
         .get(categoryblog_controller.get_all_blogs)
@@ -145,6 +141,7 @@ module.exports = app => {
     app.route('/library/lookup/:library_lookup_id')
         .put(library_lookup_controller.update_library_lookup)
         .delete(library_lookup_controller.delete_library_lookup)
+        .get(library_lookup_controller.get_a_library_lookup)
 
     app.route('/library/image')
         .get(library_image_controller.get_library_image)
@@ -219,6 +216,5 @@ module.exports = app => {
         .delete(icon_controller.delete_icon)
 
 
-    app.route('/blogs')
-        .get(blog_controller.get_blog)
+   
 }

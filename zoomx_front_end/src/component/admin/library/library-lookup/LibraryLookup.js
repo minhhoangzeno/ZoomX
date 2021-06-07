@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import Item from './Item';
-import Loading from '../../../image/Loading';
-import ModalAdd from './ModalAdd';
 import Pagination from "react-js-pagination";
 import { doGet } from '../../../../lib/DataSource';
+import Loading from '../../../image/Loading';
+import Item from './Item';
+import ModalAdd from './ModalAdd';
 // import SearchBlog from './SearchBlog';
 export default function LibraryLookup() {
 
     //data tra ve co {data,totalPage}
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
-    const [activePage,setActivePage] = useState(1)
+    const [activePage, setActivePage] = useState(1)
     //modal Add
     const [modalShow, setModalShow] = useState(false)
     const handleLoading = (isLoading) => {
@@ -21,7 +21,7 @@ export default function LibraryLookup() {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
-       getSearch()
+        getSearch()
     }, [activePage]) // eslint-disable-line react-hooks/exhaustive-deps
 
     const getSearch = async () => {
@@ -40,7 +40,6 @@ export default function LibraryLookup() {
             setLoading(false)
         }
     }
-
     return (
         <>
             <div className="title">
@@ -79,10 +78,10 @@ export default function LibraryLookup() {
                         {!loading ?
                             <tbody>
                                 {data?.data.map((item, index) => {
-                                    return (           
+                                    return (
                                         <Item data={item} key={index} handleLoading={handleLoading}
                                             indexNum={parseInt((5 * (activePage - 1)) + index + 1)}
-                                            getSearch={getSearch} />         
+                                            getSearch={getSearch} />
                                     )
                                 })}
                             </tbody>

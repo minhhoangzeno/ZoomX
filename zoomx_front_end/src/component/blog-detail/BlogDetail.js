@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../style/blog-detail.scss";
 import Img from "../../image/investment/img.png";
+import { doGet } from "../../lib/DataSource";
 
 export default function BlogDetail() {
+  const [data, setData] = useState();
+  useEffect(() => {
+    async function fetchData() {
+      let path = "/blog/60bdd3023b83d14570d81509";
+      try {
+        let resp = await doGet(path);
+        if (resp.status === 200) {
+          setData(resp.data)
+        }
+      } catch (error) {
+
+      }
+    }
+    fetchData()
+  }, [])
   return (
     <>
-      <div className="blog-detail__wrapper">
-        <div className="container-fluid ">
+      <div className="blog-detail__wrapper" dangerouslySetInnerHTML={{__html:data?.content}}>
+        {/* <div className="container-fluid ">
           <div className="row first-txt-content">
             <strong>Our Lastest Rooms</strong>
             <p className="txt-content">
@@ -57,6 +73,7 @@ export default function BlogDetail() {
           </div>
           <div className="line"></div>
         </div>
+       */}
       </div>
     </>
   );

@@ -45,5 +45,8 @@ const personRecruitment = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'file'
     }
+}, {
+    bufferCommands: true,
+    autoCreate: true
 })
 module.exports = mongoose.model('personRecruitment', personRecruitment);
