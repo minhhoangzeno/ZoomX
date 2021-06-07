@@ -6,9 +6,10 @@
     @media (max-width:1679px) {
         font-size: 14px;
     }
-    @media (max-width:1190px) {
+    @media (max-width:769px) {
         font-size: 12px;
     }
+
     .container-fluid{
         padding: 140px;
         padding-top: 100px;
@@ -142,7 +143,7 @@
 
                 }
                 .form--mess{
-                    margin-top: 60px;
+                    margin-top: 10px;
                     @media (max-width:769px) {
                         margin-top: -9px;
                     }
