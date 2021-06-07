@@ -3,7 +3,9 @@ import Blog from './blog/Blog';
 import CategoryBlog from './category-blog/CategoryBlog';
 import Contact from './contact/Contact';
 import DefineHome from './home/define-home/DefineHome';
+import Header from './home/header/Header';
 import Hero from './home/hero/Hero';
+import Icon from './home/icon/Icon';
 import ReasonSelect from './home/reason-select/ReasonSelect';
 import Timeline from './home/timeline/Timeline';
 import Investment from './investment/Investment';
@@ -38,6 +40,9 @@ export default function Dashboard({ isPage }) {
             {isPage === "library-image" && <LibraryImage />}
             {isPage === "library-lookup" && <LibraryLookup />}
             {isPage === "contact" && <Contact />}
+            {isPage === "header" && <Header />}
+            {isPage === "icon" && <Icon />}
+            
         </div>
     )
 }

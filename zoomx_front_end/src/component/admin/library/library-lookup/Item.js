@@ -17,8 +17,8 @@ export default function Item({ data, indexNum, getSearch, handleLoading }) {
             handleLoading(false)
         }
     }
-
-    return (
+    
+    return (    
         <>
             <tr >
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{indexNum}</td>
@@ -27,7 +27,7 @@ export default function Item({ data, indexNum, getSearch, handleLoading }) {
                     <a href={data.fileBook.fileUrl}>File</a>
                 </td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>
-                    <img alt="" src={data.imageCover.url} />
+                    <img alt="" src={data.imageCover.url} style={{width:300,height:200}} />
                 </td>
                 <ModalUpdate
                     show={modalShow}

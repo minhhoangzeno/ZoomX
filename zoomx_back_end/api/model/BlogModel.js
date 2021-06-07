@@ -20,18 +20,9 @@ const blogSchema = new Schema({
         type: Date,
         default: Date.now()
     },
-    contentStart: {
-        type: String
-    },
-    contentMain: {
-        type: String
-    },
-    imageBlog: [{
-        type: Schema.Types.ObjectId,
-        ref: 'image'
-    }],
-    contentBegin: {
-        type: String
+    content: {
+        type: String,
+        require: true
     }
 }, {
     bufferCommands: true,

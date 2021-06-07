@@ -114,6 +114,9 @@
               margin-top: 18px;
               font-size: 16px;
               font-family: "Helvetica";
+              @media(max-width: 769px){
+                font-size: 14px;
+              }
             }
             .btn__news {
               background-color: #f9f9f9;
@@ -123,6 +126,9 @@
               margin-bottom: 20px;
               font-weight: 500;
               font-size: 14px;
+              @media(max-width: 769px){
+                font-size: 12px;
+              }
             }
             .btn__news:hover {
               border: 1px solid #e01042;
@@ -147,7 +153,7 @@
       font-weight: 600;
       font-family: "Helvetica";
       margin-bottom: 20px;
-      @media (max-width: 426px) {
+      @media (max-width: 769px) {
         font-size: 18px;
       }
     }
@@ -163,6 +169,9 @@
         font-size: 16px;
         padding-bottom: 10px;
         border-bottom: 1px solid #d4d4d4;
+        @media(max-width: 769px){
+          font-size: 14px;
+        }
       }
     }
     .search__item {
@@ -181,6 +190,9 @@
       border: none;
       font-weight: 600;
       margin-bottom: 20px;
+      @media(max-width: 769px){
+        font-size: 12px;
+      }
     }
     .btn__search:hover {
       border: 1px solid #e01042;

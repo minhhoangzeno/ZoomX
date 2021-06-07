@@ -41,7 +41,7 @@ exports.get_library_lookup = async (req, res) => {
         // res.status(200).json(data)
         res.send({
           data: data,
-          totalPage: totalPage.length,
+          totalPage: totalPage?.length,
         });
       });
     });
@@ -180,3 +180,23 @@ exports.delete_library_lookup = async (req, res) => {
       res.send(error);
     });
 };
+
+exports.get_a_library_lookup = (req, res) => {
+  LibraryLookup.findById(req.params.library_lookup_id)
+    .populate([
+      {
+        path: "fileBook",
+        model: "file",
+      },
+      {
+        path: "imageCover",
+        model: "image",
+      },
+    ])
+    .
+    then(data => {
+      res.send(data)
+    }).catch(err => {
+      res.send(err)
+    })
+}

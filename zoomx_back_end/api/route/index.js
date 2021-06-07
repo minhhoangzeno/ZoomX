@@ -19,6 +19,8 @@ const youngbusiness_controller = require('../controller/YoungBusinessController'
 const reason_select_controller = require('../controller/ReasonSelectController');
 const define_home_controller = require('../controller/DefineHomeController');
 const zoomx_controller = require('../controller/ZoomXController');
+const icon_controller = require('../controller/IconController');
+const setting_controller = require('../controller/SettingController');
 module.exports = app => {
 
     //get linh vuc dau tu hoat dong co phan trang
@@ -41,6 +43,14 @@ module.exports = app => {
         .delete(investment_controller.remove_investment)
     app.route('/investment/set/:investment_id')
         .put(investment_controller.set_investment)
+
+    app.route('/blog')
+        .get(blog_controller.get_blog)
+        .post(blog_controller.add_a_blog)
+    app.route('/blog/:blog_id')
+        .put(blog_controller.update_blog)
+        .delete(blog_controller.delete_blog)
+        .get(blog_controller.get_a_blog)
 
     app.route('/images')
         .get(image_controller.get_image)
@@ -114,19 +124,7 @@ module.exports = app => {
     app.route('/hero/upload/:hero_id')
         .put(hero_controller.upload_hero)
 
-    app.route('/blog')
-        .get(blog_controller.get_all_blogs)
-        .post(blog_controller.add_a_blog)
-    app.route('/blog/category')
-        .get(blog_controller.get_category_blogs)
-    app.route('/blog/:blog_id')
-        .get(blog_controller.get_a_blog)  
-        .put(blog_controller.update_blog) 
-        .delete(blog_controller.delete_blog)
-    app.route('/blog-search')
-        .get(blog_controller.search_blog)
-    app.route('/demo')
-        .get(blog_controller.get_demo_search)
+    
 
     app.route('/categoryblog')
         .get(categoryblog_controller.get_all_blogs)
@@ -143,6 +141,7 @@ module.exports = app => {
     app.route('/library/lookup/:library_lookup_id')
         .put(library_lookup_controller.update_library_lookup)
         .delete(library_lookup_controller.delete_library_lookup)
+        .get(library_lookup_controller.get_a_library_lookup)
 
     app.route('/library/image')
         .get(library_image_controller.get_library_image)
@@ -202,4 +201,20 @@ module.exports = app => {
         .put(zoomx_controller.update_zoomx)
         .delete(zoomx_controller.delete_zoomx)
 
+    app.route('/setting')
+        .get(setting_controller.get_setting)
+        .post(setting_controller.add_setting)
+    app.route('/setting/:setting_id')
+        .put(setting_controller.update_setting)
+        .delete(setting_controller.delete_setting)
+
+    app.route('/icon')
+        .get(icon_controller.get_icon)
+        .post(icon_controller.add_icon)
+    app.route('/icon/:icon_id')
+        .put(icon_controller.update_icon)
+        .delete(icon_controller.delete_icon)
+
+
+   
 }

@@ -163,7 +163,7 @@
       margin-bottom: 10px;
     }
     @media (max-width: 769px) {
-      font-size: 12px;
+      font-size: 9px;
     }
     @media (max-width: 426px) {
       font-size: 8px;
@@ -275,15 +275,15 @@
         display: flex;
         margin-left: 60px;
         font-family: "Helvetica";
-        line-height: 30px;
+        line-height: 26px;
         letter-spacing: 1px;
         font-size: 16px;
         padding-right: 50px;
         @media (max-width: 1025px) {
-          font-size: 13px;
+          font-size: 14px;
           padding-left: 32px;
           margin-left: 0px;
-          padding-right: 25px;
+          padding-right: 20px;
         }
         @media (max-width: 426px) {
           padding-left: 25px !important;
@@ -450,6 +450,9 @@
     .title__element {
       margin-bottom: 20px !important;
     }
+    button.next_element {
+      font-size: 12px !important;
+    }
   }
   @media (max-width: 769px) {
     padding-top: 60px;
@@ -470,7 +473,7 @@
     }
     p.title__element {
       font-size: 12px !important;
-      line-height: 18px !important;
+      line-height: 21px !important;
       @media (max-width: 426px) {
         width: 80%;
       }
@@ -560,7 +563,7 @@
       margin-bottom: 10px;
     }
     @media (max-width: 769px) {
-      font-size: 12px;
+      font-size: 9px;
     }
     @media (max-width: 426px) {
       font-size: 8px;
@@ -741,7 +744,7 @@
         padding: 9px 18px;
       }
       @media (max-width: 769px) {
-        font-size: 13px;
+        font-size: 12px;
         padding: 8px 20px;
       }
       @media (max-width: 426px) {
@@ -805,7 +808,7 @@
       letter-spacing: 4px;
     }
     @media (max-width: 769px) {
-      font-size: 12px;
+      font-size: 9px;
     }
     @media (max-width: 426px) {
       font-size: 8px;
@@ -986,7 +989,7 @@
   font-size: 14px;
   letter-spacing: 4px;
   @media (max-width: 769px) {
-    font-size: 12px;
+    font-size: 9px;
   }
   @media (max-width: 426px) {
     font-size: 8px;

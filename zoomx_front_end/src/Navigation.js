@@ -18,6 +18,7 @@ import BlogDetailPage from './page/BlogDetailPage';
 import AdminPage from './page/AdminPage';
 import LoginPage from './page/LoginPage';
 import SignupPage from './page/SignupPage';
+import BlogAdd from './component/admin/blog/BlogAdd';
 
 export default function Navigation() {
     return (
@@ -64,6 +65,9 @@ export default function Navigation() {
                 </Route>
                 <Route exact path="/admin">
                     <AdminPage />
+                </Route>
+                <Route exact path="/blog">
+                    <BlogAdd />
                 </Route>
             </Switch>
         </Router>
