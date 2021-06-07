@@ -13,7 +13,7 @@ export default function PartnerComponent() {
     infinite: true,
     speed: 500,
     slidesToShow: 6,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     responsive: [
@@ -21,7 +21,7 @@ export default function PartnerComponent() {
         breakpoint: 1025,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           autoplay: true,
           autoplaySpeed: 3000,
