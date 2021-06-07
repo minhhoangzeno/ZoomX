@@ -1,14 +1,16 @@
-import React from "react";
 import Modal from "react-bootstrap/Modal";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
-import "swiper/swiper-bundle.css";
+import "swiper/swiper.min.css";
+import "swiper/components/navigation/navigation.min.css";
+import SwiperCore, { Navigation } from "swiper/core";
 import anh from "../../../image/modal/anh.jpg";
 import anh1 from "../../../image/modal/anh1.jpg";
 import anh2 from "../../../image/modal/anh2.jpg";
 import anh3 from "../../../image/modal/anh3.jpg";
 import anh4 from "../../../image/modal/anh4.jpg";
 import anh5 from "../../../image/modal/anh5.jpg";
+SwiperCore.use([Navigation]);
 export default function ModalImage(props) {
   return (
     <>
