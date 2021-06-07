@@ -9,6 +9,7 @@ export default function ModalVideo(props) {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
+        <Modal.Header closeButton></Modal.Header>
         <div className="main__video">
           <iframe
             className="video__stream"
