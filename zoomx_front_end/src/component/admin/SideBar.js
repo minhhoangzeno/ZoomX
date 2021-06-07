@@ -37,6 +37,16 @@ export function SideBar({ handlePage, isPage }) {
                         >
                             <span>Lộ trình triển khai</span>
                         </li>
+                        <li onClick={() => handlePage('header')}
+                            className={handleStyle("header")}
+                        >
+                            <span>Header</span>
+                        </li>
+                        <li onClick={() => handlePage('icon')}
+                            className={handleStyle("icon")}
+                        >
+                            <span>Icon Footer</span>
+                        </li>
                     </ul>
                     <hr />
                     <div className="sidebar__admin--menu--item"
@@ -137,7 +147,8 @@ export function SideBar({ handlePage, isPage }) {
                     >
                         <span>Tuyển dụng</span>
                     </div>
-
+                    <hr />
+                   
                 </div>
             </div>
 

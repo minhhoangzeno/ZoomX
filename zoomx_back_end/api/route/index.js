@@ -19,6 +19,8 @@ const youngbusiness_controller = require('../controller/YoungBusinessController'
 const reason_select_controller = require('../controller/ReasonSelectController');
 const define_home_controller = require('../controller/DefineHomeController');
 const zoomx_controller = require('../controller/ZoomXController');
+const icon_controller = require('../controller/IconController');
+const setting_controller = require('../controller/SettingController');
 module.exports = app => {
 
     //get linh vuc dau tu hoat dong co phan trang
@@ -120,8 +122,8 @@ module.exports = app => {
     app.route('/blog/category')
         .get(blog_controller.get_category_blogs)
     app.route('/blog/:blog_id')
-        .get(blog_controller.get_a_blog)  
-        .put(blog_controller.update_blog) 
+        .get(blog_controller.get_a_blog)
+        .put(blog_controller.update_blog)
         .delete(blog_controller.delete_blog)
     app.route('/blog-search')
         .get(blog_controller.search_blog)
@@ -202,4 +204,21 @@ module.exports = app => {
         .put(zoomx_controller.update_zoomx)
         .delete(zoomx_controller.delete_zoomx)
 
+    app.route('/setting')
+        .get(setting_controller.get_setting)
+        .post(setting_controller.add_setting)
+    app.route('/setting/:setting_id')
+        .put(setting_controller.update_setting)
+        .delete(setting_controller.delete_setting)
+
+    app.route('/icon')
+        .get(icon_controller.get_icon)
+        .post(icon_controller.add_icon)
+    app.route('/icon/:icon_id')
+        .put(icon_controller.update_icon)
+        .delete(icon_controller.delete_icon)
+
+
+    app.route('/blogs')
+        .get(blog_controller.get_blog)
 }

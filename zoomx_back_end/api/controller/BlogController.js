@@ -142,39 +142,21 @@ exports.search_blog = async (req, res) => {
 
 
 exports.add_a_blog = (req, res) => {
-    let fileBlogs = req.files.filter(item => item.fieldname == 'imageBlog');
-    let uploadBlog = new Promise((resolve, reject) => {
-        Upload.uploadMultipleFile({
-            file: fileBlogs,
-            path: 'ZoomX/Blog'
-        }).then(result => {
-            let idPj = [];
-            result.map(item => {
-                idPj.push(item._id)
-            })
-            resolve({
-                imageBlog: idPj
-            })
-        }).catch(err => {
-            resolve({
-                imageBlog: null
-            })
-        })
+    Blog.create({
+        title: req.body.title,
+        categoryId: req.body.categoryId,
+        content: req.body.content
+    }).then(data => {
+        res.send(data)
+    }).catch(err => {
+        res.send(err)
     })
-    uploadBlog.then(result => {
-        Blog.create({
-            title: req.body.title,
-            date: req.body.date,
-            imageBlog: result?.imageBlog,
-            contentStart: req.body.contentStart,
-            contentMain: req.body.contentMain,
-            contentBegin: req.body.contentBegin,
-            categoryId: req.body.categoryId
-        }).then(data => {
-            res.send(data)
-        })
-    }).catch(error => {
-        res.send(error)
+}
+exports.get_blog = (req,res) => {
+    Blog.find().exec().then(data => {
+        res.send(data)
+    }).catch(err => {
+        res.send(err)
     })
 }
 
@@ -236,7 +218,7 @@ exports.delete_blog = (req, res) => {
     })
 }
 
-exports.get_demo_search = async (req,res) => {
+exports.get_demo_search = async (req, res) => {
     let page = req.query.page;
     let q = req.query.q;
     let categoryId = req.query.categoryId;
@@ -244,7 +226,7 @@ exports.get_demo_search = async (req,res) => {
     let regex = new RegExp(q, 'i');
     let totalPage;
     if (categoryId == 1) {
-        await Blog.find({ title: regex}).then(result => {
+        await Blog.find({ title: regex }).then(result => {
             totalPage = result
         }).catch(error => {
             console.log(error)

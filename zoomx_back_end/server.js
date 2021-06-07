@@ -26,8 +26,11 @@ var express = require('express'),
     ReasonSelect = require('./api/model/ReasonSelectModel'),
     DefineHome = require('./api/model/DefineHomeModel'),
     ZoomX = require('./api/model/ZoomXModel'),
+    Setting = require('./api/model/SettingModel'),
+    Icon = require('./api/model/IconModel'),
+    User = require('./api/model/UserModel')
     path = require('path')
-
+    expressSession = require('express-session')
     ;
 
 
@@ -45,6 +48,9 @@ mongoose.connect('mongodb+srv://minhhoang:521985@zoomx.x6xhr.mongodb.net/myFirst
 })
 
 app.use(cors({}))
+app.use(expressSession({
+    secret: 'keyboard cat'
+}))
 app.use(bodyParser.json());
 app.use(express.static('public'))
 app.use(multer({
