@@ -72,5 +72,10 @@ var self = module.exports = {
         }, function (error, result) {
             console.log(result, error)
         })
+    },
+    uploadFilePDF: (request) => {
+        return new Promise((resolve, reject) => {
+            cloudinary.uploader.upload_large(request.file, { resource_type: 'image' }).then()
+        })
     }
 }

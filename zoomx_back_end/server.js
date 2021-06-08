@@ -24,7 +24,8 @@ var express = require('express'),
     YoungBusiness = require('./api/model/YoungBusinessModel'),
     Slogan = require('./api/model/SloganModel'),
     ReasonSelect = require('./api/model/ReasonSelectModel'),
-    DefineHome = require('./api/model/DefineHomeModel')
+    DefineHome = require('./api/model/DefineHomeModel'),
+    ZoomX = require('./api/model/ZoomXModel'),
     path = require('path')
 
     ;

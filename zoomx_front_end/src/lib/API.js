@@ -56,7 +56,7 @@ export const useInvestment = () => {
     return { data, error, loading }
 }
 
-export const UsePartner = () => {
+export const usePartner = () => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false)
@@ -160,5 +160,6 @@ export const useRecruitmentDetail = () => {
     }
     return { data, error, loading: (data || error ? false : true) }
 }
+
 
 

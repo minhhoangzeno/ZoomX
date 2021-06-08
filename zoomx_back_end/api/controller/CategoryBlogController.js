@@ -1,3 +1,5 @@
+const ImageUtil = require('../utils/ImageUtil');
+
 const mongoose = require('mongoose'),
     CategoryBlog = mongoose.model('categoryBlog'),
     Blog = mongoose.model('blog');
@@ -12,7 +14,7 @@ exports.get_all_blogs = (req, res) => {
 }
 exports.add_blog = (req, res) => {
     CategoryBlog.create({
-        name: req.body
+        name: req.body.name
     })
         .then(ctgblog => {
             res.send(ctgblog)
@@ -33,23 +35,30 @@ exports.update_blog = (req, res) => {
         })
 }
 exports.delete_blog = (req, res) => {
-    CategoryBlog.findByIdAndDelete(req.params.categoryblog_id)
-        .then(categoryblog => {
-            Blog.find({
-                typeBlog: req.params.blog_id
-            }).then(result => {
-                result.map(rs => {
-                    Blog.findByIdAndUpdate(rs._id, { typeBlog: null })
-                    .then(blog => {
-                        res.send(blog)
-                    })
-                    .catch(err => {
-                        res.send(err)
-                    })
-                })
-            })
-        })
-        .catch(error => {
-            res.send(error)
-        })
+    let id = req.params.categoryblog_id;
+    CategoryBlog.findById(id).then(result => {
+        Blog.find({categoryId: result._id}).then(
+            listBlog => {
+               listBlog.map( async blog => {
+                   blog.imageBlog.map(image => {
+                       ImageUtil.deleteSingleFile(image)
+                   })
+                   await blog.remove()
+               })
+            }
+        )
+        result.remove()
+        res.send(result)
+    }).catch(error => {
+        res.send(error)
+        console.log(error)
+    })
+}
+
+exports.get_a_category = (req,res) => {
+    CategoryBlog.findById(req.params.categoryblog_id).then(data => {
+        res.send(data)
+    }).catch(error => {
+        res.send(error)
+    })
 }

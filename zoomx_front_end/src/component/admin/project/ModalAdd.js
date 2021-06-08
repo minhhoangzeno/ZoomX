@@ -10,14 +10,12 @@ export default function ModalAdd(props) {
     const [fileInfor, setFileInfor] = useState();
     const [fileProject, setFileProject] = useState([]);
     const [investment, setInvestment] = useState();
-
-    console.log("fileInfor", fileInfor);
-    console.log("fileProject", fileProject)
     useEffect(() => {
         getInvestment()
     }, [])
+    console.log(project)
     const getInvestment = async () => {
-        const path = "/investment";
+        const path = "/investment-all";
         const headers = {
             Accept: "*/*"
         }
@@ -48,37 +46,43 @@ export default function ModalAdd(props) {
         }
         setFileProject(listImage)
     }
-    // const addRecruitment = async (recruitmentData) => {
-    //     props.handleLoading(true)
-    //     const path = "/recruitment";
-    //     const headers = {
-    //         "Content-Type": "multipart/form-data"
-    //     }
-    //     const data = new FormData();
-    //     data.append("title", recruitment?.title);
-    //     data.append("address", recruitment?.address)
-    //     data.append("rank", recruitment?.rank)
-    //     data.append("typeRank", recruitment?.typeRank);
-    //     data.append("experience", recruitment?.experience)
-    //     data.append("salary", recruitment?.salary)
-    //     data.append("career", recruitment?.career);
-    //     data.append("dateReceived", recruitment?.dateReceived)
-    //     data.append("imageRecruitment", recruitment?.imageRecruitment)
-    //     data.append("welfare", recruitment?.welfare);
-    //     data.append("description", recruitment?.description)
-    //     data.append("requestCareer", recruitment?.requestCareer)
-    //     try {
-    //         let res = await doPost(path, headers, data)
-    //         if (res.status === 200) {
-    //             props.handleLoading(false)
-    //             props.getSearch()
-    //         }
+    const addProject = async () => {
+        props.handleLoading(true)
+        const path = "/project";
+        const headers = {
+            "Content-Type": "multipart/form-data"
+        }
+        const data = new FormData();
+        data.append("projectName", project?.projectName);
+        data.append("typeInvestment", project?.typeInvestment);
+        data.append("address", project?.address);
+        data.append("acreage", project?.acreage);
+        data.append("totalInvestment", project?.totalInvestment);
+        data.append("categoryInvestment", project?.categoryInvestment);
+        data.append("description", project?.description);
+        data.append("imageCover", project?.imageCover);
+        data.append("imageHero", project?.imageHero);
+        data.append("imageInfor", project?.imageInfor);
+        let listPj = Array.from(project.imageProject)
+        for (let i = 0; i < listPj.length; i++) {
+            data.append("imageProject", listPj[i]);
+        }
+        data.append("dateStart", project?.dateStart);
+        data.append("dateFinish", project?.dateFinish);
 
-    //     } catch (error) {
-    //         props.handleLoading(false)
-    //         console.log(error)
-    //     }
-    // }
+        try {
+            let res = await doPost(path, headers, data)
+            if (res.status === 200) {
+                setProject(null)
+                props.handleLoading(false)
+                props.getSearch()
+            }
+
+        } catch (error) {
+            props.handleLoading(false)
+            console.log(error)
+        }
+    }
     return (
         <>
             <Modal
@@ -94,52 +98,59 @@ export default function ModalAdd(props) {
                             onChange={handleProject}
                         />
                     </div>
-                    <div>
-                        <label>Ảnh Cover:</label> <input id="file-input" type="file"
-                            name="imageCover"
-                            onChange={(e) => {
-                                setProject({
-                                    ...project,
-                                    imageCover: e.target.files[0]
-                                })
-                                setFileCover(URL.createObjectURL(e.target.files[0]))
-                            }}
-                        />
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 20, marginBottom: 20 }}>
+                        <div>
+                            <div>
+                                <label>Ảnh Cover:</label> <input id="file-input" type="file"
+                                    name="imageCover"
+                                    onChange={(e) => {
+                                        setProject({
+                                            ...project,
+                                            imageCover: e.target.files[0]
+                                        })
+                                        setFileCover(URL.createObjectURL(e.target.files[0]))
+                                    }}
+                                />
+                            </div>
+                            {fileCover ? <div>
+                                <img id="target" src={fileCover} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
+                            </div> : <></>}
+                        </div>
+                        <div>
+                            <div>
+                                <label>Ảnh Hero:</label> <input id="file-input" type="file"
+                                    name="imageHero"
+                                    onChange={(e) => {
+                                        setProject({
+                                            ...project,
+                                            imageHero: e.target.files[0]
+                                        })
+                                        setFileHero(URL.createObjectURL(e.target.files[0]))
+                                    }}
+                                />
+                            </div>
+                            {fileHero ? <div>
+                                <img id="target" src={fileHero} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
+                            </div> : <></>}
+                        </div>
+                        <div>
+                            <div>
+                                <label>Ảnh Infor:</label> <input id="file-input" type="file"
+                                    name="imageInfor"
+                                    onChange={(e) => {
+                                        setProject({
+                                            ...project,
+                                            imageInfor: e.target.files[0]
+                                        })
+                                        setFileInfor(URL.createObjectURL(e.target.files[0]))
+                                    }}
+                                />
+                            </div>
+                            {fileInfor ? <div>
+                                <img id="target" src={fileInfor} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
+                            </div> : <></>}
+                        </div>
                     </div>
-                    <div>
-                        <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
-                    </div>
-                    <div>
-                        <label>Ảnh Hero:</label> <input id="file-input" type="file"
-                            name="imageHero"
-                            onChange={(e) => {
-                                setProject({
-                                    ...project,
-                                    imageHero: e.target.files[0]
-                                })
-                                setFileHero(URL.createObjectURL(e.target.files[0]))
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <img id="target" src={fileHero} style={{ width: 200, height: 'auto' }} alt="" />
-                    </div>
-                    <div>
-                        <label>Ảnh Infor:</label> <input id="file-input" type="file"
-                            name="imageInfor"
-                            onChange={(e) => {
-                                setProject({
-                                    ...project,
-                                    imageInfor: e.target.files[0]
-                                })
-                                setFileInfor(URL.createObjectURL(e.target.files[0]))
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <img id="target" src={fileInfor} style={{ width: 200, height: 'auto' }} alt="" />
-                    </div>
-
                     <div>
                         <label>Ảnh dự án:</label> <input id="file-input" type="file"
                             name="imageInfor"
@@ -154,17 +165,25 @@ export default function ModalAdd(props) {
                             multiple
                         />
                     </div>
-                    {fileProject?.map(item => {
-                        return (
-                            <div>
-                                <img id="target" src={item} style={{ width: 200, height: 'auto' }} alt="" />
-                            </div>
-                        )
-                    })}
-
+                    <div style={{ display: 'flex' }}>
+                        {fileProject?.map(item => {
+                            return (
+                                <div style={{ margin: 10 }}>
+                                    <img id="target" src={item} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
+                                </div>
+                            )
+                        })}
+                    </div>
                     <div>
                         <label className="label-txt">Chọn lĩnh vực đầu tư: </label>
-                        <select name="typeInvestment" id="cars" onChange={handleProject}>
+                        <select name="typeInvestment" id="cars" onChange={(e) => {
+                            setProject({
+                                ...project,
+                                typeInvestment: e.target.value
+                            })
+                        }}>
+                            <option value="0">Chon linh vuc dau tu</option>
+
                             {investment?.map((item, idx) => {
                                 return (
                                     <option key={idx} value={item._id}>{item.investmentName}</option>
@@ -177,6 +196,22 @@ export default function ModalAdd(props) {
                         <label className="label-txt">Địa chỉ: </label> <input className="input-txt"
                             name="address"
                             type="text"
+                            onChange={handleProject}
+
+                        />
+                    </div>
+                    <div>
+                        <label className="label-txt">Ngày khởi công: </label> <input className="input-txt"
+                            name="dateStart"
+                            type="date"
+                            onChange={handleProject}
+
+                        />
+                    </div>
+                    <div>
+                        <label className="label-txt">Ngày dự đoán hoàn thành: </label> <input className="input-txt"
+                            name="dateFinish"
+                            type="date"
                             onChange={handleProject}
 
                         />
@@ -229,13 +264,22 @@ export default function ModalAdd(props) {
 
                     <div className="btn--bottom">
                         <div className="wrapper__btn">
-                            <button className="back-btn" onClick={props.onHide}>Quay lại</button>
+                            <button className="back-btn" onClick={() => {
+                                props.onHide()
+                                setFileCover(null)
+                                setFileHero(null)
+                                setFileInfor(null)
+                                setFileProject(null)
+                            }}>Quay lại</button>
                             <button
-                            // onClick={() => {
-                            //     addRecruitment(recruitment)
-                            //     setFileCover(null)
-                            //     props.onHide()
-                            // }}
+                                onClick={() => {
+                                    addProject()
+                                    setFileCover(null)
+                                    setFileHero(null)
+                                    setFileInfor(null)
+                                    setFileProject(null)
+                                    props.onHide()
+                                }}
 
                             >Xác nhận</button>
                         </div>

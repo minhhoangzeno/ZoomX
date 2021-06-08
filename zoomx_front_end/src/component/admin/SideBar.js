@@ -47,7 +47,7 @@ export function SideBar({ handlePage, isPage }) {
                         <li onClick={() => handlePage('slogan')}
                         className={handleStyle("slogan")}
                         >
-                            <span>Slogan</span>
+                            <span>Trích dẫn</span>
                         </li>
                         <li onClick={() => handlePage('zoomx')}
                         className={handleStyle("zoomx")}
@@ -57,12 +57,12 @@ export function SideBar({ handlePage, isPage }) {
                         <li onClick={() => handlePage('youngBusiness')}
                         className={handleStyle("youngBusiness")}
                         >
-                            <span>Khoi nghiep khat vong tuoi tre</span>
+                            <span>Khởi nghiệp khát vọng tuổi trẻ</span>
                         </li>
                         <li onClick={() => handlePage('partner')}
                         className={handleStyle("partner")}
                         >
-                            <span>Doi tac</span>
+                            <span>Đối tác</span>
                         </li>
                     </ul>
                     <hr />
@@ -73,25 +73,11 @@ export function SideBar({ handlePage, isPage }) {
                         <span>Dự án</span>
                     </div>
                     <hr />
-                    <div className={handleStyle("detail-project")}
-                        onClick={() => handlePage('detail-project')}
-
-                    >
-                        <span>Chi tiết dự án</span>
-                    </div>
-                    <hr />
                     <div className={handleStyle("investment")}
                         onClick={() => handlePage('investment')}
 
                     >
                         <span>Lĩnh vực đầu tư</span>
-                    </div>
-                    <hr />
-                    <div className={handleStyle("news")}
-                        onClick={() => handlePage('news')}
-
-                    >
-                        <span>Tin tức - Sự kiện</span>
                     </div>
                     <hr />
                     <div className={handleStyle("blog")}
@@ -101,11 +87,24 @@ export function SideBar({ handlePage, isPage }) {
                         <span>Blog</span>
                     </div>
                     <hr />
+                    <div className={handleStyle("category-blog")}
+                        onClick={() => handlePage('category-blog')}
+
+                    >
+                        <span>Danh muc bai viet</span>
+                    </div>
+                    <hr />
                     <div className={handleStyle("contact")}
                         onClick={() => handlePage('contact')}
 
                     >
                         <span>Liên hệ</span>
+                    </div>
+                    <hr />
+                    <div className={handleStyle("user-contact")}
+                        onClick={() => handlePage("user-contact")}
+                    >
+                        <span>Người Liên Hệ</span>
                     </div>
                     <hr />
                     <div className={handleStyle("library")}

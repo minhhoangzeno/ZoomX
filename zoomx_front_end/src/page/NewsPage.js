@@ -1,12 +1,11 @@
 import React from "react";
 import { MetaTags } from "react-meta-tags";
+import Category from "../component/news-page/Category";
+import ItemNews from "../component/news-page/ItemNews";
 import Footer from "../component/share/Footer";
 import Header from "../component/share/Header";
 import HeroPage from "../component/share/HeroPage";
 import "../style/news-page.scss";
-import ItemNews from "../component/news-page/ItemNews";
-import Category from "../component/news-page/Category";
-import Pagination from "../component/news-page/Pagination";
 export default function NewsPage() {
   return (
     <>

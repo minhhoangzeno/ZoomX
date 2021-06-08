@@ -1,9 +1,5 @@
 import React from "react";
-// import home from "../../image/home/home.png";
-import brackets from "../../image/zoomX/brackets.png";
 import hotel from "../../image/zoomX/hotel.png";
-import Founder from '../home/Founder';
-import YoungBusiness from "./YoungBusiness";
 export default function IntroduceComponent() {
   return (
     <>
