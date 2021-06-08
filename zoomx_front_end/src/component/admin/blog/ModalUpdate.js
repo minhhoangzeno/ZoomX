@@ -1,21 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import Modal from 'react-bootstrap/Modal'
-import { doGet, doPost, doPut } from '../../../lib/DataSource';
 import { Editor } from '@tinymce/tinymce-react';
-import { tinyconfig } from '../../../TinyConfig';
 import moment from 'moment';
+import React, { useEffect, useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import { doGet, doPut } from '../../../lib/DataSource';
+import { tinyconfig } from '../../../TinyConfig';
 export default function ModalUpdate(props) {
     let pj = [];
     props.data.imageBlog.map(item => {
         pj.push(item.url)
+        return pj;
     })
     const [blog, setBlog] = useState(props.data)
     const [fileImage, setFileImage] = useState(pj);
     const [categoryBlog, setCategoryBlog] = useState([]);
-    useEffect( async () => {
-        getCategory()
-        await setBlog(props.data)
-    }, [])
+    useEffect(() => {
+        async function fetchData() {
+            const path = `/categoryblog`;
+            const headers = {
+                Accept: "*/*"
+            }
+            try {
+                var resp = await doGet(path, headers);
+                if (resp.status === 200) {
+                    setCategoryBlog(resp.data)
+
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        fetchData()
+        setBlog(props.data)
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleBlog = (e) => {
         const { value, name } = e.target;
@@ -33,21 +49,7 @@ export default function ModalUpdate(props) {
         }
         setFileImage(listImage)
     }
-    const getCategory = async () => {
-        const path = `/categoryblog`;
-        const headers = {
-            Accept: "*/*"
-        }
-        try {
-            var resp = await doGet(path, headers);
-            if (resp.status === 200) {
-                setCategoryBlog(resp.data)
-
-            }
-        } catch (e) {
-            console.log(e)
-        }
-    }
+   
 
 
     const updateBlog = async () => {
@@ -62,7 +64,7 @@ export default function ModalUpdate(props) {
         data.append("contentStart", blog?.contentStart);
         data.append("contentMain", blog?.contentMain);
         data.append("contentBegin", blog?.contentBegin);
-        data.append("categoryId",blog?.categoryId)
+        data.append("categoryId", blog?.categoryId)
         let listPj = Array.from(blog.imageBlog)
         for (let i = 0; i < listPj.length; i++) {
             data.append("imageBlog", listPj[i]);
@@ -122,9 +124,9 @@ export default function ModalUpdate(props) {
                         />
                     </div>
                     <div style={{ display: 'flex' }}>
-                        {fileImage?.map(item => {
+                        {fileImage?.map((item, idx) => {
                             return (
-                                <div style={{ margin: 10 }}>
+                                <div style={{ margin: 10 }} key={idx}>
                                     <img id="target" src={item} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
                                 </div>
                             )
@@ -132,7 +134,7 @@ export default function ModalUpdate(props) {
                     </div>
                     <div>
                         <label className="label-txt">Danh muc bai viet: </label>
-                        <select name="categoryId" 
+                        <select name="categoryId"
                             value={blog?.categoryId}
                             onChange={handleBlog}
                         >

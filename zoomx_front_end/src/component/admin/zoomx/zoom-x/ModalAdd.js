@@ -1,49 +1,34 @@
 import React, { useState } from 'react';
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
 import { doPost } from '../../../../lib/DataSource';
-
+import { tinyconfig } from '../../../../TinyConfig';
+import { Editor } from '@tinymce/tinymce-react';
 export default function ModalAdd(props) {
     const [fileCover, setFileCover] = useState();
-    const [file, setFile] = useState();
-    const [ZoomX, setZoomX] = useState({
+    const [zoomx, setZoomX] = useState({
         content: null,
-        profile:null,
-        imageCover:null
+        profile: null,
+        imageCover: null
     });
-    console.log(ZoomX)
-    let handleZoomX = (e) => {
-        const { name, value } = e.target
-        setZoomX({
-            ...ZoomX,
-            [name]: value
-        })
-    }
-    let handleFileCover = (e) => {
-        let image = [];
-        image.push(e.target.files);
-        let listImage = []
-        for (let i = 0; i < image[0].length; i++) {
-            listImage.push(URL.createObjectURL(image[0][i]))
-        }
-        setFileCover(listImage)
-    }
-    const addZoomX = async (ZoomXData) => {
+
+    const addZoomX = async () => {
+        console.log("a")
         props.handleLoading(true)
         const path = "/zoomx";
         const headers = {
             "Content-Type": "multipart/form-data"
         }
         const data = new FormData();
-        data.append("content", ZoomXData?.content);
-        data.append("profile", ZoomXData?.profile)
-        data.append("imageCover",ZoomXData?.imageCover)
+        data.append("content", zoomx?.content);
+        data.append("profile", zoomx?.profile)
+        data.append("imageCover", zoomx?.imageCover)
         try {
             let res = await doPost(path, headers, data)
-            if(res.status === 200){
+            if (res.status === 200) {
                 props.handleLoading(false)
                 props.getZoomX()
             }
-    
+
         } catch (error) {
             props.handleLoading(false)
             console.log(error)
@@ -58,18 +43,24 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Nội dung: </label> <input className="input-txt"
-                            name="content" onChange={handleZoomX}
-                            type="text"
+                        <label className="label-txt">Nội dung: </label>
+                        <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
+                            init={tinyconfig}
+                            onEditorChange={(event) => {
+                                setZoomX({
+                                    ...zoomx,
+                                    content: event
+                                })
+                            }}
+
                         />
                     </div>
                     <div>
                         <label className="label-txt">Profile: </label> <input id="file-input" type="file"
-                            name="profile" 
+                            name="profile"
                             onChange={(e) => {
-                                setFile(URL.createObjectURL(e.target.files[0]))
                                 setZoomX({
-                                    ...ZoomX,
+                                    ...zoomx,
                                     profile: e.target.files[0]
                                 })
                             }}
@@ -80,31 +71,20 @@ export default function ModalAdd(props) {
                             name="imageInfor"
                             onChange={(e) => {
                                 setZoomX({
-                                    ...ZoomX,
-                                    imageCover: e.target.files
+                                    ...zoomx,
+                                    imageCover: e.target.files[0]
                                 })
-                                handleFileCover(e)
-
+                                setFileCover(URL.createObjectURL(e.target.files[0]))
                             }}
-                            multiple
                         />
                     </div>
-                    <div style={{ display: 'flex' }}>
-                        {fileCover?.map(item => {
-                            return (
-                                <div style={{ margin: 10 }}>
-                                    <img id="target" src={item} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
-                                </div>
-                            )
-                        })}
-                    </div>
+                    <img alt="" src={fileCover} style={{ width: 300, height: 200, objectFit: 'cover' }} />
                     <div className="btn--bottom">
                         <div className="wrapper__btn">
                             <button className="back-btn" onClick={props.onHide}>Quay lại</button>
                             <button onClick={() => {
-                                addZoomX(ZoomX)
-                                setFileCover(null)
-                                setFile(null)
+                                addZoomX()
+                                setZoomX(null)
                                 props.onHide()
                             }}>Xác nhận</button>
                         </div>

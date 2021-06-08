@@ -1,8 +1,10 @@
 @import "./common.scss";
-
+img{
+    object-fit: cover;
+}
 .investment-wrapper {
     width: 100%;
-    padding: 140px 140px;
+    padding: 100px 140px;
     @media (max-width: 1440px) {
         padding: 50px 50px;
     }
@@ -35,7 +37,18 @@
             .col-img {
                 overflow: hidden;
                 .img-wrapper {
-                    height: 100%;
+                    @media(max-width: 1920px){
+                        height: 525px;
+                    }
+                    @media(max-width: 1440px){
+                        height: 475px;
+                    }
+                    @media(max-width: 768px){
+                        height: 325px;
+                    }
+                    @media(max-width: 320px){
+                        height: 250px;
+                    }
                     position: relative;
                     .bg-inner {
                         position: absolute;
@@ -75,16 +88,29 @@
                     text-align: left;
                     font-family: "Helvetica";
                     line-height: 27px !important;
+                    @media (max-width:768px){
+                        line-height: 23px !important;
+                    }
+                    @media (max-width: 422px){
+                        line-height: 22px !important;
+                    }
                     strong {
                         font-size: 32px;
                         font-weight: bold;
                         opacity: 80%;
-                        @media (max-width: 425px) {
+                        @media (max-width: 1025px) {
                             font-size: 27px;
+                        }
+                        @media(max-width: 769px){
+                            font-size: 21px;
+                        }
+                        @media (max-width: 425px) {
+                            font-size: 21px;
                         }
                     }
                     span {
                         font-size: 23px;
+            
                     }
                     h2 {
                         font-size: 21px;
@@ -92,24 +118,26 @@
                         color: #e01042;
                         margin-top: 10px;
                         margin-bottom: 20px;
-                        @media (max-width: 768px) {
+                        @media (max-width: 769px) {
                             margin-top: 5px;
                             margin-bottom: 15px;
+                            font-size: 18px;
                         }
                         @media (max-width: 425px) {
-                            font-size: 21px;
+                            font-size: 18px;
                         }
                     }
                     p {
                         margin-bottom: 25px;
                         font-family: Helvetica;
                         font-size: 16px;
-                        @media (max-width: 768px){
-                            font-size: 14px;
+                        @media (max-width: 769px){
+                            font-size: 12px;
                         }
-                        // @media (max-width: 425px) {
-                        //     font-size: 15px;
-                        // }
+                        @media (max-width: 425px){
+                            font-size: 12px;
+                        }
+                        
                     }
                     a.read-more-btn {
                         padding: 5px 18px;
@@ -120,13 +148,18 @@
                         font-weight: 700;
                         transition: 0.5s;
                         border: 3px solid #e01042;
-                        @media (max-width: 1024px) {
-                            font-size: 18px;
+                        @media (max-width: 1025px) {
+                            font-size: 12px;
                             padding: 5px 20px;
+                        }
+                        @media (max-width: 768px){
+                            font-size: 12px;
+                        }
+                        @media (max-width: 425px){
+                            font-size: 10px;
                         }
                         @media (max-width: 375px) {
                             padding: 3px 12px;
-                            font-size: 15px;
                         }
                         &:hover {
                             text-decoration: none;

@@ -53,7 +53,7 @@ export default function Item({ dataInvestment, indexNum, getInvestment, handleLo
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{dataInvestment?.investmentName}</td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{dataInvestment?.description}</td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>
-                    <img alt="" src={dataInvestment?.imageCover?.url} style={{ width: 50, height: 'auto' }} />
+                    <img alt="" src={dataInvestment?.imageCover?.url} style={{ width: 200, height: 'auto' }} />
                 </td>
                 <td className="text-center">
                     <div>

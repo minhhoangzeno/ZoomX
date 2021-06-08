@@ -98,7 +98,7 @@ export const useProject = () => {
         }
         try {
             var resp = await doGet(path, headers);
-            if (resp.status  ===  200) {
+            if (resp.status === 200) {
                 setData(resp.data)
             }
         } catch (e) {
@@ -159,6 +159,32 @@ export const useRecruitmentDetail = () => {
         }
     }
     return { data, error, loading: (data || error ? false : true) }
+}
+
+export const useHeroInvestment = () => {
+    const [data, setData] = useState();
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        getHero()
+    }, [])
+    async function getHero() {
+        const path = "/hero/investment";
+        const headers = {
+            Accept: "*/*"
+        }
+        try {
+            var resp = await doGet(path, headers);
+            if (resp.status === 200) {
+                setData(resp.data)
+                console.log(data)
+            }
+        } catch (error) {
+            setError(error)
+        }
+    }
+    return { data, error, loading: (data || error ? false : true) }
+
 }
 
 

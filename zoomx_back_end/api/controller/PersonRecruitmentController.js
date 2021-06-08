@@ -1,85 +1,86 @@
+const FileUtil = require('../utils/FileUtil');
+
 const mongoose = require('mongoose'),
     PersonRecruitment = mongoose.model('personRecruitment'),
     UploadFile = require('../model/UploadFileModel');
 
-exports.get_person_recruitment = (req, res) => {
-    PersonRecruitment.find({})
+exports.get_person_recruitment = async (req, res) => {
+
+    let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
+    let page = req.query.page;
+    let totalPage;
+    await PersonRecruitment.find().then(result => {
+        totalPage = result
+    }).catch(error => {
+        console.log(error)
+    })
+    PersonRecruitment
+        .find() // find tất cả các data
         .populate({
             path: 'fileCv',
             model: 'file',
             select: 'fileUrl'
         })
-        .then(result => {
-            res.send(result)
-        })
-        .catch(err => {
-            res.send(err)
-        })
+        .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+        .limit(perPage)
+        .exec((err, data) => {
+            PersonRecruitment.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+                if (err) return next(err);
+                // res.send({
+                //     data,
+                //     totalPage: totalPage?.length
+                // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+                // res.status(200).json(data)
+                res.send({
+                    data: data,
+                    totalPage: totalPage?.length
+                })
+            });
+        });
 };
 
 exports.add_person_recruitment = (req, res) => {
-    const newPersonRecruitment = new PersonRecruitment(req.body);
-    let addPromise = new Promise((result, reject) => {
-        newPersonRecruitment.save()
-            .then(person => {
-                result(person)
-            })
-            .catch(err => {
-                reject(err)
-            })
-    })
-    addPromise.then((ps) => {
-        res.send(ps)
-    })
-        .catch(error => {
-            res.send(error)
-        })
-}
+    let filePDF = req.files.filter((item) => item.fieldname == "fileCv");
 
-exports.upload_file_person_recruitment = (req, res) => {
-    const id = req.params.person_recruitment_id;
-    UploadFile.uploadSingleFile({
-        file: req.files[0],
-        path: 'ZoomX/PersonRecruitment/FilePDF'
-    }).then((result) => {
-        const update_person_recruitment = new Promise((resolve, reject) => {
-            PersonRecruitment.findByIdAndUpdate(id, { fileCv: result._id }, { new: true, useFindAndModify: false })
-                .then(pdf => {
-                    resolve(pdf)
-                })
-                .catch(err => {
-                    reject(err)
-                })
+    let uploadPDF = new Promise((resolve, reject) => {
+        UploadFile.uploadSingleFile({
+            file: filePDF[0],
+            path: "ZoomX/Person/Recruitment",
         })
-        update_person_recruitment.then(rj => {
-            res.send(rj)
-        }).catch(er => {
-            res.send(er)
+            .then((resultFileBook) => {
+                resolve(resultFileBook._id);
+            })
+            .catch((err) => {
+                reject(null);
+            });
+    });
+    uploadPDF.then(result => {
+        PersonRecruitment.create({
+            career: req.body.career,
+            addressWork: req.body.addressWork,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            numberPhone: req.body.numberPhone,
+            fileCv: result
+        }).then(data => {
+            res.send(data)
+        }).catch(err => {
+            res.send(err)
         })
     }).catch(error => {
-        res.send(error)
+        console.log(error)
     })
-}
-exports.update_person_recruitment = (req, res) => {
-    let id = req.params.person_recruitment_id;
-    let newObj = req.body;
-    PersonRecruitment.findByIdAndUpdate(id, newObj)
-        .then(result => {
-            res.send(result)
-        })
-        .catch(error => {
-            res.send(error)
-        })
 }
 
 exports.delete_person_recruitment = (req, res) => {
     let id = req.params.person_recruitment_id;
-    PersonRecruitment.findByIdAndDelete(id)
-        .then(result => {
-            res.send(result)
+    PersonRecruitment.findById(id).exec().then(async ps => {
+        await FileUtil.deleteSingleFile(ps.fileCv).then(() => {
+            ps.remove()
         })
-        .catch(error => {
-            res.send(error)
-        })
-
+        res.send(ps)
+    }).catch(error => {
+        res.send(error)
+    })
 }

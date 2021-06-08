@@ -1,9 +1,14 @@
 import React from 'react';
 import loadingGif from './loadingGif.gif'
-export default function Loading(){
-    return(
-        <div style={{display:'flex',width:'100%',justifyContent:'center'}}>
-            <img style={{width:'10%'}} src={loadingGif} alt="" />
-        </div>
+export default function Loading() {
+    return (
+        <tbody>
+            <tr>
+                <td>
+                    <img style={{ width: '10%' }} src={loadingGif} alt="" />
+                </td>
+            </tr>
+        </tbody>
+
     )
 }

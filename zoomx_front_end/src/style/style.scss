@@ -1,5 +1,8 @@
 @import "./common.scss";
 
+.scrollTransform {
+  transform: translateY(-42px);
+}
 header {
   width: 100%;
   @media (max-width: 1024px) {
@@ -11,10 +14,12 @@ header {
     top: 0%;
     z-index: 39;
     width: 100%;
+    transition-duration: 0.8s;
     &--top {
       min-height: 40px;
       border: 1px solid #eaeaea;
       background: #fff;
+      font-size: 16px;
       .wrapper__top {
         width: 100%;
         display: flex;
@@ -24,7 +29,7 @@ header {
         justify-content: space-between;
         align-items: center;
         color: #1b1c1b;
-        font-size: 14px;
+        font-size: 16px;
         @media (max-width: 1440px) {
           padding-left: 50px;
           padding-right: 50px;
@@ -137,7 +142,7 @@ footer {
             letter-spacing: 2px;
             font-size: 24px;
             @media (max-width: 769px) {
-              font-size: 16px;
+              font-size: 18px;
             }
             @media (max-width: 426px) {
               font-size: 12px;
@@ -195,6 +200,10 @@ footer {
                 height: 100%;
                 &:focus {
                   outline-width: 0;
+                }
+                @media (max-width: 768px) {
+                  padding-left: 25px;
+                  padding-right: 0;
                 }
                 @media (max-width: 426px) {
                   font-size: 12px;
@@ -298,6 +307,7 @@ footer {
                 }
                 @media (max-width: 769px) {
                   padding: 8px;
+                  color: #ffffffa1;
                 }
               }
             }
@@ -311,7 +321,6 @@ footer {
     }
   }
 }
-
 
 .header-menu-mobile {
   position: sticky;
@@ -387,12 +396,16 @@ footer {
   transition-duration: 1s;
   transform: translateX(-100%);
   &__content {
-    li {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: center;
-    }
+   
+      flex: 1;
+      li {
+        margin-top: 40px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+      }
+    
+   
   }
 }
 .openNavMobile {
@@ -401,11 +414,19 @@ footer {
 .hero {
   width: 100%;
   height: 100vh;
-  background-image: url("../image/home/hero.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  &__slider {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  &__image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
   &__content {
     position: absolute;
     color: #fff;
@@ -420,17 +441,23 @@ footer {
     &--top {
       padding-bottom: 20px;
       font-size: 14px;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
+      font-family: Helvtica;
       @media (max-width: 768px) {
-        font-size: 13px;
+        font-size: 12px;
       }
       @media (max-width: 426px) {
-        font-size: 12px;
+        font-size: 8px;
         letter-spacing: 2px;
       }
-      @media (max-width:321px){
+      @media (max-width: 321px) {
         font-size: 11px;
       }
+    }
+    &--empty {
+      width: 56px;
+      height: 2px;
+      background-color: #fff;
     }
     &--mid {
       letter-spacing: 10px;
@@ -445,7 +472,7 @@ footer {
         font-size: 30px;
       }
       @media (max-width: 426px) {
-        font-size: 25px;
+        font-size: 32px;
         margin-top: 5px;
         margin-bottom: 5px;
         letter-spacing: 4px;
@@ -456,7 +483,7 @@ footer {
         margin-bottom: 0px;
         letter-spacing: 3px;
       }
-      @media (max-width:321px){
+      @media (max-width: 321px) {
         font-size: 20px;
         letter-spacing: 3px;
       }
@@ -499,7 +526,7 @@ footer {
 .hero__page {
   width: 100%;
   height: 30vh;
-  background-image: url("../image/home/hero-page.png");
+ 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -521,11 +548,12 @@ footer {
       font-size: 36px;
       font-weight: bold;
       letter-spacing: 3px;
+      font-family: Helvetica;
       @media (max-width: 1441px) {
-        font-size: 30px;
+        font-size: 21px;
       }
       @media (max-width: 1025px) {
-        font-size: 25px;
+        font-size: 21px;
       }
       @media (max-width: 769px) {
         font-size: 20px;
@@ -535,10 +563,10 @@ footer {
       margin-top: 10px;
       font-size: 16px;
       @media (max-width: 1025px) {
-        font-size: 14px;
+        font-size: 12px;
       }
       @media (max-width: 769px) {
-        font-size: 13px;
+        font-size: 12px;
         margin-top: 5px;
       }
     }

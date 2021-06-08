@@ -26,8 +26,19 @@ var express = require('express'),
     ReasonSelect = require('./api/model/ReasonSelectModel'),
     DefineHome = require('./api/model/DefineHomeModel'),
     ZoomX = require('./api/model/ZoomXModel'),
-    path = require('path')
-
+    Setting = require('./api/model/SettingModel'),
+    Icon = require('./api/model/IconModel'),
+    User = require('./api/model/UserModel'),
+    PersonMail = require('./api/model/PersonMailModel'),
+    HeroZoomX = require('./api/model/HeroZoomXModel'),
+    HeroProject = require('./api/model/HeroProjectModel'),
+    HeroInvestment = require('./api/model/HeroInvestmentModel'),
+    HeroNews = require('./api/model/HeroNewsModel'),
+    HeroContact = require('./api/model/HeroContactModel'),
+    HeroLibrary = require('./api/model/HeroLibraryModel'),
+    HeroRecruitment = require('./api/model/HeroRecruitmentModel'),
+    path = require('path'),
+    expressSession = require('express-session')
     ;
 
 
@@ -43,8 +54,14 @@ mongoose.connect('mongodb+srv://minhhoang:521985@zoomx.x6xhr.mongodb.net/myFirst
 }).catch((err) => {
     console.log(err);
 })
-
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 app.use(cors({}))
+app.use(expressSession({
+    secret: 'keyboard cat'
+}))
 app.use(bodyParser.json());
 app.use(express.static('public'))
 app.use(multer({
@@ -58,6 +75,11 @@ app.use(multer({
         },
     })
 }).any())
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 var routes = require('./api/route');
 routes(app)
 app.use((req, res) => {

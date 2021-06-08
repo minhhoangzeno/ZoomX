@@ -1,7 +1,7 @@
-import React, {  useState } from 'react';
-import Modal from 'react-bootstrap/Modal'
-import { doPost } from '../../../../lib/DataSource';
 import { Editor } from '@tinymce/tinymce-react';
+import React, { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import { doPost } from '../../../../lib/DataSource';
 import { tinyconfig } from '../../../../TinyConfig';
 export default function ModalAdd(props) {
     const [fileCover, setFileCover] = useState();

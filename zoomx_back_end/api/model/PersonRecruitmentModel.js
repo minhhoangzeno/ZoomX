@@ -21,10 +21,6 @@ const personRecruitment = new Schema({
         type: String,
         require: true
     },
-    personContact: {
-        type: String,
-        require: true
-    },
     firstName: {
         type: String,
         require: true
@@ -45,5 +41,8 @@ const personRecruitment = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'file'
     }
+}, {
+    bufferCommands: true,
+    autoCreate: true
 })
 module.exports = mongoose.model('personRecruitment', personRecruitment);

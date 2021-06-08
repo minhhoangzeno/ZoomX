@@ -115,9 +115,9 @@ export default function ModalAdd(props) {
                         />
                     </div>
                     <div style={{ display: 'flex' }}>
-                        {fileImage?.map(item => {
+                        {fileImage?.map((item,index) => {
                             return (
-                                <div style={{ margin: 10 }}>
+                                <div style={{ margin: 10 }} key={index}>
                                     <img id="target" src={item} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
                                 </div>
                             )

@@ -7,6 +7,7 @@ export default function ModalUpdate(props) {
     let pj = [];
     props.data.imageProject.map(item => {
         pj.push(item.url)
+        return pj;
     })
     const [fileCover, setFileCover] = useState(props.data.imageCover?.url);
     const [project, setProject] = useState(props.data)
@@ -173,9 +174,9 @@ export default function ModalUpdate(props) {
                         />
                     </div>
                     <div style={{ display: 'flex' }}>
-                        {fileProject?.map(item => {
+                        {fileProject?.map((item,idx) => {
                             return (
-                                <div style={{ margin: 10 }}>
+                                <div style={{ margin: 10 }} key={idx}>
                                     <img id="target" src={item} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
                                 </div>
                             )

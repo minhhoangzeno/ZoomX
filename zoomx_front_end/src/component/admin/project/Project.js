@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { doGet } from '../../../lib/DataSource';
-import Item from './Item';
-import Loading from '../../image/Loading';
-import ModalAdd from './ModalAdd';
 import Pagination from "react-js-pagination";
+import { doGet } from '../../../lib/DataSource';
+import Loading from '../../image/Loading';
+import Item from './Item';
+import ModalAdd from './ModalAdd';
 export default function Project() {
     const [data, setData] = useState();
     const [investmentId, setInvestmentId] = useState("1");
@@ -14,13 +14,29 @@ export default function Project() {
     const [loading, setLoading] = useState(true);
     const [modalShow, setModalShow] = useState(false)
     useEffect(() => {
+        let getSearch = async () => {
+            let path = (investmentId === "1") ? `/project?page=${activePage}` : `/project-investment?page=${activePage}&investment=${investmentId}`;
+            const headers = {
+                Accept: "*/*"
+            }
+            try {
+                var resp = await doGet(path, headers);
+                if (resp.status === 200) {
+                    setData(resp.data)
+                    handleLoading(false)
+                }
+            } catch (e) {
+                console.log(e)
+                handleLoading(false)
+            }
+        }
         getSearch()
     }, [investmentId, activePage])
     const handleChangData = (item) => {
         setActivePage(item)
     }
-    const getSearch = async () => {
-        let path = (investmentId == "1") ? `/project?page=${activePage}` : `/project-investment?page=${activePage}&investment=${investmentId}`;
+    let getSearch = async () => {
+        let path = (investmentId === "1") ? `/project?page=${activePage}` : `/project-investment?page=${activePage}&investment=${investmentId}`;
         const headers = {
             Accept: "*/*"
         }
@@ -88,7 +104,7 @@ export default function Project() {
                                 {data?.data.map((item, index) => {
                                     return (
                                         <Item data={item} key={index} handleLoading={handleLoading}
-                                            indexNum={ parseInt((5 * (activePage - 1)) + index+1)}
+                                            indexNum={parseInt((5 * (activePage - 1)) + index + 1)}
                                             getSearch={getSearch} />
                                     )
                                 })}
@@ -136,7 +152,7 @@ function InvestmentSelect({ handleInvestment }) {
 
     return (
         <>
-            <label for="cars">Chon linh vuc dau tu:</label>
+            <label htmlFor="cars">Chon linh vuc dau tu:</label>
             <select name="cars" id="cars" onChange={(e) => handleInvestment(e.target.value)} style={{
                 border: '1px solid #eaeaea'
                 , padding: 10,

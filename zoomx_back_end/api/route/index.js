@@ -1,24 +1,35 @@
-const investment_controller = require('../controller/InvestmentController');
-const image_controller = require('../controller/ImageController');
-const project_controller = require('../controller/ProjectController');
-const recruitment_controller = require('../controller/RecruitmentController');
-const partner_controller = require('../controller/PartnerController');
-const timeline_controller = require('../controller/TimeLineController');
-const file_controller = require('../controller/FileController');
-const person_recruitment_controller = require('../controller/PersonRecruitmentController');
-const person_contact_controller = require('../controller/PersonContactController');
-const hero_controller = require('../controller/HeroController');
-const blog_controller = require('../controller/BlogController');
-const categoryblog_controller = require('../controller/CategoryBlogController');
-const library_lookup_controller = require('../controller/LibraryLookupController');
-const library_image_controller = require('../controller/LibraryImageController');
-const library_video_controller = require('../controller/LibraryVideoController');
-const slogan_controller = require('../controller/SloganController');
-const contact_page_controller = require('../controller/ContactPageController');
-const youngbusiness_controller = require('../controller/YoungBusinessController');
-const reason_select_controller = require('../controller/ReasonSelectController');
-const define_home_controller = require('../controller/DefineHomeController');
-const zoomx_controller = require('../controller/ZoomXController');
+const investment_controller = require('../controller/InvestmentController'),
+    image_controller = require('../controller/ImageController'),
+    project_controller = require('../controller/ProjectController'),
+    recruitment_controller = require('../controller/RecruitmentController'),
+    partner_controller = require('../controller/PartnerController'),
+    timeline_controller = require('../controller/TimeLineController'),
+    file_controller = require('../controller/FileController'),
+    person_recruitment_controller = require('../controller/PersonRecruitmentController'),
+    person_contact_controller = require('../controller/PersonContactController'),
+    hero_controller = require('../controller/HeroController'),
+    hero_zoomx_controller = require('../controller/HeroZoomXController'),
+    hero_project_controller = require('../controller/HeroProjectController'),
+    hero_investment_controller = require('../controller/HeroInvestmentController'),
+    hero_news_controller = require('../controller/HeroNewsController'),
+    hero_contact_controller = require('../controller/HeroContactController'),
+    hero_library_controller = require('../controller/HeroLibraryController'),
+    hero_recruitment_controller = require('../controller/HeroRecruitmentController'),
+    blog_controller = require('../controller/BlogController'),
+    categoryblog_controller = require('../controller/CategoryBlogController'),
+    library_lookup_controller = require('../controller/LibraryLookupController'),
+    library_image_controller = require('../controller/LibraryImageController'),
+    library_video_controller = require('../controller/LibraryVideoController'),
+    slogan_controller = require('../controller/SloganController'),
+    contact_page_controller = require('../controller/ContactPageController'),
+    youngbusiness_controller = require('../controller/YoungBusinessController'),
+    reason_select_controller = require('../controller/ReasonSelectController'),
+    define_home_controller = require('../controller/DefineHomeController'),
+    zoomx_controller = require('../controller/ZoomXController'),
+    icon_controller = require('../controller/IconController'),
+    setting_controller = require('../controller/SettingController'),
+    person_mail_controller = require('../controller/PersonMailController')
+    ;
 module.exports = app => {
 
     //get linh vuc dau tu hoat dong co phan trang
@@ -42,6 +53,16 @@ module.exports = app => {
     app.route('/investment/set/:investment_id')
         .put(investment_controller.set_investment)
 
+    app.route('/blog')
+        .get(blog_controller.get_blog)
+        .post(blog_controller.add_a_blog)
+    app.route('/blog/:blog_id')
+        .put(blog_controller.update_blog)
+        .delete(blog_controller.delete_blog)
+        .get(blog_controller.get_a_blog)
+    app.route('blog-search')
+        .get(blog_controller.search_blog)
+
     app.route('/images')
         .get(image_controller.get_image)
         .post(image_controller.add_a_image)
@@ -57,13 +78,11 @@ module.exports = app => {
         .delete(file_controller.delete_file)
 
     app.route('/project')
-        .get(project_controller.get_paginate_project)
+        .get(project_controller.get_project)
         .post(project_controller.add_project)
     app.route('/project/:project_id')
         .put(project_controller.update_project)
         .delete(project_controller.delete_project)
-    app.route('/project-investment')
-        .get(project_controller.get_paginate_investment_project)
 
     app.route('/recruitment')
         .get(recruitment_controller.get_recruitment)
@@ -94,10 +113,7 @@ module.exports = app => {
         .get(person_recruitment_controller.get_person_recruitment)
         .post(person_recruitment_controller.add_person_recruitment)
     app.route('/person-recruitment/:person_recruitment_id')
-        .put(person_recruitment_controller.update_person_recruitment)
         .delete(person_recruitment_controller.delete_person_recruitment)
-    app.route('/person-recruitment/file/:person_recruitment_id')
-        .post(person_recruitment_controller.upload_file_person_recruitment)
 
     app.route('/person-contact')
         .get(person_contact_controller.get_person_contact)
@@ -111,22 +127,55 @@ module.exports = app => {
     app.route('/hero/:hero_id')
         .put(hero_controller.update_hero)
         .delete(hero_controller.delete_hero)
-    app.route('/hero/upload/:hero_id')
-        .put(hero_controller.upload_hero)
 
-    app.route('/blog')
-        .get(blog_controller.get_all_blogs)
-        .post(blog_controller.add_a_blog)
-    app.route('/blog/category')
-        .get(blog_controller.get_category_blogs)
-    app.route('/blog/:blog_id')
-        .get(blog_controller.get_a_blog)  
-        .put(blog_controller.update_blog) 
-        .delete(blog_controller.delete_blog)
-    app.route('/blog-search')
-        .get(blog_controller.search_blog)
-    app.route('/demo')
-        .get(blog_controller.get_demo_search)
+    app.route('/hero/zoomx')
+        .get(hero_zoomx_controller.get_hero)
+        .post(hero_zoomx_controller.add_hero)
+    app.route('/hero/zoomx/:hero_id')
+        .put(hero_zoomx_controller.update_hero)
+        .delete(hero_zoomx_controller.delete_hero)
+
+    app.route('/hero/project')
+        .get(hero_project_controller.get_hero)
+        .post(hero_project_controller.add_hero)
+    app.route('/hero/project/:hero_id')
+        .put(hero_project_controller.update_hero)
+        .delete(hero_project_controller.delete_hero)
+
+    app.route('/hero/investment')
+        .get(hero_investment_controller.get_hero)
+        .post(hero_investment_controller.add_hero)
+    app.route('/hero/investment/:hero_id')
+        .put(hero_investment_controller.update_hero)
+        .delete(hero_investment_controller.delete_hero)
+
+    app.route('/hero/news')
+        .get(hero_news_controller.get_hero)
+        .post(hero_news_controller.add_hero)
+    app.route('/hero/news/:hero_id')
+        .put(hero_news_controller.update_hero)
+        .delete(hero_news_controller.delete_hero)
+
+    app.route('/hero/contact')
+        .get(hero_contact_controller.get_hero)
+        .post(hero_contact_controller.add_hero)
+    app.route('/hero/contact/:hero_id')
+        .put(hero_contact_controller.update_hero)
+        .delete(hero_contact_controller.delete_hero)
+
+    app.route('/hero/library')
+        .get(hero_library_controller.get_hero)
+        .post(hero_library_controller.add_hero)
+    app.route('/hero/library/:hero_id')
+        .put(hero_library_controller.update_hero)
+        .delete(hero_library_controller.delete_hero)
+
+    app.route('/hero/recruitment')
+        .get(hero_recruitment_controller.get_hero)
+        .post(hero_recruitment_controller.add_hero)
+    app.route('/hero/recruitment/:hero_id')
+        .put(hero_recruitment_controller.update_hero)
+        .delete(hero_recruitment_controller.delete_hero)
 
     app.route('/categoryblog')
         .get(categoryblog_controller.get_all_blogs)
@@ -143,6 +192,7 @@ module.exports = app => {
     app.route('/library/lookup/:library_lookup_id')
         .put(library_lookup_controller.update_library_lookup)
         .delete(library_lookup_controller.delete_library_lookup)
+        .get(library_lookup_controller.get_a_library_lookup)
 
     app.route('/library/image')
         .get(library_image_controller.get_library_image)
@@ -150,6 +200,7 @@ module.exports = app => {
     app.route('/library/image/:library_image_id')
         .put(library_image_controller.update_library_image)
         .delete(library_image_controller.delete_library_image)
+        .get(library_image_controller.get_a_library_image)
 
 
     app.route('/library/video')
@@ -158,6 +209,7 @@ module.exports = app => {
     app.route('/library/video/:library_video_id')
         .put(library_video_controller.update_library_video)
         .delete(library_video_controller.delete_library_video)
+        .get(library_video_controller.get_a_libraryvideo)
 
     app.route('/slogan')
         .get(slogan_controller.get_slogan)
@@ -201,5 +253,26 @@ module.exports = app => {
     app.route('/zoomx/:zoomx_id')
         .put(zoomx_controller.update_zoomx)
         .delete(zoomx_controller.delete_zoomx)
+
+    app.route('/setting')
+        .get(setting_controller.get_setting)
+        .post(setting_controller.add_setting)
+    app.route('/setting/:setting_id')
+        .put(setting_controller.update_setting)
+        .delete(setting_controller.delete_setting)
+
+    app.route('/icon')
+        .get(icon_controller.get_icon)
+        .post(icon_controller.add_icon)
+    app.route('/icon/:icon_id')
+        .put(icon_controller.update_icon)
+        .delete(icon_controller.delete_icon)
+
+    app.route('/person-mail')
+        .get(person_mail_controller.get_mails)
+        .post(person_mail_controller.add_mail)
+    app.route('/person-mail/:mail_id')
+        .delete(person_mail_controller.delete_mail)
+
 
 }

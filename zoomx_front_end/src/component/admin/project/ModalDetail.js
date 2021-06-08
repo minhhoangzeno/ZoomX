@@ -1,39 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import Modal from 'react-bootstrap/Modal'
-import { doGet, doPut } from '../../../lib/DataSource';
 import { Editor } from '@tinymce/tinymce-react';
-import { tinyconfig } from '../../../TinyConfig';
 import moment from 'moment';
+import React, { useEffect, useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import { doGet } from '../../../lib/DataSource';
+import { tinyconfig } from '../../../TinyConfig';
 export default function ModalDetail(props) {
     let pj = [];
     props.data.imageProject.map(item => {
         pj.push(item.url)
+        return pj;
     })
-    const [fileCover, setFileCover] = useState(props.data.imageCover?.url);
-    const [project, setProject] = useState(props.data)
-    const [fileHero, setFileHero] = useState(props.data.imageHero?.url);
-    const [fileInfor, setFileInfor] = useState(props.data.imageInfor?.url);
-    const [fileProject, setFileProject] = useState(pj);
+    let fileCover = props.data.imageCover?.url
+    let project = props.data
+    let fileHero = props.data.imageHero?.url
+    let fileInfor = props.data.imageInfor?.url
+    let fileProject = pj
+
     const [investment, setInvestment] = useState({});
 
     useEffect(() => {
-        getInvestment()
-    }, [])
-    const getInvestment = async () => {
-        const path = `/investment/${props.data.typeInvestment}`;
-        const headers = {
-            Accept: "*/*"
-        }
-        try {
-            var resp = await doGet(path, headers);
-            if (resp.status === 200) {
-                setInvestment(resp.data)
-
+        let getInvestment = async () => {
+            const path = `/investment/${props.data.typeInvestment}`;
+            const headers = {
+                Accept: "*/*"
             }
-        } catch (e) {
-            console.log(e)
+            try {
+                var resp = await doGet(path, headers);
+                if (resp.status === 200) {
+                    setInvestment(resp.data)
+    
+                }
+            } catch (e) {
+                console.log(e)
+            }
         }
-    }
+        getInvestment()
+    }, [])  // eslint-disable-line react-hooks/exhaustive-deps
+    
     return (
         <>
             <Modal
@@ -79,9 +82,9 @@ export default function ModalDetail(props) {
                         <label>Ảnh dự án:</label>
                     </div>
                     <div style={{ display: 'flex' }}>
-                        {fileProject?.map(item => {
+                        {fileProject?.map((item,idx) => {
                             return (
-                                <div style={{ margin: 10 }}>
+                                <div style={{ margin: 10 }} key={idx}>
                                     <img id="target" src={item} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
                                 </div>
                             )
@@ -159,11 +162,7 @@ export default function ModalDetail(props) {
                     <div className="btn--bottom">
                         <div className="wrapper__btn">
                             <button className="back-btn" onClick={() => {
-                                props.onHide()
-                                setFileCover(null)
-                                setFileHero(null)
-                                setFileInfor(null)
-                                setFileProject(null)
+                                props.onHide()                                                     
                             }}>Quay lại</button>
                         </div>
                     </div>
