@@ -32,7 +32,7 @@ const mongoose = require('mongoose'),
 // //                 if (err) return next(err);
 // //                 res.send({
 // //                     data,
-// //                     totalPage: totalPage?.length
+// //                     totalPage: totalPage.length
 // //                 }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
 // //             });
 // //         });
@@ -70,7 +70,7 @@ const mongoose = require('mongoose'),
 //                 if (err) return next(err);
 //                 res.send({
 //                     data,
-//                     totalPage: totalPage?.length
+//                     totalPage: totalPage.length
 //                 }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
 //             });
 //         });
@@ -117,12 +117,12 @@ exports.search_blog = async (req, res) => {
                 if (err) return next(err);
                 // res.send({
                 //     data,
-                //     totalPage: totalPage?.length
+                //     totalPage: totalPage.length
                 // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
                 // res.status(200).json(data)
                 res.send({
                     data: data,
-                    totalPage: totalPage?.length
+                    totalPage: totalPage.length
                 })
             });
         });
@@ -161,12 +161,12 @@ exports.get_blog = async (req, res) => {
                     if (err) return next(err);
                     // res.send({
                     //     data,
-                    //     totalPage: totalPage?.length
+                    //     totalPage: totalPage.length
                     // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
                     // res.status(200).json(data)
                     res.send({
                         data: data,
-                        totalPage: totalPage?.length
+                        totalPage: totalPage.length
                     })
                 });
             });
@@ -188,12 +188,12 @@ exports.get_blog = async (req, res) => {
                     if (err) return next(err);
                     // res.send({
                     //     data,
-                    //     totalPage: totalPage?.length
+                    //     totalPage: totalPage.length
                     // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
                     // res.status(200).json(data)
                     res.send({
                         data: data,
-                        totalPage: totalPage?.length
+                        totalPage: totalPage.length
                     })
                 });
             });
@@ -230,7 +230,7 @@ exports.get_a_blog = (req, res) => {
 // //     let id = req.params.blog_id;
 // //     let fileBlogs = req.files.filter(item => item.fieldname == 'imageBlog');
 // //     await Blog.findById(id).then(blog => {
-// //         blog.imageBlog?.map(item => {
+// //         blog.imageBlog.map(item => {
 // //             ImageUtil.deleteSingleFile(item)
 // //         })
 // //     })
@@ -256,7 +256,7 @@ exports.get_a_blog = (req, res) => {
 // //         Blog.findByIdAndUpdate(id, {
 // //             title: req.body.title,
 // //             date: req.body.date,
-// //             imageBlog: result?.imageBlog,
+// //             imageBlog: result.imageBlog,
 // //             contentStart: req.body.contentStart,
 // //             contentMain: req.body.contentMain,
 // //             contentBegin: req.body.contentBegin,
@@ -272,7 +272,7 @@ exports.get_a_blog = (req, res) => {
 // exports.delete_blog = (req, res) => {
 //     let id = req.params.blog_id;
 //     Blog.findById(id).then(blog => {
-//         blog.imageBlog?.map(item => {
+//         blog.imageBlog.map(item => {
 //             ImageUtil.deleteSingleFile(item).then(() => {
 //                 blog.remove()
 //                 res.send(blog)
@@ -320,12 +320,12 @@ exports.get_a_blog = (req, res) => {
 //                     if (err) return next(err);
 //                     // res.send({
 //                     //     data,
-//                     //     totalPage: totalPage?.length
+//                     //     totalPage: totalPage.length
 //                     // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
 //                     // res.status(200).json(data)
 //                     res.send({
 //                         data: data,
-//                         totalPage: totalPage?.length
+//                         totalPage: totalPage.length
 //                     })
 //                 });
 //             });
@@ -359,12 +359,12 @@ exports.get_a_blog = (req, res) => {
 //                     if (err) return next(err);
 //                     // res.send({
 //                     //     data,
-//                     //     totalPage: totalPage?.length
+//                     //     totalPage: totalPage.length
 //                     // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
 //                     // res.status(200).json(data)
 //                     res.send({
 //                         data: data,
-//                         totalPage: totalPage?.length
+//                         totalPage: totalPage.length
 //                     })
 //                 });
 //             });

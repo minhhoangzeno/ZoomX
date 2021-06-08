@@ -41,7 +41,7 @@ exports.get_library_lookup = async (req, res) => {
         // res.status(200).json(data)
         res.send({
           data: data,
-          totalPage: totalPage?.length,
+          totalPage: totalPage.length,
         });
       });
     });

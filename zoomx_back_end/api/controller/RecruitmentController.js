@@ -24,7 +24,7 @@ exports.get_recruitment = async (req, res) => {
                 if (err) return next(err);
                 res.send({
                     data,
-                    totalPage: totalPage?.length
+                    totalPage: totalPage.length
                 }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
             });
         });
