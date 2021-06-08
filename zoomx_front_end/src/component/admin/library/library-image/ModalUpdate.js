@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { doPut } from '../../../../lib/DataSource';
+import { doGet, doPut } from '../../../../lib/DataSource';
 
 export default function ModalUpdate(props) {
     let pj = [];
@@ -8,9 +8,26 @@ export default function ModalUpdate(props) {
         pj.push(item.url)
         return pj;
     })
-    const [image, setImage] = useState(props.data);
-    const [fileCover, setFileCover] = useState(props.data.imageCover.url);
-    const [fileList,setFileList] = useState(pj)
+    const [image, setImage] = useState();
+    const [fileCover, setFileCover] = useState();
+    const [fileList, setFileList] = useState();
+    useEffect(() => {
+        getLibraryImage()
+    }, [])
+    useEffect(() => {
+        getLibraryImage()
+    }, [image?._id])
+    const getLibraryImage = async () => {
+        let path = `/library/image/${props.data._id}`;
+        try {
+            let resp = await doGet(path);
+            if (resp.status === 200) {
+                setImage(resp.data)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
     const handleUpdate = async () => {
         props.handleLoading(true);
 
@@ -25,7 +42,7 @@ export default function ModalUpdate(props) {
         for (let i = 0; i < listPj.length; i++) {
             data.append("imageList", listPj[i]);
         }
-        
+
         try {
             let resp = await doPut(path, headers, data);
             if (resp.status === 200) {
@@ -81,7 +98,8 @@ export default function ModalUpdate(props) {
                         </div>
                         {fileCover ? <div>
                             <img id="target" src={fileCover} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
-                        </div> : <></>}
+                        </div> : <img id="target" src={image?.imageCover.url} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
+                        }
                     </div>
                     <div>
                         <label>Ảnh List:</label> <input id="file-input" type="file"
@@ -97,10 +115,16 @@ export default function ModalUpdate(props) {
                         />
                     </div>
                     <div style={{ display: 'flex' }}>
-                        {fileList?.map((item,idx) => {
+                        {(fileList) ? fileList?.map((item, idx) => {
                             return (
                                 <div key={idx} style={{ margin: 10 }}>
                                     <img id="target" src={item} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
+                                </div>
+                            )
+                        }) : image?.imageList?.map((item, idx) => {
+                            return (
+                                <div key={idx} style={{ margin: 10 }}>
+                                    <img id="target" src={item?.url} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
                                 </div>
                             )
                         })}

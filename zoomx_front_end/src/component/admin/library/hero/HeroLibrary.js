@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { doGet } from '../../../lib/DataSource';
-import '../../../style/admin-investment.scss';
-import Loading from "../../image/Loading";
+import { doGet } from '../../../../lib/DataSource';
+import '../../../../style/admin-investment.scss';
+import Loading from "../../../image/Loading";
 import Item from './Item';
 import ModalAdd from './ModalAdd';
-
-export default function CategoryBlog() {
+export default function HeroLibrary() {
     const [modalShow, setModalShow] = React.useState(false);
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        getData()
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+        getHero()
+    }, [])
 
     const handleLoading = (isLoading) => {
         setLoading(isLoading)
     }
-   
-    const getData = async () => {
-        handleLoading(true)
-        const path = `/categoryblog`;
+
+    const getHero = async () => {
+        const path = "/hero/library";
         const headers = {
             Accept: "*/*"
         }
@@ -28,21 +26,18 @@ export default function CategoryBlog() {
             var resp = await doGet(path, headers);
             if (resp.status === 200) {
                 setData(resp.data)
-                handleLoading(false)
 
             }
         } catch (e) {
             console.log(e)
-            handleLoading(false)
         }
     }
     return (
         <>
 
             <div className="title">
-                <h1>Danh muc bai viet</h1>
+                <h1>Hero Thu vien</h1>
             </div>
-
             <div className="wrapper__table">
                 <section className="content-header">
                     <div className="button__add" >
@@ -59,36 +54,32 @@ export default function CategoryBlog() {
                         <thead>
                             <tr>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ten danh muc</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Tiêu đề</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Label</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ảnh cover</th>
                                 <th className="text-center" width="12%">Setting</th>
                             </tr>
                         </thead>
-                         <ModalAdd
+                        <ModalAdd
                             show={modalShow}
                             onHide={() => setModalShow(false)}
                             handleLoading={handleLoading}
-                            getData={getData}
+                            getHero={getHero}
 
                         />
                         {!loading ?
                             <tbody>
                                 {data?.map((item, index) => {
                                     return (
-                                        <Item
-                                            data={item}
-                                            key={index}
-                                            handleLoading={handleLoading}
-                                            indexNum={index+1}
-                                            getData={getData} />
+                                        <Item dataHero={item} key={index} handleLoading={handleLoading} indexNum={index + 1} getHero={getHero} />
                                     )
                                 })}
                             </tbody>
                             : <Loading />
-                        } 
+                        }
                     </table>
                 </div>
             </div>
-           
         </>
     )
 }

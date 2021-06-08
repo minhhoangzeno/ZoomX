@@ -65,3 +65,12 @@ exports.delete_library_video = (req, res) => {
       res.send(err);
     });
 };
+
+exports.get_a_libraryvideo = (req, res) => {
+  LibraryVideo.findById(req.params.library_video_id)
+    .then(data => {
+      res.send(data)
+    }).catch(err => {
+      res.send(err)
+    })
+}

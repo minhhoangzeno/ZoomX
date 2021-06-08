@@ -27,6 +27,9 @@ const personContactSchema = new Schema({
         require: true
     },
     description: String
+}, {
+    bufferCommands: true,
+    autoCreate: true
 })
 
 module.exports = mongoose.model('personContact',personContactSchema)

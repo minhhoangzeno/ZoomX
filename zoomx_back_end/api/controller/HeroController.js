@@ -32,7 +32,7 @@ exports.add_hero = (req, res) => {
     let uploadCover = new Promise((resolve, reject) => {
         Upload.uploadSingleFile({
             file: req.files[0],
-            path: 'ZoomX/Hero'
+            path: 'ZoomX/Hero/Home'
         }).then(imageCover => {
             resolve(imageCover)
         }).catch(err => {
@@ -57,7 +57,7 @@ exports.add_hero = (req, res) => {
 exports.update_hero = (req, res) => {
     let id = req.params.hero_id;
     Hero.findById(id).exec().then(hero => {
-        ImageUtil.updateSingeFile(req.files[0], hero.imageCover, 'Hero').then(() => {
+        ImageUtil.updateSingeFile(req.files[0], hero.imageCover, 'Hero/Home').then(() => {
             Hero.findByIdAndUpdate(id, {
                 title: req.body.title,
                 label: req.body.label
@@ -81,13 +81,3 @@ exports.delete_hero = (req, res) => {
     })
 }
 
-exports.upload_hero = (req, res) => {
-    Hero.findByIdAndUpdate(req.params.hero_id, {
-        title: req.body.title,
-        label: req.body.label
-    }).then(data => {
-        res.send(data)
-    }).catch(error => {
-        res.send(error)
-    })
-}

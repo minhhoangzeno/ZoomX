@@ -107,6 +107,26 @@ export const useProject = () => {
   return { data, error, loading: data || error ? false : true };
 };
 
+useEffect(() => {
+  getProject();
+}, []);
+
+async function getProject() {
+  const path = "/project";
+  const headers = {
+    Accept: "*/*",
+  };
+  try {
+    var resp = await doGet(path, headers);
+    if (resp.status === 200) {
+      setData(resp.data);
+    }
+  } catch (e) {
+    setError(e);
+  }
+}
+return { data, error, loading: data || error ? false : true };
+
 export const useTimeLine = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -210,33 +230,50 @@ export const useHero = () => {
   return { data, error, loading: data || error ? false : true };
 };
 
-export const useDefineHome = () => {
-  const [data, setData] = useState({
-    title: "",
-    content: "",
-  });
+export const useHeroInvestment = () => {
+  const [data, setData] = useState();
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getDefineHome();
+    getHero();
   }, []);
-
-  async function getDefineHome() {
-    const path = "/define-home";
+  async function getHero() {
+    const path = "/hero/investment";
     const headers = {
       Accept: "*/*",
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
+        console.log(data);
       }
-    } catch (e) {
-      setError(e);
+    } catch (error) {
+      setError(error);
     }
   }
   return { data, error, loading: data || error ? false : true };
 };
+
+useEffect(() => {
+  getDefineHome();
+}, []);
+
+async function getDefineHome() {
+  const path = "/define-home";
+  const headers = {
+    Accept: "*/*",
+  };
+  try {
+    var resp = await doGet(path, headers);
+    if (resp.status == 200) {
+      setData(resp.data);
+    }
+  } catch (e) {
+    setError(e);
+  }
+}
+return { data, error, loading: data || error ? false : true };
 
 export const useReasonSelect = () => {
   const [data, setData] = useState(null);

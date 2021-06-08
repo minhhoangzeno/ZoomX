@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { doPost } from '../../../lib/DataSource';
+import { doPost } from '../../../../lib/DataSource';
 
 export default function ModalAdd(props) {
     const [name,setName] = useState();
