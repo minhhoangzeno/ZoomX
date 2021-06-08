@@ -396,16 +396,13 @@ footer {
   transition-duration: 1s;
   transform: translateX(-100%);
   &__content {
-   
-      flex: 1;
-      li {
-        margin-top: 40px;
-        margin-bottom: 10px;
-        display: flex;
-        justify-content: center;
-      }
-    
-   
+    flex: 1;
+    li {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+    }
   }
 }
 .openNavMobile {
@@ -520,13 +517,12 @@ footer {
     height: 100%;
     top: 0%;
     background-color: rgba($color: #000000, $alpha: 0.3);
-    z-index: 3;
+    z-index: 2;
   }
 }
 .hero__page {
   width: 100%;
   height: 30vh;
-  background-image: url("../image/home/hero-page.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

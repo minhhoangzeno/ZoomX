@@ -79,7 +79,7 @@ export default function FieldComponent() {
             <div className="item__field__wrapper">
               <img className="img__field" src={icon1} alt="#" />
               <div className="box__item">
-                <p className="txt__number">02</p>
+                <p className="txt__number">01</p>
                 <p className="txt__adress">Lĩnh vực</p>
                 <p className="txt__hotel">KHÁCH SẠN</p>
                 <div className="empty__box"></div>
@@ -92,7 +92,7 @@ export default function FieldComponent() {
             <div className="item__field__wrapper">
               <img className="img__field" src={icon1} alt="#" />
               <div className="box__item">
-                <p className="txt__number">03</p>
+                <p className="txt__number">01</p>
                 <p className="txt__adress">Lĩnh vực</p>
                 <p className="txt__hotel">KHÁCH SẠN</p>
                 <div className="empty__box"></div>
@@ -105,111 +105,7 @@ export default function FieldComponent() {
             <div className="item__field__wrapper">
               <img className="img__field" src={icon1} alt="#" />
               <div className="box__item">
-                <p className="txt__number">04</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
-              </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">05</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
-              </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">06</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
-              </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">07</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
-              </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">08</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
-              </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">09</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
-              </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">10</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
-              </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">11</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
-              </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">12</p>
+                <p className="txt__number">01</p>
                 <p className="txt__adress">Lĩnh vực</p>
                 <p className="txt__hotel">KHÁCH SẠN</p>
                 <div className="empty__box"></div>

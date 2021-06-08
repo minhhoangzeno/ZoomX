@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import logoCountry from "../../image/home/country.png";
+import { useSetting } from "../../lib/API";
 import "../../style/style.scss";
 export default function Header() {
+  const { data } = useSetting();
   let history = useHistory();
   const [height, setHeight] = useState();
   window.addEventListener("scroll", () => {
     let heightWindow = window.pageYOffset;
     setHeight(heightWindow);
   });
+
   return (
     <>
       <header>
@@ -61,8 +64,9 @@ export default function Header() {
                       </g>
                     </g>
                   </svg>
-                  <span> 0766 262 838</span>
+                  <span>{data[0]?.phone && data[0].phone}</span>
                 </div>
+
                 <div className="contact__mail">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +87,7 @@ export default function Header() {
                       </tspan>
                     </text>
                   </svg>
-                  <span> support@zoomxhotels.com</span>
+                  <span>{data[0]?.mail}</span>
                 </div>
               </div>
               <div className="wrapper__top--right">

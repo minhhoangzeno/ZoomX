@@ -41,7 +41,7 @@ exports.get_library_lookup = async (req, res) => {
         // res.status(200).json(data)
         res.send({
           data: data,
-          totalPage: totalPage?.length,
+          totalPage: totalPage.length,
         });
       });
     });
@@ -193,10 +193,10 @@ exports.get_a_library_lookup = (req, res) => {
         model: "image",
       },
     ])
-    .
-    then(data => {
-      res.send(data)
-    }).catch(err => {
-      res.send(err)
+    .then((data) => {
+      res.send(data);
     })
-}
+    .catch((err) => {
+      res.send(err);
+    });
+};
