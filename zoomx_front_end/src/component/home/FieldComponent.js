@@ -1,7 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
 import icon1 from "../../image/homePage/icon1.png";
+import { useInvestment } from "../../lib/API";
 export default function FieldComponent() {
+  const { data } = useInvestment();
   const item = {
     // dots: true,
     infinite: true,

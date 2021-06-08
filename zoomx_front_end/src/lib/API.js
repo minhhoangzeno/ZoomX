@@ -321,6 +321,31 @@ export const useZoomx = () => {
   return { data, error, loading: data || error ? false : true };
 };
 
+export const useYoungbusiness = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getYoungbusiness();
+  }, []);
+
+  async function getYoungbusiness() {
+    const path = "/youngbusiness";
+    const headers = {
+      Accept: "*/*",
+    };
+    try {
+      var resp = await doGet(path, headers);
+      if (resp.status == 200) {
+        setData(resp.data);
+      }
+    } catch (e) {
+      setError(e);
+    }
+  }
+  return { data, error, loading: data || error ? false : true };
+};
+
 export const useHeroInvestment = () => {
   const [data, setData] = useState();
   const [error, setError] = useState(null);
@@ -346,29 +371,26 @@ export const useHeroInvestment = () => {
   return { data, error, loading: data || error ? false : true };
 };
 
-export const useYoungbusiness = () => {
-  const [data, setData] = useState({
-    title: "",
-    content: "",
-  });
+export const useHeroZoomx = () => {
+  const [data, setData] = useState();
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getYoungbusiness();
+    getHeroZoomx();
   }, []);
-
-  async function getYoungbusiness() {
-    const path = "/youngbusiness";
+  async function getHeroZoomx() {
+    const path = "/hero/zoomx";
     const headers = {
       Accept: "*/*",
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
+        console.log(data);
       }
-    } catch (e) {
-      setError(e);
+    } catch (error) {
+      setError(error);
     }
   }
   return { data, error, loading: data || error ? false : true };
