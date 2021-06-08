@@ -108,27 +108,27 @@ export function SideBar({ handlePage, isPage }) {
                         </li>
                     </ul>
                     <hr />
-                    <div className={handleStyle("blog")}
-                        onClick={() => handlePage('blog')}
-
+                    <div className="sidebar__admin--menu--item"
                     >
-                        <span>Blog</span>
+                        <span>Tin tuc - Su kien</span>
                     </div>
                     <ul className="sub__menu">
-                        <li onClick={() => handlePage('hero-blog')}
-                            className={handleStyle("hero-blog")}
+                        <li onClick={() => handlePage('hero-news')}
+                            className={handleStyle("hero-news")}
                         >
-                            <span>Hero Blog</span>
+                            <span>Hero Tin tuc</span>
+                        </li>
+                        <li onClick={() => handlePage('blog')}
+                            className={handleStyle("blog")}
+                        >
+                            <span>Blog</span>
+                        </li>
+                        <li onClick={() => handlePage('category-blog')}
+                            className={handleStyle("category-blog")}
+                        >
+                            <span>Danh muc bai viet</span>
                         </li>
                     </ul>
-                    <hr />
-                    <div className={handleStyle("category-blog")}
-                        onClick={() => handlePage('category-blog')}
-
-                    >
-                        <span>Danh muc bai viet</span>
-                    </div>
-
                     <hr />
                     <div className={handleStyle("contact")}
                         onClick={() => handlePage('contact')}

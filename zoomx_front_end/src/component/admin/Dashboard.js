@@ -1,8 +1,7 @@
 import React from 'react';
-import Blog from './blog/Blog';
 import HeroBlog from './blog/hero/HeroBlog';
-import CategoryBlog from './category-blog/CategoryBlog';
 import Contact from './contact/Contact';
+import CategoryBlog from './news/category-blog/CategoryBlog'
 import HeroContact from './contact/hero/HeroContact';
 import DefineHome from './home/define-home/DefineHome';
 import Header from './home/header/Header';
@@ -29,6 +28,7 @@ import Partner from './zoomx/partner/Partner';
 import Slogan from './zoomx/slogan/Slogan';
 import YoungBusiness from './zoomx/young-business/YoungBusiness';
 import ZoomX from './zoomx/zoom-x/ZoomX';
+import Blog from './news/blog/Blog';
 export default function Dashboard({ isPage }) {
     return (
         <div className="wrapper__admin">

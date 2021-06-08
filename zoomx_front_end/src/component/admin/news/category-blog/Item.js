@@ -1,5 +1,5 @@
 import React from 'react';
-import { doGet } from '../../../lib/DataSource';
+import { doGet } from '../../../../lib/DataSource';
 export default function Item({ data, indexNum, handleLoading, getData }) {
     const handleDelete = async () => {
         handleLoading(true)
