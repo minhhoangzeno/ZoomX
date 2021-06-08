@@ -21,6 +21,14 @@ var ProjectSchema = new Schema({
         type: String,
         require: true
     },
+    imageCover: {
+        type: Schema.Types.ObjectId,
+        ref: 'image'
+    },
+    imageInfor: {
+        type: Schema.Types.ObjectId,
+        ref: 'image'
+    },
     typeInvestment: {
         type: String,
         require: true
@@ -49,17 +57,10 @@ var ProjectSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    imageInfor: {
-        type: Schema.Types.ObjectId,
-        ref: 'image'
-    },
+
     description: {
         type: String,
         require: true
-    },
-    imageCover: {
-        type: Schema.Types.ObjectId,
-        ref: 'image'
     }
 })
 

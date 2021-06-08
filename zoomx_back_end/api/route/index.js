@@ -36,16 +36,12 @@ module.exports = app => {
     app.route('/investment')
         .get(investment_controller.get_investment)
         .post(investment_controller.add_investment)
+    app.route('/investment-all')
+        .get(investment_controller.get_all_investment)
     app.route('/investment/update/:investment_id')
         .put(investment_controller.update_investment)
     app.route('/investment/delete/:investment_id')
         .put(investment_controller.delete_investment)
-    //get tat ca linh vuc dau tu co phan trang
-    app.route('/investment-paginate-all')
-        .get(investment_controller.get_all_paginate_investment)
-    //get tat ca linh vuc dau tu
-    app.route('/investment-all')
-        .get(investment_controller.get_all_investment)
     app.route('/investment/:investment_id')
         .get(investment_controller.get_a_investment)
     app.route('/investment/remove/:investment_id')

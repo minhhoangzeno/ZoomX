@@ -5,60 +5,6 @@ var mongoose = require("mongoose"),
   Upload = require("../model/UploadImageModel"),
   Project = mongoose.model("project"),
   ImageUtil = require("../utils/ImageUtil");
-//get linh vuc dau tu hoat dong co phan trang
-exports.get_investment = (req, res) => {
-  let perPage = 3; // số lượng sản phẩm xuất hiện trên 1 page
-  let page = req.query.page;
-  let totalPage;
-  Investment.find({ isDeleted: false }).then((result) => (totalPage = result));
-  Investment.find({
-    isDeleted: false,
-  }) // find tất cả các data
-    .populate({
-      path: "imageCover",
-      model: "image",
-      select: "url",
-    })
-    .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-    .limit(perPage)
-    .exec((err, data) => {
-      Investment.countDocuments((err, count) => {
-        // đếm để tính có bao nhiêu trang
-        if (err) return next(err);
-        res.send({
-          data,
-          totalPage: totalPage.length,
-        }); // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
-      });
-    });
-};
-
-//get tat ca linh vuc dau tu co phan trang
-exports.get_all_paginate_investment = (req, res) => {
-  let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
-  let page = req.query.page;
-  let totalPage;
-  Investment.find().then((result) => (totalPage = result));
-  Investment.find() // find tất cả các data
-    .populate({
-      path: "imageCover",
-      model: "image",
-      select: "url",
-    })
-    .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-    .limit(perPage)
-    .exec((err, data) => {
-      Investment.countDocuments((err, count) => {
-        // đếm để tính có bao nhiêu trang
-        if (err) return next(err);
-        res.send({
-          data,
-          totalPage: totalPage.length,
-        }); // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
-      });
-    });
-};
-
 //get tat ca linh vuc dau tu
 exports.get_all_investment = (req, res) => {
   Investment.find()
@@ -74,6 +20,22 @@ exports.get_all_investment = (req, res) => {
       res.send(error);
     });
 };
+exports.get_investment = (req, res) => {
+  Investment.find({
+    isDeleted: false
+  })
+    .populate({
+      path: "imageCover",
+      model: "image",
+      select: "url",
+    })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((error) => {
+      res.send(error);
+    });
+}
 
 exports.get_a_investment = (req, res) => {
   Investment.findById(req.params.investment_id)
@@ -92,7 +54,6 @@ exports.get_a_investment = (req, res) => {
 
 exports.add_investment = (req, res) => {
   let fileCover = req.files.filter((item) => item.fieldname == "imageCover");
-  let fileHero = req.files.filter((item) => item.fieldname == "imageHero");
   let uploadCover = new Promise((resolve, reject) => {
     Upload.uploadSingleFile({
       file: fileCover[0],
