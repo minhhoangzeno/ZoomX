@@ -14,61 +14,53 @@
  * imageHero ref (ảnh heropage)
  */
 var mongoose = require('mongoose'),
-    Schema   = mongoose.Schema;
+    Schema = mongoose.Schema;
 
 var ProjectSchema = new Schema({
     projectName: {
         type: String,
-        require : true
+        require: true
     },
     typeInvestment: {
         type: String,
         require: true
     },
-    address:{
+    address: {
         type: String,
         require: true
     },
-    acreage:{
+    acreage: {
         type: String,
         require: true
     },
-    totalInvestment:{
+    totalInvestment: {
         type: String,
         require: true
     },
-    categoryInvestment:{
+    categoryInvestment: {
         type: String,
         require: true
     },
-    dateStart:{
+    dateStart: {
         type: Date,
         default: Date.now,
     },
-    dateFinish:{
+    dateFinish: {
         type: Date,
         default: Date.now,
     },
-    imageInfor:{
+    imageInfor: {
         type: Schema.Types.ObjectId,
         ref: 'image'
     },
-    imageCover:{
-        type: Schema.Types.ObjectId,
-        ref: 'image'
-    },
-    description:{
+    description: {
         type: String,
         require: true
     },
-    imageProject: [{
+    imageCover: {
         type: Schema.Types.ObjectId,
-        ref:'image'
-    }],
-    imageHero:{
-        type: Schema.Types.ObjectId,
-        ref:'image'
+        ref: 'image'
     }
 })
 
-module.exports = mongoose.model('project',ProjectSchema)
+module.exports = mongoose.model('project', ProjectSchema)

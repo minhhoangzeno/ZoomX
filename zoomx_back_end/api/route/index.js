@@ -85,15 +85,12 @@ module.exports = (app) => {
 
   app
     .route("/project")
-    .get(project_controller.get_paginate_project)
+    .get(project_controller.get_project)
     .post(project_controller.add_project);
   app
     .route("/project/:project_id")
     .put(project_controller.update_project)
     .delete(project_controller.delete_project);
-  app
-    .route("/project-investment")
-    .get(project_controller.get_paginate_investment_project);
 
   app
     .route("/recruitment")
