@@ -107,26 +107,6 @@ export const useProject = () => {
   return { data, error, loading: data || error ? false : true };
 };
 
-useEffect(() => {
-  getProject();
-}, []);
-
-async function getProject() {
-  const path = "/project";
-  const headers = {
-    Accept: "*/*",
-  };
-  try {
-    var resp = await doGet(path, headers);
-    if (resp.status === 200) {
-      setData(resp.data);
-    }
-  } catch (e) {
-    setError(e);
-  }
-}
-return { data, error, loading: data || error ? false : true };
-
 export const useTimeLine = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -230,50 +210,33 @@ export const useHero = () => {
   return { data, error, loading: data || error ? false : true };
 };
 
-export const useHeroInvestment = () => {
-  const [data, setData] = useState();
+export const useDefineHome = () => {
+  const [data, setData] = useState({
+    title: "",
+    content: "",
+  });
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getHero();
+    getDefineHome();
   }, []);
-  async function getHero() {
-    const path = "/hero/investment";
+
+  async function getDefineHome() {
+    const path = "/define-home";
     const headers = {
       Accept: "*/*",
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status === 200) {
+      if (resp.status == 200) {
         setData(resp.data);
-        console.log(data);
       }
-    } catch (error) {
-      setError(error);
+    } catch (e) {
+      setError(e);
     }
   }
   return { data, error, loading: data || error ? false : true };
 };
-
-useEffect(() => {
-  getDefineHome();
-}, []);
-
-async function getDefineHome() {
-  const path = "/define-home";
-  const headers = {
-    Accept: "*/*",
-  };
-  try {
-    var resp = await doGet(path, headers);
-    if (resp.status == 200) {
-      setData(resp.data);
-    }
-  } catch (e) {
-    setError(e);
-  }
-}
-return { data, error, loading: data || error ? false : true };
 
 export const useReasonSelect = () => {
   const [data, setData] = useState(null);
@@ -332,6 +295,8 @@ export const useSlogan = () => {
 export const useZoomx = () => {
   const [data, setData] = useState({
     content: "",
+    author: "",
+    career: "",
   });
   const [error, setError] = useState(null);
 
@@ -351,6 +316,31 @@ export const useZoomx = () => {
       }
     } catch (e) {
       setError(e);
+    }
+  }
+  return { data, error, loading: data || error ? false : true };
+};
+
+export const useHeroInvestment = () => {
+  const [data, setData] = useState();
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getHero();
+  }, []);
+  async function getHero() {
+    const path = "/hero/investment";
+    const headers = {
+      Accept: "*/*",
+    };
+    try {
+      var resp = await doGet(path, headers);
+      if (resp.status === 200) {
+        setData(resp.data);
+        console.log(data);
+      }
+    } catch (error) {
+      setError(error);
     }
   }
   return { data, error, loading: data || error ? false : true };
