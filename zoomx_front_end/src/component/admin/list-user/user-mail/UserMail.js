@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from "react-js-pagination";
-import { doGet } from '../../../lib/DataSource';
-import Loading from "../../image/Loading";
+import Loading from "../../../../image/Loading";
+import { doGet } from '../../../../lib/DataSource';
 import Item from './Item';
 
-export default function UserContact(){
+export default function UserMail(){
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
     const [activePage, setActivePage] = useState(1)
     
     useEffect(() => {
         let getData = async () => {
-            const path = `/person-contact?page=${activePage}`;
+            const path = `/person-mail?page=${activePage}`;
             const headers = {
                 Accept: "*/*"
             }
@@ -35,7 +35,7 @@ export default function UserContact(){
         setActivePage(item)
     }
     const getData = async () => {
-        const path = `/person-contact?page=${activePage}`;
+        const path = `/person-mail?page=${activePage}`;
         const headers = {
             Accept: "*/*"
         }
@@ -63,10 +63,8 @@ export default function UserContact(){
                         <thead>
                             <tr>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Họ tên</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Email</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Số điện thoại</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ghi chú</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ngày đăng ký</th>
                                 <th className="text-center" width="12%">Setting</th>
                             </tr>
                         </thead>

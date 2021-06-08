@@ -28,9 +28,17 @@ var express = require('express'),
     ZoomX = require('./api/model/ZoomXModel'),
     Setting = require('./api/model/SettingModel'),
     Icon = require('./api/model/IconModel'),
-    User = require('./api/model/UserModel')
-path = require('path')
-expressSession = require('express-session')
+    User = require('./api/model/UserModel'),
+    PersonMail = require('./api/model/PersonMailModel'),
+    HeroZoomX = require('./api/model/HeroZoomXModel'),
+    HeroProject = require('./api/model/HeroProjectModel'),
+    HeroInvestment = require('./api/model/HeroInvestmentModel'),
+    HeroNews = require('./api/model/HeroNewsModel'),
+    HeroContact = require('./api/model/HeroContactModel'),
+    HeroLibrary = require('./api/model/HeroLibraryModel'),
+    HeroRecruitment = require('./api/model/HeroRecruitmentModel'),
+    path = require('path'),
+    expressSession = require('express-session')
     ;
 
 
@@ -49,7 +57,7 @@ mongoose.connect('mongodb+srv://minhhoang:521985@zoomx.x6xhr.mongodb.net/myFirst
 var corsOptions = {
     origin: 'http://localhost:3000',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
+}
 app.use(cors({}))
 app.use(expressSession({
     secret: 'keyboard cat'

@@ -1,13 +1,13 @@
 const ImageUtil = require('../utils/ImageUtil');
 
 const mongoose = require('mongoose'),
-    Hero = mongoose.model('hero'),
+    HeroInvestment = mongoose.model('heroInvestment'),
     Upload = require('../model/UploadImageModel');
 
 
 exports.get_hero = (req, res) => {
     const getPartnerPromise = new Promise((resolve, reject) => {
-        Hero.find()
+        HeroInvestment.find()
             .populate({
                 path: 'imageCover',
                 model: 'image',
@@ -32,7 +32,7 @@ exports.add_hero = (req, res) => {
     let uploadCover = new Promise((resolve, reject) => {
         Upload.uploadSingleFile({
             file: req.files[0],
-            path: 'ZoomX/Hero/Home'
+            path: 'ZoomX/Hero/Investment'
         }).then(imageCover => {
             resolve(imageCover)
         }).catch(err => {
@@ -40,7 +40,7 @@ exports.add_hero = (req, res) => {
         })
     })
     uploadCover.then(result => {
-        Hero.create({
+        HeroInvestment.create({
             title: req.body.title,
             label: req.body.label,
             imageCover: result._id
@@ -56,9 +56,9 @@ exports.add_hero = (req, res) => {
 
 exports.update_hero = (req, res) => {
     let id = req.params.hero_id;
-    Hero.findById(id).exec().then(hero => {
-        ImageUtil.updateSingeFile(req.files[0], hero.imageCover, 'Hero/Home').then(() => {
-            Hero.findByIdAndUpdate(id, {
+    HeroInvestment.findById(id).exec().then(hero => {
+        ImageUtil.updateSingeFile(req.files[0], hero.imageCover, 'Hero/Investment').then(() => {
+            HeroInvestment.findByIdAndUpdate(id, {
                 title: req.body.title,
                 label: req.body.label
             }).then(data => {
@@ -71,7 +71,7 @@ exports.update_hero = (req, res) => {
 }
 exports.delete_hero = (req, res) => {
     let id = req.params.hero_id;
-    Hero.findById(id).exec().then(async hero => {
+    HeroInvestment.findById(id).exec().then(async hero => {
         await ImageUtil.deleteSingleFile(hero.imageCover).then(() => {
             hero.remove()
         })

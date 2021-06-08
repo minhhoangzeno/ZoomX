@@ -1,11 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { doPut } from '../../../../lib/DataSource';
+import { doPut, doGet } from '../../../../lib/DataSource';
 import { convertToEmbed } from '../../../../utils/RegexUrl';
 
 export default function ModalAdd(props) {
-    const [video, setVideo] = useState(props.data);
+    const [video, setVideo] = useState();
 
+    useEffect(() => {
+        getLibraryVideo()
+    }, [])
+    useEffect(() => {
+        getLibraryVideo()
+    }, [video?._id])
+    const getLibraryVideo = async () => {
+        let path = `/library/video/${props?.data?._id}`;
+        try {
+            let resp = await doGet(path);
+            if (resp.status === 200) {
+                setVideo(resp.data)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
     const handleUpdate = async () => {
         props.handleLoading(true);
 
@@ -47,7 +64,7 @@ export default function ModalAdd(props) {
                             name="name"
                             onChange={handleVideo}
                             type="text"
-                            value={video.name}
+                            value={video?.name}
                         />
                     </div>
                     <div>
@@ -55,7 +72,7 @@ export default function ModalAdd(props) {
                             name="videoUrl"
                             onChange={handleVideo}
                             type="text"
-                            value={video.videoUrl}
+                            value={video?.videoUrl}
                         />
                     </div>
                     {convertToEmbed(video?.videoUrl) && <>

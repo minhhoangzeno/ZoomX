@@ -54,6 +54,11 @@ export function SideBar({ handlePage, isPage }) {
                         <span >Giới thiệu</span>
                     </div>
                     <ul className="sub__menu">
+                        <li onClick={() => handlePage('hero-zoomx')}
+                            className={handleStyle("hero-zoomx")}
+                        >
+                            <span>Hero Gioi thieu</span>
+                        </li>
                         <li onClick={() => handlePage('slogan')}
                             className={handleStyle("slogan")}
                         >
@@ -78,10 +83,16 @@ export function SideBar({ handlePage, isPage }) {
                     <hr />
                     <div className={handleStyle("project")}
                         onClick={() => handlePage('project')}
-
                     >
                         <span>Dự án</span>
                     </div>
+                    <ul className="sub__menu">
+                        <li onClick={() => handlePage('hero-project')}
+                            className={handleStyle("hero-project")}
+                        >
+                            <span>Hero Du an</span>
+                        </li>
+                    </ul>
                     <hr />
                     <div className={handleStyle("investment")}
                         onClick={() => handlePage('investment')}
@@ -89,6 +100,13 @@ export function SideBar({ handlePage, isPage }) {
                     >
                         <span>Lĩnh vực đầu tư</span>
                     </div>
+                    <ul className="sub__menu">
+                        <li onClick={() => handlePage('hero-investment')}
+                            className={handleStyle("hero-investment")}
+                        >
+                            <span>Hero Linh vuc dau tu</span>
+                        </li>
+                    </ul>
                     <hr />
                     <div className={handleStyle("blog")}
                         onClick={() => handlePage('blog')}
@@ -96,6 +114,13 @@ export function SideBar({ handlePage, isPage }) {
                     >
                         <span>Blog</span>
                     </div>
+                    <ul className="sub__menu">
+                        <li onClick={() => handlePage('hero-blog')}
+                            className={handleStyle("hero-blog")}
+                        >
+                            <span>Hero Blog</span>
+                        </li>
+                    </ul>
                     <hr />
                     <div className={handleStyle("category-blog")}
                         onClick={() => handlePage('category-blog')}
@@ -103,6 +128,7 @@ export function SideBar({ handlePage, isPage }) {
                     >
                         <span>Danh muc bai viet</span>
                     </div>
+
                     <hr />
                     <div className={handleStyle("contact")}
                         onClick={() => handlePage('contact')}
@@ -110,12 +136,34 @@ export function SideBar({ handlePage, isPage }) {
                     >
                         <span>Liên hệ</span>
                     </div>
+                    <ul className="sub__menu">
+                        <li onClick={() => handlePage('hero-contact')}
+                            className={handleStyle("hero-contact")}
+                        >
+                            <span>Hero Lien he</span>
+                        </li>
+                    </ul>
                     <hr />
-                    <div className={handleStyle("user-contact")}
-                        onClick={() => handlePage("user-contact")}
-                    >
-                        <span>Người Liên Hệ</span>
+                    <div className="sidebar__admin--menu--item">
+                        <span>Danh sách người gửi tin</span>
                     </div>
+                    <ul className="sub__menu">
+                        <li onClick={() => handlePage("user-contact")}
+                            className={handleStyle("user-contact")}
+                        >
+                            <span>Người liên hệ</span>
+                        </li>
+                        <li onClick={() => handlePage('user-recruitment')}
+                            className={handleStyle('user-recruitment')}
+                        >
+                            <span>Người tuyển dụng</span>
+                        </li>
+                        <li onClick={() => handlePage('user-mail')}
+                            className={handleStyle('user-mail')}
+                        >
+                            <span>Người gửi mail</span>
+                        </li>
+                    </ul>
                     <hr />
                     <div className={handleStyle("library")}
                         onClick={() => handlePage('library')}
@@ -124,6 +172,11 @@ export function SideBar({ handlePage, isPage }) {
                         <span>Thư viện</span>
                     </div>
                     <ul className="sub__menu">
+                        <li onClick={() => handlePage('hero-library')}
+                            className={handleStyle('hero-library')}
+                        >
+                            <span>Hero Thu vien</span>
+                        </li>
                         <li onClick={() => handlePage('library-lookup')}
                             className={handleStyle('library-lookup')}
                         >
@@ -147,8 +200,15 @@ export function SideBar({ handlePage, isPage }) {
                     >
                         <span>Tuyển dụng</span>
                     </div>
+                    <ul className="sub__menu">
+                        <li onClick={() => handlePage('hero-recruitment')}
+                            className={handleStyle('hero-recruitment')}
+                        >
+                            <span>Hero Tuyen dung</span>
+                        </li>
+                    </ul>
                     <hr />
-                   
+
                 </div>
             </div>
 
