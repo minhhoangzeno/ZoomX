@@ -10,7 +10,7 @@ var self = (module.exports = {
   uploadSingleFile: (request) => {
     return new Promise((resolve, reject) => {
       Cloudinary.uploadSingle({
-        file: request.file.path,
+        file: request.file?.path,
         path: request.path,
       })
         .then((result) => {
@@ -37,7 +37,7 @@ var self = (module.exports = {
         (file) =>
           new Promise((resolve, reject) => {
             Cloudinary.uploadMultiple({
-              file: file.path,
+              file: file?.path,
               path: request.path,
             })
               .then((result) => {
