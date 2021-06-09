@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import ListProject from './ListProject';
 import Pagination from "react-js-pagination";
-import MenuProject from './MenuProject';
-import Item from './Item';
 import { doGet } from '../../lib/DataSource';
 import Loading from '../image/Loading';
+import Item from './Item';
+import MenuProject from './MenuProject';
 export default function Project() {
     const [investmentId, setInvestmentId] = useState("60bf768b5210df341c80c0ef");
     const [data, setData] = useState();
