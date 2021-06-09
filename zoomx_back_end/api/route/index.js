@@ -79,6 +79,7 @@ module.exports = app => {
     app.route('/project/:project_id')
         .put(project_controller.update_project)
         .delete(project_controller.delete_project)
+        .get(project_controller.get_a_project)
 
     app.route('/recruitment')
         .get(recruitment_controller.get_recruitment)

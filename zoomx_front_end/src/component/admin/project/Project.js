@@ -17,6 +17,7 @@ export default function Project() {
     }
     const handleInvestment = (id) => {
         setInvestmentId(id)
+        setActivePage(1)
     }
     useEffect(() => {
         getSearch()
@@ -43,7 +44,6 @@ export default function Project() {
     const handleChangData = (item) => {
         setActivePage(item)
     }
-    console.log(investmentId)
     return (
         <>
             <div className="title">
@@ -93,7 +93,7 @@ export default function Project() {
 
                 <Pagination
                     activePage={activePage}
-                    itemsCountPerPage={5}
+                    itemsCountPerPage={6}
                     totalItemsCount={parseInt(data?.totalPage)}
                     pageRangeDisplayed={3}
                     onChange={handleChangData}
