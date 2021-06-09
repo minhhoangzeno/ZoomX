@@ -8,7 +8,7 @@ exports.get_recruitment = async (req, res) => {
   let perPage = 6; // số lượng sản phẩm xuất hiện trên 1 page
   let page = req.query.page;
   let totalPage;
-  await Recruitment.find().then(result => {
+  await Recruitment.find().then((result) => {
     result = totalPage;
   });
   Recruitment.find() // find tất cả các data
@@ -25,7 +25,7 @@ exports.get_recruitment = async (req, res) => {
         if (err) return next(err);
         res.send({
           data: data,
-          totalPage: totalPage?.length,
+          totalPage: totalPage.length,
         }); // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
       });
     });
