@@ -5,8 +5,22 @@ import {
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+import Modal from 'react-bootstrap/Modal';
 
-export default function ModalLookup() {
+export default function ModalLookup(props) {
+    return (
+        <Modal
+            {...props}
+            size="xl"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <PDF fileBook={props?.fileBook} />
+        </Modal>
+    )
+}
+
+function PDF({ fileBook }) {
     const renderToolbar = (Toolbar) => (
         <Toolbar>
             {
@@ -71,9 +85,10 @@ export default function ModalLookup() {
                 height: 800
             }}
         >
-            <Viewer fileUrl="/PhooNkauj.pdf" defaultScale={SpecialZoomLevel.PageFit} plugins={[
+            <Viewer fileUrl={fileBook} defaultScale={SpecialZoomLevel.PageFit} plugins={[
                 defaultLayoutPluginInstance
             ]} />
         </div>
     </Worker>
+
 }

@@ -5,7 +5,7 @@ const mongoose = require("mongoose"),
   Upload = require("../model/UploadImageModel");
 
 exports.get_libraryvideo = async (req, res) => {
-  let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
+  let perPage = 9; // số lượng sản phẩm xuất hiện trên 1 page
   let page = req.query.page;
   let totalPage;
   await LibraryVideo.find()
