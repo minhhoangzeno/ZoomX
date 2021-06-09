@@ -1,7 +1,6 @@
 // import React from "react";
 import React from "react";
 import Slider from "react-slick";
-import itemHome from "../../image/homePage/itemHome.png";
 import { useReasonSelect } from "../../lib/API";
 import IconHome from "./IconHome";
 export default function ItemHome() {
@@ -35,7 +34,10 @@ export default function ItemHome() {
                   <p className="txt__headline">{item.title}</p>
                   <div className="flex__item">
                     <IconHome />
-                    <p className="txt__item">{item.content}</p>
+                    <p
+                      className="txt__item"
+                      dangerouslySetInnerHTML={{ __html: data[0]?.content }}
+                    ></p>
                   </div>
                 </div>
               </div>
