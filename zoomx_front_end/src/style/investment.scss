@@ -22,7 +22,7 @@ img{
             @media (max-width: 1024px) {
                 padding: 0 50px;
             }
-            @media (max-width: 768px) {
+            @media (max-width: 1024px){
                 padding: 0;
             }
             &:hover {
@@ -38,7 +38,7 @@ img{
                 overflow: hidden;
                 .img-wrapper {
                     @media(max-width: 1920px){
-                        height: 525px;
+                        height: 520px;
                     }
                     @media(max-width: 1440px){
                         height: 475px;

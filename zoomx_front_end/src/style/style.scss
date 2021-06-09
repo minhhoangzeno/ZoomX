@@ -142,7 +142,7 @@ footer {
             letter-spacing: 2px;
             font-size: 24px;
             @media (max-width: 769px) {
-              font-size: 18px;
+              font-size: 16px;
             }
             @media (max-width: 426px) {
               font-size: 12px;
@@ -200,10 +200,6 @@ footer {
                 height: 100%;
                 &:focus {
                   outline-width: 0;
-                }
-                @media (max-width: 768px) {
-                  padding-left: 25px;
-                  padding-right: 0;
                 }
                 @media (max-width: 426px) {
                   font-size: 12px;
@@ -307,7 +303,6 @@ footer {
                 }
                 @media (max-width: 769px) {
                   padding: 8px;
-                  color: #ffffffa1;
                 }
               }
             }
