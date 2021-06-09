@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { doGet } from '../../../lib/DataSource';
 import Loading from '../../image/Loading';
+import Pagination from "react-js-pagination";
+
 import Item from './Item';
 import ModalAdd from './ModalAdd';
 export default function Recruitment() {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
     const [modalShow,setModalShow] = useState(false);
+    const [activePage,setActivePage] = useState(1);
+    useEffect(() => {
+        getSearch()
+    },[])
+   
+    useEffect(() => {
+        getSearch()
+    },[activePage])
+   
     const getSearch = async () => {
-        const path = "/recruitment";
+        const path = `/recruitment?page=${activePage}`;
         const headers = {
             Accept: "*/*"
         }
@@ -23,25 +34,6 @@ export default function Recruitment() {
             handleLoading(false)
         }
     }
-    useEffect(() => {
-        let getSearch = async () => {
-            const path = "/recruitment";
-            const headers = {
-                Accept: "*/*"
-            }
-            try {
-                var resp = await doGet(path, headers);
-                if (resp.status === 200) {
-                    setData(resp.data)
-                    handleLoading(false)
-                }
-            } catch (e) {
-                console.log(e)
-                handleLoading(false)
-            }
-        }
-        getSearch()
-    },[])
    
     const handleLoading = (isLoading) => {
         setLoading(isLoading)
@@ -79,7 +71,7 @@ export default function Recruitment() {
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Ảnh</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Tiêu đề</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Nơi làm việc</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ngành nghề</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Lương</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Hạn nộp hồ sơ</th>
                                 <th className="text-center" width="12%">Setting</th>
@@ -94,7 +86,7 @@ export default function Recruitment() {
                         />
                         {!loading ?
                             <tbody>
-                                {data?.map((item, index) => {
+                                {data?.data.map((item, index) => {
                                     return (
                                         <Item data={item} key={index} handleLoading={handleLoading} indexNum={index + 1} getSearch={getSearch} />
                                     )
@@ -105,6 +97,16 @@ export default function Recruitment() {
                         
                     </table>
                 </div>
+            </div>
+            <div className="wrapper-paginate">
+
+                <Pagination
+                    activePage={activePage}
+                    itemsCountPerPage={6}
+                    totalItemsCount={parseInt(data?.totalPage)}
+                    pageRangeDisplayed={3}
+                    onChange={(item) => setActivePage(item)}
+                />
             </div>
         </>
     )
