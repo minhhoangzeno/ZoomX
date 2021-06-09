@@ -24,7 +24,9 @@ export default function Item({ dataZoomX, indexNum, getZoomX, handleLoading }) {
         <>
             <tr >
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{indexNum}</td>
-                <td className="text-center" style={{ verticalAlign: 'middle' }}>{dataZoomX?.content}</td>
+                <td className="text-center" style={{ verticalAlign: 'middle' }}
+                dangerouslySetInnerHTML={{__html:dataZoomX?.content}}
+                ></td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>
                     <Link to={dataZoomX?.profile?.fileUrl}>File PDF</Link>
                 </td>

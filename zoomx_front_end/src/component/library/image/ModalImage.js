@@ -16,10 +16,11 @@ export default function ModalImage(props) {
     <>
       <Modal
         {...props}
-        size="lg"
+        size="xl"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
+        <Modal.Header closeButton></Modal.Header>
         <Swiper
           tag="section"
           wrapperTag="ul"
@@ -28,24 +29,13 @@ export default function ModalImage(props) {
           spaceBetween={0}
           slidesPerView={1}
         >
-          <SwiperSlide tag="li">
-            <img style={{ listStyle: "none" }} src={anh} alt="#" />
-          </SwiperSlide>
-          <SwiperSlide tag="li">
-            <img style={{ listStyle: "none" }} src={anh1} alt="#" />
-          </SwiperSlide>
-          <SwiperSlide tag="li">
-            <img style={{ listStyle: "none" }} src={anh2} alt="#" />
-          </SwiperSlide>
-          <SwiperSlide tag="li">
-            <img style={{ listStyle: "none" }} src={anh3} alt="#" />
-          </SwiperSlide>
-          <SwiperSlide tag="li">
-            <img style={{ listStyle: "none" }} src={anh4} alt="#" />
-          </SwiperSlide>
-          <SwiperSlide tag="li">
-            <img style={{ listStyle: "none" }} src={anh5} alt="#" />
-          </SwiperSlide>
+          {props?.listImage?.map((item, index) => {
+            return (
+              <SwiperSlide tag="li">
+                <img style={{ listStyle: "none" }} src={item?.url} alt="#" />
+              </SwiperSlide>
+            )
+          })}
         </Swiper>
       </Modal>
     </>

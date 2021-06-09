@@ -6,8 +6,10 @@ import item3 from "../../image/zoomX/item3.png";
 import item4 from "../../image/zoomX/item4.png";
 import item5 from "../../image/zoomX/item5.png";
 import item6 from "../../image/zoomX/item6.png";
+import { usePartner } from "../../lib/API";
 
 export default function PartnerComponent() {
+  const { data } = usePartner();
   var settings = {
     // dots: true,
     infinite: true,
@@ -65,35 +67,16 @@ export default function PartnerComponent() {
       <div className="container-fluid wrapper__partner">
         <div className="wrapper__partner__label">Đối tác</div>
         <Slider className="slider-block row" {...settings}>
-          <div className="wrapper__partner__item">
-            <img className="img-partner" src={item1} alt="#" />
-          </div>
-          <div className="wrapper__partner__item">
-            <img className="img-partner" src={item2} alt="#" />
-          </div>
-          <div className="wrapper__partner__item">
-            <img className="img-partner" src={item3} alt="#" />
-          </div>
-          <div className="wrapper__partner__item">
-            <img className="img-partner" src={item4} alt="#" />
-          </div>
-          <div className="wrapper__partner__item">
-            <img className="img-partner" src={item5} alt="#" />
-          </div>
-          <div className="wrapper__partner__item">
-            <img className="img-partner" src={item6} alt="#" />
-          </div>
-          <div className="wrapper__partner__item">
-            <img className="img-partner" src={item6} alt="#" />
-          </div>
-          <div className="wrapper__partner__item">
-            <img className="img-partner" src={item6} alt="#" />
-          </div>
-          <div className="wrapper__partner__item">
-            <img className="img-partner" src={item6} alt="#" />
-          </div>
+          {data?.map((item, index) => {
+            return (
+              <div className="wrapper__partner__item" key={index}>
+                <img className="img-partner" src={item.logo.url} alt="#" />
+              </div>
+            );
+          })}
         </Slider>
       </div>
+      );
     </>
   );
 }

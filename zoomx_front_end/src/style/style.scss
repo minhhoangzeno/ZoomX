@@ -142,7 +142,7 @@ footer {
             letter-spacing: 2px;
             font-size: 24px;
             @media (max-width: 769px) {
-              font-size: 18px;
+              font-size: 16px;
             }
             @media (max-width: 426px) {
               font-size: 12px;
@@ -200,10 +200,6 @@ footer {
                 height: 100%;
                 &:focus {
                   outline-width: 0;
-                }
-                @media (max-width: 768px) {
-                  padding-left: 25px;
-                  padding-right: 0;
                 }
                 @media (max-width: 426px) {
                   font-size: 12px;
@@ -307,7 +303,6 @@ footer {
                 }
                 @media (max-width: 769px) {
                   padding: 8px;
-                  color: #ffffffa1;
                 }
               }
             }
@@ -396,16 +391,13 @@ footer {
   transition-duration: 1s;
   transform: translateX(-100%);
   &__content {
-   
-      flex: 1;
-      li {
-        margin-top: 40px;
-        margin-bottom: 10px;
-        display: flex;
-        justify-content: center;
-      }
-    
-   
+    flex: 1;
+    li {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+    }
   }
 }
 .openNavMobile {
@@ -520,13 +512,13 @@ footer {
     height: 100%;
     top: 0%;
     background-color: rgba($color: #000000, $alpha: 0.3);
-    z-index: 3;
+    z-index: 2;
   }
 }
 .hero__page {
   width: 100%;
   height: 30vh;
- 
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -584,5 +576,43 @@ footer {
     top: 0%;
     background-color: rgba($color: #000000, $alpha: 0.17);
     z-index: 3;
+  }
+}
+
+
+.wrapper-paginate{
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  ul{
+      li{
+          font-size: 30px;
+          width: 50px;
+          height: 50px;
+          border: 1px solid #eaeaea;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          a{
+              text-decoration: none;
+              color: #333;
+          }
+          &:nth-child(1){
+              display: none;
+          }
+          &:nth-last-child(1){
+              display: none;
+          }
+      }
+      li.active{
+          background-color: gray;
+          a{
+              color: #fff;
+          }
+      }
   }
 }
