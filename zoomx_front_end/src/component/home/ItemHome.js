@@ -50,7 +50,7 @@ function Item({ item }) {
           return (
             <div className="flex__item" key={idex}>
               <IconHome />
-              <p className="txt__item" dangerouslySetInnerHTML={{ __html: content }}></p>
+              <div className="txt__item" dangerouslySetInnerHTML={{ __html: content }}></div>
             </div>
           )
         })}
