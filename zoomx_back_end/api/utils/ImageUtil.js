@@ -11,7 +11,7 @@ var utils = (module.exports = {
         .then(async (image) => {
           await cloudinary.uploader.destroy(image.cloudinaryId);
           Cloudinary.uploadSingle({
-            file: file.path,
+            file: file?.path,
             path: `ZoomX/${folder}`,
           }).then((result) => {
             Image.findByIdAndUpdate(imageId, {
@@ -34,7 +34,7 @@ var utils = (module.exports = {
           .then(async (image) => {
             await cloudinary.uploader.destroy(image.cloudinaryId);
             Cloudinary.uploadSingle({
-              file: req.path,
+              file: req?.path,
               path: `ZoomX/${folder}`,
             }).then((result) => {
               Image.findByIdAndUpdate(imageId, {

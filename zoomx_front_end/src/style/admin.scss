@@ -170,3 +170,14 @@ select{
 .modal-content{
     background-color: #FFF !important;
 }
+.btn__setting{
+    text-align: center;
+    button{
+        border: none;
+        background-color: transparent;
+        margin-left: 8px;
+        &:nth-child(1){
+            margin-left: 0;
+        }
+    }
+}
