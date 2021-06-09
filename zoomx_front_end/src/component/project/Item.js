@@ -1,10 +1,15 @@
 import React from 'react';
-import item from '../../image/home/librarypage/itemOfList.jpg';
-
+import { useHistory } from 'react-router-dom'
 export default function Item({ data }) {
+    let history = useHistory();
     return (
         <>
-            <a href="http://www.github.com" className="item item-left">
+            <div className="item item-left" onClick={() => {
+                history.push({
+                    pathname:"/detail-project",
+                    state: data._id
+                })
+            }}>
                 <div className="item__content--top">
                     <div className="wrapper-img">
                         <img src={data?.imageInfor?.url} alt="" />
@@ -19,7 +24,7 @@ export default function Item({ data }) {
                         <span>XEM THÊM</span>
                     </div>
                 </div>
-            </a>
+            </div>
         </>
     )
 }
