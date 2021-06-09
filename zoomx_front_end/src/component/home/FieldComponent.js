@@ -64,58 +64,27 @@ export default function FieldComponent() {
         <div className="empty__element--field"></div>
         <p className="big__word--field">Lĩnh vực đầu tư</p>
         <Slider className="main__slider--item" {...item}>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">01</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
+          {data?.map((item, index) => {
+            return (
+              <div className="item__field__size" key={index}>
+                <div className="item__field__wrapper">
+                  <img
+                    className="img__field"
+                    src={item.imageCover.url}
+                    alt="#"
+                  />
+                  <div className="box__item">
+                    <p className="txt__number">{index + 1}</p>
+                    <p className="txt__adress">Lĩnh vực</p>
+                    <p className="txt__hotel">{item.investmentName}</p>
+                    <div className="empty__box"></div>
+                    <button className="btn__field">XEM THÊM</button>
+                  </div>
+                  <div className="img__field--overlay"></div>
+                </div>
               </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">01</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
-              </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">01</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
-              </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
-          <div className="item__field__size">
-            <div className="item__field__wrapper">
-              <img className="img__field" src={icon1} alt="#" />
-              <div className="box__item">
-                <p className="txt__number">01</p>
-                <p className="txt__adress">Lĩnh vực</p>
-                <p className="txt__hotel">KHÁCH SẠN</p>
-                <div className="empty__box"></div>
-                <button className="btn__field">XEM THÊM</button>
-              </div>
-              <div className="img__field--overlay"></div>
-            </div>
-          </div>
+            );
+          })}
         </Slider>
       </div>
     </>
