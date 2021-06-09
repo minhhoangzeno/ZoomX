@@ -3,96 +3,95 @@ img {
   object-fit: cover;
 }
 .menu__wrapper {
-    width: 100%;
-    padding: 80px;
-    margin-bottom: 30px;
-    font-family: "Helvetica";
-    @media (max-width: 1024px) {
-        padding: 50px !important;
-        margin-bottom: 20px;
-    }
-    @media (max-width: 768px) {
-        padding: 30px !important;
-        margin-bottom: 15px;
-    }
-    @media (max-width: 425px) {
-        padding: 30px 0 !important;
-        margin-bottom: 15px;
-    }
-    .container-fluid {
-        padding: 0;
-        ul.menu__library {
-            margin: 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            padding: 0;
-            @media (max-width: 425px) {
-                padding: 0 15px;
-            }
-            li {
-                padding: 0 35px;
-                color: #a4abb3;
-                font-weight: 700;
-                font-size: 16px;
-                display: flex;
-                align-items: center;
-                position: relative;
-                cursor: pointer;
-                letter-spacing: 1px;
-                @media (max-width: 768px) {
-                    padding: 0 20px !important;
-                    font-size: 13px !important;
-                }
-                @media (max-width: 526px) {
-                    padding: 0 10px !important;
-                    font-size: 11px !important;
-                }
-                @media (max-width: 425px) {
-                    font-size: 10px !important;
-                    padding: 0 8px !important;
-                }
-                @media (max-width: 375px) {
-                    font-size: 8px !important;
-                    padding: 0 5px !important;
-                }
-                img {
-                    position: absolute;
-                    @media (max-width: 526px) {
-                        width: 12px;
-                        height: 12px;
-                    }
-                }
-                span {
-                    padding: 0 0 0 25px;
-                   
-                    @media (max-width: 526px) {
-                        padding: 0 0 0 15px;
-                    }
-                    color: #676767;
-                    letter-spacing: 1px;
-                    position: relative;
-                    &:hover {
-                        text-decoration: none;
-                    }
-                    .active-cpn {
-                        position: absolute;
-                        width: 100%;
-                        height: 3px;
-                        left: 0;
-                        bottom: -5px;
-                        opacity: .4;
-                        background-color: #676767;
-                        @media (max-width: 375px) {
-                            height: 2px;
-                        }
-                    }
-                }
+  width: 100%;
+  padding: 80px;
+  margin-bottom: 30px;
+  font-family: "Helvetica";
+  @media (max-width: 1024px) {
+    padding: 50px !important;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 768px) {
+    padding: 30px !important;
+    margin-bottom: 15px;
+  }
+  @media (max-width: 425px) {
+    padding: 30px 0 !important;
+    margin-bottom: 15px;
+  }
+  .container-fluid {
+    padding: 0;
+    ul.menu__library {
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 0;
+      @media (max-width: 425px) {
+        padding: 0 15px;
+      }
+      li {
+        padding: 0 35px;
+        color: #a4abb3;
+        font-weight: 700;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        letter-spacing: 1px;
+        @media (max-width: 768px) {
+          padding: 0 20px !important;
+          font-size: 13px !important;
+        }
+        @media (max-width: 526px) {
+          padding: 0 10px !important;
+          font-size: 11px !important;
+        }
+        @media (max-width: 425px) {
+          font-size: 10px !important;
+          padding: 0 8px !important;
+        }
+        @media (max-width: 375px) {
+          font-size: 8px !important;
+          padding: 0 5px !important;
+        }
+        img {
+          position: absolute;
+          @media (max-width: 526px) {
+            width: 12px;
+            height: 12px;
+          }
+        }
+        span {
+          padding: 0 0 0 25px;
+
+          @media (max-width: 526px) {
+            padding: 0 0 0 15px;
+          }
+          color: #676767;
+          letter-spacing: 1px;
+          position: relative;
+          &:hover {
+            text-decoration: none;
+          }
+          .active-cpn {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            left: 0;
+            bottom: -5px;
+            opacity: 0.4;
+            background-color: #676767;
+            @media (max-width: 375px) {
+              height: 2px;
             }
           }
         }
       }
-    
+    }
+  }
+}
 
 .list__wrapper {
   width: 100%;
@@ -277,55 +276,55 @@ img {
                       font-size: 10px;
                     }
                     .label {
-                        font-family: Giroly;
-                        margin-bottom: 20px;
-                        @media (max-width: 1024px){
-                            display: flex;
-                            justify-content: center;
-                        }
-                        @media (max-width: 768px){
-                            margin-bottom: 10px;
-                        }
-                        span {
-                            padding: 5px 18px;
-                            background-color: #e01042;
-                            color: #fff;
-                            cursor: pointer;
-                            font-size: 14px;
-                            font-weight: 700;
-                            border: 2px solid #e01042;
-                            @media (max-width: 1024px) {
-                                // font-size: 18px;
-                                padding: 5px 25px;
-                            }
-                            @media (max-width: 769px) {
-                                padding: 3px 15px;
-                                font-size: 10px;
-                            }
-                            &:hover {
-                                text-decoration: none;
-                                background-color: #fff;
-                                border: 2px solid #e01042;
-                                color: #e01042;
-                            }
-                        }
-                    }
-                    .title {
-                        color: #333;
-                        // font-family: Giroly;
+                      font-family: Giroly;
+                      margin-bottom: 20px;
+                      @media (max-width: 1024px) {
+                        display: flex;
+                        justify-content: center;
+                      }
+                      @media (max-width: 768px) {
+                        margin-bottom: 10px;
+                      }
+                      span {
+                        padding: 5px 18px;
+                        background-color: #e01042;
+                        color: #fff;
+                        cursor: pointer;
+                        font-size: 14px;
                         font-weight: 700;
-                        font-size: 21px;
+                        border: 2px solid #e01042;
                         @media (max-width: 1024px) {
-                            width: 100%;
-                            text-align: center;
-                            font-size: 18px;
+                          // font-size: 18px;
+                          padding: 5px 25px;
                         }
-                        @media (max-width: 768px) {
-                            font-size: 15px;
+                        @media (max-width: 769px) {
+                          padding: 3px 15px;
+                          font-size: 10px;
                         }
                         &:hover {
-                            color: #af8d41;
+                          text-decoration: none;
+                          background-color: #fff;
+                          border: 2px solid #e01042;
+                          color: #e01042;
                         }
+                      }
+                    }
+                    .title {
+                      color: #333;
+                      // font-family: Giroly;
+                      font-weight: 700;
+                      font-size: 21px;
+                      @media (max-width: 1024px) {
+                        width: 100%;
+                        text-align: center;
+                        font-size: 18px;
+                      }
+                      @media (max-width: 768px) {
+                        font-size: 15px;
+                      }
+                      &:hover {
+                        color: #af8d41;
+                      }
                     }
                   }
                 }
@@ -455,7 +454,7 @@ img {
     height: 1000px;
     display: inline-block;
     @media (max-width: 1921px) {
-      width: 90%;
+      width: 100%;
       height: 800px;
     }
     @media (max-width: 1441px) {
