@@ -80,7 +80,7 @@ export default function LibraryImage() {
                                 {data?.data.map((item, index) => {
                                     return (           
                                         <Item data={item} key={index} handleLoading={handleLoading}
-                                            indexNum={parseInt((5 * (activePage - 1)) + index + 1)}
+                                            indexNum={parseInt((9 * (activePage - 1)) + index + 1)}
                                             getSearch={getSearch} />         
                                     )
                                 })}
@@ -94,7 +94,7 @@ export default function LibraryImage() {
 
                 <Pagination
                     activePage={activePage}
-                    itemsCountPerPage={5}
+                    itemsCountPerPage={9}
                     totalItemsCount={parseInt(data?.totalPage)}
                     pageRangeDisplayed={3}
                     onChange={(item) => setActivePage(item)}

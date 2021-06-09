@@ -94,7 +94,7 @@ export default function LibraryVideo() {
 
                 <Pagination
                     activePage={activePage}
-                    itemsCountPerPage={5}
+                    itemsCountPerPage={9}
                     totalItemsCount={parseInt(data?.totalPage)}
                     pageRangeDisplayed={3}
                     onChange={(item) => setActivePage(item)}

@@ -26,7 +26,7 @@ export default function Item({ data, indexNum, getSearch, handleLoading }) {
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{indexNum}</td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{data.name}</td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>
-                    <img src={data.imageCover.url} style={{width:200,height:300,objectFit:'cover'}} alt="" />
+                    <img src={data.imageCover.url} style={{width:150,height:200,objectFit:'cover'}} alt="" />
                 </td>
                 <ModalUpdate
                     show={modalShow}

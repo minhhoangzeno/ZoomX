@@ -6,7 +6,7 @@ const mongoose = require("mongoose"),
   Upload = require("../model/UploadImageModel"),
   AddImageLibrary = require("../utils/library/AddImageLibrary");
 exports.get_library_image = async (req, res) => {
-  let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
+  let perPage = 9; // số lượng sản phẩm xuất hiện trên 1 page
   let page = req.query.page;
   let totalPage;
   await LibraryImage.find()
