@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MetaTags } from 'react-meta-tags';
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
@@ -7,9 +7,12 @@ import HeroPage from '../component/share/HeroPage';
 import '../style/project.scss';
 import '../style/library.scss';
 import Project from '../component/project/Project';
+import { useLocation } from 'react-router';
+import { doGet } from '../lib/DataSource';
 
 export default function ProjectPage() {
-    
+   
+
     return (
         <>
             <MetaTags>

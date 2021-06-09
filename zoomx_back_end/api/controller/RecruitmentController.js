@@ -5,10 +5,12 @@ const mongoose = require("mongoose"),
   Upload = require("../model/UploadImageModel");
 
 exports.get_recruitment = async (req, res) => {
-  let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
+  let perPage = 6; // số lượng sản phẩm xuất hiện trên 1 page
   let page = req.query.page;
   let totalPage;
-  await Recruitment.find().then((result) => (result = totalPage));
+  await Recruitment.find().then(result => {
+    result = totalPage;
+  });
   Recruitment.find() // find tất cả các data
     .populate({
       path: "imageRecruitment",
@@ -22,8 +24,8 @@ exports.get_recruitment = async (req, res) => {
         // đếm để tính có bao nhiêu trang
         if (err) return next(err);
         res.send({
-          data,
-          totalPage: totalPage.length,
+          data: data,
+          totalPage: totalPage?.length,
         }); // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
       });
     });

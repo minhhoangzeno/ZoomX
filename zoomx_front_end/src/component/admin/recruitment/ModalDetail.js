@@ -1,6 +1,7 @@
 import { Editor } from '@tinymce/tinymce-react';
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
+import { tinyconfig } from '../../../TinyConfig';
 import { FormatDate } from '../../../utils/FormatDate';
 export default function ModalDetail(props) {
 
@@ -89,7 +90,7 @@ export default function ModalDetail(props) {
                     <div>
                         <label className="label-txt">Phúc lợi: </label>
                         <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
-
+                            init={tinyconfig}
                             value={recruitment.welfare}
 
                         />
@@ -97,6 +98,7 @@ export default function ModalDetail(props) {
                     <div>
                         <label className="label-txt">Mô tả công việc: </label>
                         <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
+                            init={tinyconfig}
 
                             value={recruitment.description}
 
@@ -105,6 +107,7 @@ export default function ModalDetail(props) {
                     <div>
                         <label className="label-txt">Yêu cầu công việc: </label>
                         <Editor apiKey="g8rgmljyc6ryhlggucq6jeqipl6tn5rnqym45lkfm235599i"
+                            init={tinyconfig}
 
                             value={recruitment.requestCareer}
 

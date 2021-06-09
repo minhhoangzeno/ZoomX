@@ -129,7 +129,12 @@ export default function ModalAdd(props) {
                         <label className="label-txt">Hạn chót nhận hồ sơ: </label> <input className="input-txt"
                             name="dateReceived"
                             type="date"
-                            onChange={handleRecruitment}
+                            onChange={(e) => {
+                                setRecruitment({
+                                    ...recruitment,
+                                    dateReceived: e.target.value
+                                })
+                            }}
 
                         />
                     </div>

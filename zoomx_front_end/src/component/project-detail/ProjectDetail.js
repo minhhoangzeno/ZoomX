@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../style/project-detail.scss';
 import infoImg from '../../image/investment/img.png'
 import ImageBg from '../../image/project/background.jpg'
+import { useLocation } from 'react-router';
+import { doGet } from '../../lib/DataSource';
+import moment from 'moment'
+export default function ProjectDetail({ project }) {
 
-export default function ProjectDetail() {
     return (
         <>
             <div className="project__wrapper">
@@ -28,7 +31,7 @@ export default function ProjectDetail() {
                                                 Địa điểm
                                             </strong>
                                             :
-                                            Hạ Long, Quảng Ninh
+                                            {project?.address}
 
                                         </p>
                                         <p>
@@ -44,7 +47,7 @@ export default function ProjectDetail() {
                                             <strong>
                                                 Diện tích
                                             </strong>
-                                            : Gần 300 ha
+                                            : {project?.acreage}
                                         </p>
                                         <p>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="13.685" height="13.64" viewBox="0 0 13.685 13.64">
@@ -59,7 +62,7 @@ export default function ProjectDetail() {
                                             <strong>
                                                 Tổng vốn đầu tư
                                             </strong>
-                                            : 12000 tỉ đồng
+                                            : {project?.totalInvestment}
 
                                         </p>
                                         <p>
@@ -76,14 +79,9 @@ export default function ProjectDetail() {
                                                 Hạng mục đầu tư
                                             </strong>
                                             :
-                                            <span>
-                                                2.600 căn shophouse, liền kề<br />
-                                                04 tòa chung cư<br />
-                                                Hệ thống trường liên cấp<br />
-                                                Bể bơi ngoài trời<br />
-                                                Khu phố lễ hội<br />
-                                                Quảng trường<br />
-                                            </span>
+                                            <div dangerouslySetInnerHTML={{ __html: project?.categoryInvestment }}>
+
+                                            </div>
                                         </p>
                                         <p>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="13.685" height="13.64" viewBox="0 0 13.685 13.64">
@@ -98,7 +96,7 @@ export default function ProjectDetail() {
                                             <strong>
                                                 Thời gian khởi công
                                             </strong>
-                                            : Tháng 12/2020
+                                            : Tháng {moment(project?.dataStart).format('MM/YYYY')}
                                         </p>
                                         <p className="no-mg">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="13.685" height="13.64" viewBox="0 0 13.685 13.64">
@@ -113,19 +111,25 @@ export default function ProjectDetail() {
                                             <strong>
                                                 Thời gian hoàn thành
                                             </strong>
-                                            : Tháng 12/2022
+                                            : Tháng {moment(project?.dataFinish).format('MM/YYYY')}
                                         </p>
                                     </div>
                                 </div>
                                 <div className="col-img">
                                     <div className="img-wrapper">
-                                        <img src={infoImg} alt="" />
+                                        <img src={project?.imageInfor?.url} alt="" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="row row__back-ground">
+                    <div className="row row__info-project-detail">
+                        <div dangerouslySetInnerHTML={{ __html: project?.description }}>
+
+                        </div>
+
+                    </div>
+                    {/* <div className="row row__back-ground">
                         <div className="wrapper__back-ground">
                             <img src={ImageBg} alt="" />
                         </div>
@@ -153,7 +157,7 @@ export default function ProjectDetail() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
