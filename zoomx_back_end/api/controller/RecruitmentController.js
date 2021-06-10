@@ -22,23 +22,23 @@ exports.get_recruitment = async (req, res) => {
     model: "image",
     select: "url",
   })
-  .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-  .limit(perPage)
-  .exec((err, data) => {
-    Recruitment.countDocuments((err, count) => {
-      // đếm để tính có bao nhiêu trang
-      if (err) return next(err);
-      // res.send({
-      //     data,
-      //     totalPage: totalPage.length
-      // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
-      // res.status(200).json(data)
-      res.send({
-        data: data,
-        totalPage: totalPage.length,
+    .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+    .limit(perPage)
+    .exec((err, data) => {
+      Recruitment.countDocuments((err, count) => {
+        // đếm để tính có bao nhiêu trang
+        if (err) return next(err);
+        // res.send({
+        //     data,
+        //     totalPage: totalPage.length
+        // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+        // res.status(200).json(data)
+        res.send({
+          data: data,
+          totalPage: totalPage.length,
+        });
       });
     });
-  });
 
 };
 
@@ -152,3 +152,16 @@ exports.get_a_recruitment = (req, res) => {
       res.send(error);
     });
 };
+
+exports.search_recruitment = async (req, res) => {
+  let regex = new RegExp(req.query.q, "i");
+  Recruitment.find({ career: regex }).populate({
+    path: "imageRecruitment",
+    model: "image",
+    select: "url",
+  }).then(data => {
+    res.send(data)
+  }).catch(err => {
+    res.send(err)
+  })
+}

@@ -97,6 +97,9 @@ module.exports = (app) => {
     .put(recruitment_controller.update_recruitment)
     .delete(recruitment_controller.delete_recruitment)
     .get(recruitment_controller.get_a_recruitment);
+  app
+    .route("/recruitment-search")
+    .get(recruitment_controller.search_recruitment)
 
   app
     .route("/partner")
