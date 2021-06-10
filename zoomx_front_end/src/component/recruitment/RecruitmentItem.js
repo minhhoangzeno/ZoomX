@@ -1,10 +1,14 @@
+import moment from 'moment';
 import React from 'react';
 import { useHistory } from 'react-router';
 import icon_money from '../../image/icon/money.png'
-export default function RecruitmentItem() {
+export default function RecruitmentItem({ data }) {
     let history = useHistory();
     return (
-        <div className="col-lg-4 col-sm-6 col-12" onClick={() => history.push('/detail-recruitment')}>
+        <div className="col-lg-4 col-sm-6 col-12" onClick={() => history.push({
+            pathname: '/detail-recruitment',
+            state: data?._id
+        })}>
             <div className="recruitment__list__block">
                 <div className="block__info">
                     <div className="block__info--logo">
@@ -83,7 +87,7 @@ export default function RecruitmentItem() {
                         </svg>
                     </div>
                     <div className="block__info--title">
-                        <strong><a href="http://www.github.com" >zoomx holding - chuyên viên thiết kế</a></strong>
+                        <strong>zoomx holding - chuyên viên thiết kế</strong>
                     </div>
                     <div className="block__info--address">
                         <div className="icon">
@@ -105,7 +109,7 @@ export default function RecruitmentItem() {
                     </div>
                     <hr />
                     <div className="block__info--deadline">
-                        <p>Hạn chót nhận hồ sơ: <span>30/6/2021</span></p>
+                        <p>Hạn chót nhận hồ sơ: <span>{moment(data?.dateReceived).format("DD/MM/YYYY")}</span></p>
                     </div>
                 </div>
                 <div className="block__bottom"></div>

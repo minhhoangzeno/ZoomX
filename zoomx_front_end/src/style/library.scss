@@ -358,6 +358,9 @@ img {
       }
     }
   }
+  .modal-content{
+    background-color: #ffffff00;
+  }
 }
 
 .paginator__block {
@@ -437,6 +440,8 @@ img {
     object-fit: cover;
   }
 }
+
+
 .swiper-wrapper {
   padding-inline-start: 0;
 }
@@ -444,10 +449,7 @@ img {
   display: flex;
   justify-content: center;
 }
-.modal-content {
-  background-color: #ffffff00 !important;
-  border: none !important;
-}
+
 .main__video {
   width: 100%;
   height: 70vh;
@@ -486,15 +488,12 @@ img {
   margin-top: 0 !important;
 }
 .swiper-button-next {
-  color: white !important;
+  color: #fff !important ;
 }
 .swiper-button-prev {
-  color: white !important;
+  color: #fff !important ;
 }
-.modal-header {
-  border: none !important;
-  padding: 0 !important;
-}
+
 .close {
   color: white !important;
   font-size: 35px !important;

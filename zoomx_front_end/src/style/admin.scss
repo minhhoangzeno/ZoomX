@@ -65,6 +65,9 @@
           margin-right: 5px;
         }
       }
+      .modal-content{
+          background-color: #fff !important;
+      }
     }
   }
 }
@@ -168,9 +171,7 @@ select {
   }
 }
 
-.modal-content {
-  //   background-color: #fff !important;
-}
+
 .btn__setting {
   text-align: center;
   button {

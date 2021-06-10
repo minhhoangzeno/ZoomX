@@ -5,30 +5,41 @@ const mongoose = require("mongoose"),
   Upload = require("../model/UploadImageModel");
 
 exports.get_recruitment = async (req, res) => {
+
   let perPage = 6; // số lượng sản phẩm xuất hiện trên 1 page
   let page = req.query.page;
+
   let totalPage;
-  await Recruitment.find().then((result) => {
-    result = totalPage;
-  });
-  Recruitment.find() // find tất cả các data
-    .populate({
-      path: "imageRecruitment",
-      model: "image",
-      select: "url",
+  await Recruitment.find()
+    .then((result) => {
+      totalPage = result;
     })
-    .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-    .limit(perPage)
-    .exec((err, data) => {
-      Recruitment.countDocuments((err, count) => {
-        // đếm để tính có bao nhiêu trang
-        if (err) return next(err);
-        res.send({
-          data: data,
-          totalPage: totalPage.length,
-        }); // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+    .catch((error) => {
+      console.log(error);
+    });
+  Recruitment.find().populate({
+    path: "imageRecruitment",
+    model: "image",
+    select: "url",
+  })
+  .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+  .limit(perPage)
+  .exec((err, data) => {
+    Recruitment.countDocuments((err, count) => {
+      // đếm để tính có bao nhiêu trang
+      if (err) return next(err);
+      // res.send({
+      //     data,
+      //     totalPage: totalPage.length
+      // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+      // res.status(200).json(data)
+      res.send({
+        data: data,
+        totalPage: totalPage.length,
       });
     });
+  });
+
 };
 
 exports.add_recruitment = (req, res) => {
