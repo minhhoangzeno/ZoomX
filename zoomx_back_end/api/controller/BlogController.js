@@ -44,7 +44,7 @@ exports.search_blog = async (req, res) => {
           // res.status(200).json(data)
           res.send({
             data: data,
-            totalPage: totalPage?.length,
+            totalPage: totalPage.length,
           });
         });
       });
@@ -71,12 +71,11 @@ exports.search_blog = async (req, res) => {
           // res.status(200).json(data)
           res.send({
             data: data,
-            totalPage: totalPage?.length,
+            totalPage: totalPage.length,
           });
         });
       });
   }
-
 };
 
 exports.add_a_blog = (req, res) => {
@@ -111,7 +110,6 @@ exports.add_a_blog = (req, res) => {
         reject(err);
       });
   });
-
 
   Promise.all([uploadCover, uploadInfor]).then((result) => {
     Blog.create({
@@ -169,7 +167,7 @@ exports.get_blog = async (req, res) => {
           // res.status(200).json(data)
           res.send({
             data: data,
-            totalPage: totalPage?.length,
+            totalPage: totalPage.length,
           });
         });
       });
@@ -208,7 +206,7 @@ exports.get_blog = async (req, res) => {
           // res.status(200).json(data)
           res.send({
             data: data,
-            totalPage: totalPage?.length,
+            totalPage: totalPage.length,
           });
         });
       });
@@ -255,7 +253,6 @@ exports.update_blog = async (req, res) => {
     });
 };
 exports.delete_blog = async (req, res) => {
-
   let blog = await Blog.findById(req.params.blog_id);
   let deleteImageCover = new Promise((resolve, reject) => {
     ImageUtil.deleteSingleFile(blog.imageCover)
