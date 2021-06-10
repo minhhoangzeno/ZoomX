@@ -23,6 +23,14 @@ const blogSchema = new Schema({
     content: {
         type: String,
         require: true
+    },
+    imageCover: {
+        type: Schema.Types.ObjectId,
+        ref: 'image'
+    },
+    imageInfor: {
+        type: Schema.Types.ObjectId,
+        ref: 'image'
     }
 }, {
     bufferCommands: true,

@@ -8,7 +8,7 @@ export default function ContactInfo() {
     return (
         
         <div className="contact__info">
-            <img src={hotel} alt="" />
+            <img src={data?.[0]?.imageCover?.url} alt="" />
             <div className="contact__info--basic">
                 <div className="row">
                     <div className="col-md-6">

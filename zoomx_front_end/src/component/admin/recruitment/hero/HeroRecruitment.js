@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { doGet } from '../../../../lib/DataSource';
-import '../../../../style/admin-investment.scss';
-import Loading from "../../../image/Loading";
+ import Loading from "../../../image/Loading";
 import Item from './Item';
 import ModalAdd from './ModalAdd';
 export default function HeroRecruitment() {

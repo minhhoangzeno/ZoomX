@@ -396,15 +396,115 @@ export const useHeroZoomx = () => {
   return { data, error, loading: data || error ? false : true };
 };
 
-export const useIcon = () => {
-  const [data, setData] = useState(null);
+export const useHeroContact = () => {
+  const [data, setData] = useState();
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getIcon();
+    getHero();
   }, []);
-  async function getIcon() {
-    const path = "/icon";
+  async function getHero() {
+    const path = "/hero/contact";
+    const headers = {
+      Accept: "*/*",
+    };
+    try {
+      var resp = await doGet(path, headers);
+      if (resp.status === 200) {
+        setData(resp.data);
+        console.log(data);
+      }
+    } catch (error) {
+      setError(error);
+    }
+  }
+  return { data, error, loading: data || error ? false : true };
+};
+
+export const useHeroLibrary = () => {
+  const [data, setData] = useState();
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getHero();
+  }, []);
+  async function getHero() {
+    const path = "/hero/library";
+    const headers = {
+      Accept: "*/*",
+    };
+    try {
+      var resp = await doGet(path, headers);
+      if (resp.status === 200) {
+        setData(resp.data);
+        console.log(data);
+      }
+    } catch (error) {
+      setError(error);
+    }
+  }
+  return { data, error, loading: data || error ? false : true };
+};
+
+export const useHeroRecruitment = () => {
+  const [data, setData] = useState();
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getHero();
+  }, []);
+  async function getHero() {
+    const path = "/hero/recruitment";
+    const headers = {
+      Accept: "*/*",
+    };
+    try {
+      var resp = await doGet(path, headers);
+      if (resp.status === 200) {
+        setData(resp.data);
+        console.log(data);
+      }
+    } catch (error) {
+      setError(error);
+    }
+  }
+  return { data, error, loading: data || error ? false : true };
+};
+
+export const useHeroNews = () => {
+  const [data, setData] = useState();
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getHero();
+  }, []);
+  async function getHero() {
+    const path = "/hero/news";
+    const headers = {
+      Accept: "*/*",
+    };
+    try {
+      var resp = await doGet(path, headers);
+      if (resp.status === 200) {
+        setData(resp.data);
+        console.log(data);
+      }
+    } catch (error) {
+      setError(error);
+    }
+  }
+  return { data, error, loading: data || error ? false : true };
+};
+
+export const useHeroProject = () => {
+  const [data, setData] = useState();
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getHero();
+  }, []);
+  async function getHero() {
+    const path = "/hero/project";
     const headers = {
       Accept: "*/*",
     };

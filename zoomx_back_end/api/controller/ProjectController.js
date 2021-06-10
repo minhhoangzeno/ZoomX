@@ -75,7 +75,7 @@ exports.add_project = (req, res) => {
   let uploadCover = new Promise((resolve, reject) => {
     Upload.uploadSingleFile({
       file: fileCover[0],
-      path: "Project",
+      path: "ZoomX/Project",
     })
       .then((resultCover) => {
         resolve({
@@ -89,7 +89,7 @@ exports.add_project = (req, res) => {
   let uploadInfor = new Promise((resolve, reject) => {
     Upload.uploadSingleFile({
       file: fileInfor[0],
-      path: "Project",
+      path: "ZoomX/Project",
     })
       .then((resultFileBook) => {
         resolve({
