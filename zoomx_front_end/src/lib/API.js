@@ -395,3 +395,28 @@ export const useHeroZoomx = () => {
   }
   return { data, error, loading: data || error ? false : true };
 };
+
+export const useIcon = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getIcon();
+  }, []);
+  async function getIcon() {
+    const path = "/icon";
+    const headers = {
+      Accept: "*/*",
+    };
+    try {
+      var resp = await doGet(path, headers);
+      if (resp.status === 200) {
+        setData(resp.data);
+        console.log(data);
+      }
+    } catch (error) {
+      setError(error);
+    }
+  }
+  return { data, error, loading: data || error ? false : true };
+};
