@@ -7,14 +7,14 @@ import { MetaTags } from 'react-meta-tags';
 import { useHeroRecruitment } from '../lib/API';
 
 export default function DetailRecruitmentPage() {
-    const { dataHero } = useHeroRecruitment()
+    const { data } = useHeroRecruitment()
     return (
         <>
             <MetaTags>
                 <title>Tuyển dụng</title>
             </MetaTags>
                 <Header />
-                <HeroPage title={dataHero?.[0]?.title} title_sub={dataHero?.[0]?.label} imageBackground={dataHero?.[0]?.imageCover?.url} />
+                <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
                 <DetailRecruitment />
 
                 <Footer />
