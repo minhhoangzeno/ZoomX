@@ -64,7 +64,7 @@ export default function Header() {
                       </g>
                     </g>
                   </svg>
-                  <span>{data[0]?.phone && data[0].phone}</span>
+                  <span> &nbsp;{data[0]?.phone && data[0].phone}</span>
                 </div>
 
                 <div className="contact__mail">
@@ -87,7 +87,7 @@ export default function Header() {
                       </tspan>
                     </text>
                   </svg>
-                  <span>{data[0]?.mail}</span>
+                  <span>&nbsp; {data[0]?.mail}</span>
                 </div>
               </div>
               <div className="wrapper__top--right">
