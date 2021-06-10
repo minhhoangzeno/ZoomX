@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MetaTags } from 'react-meta-tags';
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
 import HeroPage from '../component/share/HeroPage';
-import MenuProject from '../component/project/MenuProject';
-import ListProject from '../component/project/ListProject';
 // import Paginator from '../component/library/Paginator';
 import '../style/project.scss';
 import '../style/library.scss';
@@ -19,8 +17,8 @@ export default function ProjectPage() {
             </MetaTags>
             <Header />
             <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
-            <MenuProject />
-            <ListProject />
+            {/* <MenuProject />
+            <ListProject /> */}
             {/* <Paginator /> */}
 
             <Footer />

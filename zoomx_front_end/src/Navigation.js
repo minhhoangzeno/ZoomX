@@ -20,6 +20,8 @@ import LoginPage from './page/LoginPage';
 import SignupPage from './page/SignupPage';
 import BlogAdd from './component/admin/news/blog/BlogAdd';
 import ProjectAdd from './component/admin/project/ProjectAdd';
+import ProjectDetail from './component/admin/project/ProjectDetail';
+import ProjectUpdate from './component/admin/project/ProjectUpdate';
 
 export default function Navigation() {
     return (
@@ -72,6 +74,12 @@ export default function Navigation() {
                 </Route>
                 <Route exact path="/auth/project/add">
                     <ProjectAdd />
+                </Route>
+                <Route exact path="/auth/project/detail">
+                    <ProjectDetail />
+                </Route>
+                <Route exact path="/auth/project/update">
+                    <ProjectUpdate />
                 </Route>
             </Switch>
         </Router>

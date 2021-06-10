@@ -69,7 +69,7 @@ img{
                         height: 12px;
                     }
                 }
-                a {
+                div {
                     padding: 0 0 0 25px;
                     @media (max-width: 526px){
                         padding: 0 0 0 15px;
@@ -101,7 +101,7 @@ img{
 .list__wrapper-project {
     width: 100%;
     .container-fluid {
-        padding-bottom: 100px;
+        padding: 0 0 50px 0;
         .row {
             margin: 0;
             width: 100%;
@@ -141,6 +141,18 @@ img{
                 .item__content--top {
                     overflow: hidden;
                     .wrapper-img{
+                        @media(max-width: 1920px){
+                            height: 500px;
+                        }
+                        @media(max-width: 1440px){
+                            height: 455px;
+                        }
+                        @media(max-width: 768px){
+                            height: 305px;
+                        }
+                        @media(max-width: 320px){
+                            height: 230px;
+                        }
                         &:hover{
                             img {
                                 transform: scale(1.5);
@@ -193,8 +205,8 @@ img{
                             letter-spacing: 1px;
                             font-size: 16px;
                             @media (max-width: 1024px){
-                            // font-size: 16px;
-                            padding: 5px 25px;
+                            font-size: 14px;
+                            padding: 3px 15px;
                             } 
                             @media (max-width: 768px){
                                 font-size: 12px;
@@ -228,7 +240,7 @@ img{
                         @media (max-width: 1024px){
                             width: 100%;
                             text-align: center;
-                            font-size: 18px;
+                            font-size: 16px;
                         }
                         @media (max-width: 769px){
                             font-size: 14px;

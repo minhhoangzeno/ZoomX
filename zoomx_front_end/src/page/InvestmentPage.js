@@ -10,6 +10,7 @@ import Investment from './../component/investment/Investment';
 
 export default function InvestmentPage() {
     const { data } = useHeroInvestment()
+    console.log(data)
     return (
         <>
             <MetaTags>

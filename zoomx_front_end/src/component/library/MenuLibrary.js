@@ -13,7 +13,7 @@ export default function MenuLibrary({ isPage, handlePage }) {
               <span>
                 LOOK
                 <div
-                  style={{ display: isPage === "lookup" ? "block" : "none" }}
+                  style={{ display: (isPage === "lookup") ? "block" : "none" }}
                   className="active-cpn"
                 ></div>
               </span>
@@ -24,7 +24,7 @@ export default function MenuLibrary({ isPage, handlePage }) {
               <span>
                 HÌNH ẢNH
                 <div
-                  style={{ display: isPage === "image" ? "block" : "none" }}
+                  style={{ display: (isPage === "image") ? "block" : "none" }}
                   className="active-cpn"
                 ></div>
               </span>
@@ -35,7 +35,7 @@ export default function MenuLibrary({ isPage, handlePage }) {
               <span>
                 VIDEO
                 <div
-                  style={{ display: isPage === "video" ? "block" : "none" }}
+                  style={{ display: (isPage === "video") ? "block" : "none" }}
                   className="active-cpn"
                 ></div>
               </span>

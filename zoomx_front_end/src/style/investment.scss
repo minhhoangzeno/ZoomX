@@ -1,5 +1,5 @@
 @import "./common.scss";
-img{
+img {
     object-fit: cover;
 }
 .investment-wrapper {
@@ -22,7 +22,7 @@ img{
             @media (max-width: 1024px) {
                 padding: 0 50px;
             }
-            @media (max-width: 768px) {
+            @media (max-width: 1024px) {
                 padding: 0;
             }
             &:hover {
@@ -37,17 +37,17 @@ img{
             .col-img {
                 overflow: hidden;
                 .img-wrapper {
-                    @media(max-width: 1920px){
-                        height: 525px;
+                    @media (max-width: 1920px) {
+                        height: 500px;
                     }
-                    @media(max-width: 1440px){
-                        height: 475px;
+                    @media (max-width: 1440px) {
+                        height: 455px;
                     }
-                    @media(max-width: 768px){
-                        height: 325px;
+                    @media (max-width: 768px) {
+                        height: 305px;
                     }
-                    @media(max-width: 320px){
-                        height: 250px;
+                    @media (max-width: 320px) {
+                        height: 230px;
                     }
                     position: relative;
                     .bg-inner {
@@ -88,10 +88,10 @@ img{
                     text-align: left;
                     font-family: "Helvetica";
                     line-height: 27px !important;
-                    @media (max-width:768px){
+                    @media (max-width: 768px) {
                         line-height: 23px !important;
                     }
-                    @media (max-width: 422px){
+                    @media (max-width: 422px) {
                         line-height: 22px !important;
                     }
                     strong {
@@ -101,7 +101,7 @@ img{
                         @media (max-width: 1025px) {
                             font-size: 27px;
                         }
-                        @media(max-width: 769px){
+                        @media (max-width: 769px) {
                             font-size: 21px;
                         }
                         @media (max-width: 425px) {
@@ -110,7 +110,6 @@ img{
                     }
                     span {
                         font-size: 23px;
-            
                     }
                     h2 {
                         font-size: 21px;
@@ -118,6 +117,7 @@ img{
                         color: #e01042;
                         margin-top: 10px;
                         margin-bottom: 20px;
+                        text-transform: uppercase;
                         @media (max-width: 769px) {
                             margin-top: 5px;
                             margin-bottom: 15px;
@@ -131,13 +131,17 @@ img{
                         margin-bottom: 25px;
                         font-family: Helvetica;
                         font-size: 16px;
-                        @media (max-width: 769px){
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        @media (max-width: 769px) {
                             font-size: 12px;
                         }
-                        @media (max-width: 425px){
+                        @media (max-width: 425px) {
                             font-size: 12px;
                         }
-                        
                     }
                     a.read-more-btn {
                         padding: 5px 18px;
@@ -152,10 +156,10 @@ img{
                             font-size: 12px;
                             padding: 5px 20px;
                         }
-                        @media (max-width: 768px){
+                        @media (max-width: 768px) {
                             font-size: 12px;
                         }
-                        @media (max-width: 425px){
+                        @media (max-width: 425px) {
                             font-size: 10px;
                         }
                         @media (max-width: 375px) {

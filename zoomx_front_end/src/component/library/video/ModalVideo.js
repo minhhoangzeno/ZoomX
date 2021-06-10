@@ -5,14 +5,15 @@ export default function ModalVideo(props) {
     <>
       <Modal
         {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
+        size="sm"
+        aria-labelledby="example-modal-sizes-title-sm"
         centered
       >
+        <Modal.Header closeButton></Modal.Header>
         <div className="main__video">
           <iframe
             className="video__stream"
-            src="https://www.youtube-nocookie.com/embed/D9__vEwxI7s?autoplay=1&autohide=1&fs=1&rel=0&hd=1&wmode=transparent&enablejsapi=1&html5=1"
+            src={`https://www.youtube.com/embed/${props?.videoId}`}
             frameborder="0"
           ></iframe>
         </div>

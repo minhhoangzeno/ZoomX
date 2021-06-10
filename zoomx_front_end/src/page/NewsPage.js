@@ -6,10 +6,10 @@ import Footer from "../component/share/Footer";
 import Header from "../component/share/Header";
 import HeroPage from "../component/share/HeroPage";
 import "../style/news-page.scss";
-import { useNews } from '../lib/API';
+import { useHeroNews } from '../lib/API';
 
 export default function NewsPage() {
-  const { data } = useNews()
+  const { data } = useHeroNews()
   return (
     <>
       <MetaTags>

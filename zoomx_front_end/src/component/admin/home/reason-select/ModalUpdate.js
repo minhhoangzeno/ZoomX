@@ -4,8 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import { doPut } from '../../../../lib/DataSource';
 import { tinyconfig } from '../../../../TinyConfig';
 export default function ModalUpdate(props) {
-    const [fileCover, setFileCover] = useState(props.dataReasonSelect.imageCover.url);
-    const [reason_select, setReasonSelect] = useState(props.dataReasonSelect);
+    const [fileCover, setFileCover] = useState(props?.dataReasonSelect?.imageCover?.url);
+    const [reason_select, setReasonSelect] = useState(props?.dataReasonSelect);
     
     let handleReasonSelect = (e) => {
         const { name, value } = e.target
