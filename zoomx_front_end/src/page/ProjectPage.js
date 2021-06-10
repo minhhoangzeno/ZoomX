@@ -8,16 +8,17 @@ import ListProject from '../component/project/ListProject';
 // import Paginator from '../component/library/Paginator';
 import '../style/project.scss';
 import '../style/library.scss';
+import { useHeroProject } from '../lib/API';
 
 export default function ProjectPage() {
-   
+    const { data } = useHeroProject()
     return (
         <>
             <MetaTags>
                 <title>Dự án</title>
             </MetaTags>
             <Header />
-            <HeroPage title="DỰ ÁN" title_sub="TRANG CHỦ / DỰ ÁN" />
+            <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
             <MenuProject />
             <ListProject />
             {/* <Paginator /> */}

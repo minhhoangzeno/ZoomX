@@ -6,17 +6,17 @@ import Footer from "../component/share/Footer";
 import Header from "../component/share/Header";
 import HeroPage from "../component/share/HeroPage";
 import "../style/news-page.scss";
+import { useNews } from '../lib/API';
+
 export default function NewsPage() {
+  const { data } = useNews()
   return (
     <>
       <MetaTags>
         <title>Tin Tức</title>
       </MetaTags>
       <Header />
-      <HeroPage
-        title="TIN TỨC - SỰ KIỆN"
-        title_sub="TRANG CHỦ / TIN TỨC - SỰ KIỆN"
-      />
+      <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
       <main className="main__container">
         <div className="container-fluid main__home">
           <div className="row item__home">
