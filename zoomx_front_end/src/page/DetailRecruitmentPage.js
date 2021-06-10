@@ -8,7 +8,7 @@ import { useHeroRecruitment } from '../lib/API';
 import { useLocation } from 'react-router';
 
 export default function DetailRecruitmentPage() {
-    const { dataHero } = useHeroRecruitment();
+    const { data } = useHeroRecruitment();
     const location = useLocation();
     const dataRecruitment = location.state;
     console.log(dataRecruitment)
@@ -18,7 +18,7 @@ export default function DetailRecruitmentPage() {
                 <title>Tuyển dụng</title>
             </MetaTags>
             <Header />
-            <HeroPage title={dataHero?.[0]?.title} title_sub={dataHero?.[0]?.label} imageBackground={dataHero?.[0]?.imageCover?.url} />
+            <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
             <DetailRecruitment data={dataRecruitment} />
 
             <Footer />
