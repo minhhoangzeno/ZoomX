@@ -18,10 +18,12 @@ import BlogDetailPage from './page/BlogDetailPage';
 import AdminPage from './page/AdminPage';
 import LoginPage from './page/LoginPage';
 import SignupPage from './page/SignupPage';
+import BlogDetail from './component/admin/news/blog/BlogDetail';
 import BlogAdd from './component/admin/news/blog/BlogAdd';
 import ProjectAdd from './component/admin/project/ProjectAdd';
 import ProjectDetail from './component/admin/project/ProjectDetail';
 import ProjectUpdate from './component/admin/project/ProjectUpdate';
+import BlogUpdate from './component/admin/news/blog/BlogUpdate';
 
 export default function Navigation() {
     return (
@@ -71,6 +73,12 @@ export default function Navigation() {
                 </Route>
                 <Route exact path="/auth/blog/add">
                     <BlogAdd />
+                </Route>
+                <Route exact path="/auth/blog/detail">
+                   <BlogDetail />
+                </Route>
+                <Route exact path="/auth/blog/update">
+                    <BlogUpdate />
                 </Route>
                 <Route exact path="/auth/project/add">
                     <ProjectAdd />
