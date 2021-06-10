@@ -6,15 +6,13 @@ import '../style/blog-detail.scss';
 import Category from '../component/news-page/Category';
 import ItemNews from '../component/news-page/ItemNews';
 import HeroPage from '../component/share/HeroPage';
-
+import { useHeroNews } from '../lib/API';
 export default function BlogDetailPage() {
+    const { data } = useHeroNews()
     return (
         <>
             <Header />
-            <HeroPage
-                title="TIN TỨC - SỰ KIỆN"
-                title_sub="TRANG CHỦ / TIN TỨC - SỰ KIỆN"
-            />
+            <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
             <div className="container-fluid blog-detail__page">
                 <div className="row blog-detail__row">
                     <div className="col-xl-8 col-6 col-12 main__news__page main-blog">
