@@ -33,7 +33,7 @@ export default function BlogDetailPage() {
             <HeroPage
                 title="TIN TỨC - SỰ KIỆN"
                 title_sub={data?.title}
-                imageBackground={data?.[0]?.imageCover?.url}
+                imageBackground={data?.imageCover?.url}
             />
             <div className="container-fluid blog-detail__page">
                 <div className="row blog-detail__row">
