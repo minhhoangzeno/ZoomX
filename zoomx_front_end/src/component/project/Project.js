@@ -47,10 +47,9 @@ export default function Project() {
                                     <Item data={item} />
                                 )
                             })}
-
                         </div> :
-                        <Loading />    
-                }
+                        <Loading />
+                    }
                 </div>
             </div>
             <div className="wrapper-paginate">
