@@ -7,7 +7,6 @@ import Category from '../component/news-page/Category';
 import ItemNews from '../component/news-page/ItemNews';
 import HeroPage from '../component/share/HeroPage';
 
-
 export default function BlogDetailPage() {
     return (
         <>
