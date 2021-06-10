@@ -7,7 +7,7 @@ export default function RecruitmentItem({ data }) {
     return (
         <div className="col-lg-4 col-sm-6 col-12" onClick={() => history.push({
             pathname: '/detail-recruitment',
-            state: data?._id
+            state: data
         })}>
             <div className="recruitment__list__block">
                 <div className="block__info">

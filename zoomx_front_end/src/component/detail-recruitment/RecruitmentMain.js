@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ModalRecruitment from './ModalRecruitment';
 
-export default function RecruitmentMain() {
+export default function RecruitmentMain({ data }) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -97,7 +97,9 @@ export default function RecruitmentMain() {
                                     <p><strong>Ngành nghề</strong></p>
                                     <p><strong>Hạn chót nhận hồ sơ</strong></p>
                                     <div className="button"><button variant="primary" onClick={handleShow}>NỘP ĐƠN</button></div>
-                                    <ModalRecruitment show={show} handleClose={handleClose} handleShow={handleShow} />
+                                    <ModalRecruitment show={show} handleClose={handleClose} handleShow={handleShow}
+                                    
+                                    />
                                 </div>
                                 <div className="col-8">
                                     <p>Hà Nội</p>
