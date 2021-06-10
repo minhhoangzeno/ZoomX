@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Item from './Item';
 import Loading from "../../../image/Loading"
 import ModalAdd from './ModalAdd';
-import '../../../../style/admin-investment.scss';
-import { doGet } from '../../../../lib/DataSource'
+ import { doGet } from '../../../../lib/DataSource'
 
 export default function Partner() {
     const [modalShow, setModalShow] = React.useState(false);

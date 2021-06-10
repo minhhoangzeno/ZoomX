@@ -1,5 +1,4 @@
 import React from 'react';
-import HeroBlog from './blog/hero/HeroBlog';
 import Contact from './contact/Contact';
 import CategoryBlog from './news/category-blog/CategoryBlog'
 import HeroContact from './contact/hero/HeroContact';

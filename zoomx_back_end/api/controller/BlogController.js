@@ -4,159 +4,33 @@ const mongoose = require("mongoose"),
   Blog = mongoose.model("blog"),
   Upload = require("../model/UploadImageModel");
 
-//lay tat ca blog co phan trang
-
-// // exports.get_all_blogs = async (req, res) => {
-// //     let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
-// //     let page = req.query.page;
-// //     let totalPage;
-// //     await Blog.find().then(result => totalPage = result)
-// //     Blog
-// //         .find() // find tất cả các data
-// //         .populate(
-// //             {
-// //                 path: 'imageBlog',
-// //                 populate: {
-// //                     path: 'imageBlog',
-// //                     model: 'image',
-// //                     select: 'url'
-// //                 },
-// //                 select: 'url'
-// //             },
-
-// //         )
-// //         .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-// //         .limit(perPage)
-// //         .exec((err, data) => {
-// //             Blog.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
-// //                 if (err) return next(err);
-// //                 res.send({
-// //                     data,
-// //                     totalPage: totalPage.length
-// //                 }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
-// //             });
-// //         });
-// // }
-
-// //lay blog theo danh muc co phan trang
-// exports.get_category_blogs = async (req, res) => {
-//     let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
-//     let page = req.query.page;
-//     let categoryId = req.query.categoryId;
-//     let totalPage;
-//     await Blog.find({
-//         categoryId: categoryId
-//     }).then(result => totalPage = result)
-//     Blog
-//         .find({
-//             categoryId: categoryId
-//         }) // find tất cả các data
-//         .populate(
-//             {
-//                 path: 'imageBlog',
-//                 populate: {
-//                     path: 'imageBlog',
-//                     model: 'image',
-//                     select: 'url'
-//                 },
-//                 select: 'url'
-//             },
-
-//         )
-//         .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-//         .limit(perPage)
-//         .exec((err, data) => {
-//             Blog.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
-//                 if (err) return next(err);
-//                 res.send({
-//                     data,
-//                     totalPage: totalPage.length
-//                 }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
-//             });
-//         });
-// }
-
-// // exports.get_a_blog = (req, res) => {
-// //     let id = req.params.blog_id;
-// //     Blog.findById(id)
-// //         .populate(
-// //             {
-// //                 path: 'imageBlog',
-// //                 populate: {
-// //                     path: 'imageBlog',
-// //                     model: 'image',
-// //                     select: 'url'
-// //                 },
-// //                 select: 'url'
-// //             },
-
-// //         ).then(data => {
-// //             res.send(data)
-// //         }).catch(error => {
-// //             res.send(error)
-// //         })
-// // }
-
 exports.search_blog = async (req, res) => {
-  let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
-  let page = req.query.page;
-  let regex = new RegExp(req.query.q, "i");
-  let totalPage;
-  await Blog.find({ title: regex })
-    .then((result) => {
-      totalPage = result;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  Blog.find({ title: regex }) // find tất cả các data
-    .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-    .limit(perPage)
-    .exec((err, data) => {
-      Blog.countDocuments((err, count) => {
-        // đếm để tính có bao nhiêu trang
-        if (err) return next(err);
-        // res.send({
-        //     data,
-        //     totalPage: totalPage.length
-        // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
-        // res.status(200).json(data)
-        res.send({
-          data: data,
-          totalPage: totalPage.length,
-        });
-      });
-    });
-};
-
-exports.add_a_blog = (req, res) => {
-  Blog.create({
-    title: req.body.title,
-    categoryId: req.body.categoryId,
-    content: req.body.content,
-  })
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
-};
-exports.get_blog = async (req, res) => {
-  let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
+  let perPage = 8; // số lượng sản phẩm xuất hiện trên 1 page
   let page = req.query.page;
   let categoryId = req.query.categoryId;
+  let regex = new RegExp(req.query.q, "i");
   if (categoryId == 1) {
     let totalPage;
-    console.log("all");
-    await Blog.find()
+    await Blog.find({ title: regex })
       .then((result) => {
         totalPage = result;
       })
       .catch((error) => {
         console.log(error);
       });
-    Blog.find() // find tất cả các data
+    Blog.find({ title: regex }) // find tất cả các data
+      .populate([
+        {
+          path: "imageCover",
+          model: "image",
+          select: "url",
+        },
+        {
+          path: "imageInfor",
+          model: "image",
+          select: "url",
+        },
+      ])
       .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
       .limit(perPage)
       .exec((err, data) => {
@@ -165,18 +39,141 @@ exports.get_blog = async (req, res) => {
           if (err) return next(err);
           // res.send({
           //     data,
-          //     totalPage: totalPage.length
+          //     totalPage: totalPage?.length
           // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
           // res.status(200).json(data)
           res.send({
             data: data,
-            totalPage: totalPage.length,
+            totalPage: totalPage?.length,
           });
         });
       });
   } else {
-    console.log("detail");
+    let totalPage;
+    await Blog.find({ title: regex, categoryId: categoryId })
+      .then((result) => {
+        totalPage = result;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    Blog.find({ title: regex, categoryId: categoryId }) // find tất cả các data
+      .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+      .limit(perPage)
+      .exec((err, data) => {
+        Blog.countDocuments((err, count) => {
+          // đếm để tính có bao nhiêu trang
+          if (err) return next(err);
+          // res.send({
+          //     data,
+          //     totalPage: totalPage?.length
+          // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+          // res.status(200).json(data)
+          res.send({
+            data: data,
+            totalPage: totalPage?.length,
+          });
+        });
+      });
+  }
 
+};
+
+exports.add_a_blog = (req, res) => {
+  let fileInfor = req.files.filter((item) => item.fieldname == "imageInfor");
+  let fileCover = req.files.filter((item) => item.fieldname == "imageCover");
+  console.log(req.files);
+  let uploadCover = new Promise((resolve, reject) => {
+    Upload.uploadSingleFile({
+      file: fileCover[0],
+      path: "ZoomX/Blog",
+    })
+      .then((resultCover) => {
+        resolve({
+          imageCover: resultCover._id,
+        });
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+  let uploadInfor = new Promise((resolve, reject) => {
+    Upload.uploadSingleFile({
+      file: fileInfor[0],
+      path: "ZoomX/Blog",
+    })
+      .then((resultFileBook) => {
+        resolve({
+          imageInfor: resultFileBook._id,
+        });
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+
+  Promise.all([uploadCover, uploadInfor]).then((result) => {
+    Blog.create({
+      title: req.body.title,
+      categoryId: req.body.categoryId,
+      content: req.body.content,
+      imageCover: result.filter((item) => item.imageCover)[0].imageCover,
+      imageInfor: result.filter((item) => item.imageInfor)[0].imageInfor,
+    })
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((error) => {
+        res.send(error);
+        console.log(error);
+      });
+  });
+};
+exports.get_blog = async (req, res) => {
+  let perPage = 8; // số lượng sản phẩm xuất hiện trên 1 page
+  let page = req.query.page;
+  let categoryId = req.query.categoryId;
+  if (categoryId == 1) {
+    let totalPage;
+    await Blog.find()
+      .then((result) => {
+        totalPage = result;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    Blog.find() // find tất cả các data
+      .populate([
+        {
+          path: "imageCover",
+          model: "image",
+          select: "url",
+        },
+        {
+          path: "imageInfor",
+          model: "image",
+          select: "url",
+        },
+      ])
+      .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+      .limit(perPage)
+      .exec((err, data) => {
+        Blog.countDocuments((err, count) => {
+          // đếm để tính có bao nhiêu trang
+          if (err) return next(err);
+          // res.send({
+          //     data,
+          //     totalPage: totalPage?.length
+          // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+          // res.status(200).json(data)
+          res.send({
+            data: data,
+            totalPage: totalPage?.length,
+          });
+        });
+      });
+  } else {
     let totalPage;
     await Blog.find({ categoryId: categoryId })
       .then((result) => {
@@ -186,6 +183,18 @@ exports.get_blog = async (req, res) => {
         console.log(error);
       });
     Blog.find({ categoryId: categoryId }) // find tất cả các data
+      .populate([
+        {
+          path: "imageCover",
+          model: "image",
+          select: "url",
+        },
+        {
+          path: "imageInfor",
+          model: "image",
+          select: "url",
+        },
+      ])
       .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
       .limit(perPage)
       .exec((err, data) => {
@@ -194,42 +203,101 @@ exports.get_blog = async (req, res) => {
           if (err) return next(err);
           // res.send({
           //     data,
-          //     totalPage: totalPage.length
+          //     totalPage: totalPage?.length
           // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
           // res.status(200).json(data)
           res.send({
             data: data,
-            totalPage: totalPage.length,
+            totalPage: totalPage?.length,
           });
         });
       });
   }
 };
-exports.update_blog = (req, res) => {
-  Blog.findByIdAndUpdate(req.params.blog_id, {
-    title: req.body.title,
-    categoryId: req.body.categoryId,
-    content: req.body.content,
-  })
-    .exec()
-    .then((data) => {
-      res.send(data);
+exports.update_blog = async (req, res) => {
+  let fileInfor = req.files.filter((item) => item.fieldname == "imageInfor")[0];
+  let fileCover = req.files.filter((item) => item.fieldname == "imageCover")[0];
+  let blog = await Blog.findById(req.params.blog_id);
+  let updateCover = new Promise((resolve, reject) => {
+    ImageUtil.updateSingeFile(fileCover, blog.imageCover, "Blog")
+      .then((result) => {
+        resolve(result);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+  let updateInfor = new Promise((resolve, reject) => {
+    ImageUtil.updateSingeFile(fileInfor, blog.imageInfor, "Blog")
+      .then((result) => {
+        resolve(result);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+  Promise.all([updateCover, updateInfor])
+    .then((result) => {
+      Blog.findByIdAndUpdate(req.params.blog_id, {
+        title: req.body.title,
+        categoryId: req.body.categoryId,
+        content: req.body.content,
+      })
+        .then((data) => {
+          res.send(data);
+        })
+        .catch((error) => {
+          res.send(error);
+        });
     })
-    .catch((err) => {
-      res.send(err);
+    .catch((error) => {
+      console.log(error);
     });
 };
-exports.delete_blog = (req, res) => {
-  Blog.findByIdAndDelete(req.params.blog_id)
-    .then((data) => {
-      res.send(data);
+exports.delete_blog = async (req, res) => {
+
+  let blog = await Blog.findById(req.params.blog_id);
+  let deleteImageCover = new Promise((resolve, reject) => {
+    ImageUtil.deleteSingleFile(blog.imageCover)
+      .then((result) => {
+        resolve(result);
+      })
+      .catch((error) => {
+        res.send(error);
+      });
+  });
+  let deleteImageInfor = new Promise((resolve, reject) => {
+    ImageUtil.deleteSingleFile(blog.imageInfor)
+      .then((result) => {
+        resolve(result);
+      })
+      .catch((error) => {
+        res.send(error);
+      });
+  });
+  Promise.all([deleteImageInfor, deleteImageCover])
+    .then(() => {
+      blog.remove();
+      res.send("Xoa thanh cong");
     })
-    .catch((err) => {
-      res.send(err);
+    .catch((error) => {
+      res.send(error);
     });
 };
 exports.get_a_blog = (req, res) => {
   Blog.findById(req.params.blog_id)
+    .populate([
+      {
+        path: "imageCover",
+        model: "image",
+        select: "url",
+      },
+      {
+        path: "imageInfor",
+        model: "image",
+        select: "url",
+      },
+    ])
     .then((data) => {
       res.send(data);
     })
@@ -237,149 +305,3 @@ exports.get_a_blog = (req, res) => {
       res.send(err);
     });
 };
-
-// // exports.update_blog = async (req, res) => {
-// //     let id = req.params.blog_id;
-// //     let fileBlogs = req.files.filter(item => item.fieldname == 'imageBlog');
-// //     await Blog.findById(id).then(blog => {
-// //         blog.imageBlog.map(item => {
-// //             ImageUtil.deleteSingleFile(item)
-// //         })
-// //     })
-// //     let uploadBlog = new Promise((resolve, reject) => {
-// //         Upload.uploadMultipleFile({
-// //             file: fileBlogs,
-// //             path: 'ZoomX/Blog'
-// //         }).then(result => {
-// //             let idPj = [];
-// //             result.map(item => {
-// //                 idPj.push(item._id)
-// //             })
-// //             resolve({
-// //                 imageBlog: idPj
-// //             })
-// //         }).catch(err => {
-// //             resolve({
-// //                 imageBlog: null
-// //             })
-// //         })
-// //     })
-// //     uploadBlog.then(result => {
-// //         Blog.findByIdAndUpdate(id, {
-// //             title: req.body.title,
-// //             date: req.body.date,
-// //             imageBlog: result.imageBlog,
-// //             contentStart: req.body.contentStart,
-// //             contentMain: req.body.contentMain,
-// //             contentBegin: req.body.contentBegin,
-// //             categoryId: req.body.categoryId
-// //         }).then(data => {
-// //             res.send(data)
-// //         }).catch(error => {
-// //             res.send(error)
-// //         })
-// //     })
-// // }
-
-// exports.delete_blog = (req, res) => {
-//     let id = req.params.blog_id;
-//     Blog.findById(id).then(blog => {
-//         blog.imageBlog.map(item => {
-//             ImageUtil.deleteSingleFile(item).then(() => {
-//                 blog.remove()
-//                 res.send(blog)
-//             }).catch(error => {
-//                 res.send(error)
-//                 console.log(error)
-//             })
-//         })
-//     })
-// }
-
-// exports.get_demo_search = async (req, res) => {
-//     let page = req.query.page;
-//     let q = req.query.q;
-//     let categoryId = req.query.categoryId;
-//     let perPage = 5; // số lượng sản phẩm xuất hiện trên 1 page
-//     let regex = new RegExp(q, 'i');
-//     let totalPage;
-//     if (categoryId == 1) {
-//         await Blog.find({ title: regex }).then(result => {
-//             totalPage = result
-//         }).catch(error => {
-//             console.log(error)
-//         })
-//         Blog
-//             .find({
-//                 title: regex
-//             }) // find tất cả các data
-//             .populate(
-//                 {
-//                     path: 'imageBlog',
-//                     populate: {
-//                         path: 'imageBlog',
-//                         model: 'image',
-//                         select: 'url'
-//                     },
-//                     select: 'url'
-//                 },
-
-//             )
-//             .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-//             .limit(perPage)
-//             .exec((err, data) => {
-//                 Blog.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
-//                     if (err) return next(err);
-//                     // res.send({
-//                     //     data,
-//                     //     totalPage: totalPage.length
-//                     // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
-//                     // res.status(200).json(data)
-//                     res.send({
-//                         data: data,
-//                         totalPage: totalPage.length
-//                     })
-//                 });
-//             });
-//     } else {
-//         await Blog.find({ title: regex, categoryId: categoryId }).then(result => {
-//             totalPage = result
-//         }).catch(error => {
-//             console.log(error)
-//         })
-//         Blog
-//             .find({
-//                 title: regex,
-//                 categoryId: categoryId
-//             }) // find tất cả các data
-//             .populate(
-//                 {
-//                     path: 'imageBlog',
-//                     populate: {
-//                         path: 'imageBlog',
-//                         model: 'image',
-//                         select: 'url'
-//                     },
-//                     select: 'url'
-//                 },
-
-//             )
-//             .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-//             .limit(perPage)
-//             .exec((err, data) => {
-//                 Blog.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
-//                     if (err) return next(err);
-//                     // res.send({
-//                     //     data,
-//                     //     totalPage: totalPage.length
-//                     // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
-//                     // res.status(200).json(data)
-//                     res.send({
-//                         data: data,
-//                         totalPage: totalPage.length
-//                     })
-//                 });
-//             });
-//     }
-
-// }
