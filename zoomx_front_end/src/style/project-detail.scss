@@ -1,5 +1,5 @@
 @import "../style/common.scss";
-img{
+img {
     object-fit: cover;
 }
 .project__wrapper {
@@ -10,10 +10,10 @@ img{
             width: 100%;
             margin-left: 0;
             margin-right: 0;
-            @media(max-width: 768px){
+            @media (max-width: 768px) {
                 font-size: 14px;
             }
-            @media(max-width: 426px){
+            @media (max-width: 426px) {
                 font-size: 12px;
             }
         }
@@ -21,13 +21,13 @@ img{
         .row__info-project-detail {
             padding: 0 140px 50px 140px;
             margin-top: 60px;
-            @media(max-width:426px){
+            @media (max-width: 426px) {
                 margin-top: 0;
             }
             @media (max-width: 1440px) {
                 padding: 50px 50px;
             }
-            @media(max-width: 1024px){
+            @media (max-width: 1024px) {
                 margin-top: 30px;
             }
             @media (max-width: 768px) {
@@ -47,15 +47,15 @@ img{
                     font-weight: bold;
                     color: #cc0000;
                     text-transform: uppercase;
-                    @media (max-width: 1024px){
+                    @media (max-width: 1024px) {
                         font-size: 18px;
                     }
-                    @media(max-width: 769px){
-                        font-size: 18px;
-                    }
-                    @media (max-width: 425px){
-                        margin: 20px 0;
+                    @media (max-width: 769px) {
                         font-size: 16px;
+                    }
+                    @media (max-width: 425px) {
+                        margin: 20px 0;
+                        font-size: 14px;
                     }
                 }
                 .info-project-content {
@@ -64,6 +64,7 @@ img{
                     padding: 0 70px 50px 70px;
                     @media (max-width: 1024px) {
                         flex-wrap: wrap;
+                        padding: 0 50px 50px;
                     }
                     @media (max-width: 2560px) {
                         flex-direction: row;
@@ -84,38 +85,44 @@ img{
                         @media (min-width: 769px) {
                             width: 50%;
                         }
-                        @media (max-width: 426px){
+                        @media (max-width: 426px) {
                             padding: 0 0 30px 0;
                         }
-                        p.no-mg {
-                            margin-bottom: 0;
-                        }
-                        p{  
-                            width: 100%;
-                            position: relative;
-                            padding-left: 30px;
-                            font-size: 16px;
-                            font-family: Helvetica;
-                            @media(max-width:1025px){
-                                font-size: 14px;
+                        .info-wrapper {
+                            p.no-mg {
+                                margin-bottom: 0;
                             }
-                            @media(max-width:769px){
-                                font-size: 12px;
-                            }
-                            @media (max-width: 425px){
-                                font-size: 10px;
-                            }
-                            svg {
-                                position: absolute;
-                                left: 0;
-                                top: 5px;
+                            p {
+                                width: 100%;
+                                position: relative;
+                                padding-left: 30px;
+                                font-size: 16px;
+                                font-family: Helvetica;
+                                @media (max-width: 1025px) {
+                                    font-size: 14px;
+                                }
+                                @media (max-width: 769px) {
+                                    font-size: 12px;
+                                }
+                                @media (max-width: 425px) {
+                                    font-size: 10px;
+                                }
+                                svg {
+                                    position: absolute;
+                                    left: 0;
+                                    top: 5px;
+                                }
+                                div {
+                                    p {
+                                        padding: 0 !important;
+                                    }
+                                }
                             }
                         }
                     }
                     .col-img {
                         padding: 0;
-                        box-shadow: 0px 2px 3px 2px #bebebe;
-
+                        height: auto;
                         @media (max-width: 769px) {
                             width: 100% !important;
                         }
@@ -124,84 +131,112 @@ img{
                         }
                         p.img-detail {
                             margin-bottom: 0;
-                            padding: 0;
+                            padding: 0 !important;
                             width: 100%;
                             height: 100%;
+                            display: flex;
+                            justify-content: center;
                             img {
                                 height: 100%;
                                 width: 100%;
+                                box-shadow: 0px 2px 3px 2px #bebebe;
+                                @media (max-width: 2560px) {
+                                    height: 320px;
+                                    width: auto;
+                                }
+                                @media (max-width: 1920px) {
+                                    height: 320px;
+                                    width: auto;
+                                }
+                                @media (max-width: 1440px) {
+                                    width: 100%;
+                                    height: auto;
+                                }
                             }
                         }
                     }
                 }
             }
-            p{  
+            p {
                 width: 100%;
                 position: relative;
                 padding-left: 30px;
                 font-size: 16px;
                 font-family: Helvetica;
-                @media(max-width: 1024px){
+                @media (max-width: 1024px) {
                     margin-bottom: 10px;
                 }
-                @media(max-width:769px){
+                @media (max-width: 769px) {
                     font-size: 12px;
+                    padding-left: 20px !important;
                 }
                 svg {
                     position: absolute;
                     left: 0;
                     top: 5px;
+                    @media (max-width: 1024px) {
+                        top: 3px !important;
+                    }
+                    @media (max-width: 768px) {
+                        height: 10px;
+                        width: 10px;
+                    }
+                    @media (max-width: 425px) {
+                        left: 3px !important;
+                        height: 8px;
+                        width: 8px;
+                    }
                 }
             }
         }
-        .row__content--project-detail{
+        .row__content--project-detail {
             padding: 0 140px 50px 140px;
-            margin-top: 50px;
-            @media(max-width: 1440px){
+            margin-top: 20px;
+            @media (max-width: 1440px) {
                 padding: 0 50px 50px 50px;
             }
-            @media (max-width: 1024px){
+            @media (max-width: 1024px) {
                 margin-top: 0;
             }
-            @media (max-width: 769px){
+            @media (max-width: 769px) {
                 padding: 0 15px 50px 15px;
             }
-            @media (max-width: 426px){
-                padding: 0 15px;
+            @media (max-width: 426px) {
+                padding: 0 15px 20px;
             }
-            p{
+            p {
                 display: flex;
                 letter-spacing: 1px;
                 flex-wrap: wrap;
                 text-align: center;
                 justify-content: space-between;
-                @media (max-width: 1024px){
+                @media (max-width: 1024px) {
                     font-size: 14px;
                 }
-                @media (max-width: 769px){
+                @media (max-width: 769px) {
                     flex-direction: column;
                 }
-                @media(max-width:769px){
+                @media (max-width: 769px) {
                     font-size: 12px;
                 }
-                @media (max-width: 425px){
+                @media (max-width: 425px) {
                     font-size: 10px;
                 }
-                img{
+                img {
                     width: 48%;
                     margin: 0 auto;
-                    @media (max-width: 1440px){
+                    @media (max-width: 1440px) {
                         height: 450px;
                     }
-                    @media (max-width: 1024px){
+                    @media (max-width: 1024px) {
                         height: 370px;
                     }
-                    @media (max-width: 769px){
+                    @media (max-width: 769px) {
                         width: 100%;
                         height: 400px;
                         margin-bottom: 30px;
                     }
-                    @media (max-width: 426px){
+                    @media (max-width: 426px) {
                         height: 300px;
                     }
                 }
@@ -242,7 +277,7 @@ img{
             .wrapper__text-content {
                 padding: 0 15px;
                 font-size: 16px;
-                @media(max-width: 769px){
+                @media (max-width: 769px) {
                     font-size: 12px;
                 }
             }
