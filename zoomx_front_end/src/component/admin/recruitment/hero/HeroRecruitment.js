@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { doGet } from '../../../../lib/DataSource';
- import Loading from "../../../image/Loading";
+import Loading from "../../../image/Loading";
 import Item from './Item';
 import ModalAdd from './ModalAdd';
 export default function HeroRecruitment() {
@@ -35,7 +35,7 @@ export default function HeroRecruitment() {
         <>
 
             <div className="title">
-                <h1>Hero Tuyen dung</h1>
+                <h1>Hero Tuyển dụng</h1>
             </div>
             <div className="wrapper__table">
                 <section className="content-header">

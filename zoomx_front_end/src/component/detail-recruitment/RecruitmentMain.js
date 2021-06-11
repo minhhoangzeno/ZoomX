@@ -59,18 +59,18 @@ export default function RecruitmentMain({ data }) {
                 </div>
                 <div className="main__content--detail">
                     <strong>Phúc lợi</strong>
-                    <div style={{ display: 'flex' }}>
+                    <div className="content" style={{ display: 'flex' }}>
                         <div className="welfare-left">
                             {welfareLeft?.map((item, index) => {
                                 return (
-                                    <div key={index} dangerouslySetInnerHTML={{ __html: item }} ></div>
+                                    <div className="item" key={index} dangerouslySetInnerHTML={{ __html: item }} ></div>
                                 )
                             })}
                         </div>
                         <div className="welfare-right">
                             {welfareRight?.map((item, index) => {
                                 return (
-                                    <div key={index} dangerouslySetInnerHTML={{ __html: item }} ></div>
+                                    <div className="item" key={index} dangerouslySetInnerHTML={{ __html: item }} ></div>
                                 )
                             })}
                         </div>
