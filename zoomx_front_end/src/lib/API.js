@@ -472,7 +472,7 @@ export const useHeroRecruitment = () => {
 };
 
 export const useHeroNews = () => {
-  const [data, setData] = useState();
+  const [hero, setHero] = useState();
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -486,14 +486,14 @@ export const useHeroNews = () => {
     try {
       var resp = await doGet(path, headers);
       if (resp.status === 200) {
-        setData(resp.data);
-        console.log(data);
+        setHero(resp.data);
+      
       }
     } catch (error) {
       setError(error);
     }
   }
-  return { data, error, loading: data || error ? false : true };
+  return { hero, error, loading: hero || error ? false : true };
 };
 
 export const useHeroProject = () => {

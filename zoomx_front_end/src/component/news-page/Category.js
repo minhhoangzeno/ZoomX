@@ -25,7 +25,7 @@ export default function Category({ textSearch, handleTextSearch, handleSearch, h
           <div className="box__content">
             <p className="small__content"
               onClick={() => handleChangeCategory(1)}
-            >Tat ca</p>
+            >Tất cả</p>
             {categoryBlog?.map((item, idx) => {
               return (
                 <p key={idx} className="small__content"

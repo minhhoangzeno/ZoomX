@@ -62,7 +62,7 @@ module.exports = (app) => {
     .delete(blog_controller.delete_blog)
     .get(blog_controller.get_a_blog);
   app.route("/blog-search").get(blog_controller.search_blog);
-
+  app.route("/blog-sort").get(blog_controller.soft_blog_by_date)
   app
     .route("/images")
     .get(image_controller.get_image)

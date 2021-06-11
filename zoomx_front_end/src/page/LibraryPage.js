@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../style/library.scss';
 import MenuLibrary from '../component/library/MenuLibrary';
 import Header from '../component/share/Header';
 import Footer from '../component/share/Footer';
