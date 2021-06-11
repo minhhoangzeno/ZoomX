@@ -1,6 +1,8 @@
 import Slider from "react-slick";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import listItem from "../image/newPage/listItem.png";
+import { useHistory } from "react-router";
+import { doGet } from "../../lib/DataSource";
 export default function News() {
   const [data, setData] = useState();
   let history = useHistory()
@@ -8,9 +10,9 @@ export default function News() {
     async function fetchData() {
       let path = "/blog-sort";
       try {
-        let resp = doGet(path);
-        if ((await resp).status === 200) {
-          setData((await resp).data)
+        let resp = await doGet(path);
+        if (resp.status === 200) {
+          setData(resp.data)
         }
       } catch (error) {
         console.log(error)
@@ -77,59 +79,32 @@ export default function News() {
       <div className="empty__element-view"></div>
       <p className="big__word-view">Tin tức</p>
       <Slider className="main__slider" {...settings}>
-        <div>
-          <div className="block__detail">
-            <img className="img__news" src={listItem} alt="#" />
-            <div className="ingredient__item">
-              <div className="item__wrap">
-                <p className="txt__small">TIPS & TRICK</p>
-                <div className="empty__item"></div>
-                <p className="txt__content">ád</p>
-                <button className="btn__news">XEM THÊM</button>
+        {data?.map((item, index) => {
+          return (
+            <div key={index}>
+              <div className="block__detail">
+                <img className="img__news" src={item?.imageInfor?.url} alt="#" />
+                <div className="ingredient__item">
+                  <div className="item__wrap">
+                    <p className="txt__small">TIPS & TRICK</p>
+                    <div className="empty__item"></div>
+                    <p className="txt__content">{item?.title}</p>
+                    <button className="btn__news"
+                      onClick={() => {
+                        history.push({
+                          pathname: "/blog-detail",
+                          state: item
+                        })
+                      }}
+                    >XEM THÊM</button>
+                  </div>
+                </div>
               </div>
             </div>
 
-        <div>
-          <div className="block__detail">
-            <img className="img__news" src={listItem} alt="#" />
-            <div className="ingredient__item">
-              <div className="item__wrap">
-                <p className="txt__small">TIPS & TRICK</p>
-                <div className="empty__item"></div>
-                <p className="txt__content">ád</p>
-                <button className="btn__news">XEM THÊM</button>
-              </div>
-            </div>
-          </div>
-        </div>
+          )
+        })}
 
-        <div>
-          <div className="block__detail">
-            <img className="img__news" src={listItem} alt="#" />
-            <div className="ingredient__item">
-              <div className="item__wrap">
-                <p className="txt__small">TIPS & TRICK</p>
-                <div className="empty__item"></div>
-                <p className="txt__content">ád</p>
-                <button className="btn__news">XEM THÊM</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div className="block__detail">
-            <img className="img__news" src={listItem} alt="#" />
-            <div className="ingredient__item">
-              <div className="item__wrap">
-                <p className="txt__small">TIPS & TRICK</p>
-                <div className="empty__item"></div>
-                <p className="txt__content">ád</p>
-                <button className="btn__news">XEM THÊM</button>
-              </div>
-            </div>
-          </div>
-        </div>
       </Slider>
       <div className="btn__item-click">
         <button>XEM THÊM</button>
