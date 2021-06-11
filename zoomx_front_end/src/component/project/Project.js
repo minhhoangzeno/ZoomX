@@ -5,10 +5,24 @@ import Loading from '../image/Loading';
 import Item from './Item';
 import MenuProject from './MenuProject';
 export default function Project() {
-    const [investmentId, setInvestmentId] = useState("60bf768b5210df341c80c0ef");
+    const [investmentId, setInvestmentId] = useState();
     const [data, setData] = useState();
     const [activePage, setActivePage] = useState(1);
     const [loading, setLoading] = useState(false)
+    useEffect(() => {
+        async function fetchData() {
+            let path = "/investment";
+            try {
+                let resp = await doGet(path);
+                if (resp.status === 200) {
+                    setInvestmentId(resp.data?.[0]._id)
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchData()
+    }, [])
 
     useEffect(() => {
         getSearch()
@@ -47,6 +61,7 @@ export default function Project() {
                                     <Item data={item} />
                                 )
                             })}
+
                         </div> :
                         <Loading />
                     }

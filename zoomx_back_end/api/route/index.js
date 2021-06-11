@@ -28,6 +28,7 @@ const investment_controller = require("../controller/InvestmentController"),
   zoomx_controller = require("../controller/ZoomXController"),
   icon_controller = require("../controller/IconController"),
   setting_controller = require("../controller/SettingController"),
+  video_controller = require("../controller/VideoController"),
   person_mail_controller = require("../controller/PersonMailController");
 module.exports = (app) => {
   //get linh vuc dau tu hoat dong co phan trang
@@ -51,7 +52,11 @@ module.exports = (app) => {
   app
     .route("/investment/set/:investment_id")
     .put(investment_controller.set_investment);
-
+  app.route('/video')
+    .get(video_controller.get_video)
+    .post(video_controller.add_video)
+  app.route('/video/:video_id')
+    .delete(video_controller.delete_video)
   app
     .route("/blog")
     .get(blog_controller.get_blog)

@@ -37,6 +37,7 @@ var express = require('express'),
     HeroContact = require('./api/model/HeroContactModel'),
     HeroLibrary = require('./api/model/HeroLibraryModel'),
     HeroRecruitment = require('./api/model/HeroRecruitmentModel'),
+    Video = require('./api/model/VideoModel'),
     path = require('path'),
     expressSession = require('express-session')
     ;
