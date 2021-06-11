@@ -116,14 +116,14 @@ export default function ProjectDetail({ project }) {
                                     </div>
                                 </div>
                                 <div className="col-img">
-                                    <div className="img-wrapper">
+                                    <p className="img-detail">
                                         <img src={project?.imageInfor?.url} alt="" />
-                                    </div>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="row row__info-project-detail">
+                    <div className="row row__content--project-detail">
                         <div dangerouslySetInnerHTML={{ __html: project?.description }}>
 
                         </div>
