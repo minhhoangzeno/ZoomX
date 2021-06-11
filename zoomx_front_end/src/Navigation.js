@@ -24,6 +24,7 @@ import ProjectAdd from './component/admin/project/ProjectAdd';
 import ProjectDetail from './component/admin/project/ProjectDetail';
 import ProjectUpdate from './component/admin/project/ProjectUpdate';
 import BlogUpdate from './component/admin/news/blog/BlogUpdate';
+import Login from './component/login/Login';
 
 export default function Navigation() {
     return (
@@ -67,6 +68,9 @@ export default function Navigation() {
                 </Route>
                 <Route exact path="/blog-detail">
                     <BlogDetailPage />
+                </Route>
+                <Route exact path="/login">
+                    <Login />
                 </Route>
                 <Route exact path="/admin">
                     <AdminPage />

@@ -12,7 +12,7 @@ export default function RecruitmentMain({ data }) {
     const welfareLeft = [];
     const welfareRight = [];
     welfare?.map((item, index) => {
-        if (index % 2 == 0) {
+        if (index % 2 === 0) {
             welfareLeft.push(item)
         } else {
             welfareRight.push(item)

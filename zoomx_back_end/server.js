@@ -60,9 +60,7 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 app.use(cors({}))
-app.use(expressSession({
-    secret: 'keyboard cat'
-}))
+
 app.use(bodyParser.json());
 app.use(express.static('public'))
 app.use(multer({

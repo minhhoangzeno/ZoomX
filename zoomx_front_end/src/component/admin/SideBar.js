@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 export function SideBar({ handlePage, isPage }) {
+    let history = useHistory()
     let handleStyle = (page) => {
         if (page === isPage) {
             return "sidebar__admin--menu--item li__active"
@@ -7,10 +9,28 @@ export function SideBar({ handlePage, isPage }) {
             return "sidebar__admin--menu--item"
         }
     }
+    let user;
+    useEffect(() => {
+        user = JSON.parse(localStorage.getItem("user"))
+    }, [])
+    console.log(user)
     return (
         <>
             <div className="sidebar__admin">
                 <div className="sidebar__admin--menu">
+                    {!user ? <>
+                        <div>
+                            <div>{user?.username}</div>
+                            <button onClick={() => {
+                                localStorage.removeItem("user")
+                                history.push("/login")
+                            }}>Logout</button>
+                        </div>
+                    </> :
+                        <button onClick={() => {
+                            history.push("/login")
+                        }}>Login</button>
+                    }
                     <div className={handleStyle("home")}
                         onClick={() => handlePage('home')}
                     >
