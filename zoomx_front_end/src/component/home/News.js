@@ -1,6 +1,6 @@
-import React from "react";
 import Slider from "react-slick";
-import vn from "../../image/homePage/vn.png";
+import React from "react";
+import listItem from "../image/newPage/listItem.png";
 export default function News() {
   const settings = {
     // dots: true,
@@ -56,55 +56,63 @@ export default function News() {
   return (
     <div className="main__view--slider">
       <p className="text__headline--view">
-        {" "}
         WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS
       </p>
       <div className="empty__element-view"></div>
       <p className="big__word-view">Tin tức</p>
       <Slider className="main__slider" {...settings}>
-        <div className="slider__item__cover">
-          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-            <div className="news-content">
-              <p className="item__content">Tháng 4 30, 2021</p>
-              <p className="item__content-cover">
-                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-              </p>
-              <div className="item__btn-main">XEM THÊM</div>
+        <div>
+          <div className="block__detail">
+            <img className="img__news" src={listItem} alt="#" />
+            <div className="ingredient__item">
+              <div className="item__wrap">
+                <p className="txt__small">TIPS & TRICK</p>
+                <div className="empty__item"></div>
+                <p className="txt__content">ád</p>
+                <button className="btn__news">XEM THÊM</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="slider__item__cover">
-          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-            <div className="news-content">
-              <p className="item__content">Tháng 4 30, 2021</p>
-              <p className="item__content-cover">
-                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-              </p>
-              <div className="item__btn-main">XEM THÊM</div>
+        <div>
+          <div className="block__detail">
+            <img className="img__news" src={listItem} alt="#" />
+            <div className="ingredient__item">
+              <div className="item__wrap">
+                <p className="txt__small">TIPS & TRICK</p>
+                <div className="empty__item"></div>
+                <p className="txt__content">ád</p>
+                <button className="btn__news">XEM THÊM</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="slider__item__cover">
-          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-            <div className="news-content">
-              <p className="item__content">Tháng 4 30, 2021</p>
-              <p className="item__content-cover">
-                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-              </p>
-              <div className="item__btn-main">XEM THÊM</div>
+        <div>
+          <div className="block__detail">
+            <img className="img__news" src={listItem} alt="#" />
+            <div className="ingredient__item">
+              <div className="item__wrap">
+                <p className="txt__small">TIPS & TRICK</p>
+                <div className="empty__item"></div>
+                <p className="txt__content">ád</p>
+                <button className="btn__news">XEM THÊM</button>
+              </div>
             </div>
           </div>
         </div>
-        <div className="slider__item__cover">
-          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-            <div className="news-content">
-              <p className="item__content">Tháng 4 30, 2021</p>
-              <p className="item__content-cover">
-                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-              </p>
-              <div className="item__btn-main">XEM THÊM</div>
+
+        <div>
+          <div className="block__detail">
+            <img className="img__news" src={listItem} alt="#" />
+            <div className="ingredient__item">
+              <div className="item__wrap">
+                <p className="txt__small">TIPS & TRICK</p>
+                <div className="empty__item"></div>
+                <p className="txt__content">ád</p>
+                <button className="btn__news">XEM THÊM</button>
+              </div>
             </div>
           </div>
         </div>
