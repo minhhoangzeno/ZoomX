@@ -45,7 +45,9 @@ export default function BlogDetailPage() {
                     </div>
                     <div className="col-xl-8 col-6 col-12 main__news__page related-blog">
                         <div className="container main__item__detail">
+                            <h1>Bài viết liên quan</h1>
                             <div className="row list__inner">
+                                
                                 {blog?.length > 2 ? <>
                                     <ItemNews data={blog[0]} />
                                     <ItemNews data={blog[1]} />

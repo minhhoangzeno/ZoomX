@@ -16,7 +16,7 @@ export default function Item({ data, index }) {
                             <strong>0{index}</strong><span>/</span>
                             <h2>{data.investmentName}</h2>
                             <p>{data.description}</p>
-                            <a href="http://www.github.com" className="read-more-btn" >XEM THÊM</a>
+                            <span href="http://www.github.com" className="read-more-btn" >XEM THÊM</span>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@ export default function Item({ data, index }) {
                             <strong>0{index}</strong><span>/</span>
                             <h2>{data.investmentName}</h2>
                             <p>{data.description}</p>
-                            <a href="http://www.github.com" className="read-more-btn" >XEM THÊM</a>
+                            <span href="http://www.github.com" className="read-more-btn" >XEM THÊM</span>
                         </div>
                     </div>
                 </div>
