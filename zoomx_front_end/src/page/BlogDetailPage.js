@@ -8,6 +8,7 @@ import ItemNews from '../component/news-page/ItemNews';
 import HeroPage from '../component/share/HeroPage';
 import { useLocation } from 'react-router';
 import { doGet } from '../lib/DataSource';
+import { MetaTags } from 'react-meta-tags';
 
 export default function BlogDetailPage() {
     const location = useLocation();
@@ -29,11 +30,14 @@ export default function BlogDetailPage() {
     }, [data?.categoryId])
     return (
         <>
+            <MetaTags>
+                <title>{data?.title}</title>
+            </MetaTags>
             <Header />
             <HeroPage
                 title="TIN TỨC - SỰ KIỆN"
                 title_sub={data?.title}
-                imageBackground={data?.[0]?.imageCover?.url}
+                imageBackground={data?.imageCover?.url}
             />
             <div className="container-fluid blog-detail__page">
                 <div className="row blog-detail__row">
@@ -45,7 +49,9 @@ export default function BlogDetailPage() {
                     </div>
                     <div className="col-xl-8 col-6 col-12 main__news__page related-blog">
                         <div className="container main__item__detail">
+                            <h1>Bài viết liên quan</h1>
                             <div className="row list__inner">
+
                                 {blog?.length > 2 ? <>
                                     <ItemNews data={blog[0]} />
                                     <ItemNews data={blog[1]} />

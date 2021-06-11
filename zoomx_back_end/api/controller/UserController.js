@@ -16,8 +16,8 @@ exports.add_user = (req, res) => {
         username: req.body.username,
         password: req.body.password,
         isAdmin: req.body.isAdmin
-    }).then(() => {
-        res.redirect('http://localhost:3000/admin')
+    }).then(data => {
+        res.send(data)
     }).catch(err => {
         res.send(err)
     })
@@ -29,19 +29,18 @@ exports.login_user = (req, res) => {
         if (user) {
             bcrypt.compare(password, user.password, (error, same) => {
                 if (same) {
-                    req.session.userId = user._id;
-                    res.redirect('http://localhost:3000/admin')
+                    res.send(user)
                 } else {
-                    res.redirect('http://localhost:3000/login')
+                    res.send(null)
                 }
             })
         } else {
-            res.redirect('http://localhost:3000/login')
+            res.send(null)
         }
     })
 }
 
-exports.update_user = (req,res) => {
-    const id = req.params.user_id;
+// exports.update_user = (req,res) => {
+//     const id = req.params.user_id;
 
-}
+// }

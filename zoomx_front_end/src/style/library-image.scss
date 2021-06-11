@@ -366,7 +366,10 @@ img {
     }
   }
 }
-
+.modal-content {
+  background-color: #ffffff00 !important;
+  border: none !important;
+}
 
 .paginator__block {
   width: 100%;

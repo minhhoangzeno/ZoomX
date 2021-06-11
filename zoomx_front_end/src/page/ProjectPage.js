@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MetaTags } from 'react-meta-tags';
-import Project from '../component/project/Project';
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
 import HeroPage from '../component/share/HeroPage';
-import { useHeroProject } from '../lib/API';
-import '../style/library.scss';
+// import Paginator from '../component/library/Paginator';
 import '../style/project.scss';
+import '../style/library.scss';
+import { useHeroProject } from '../lib/API';
+import Project from '../component/project/Project';
 
 export default function ProjectPage() {
     const { data } = useHeroProject()

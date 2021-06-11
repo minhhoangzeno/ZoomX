@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Loading from '../../image/Loading';
 import Pagination from "react-js-pagination";
-import item from "../../../image/home/librarypage/itemOfList.jpg";
-import ModalVideo from "./ModalVideo";
-import { doGet } from '../../../lib/DataSource'
+import { doGet } from '../../../lib/DataSource';
+import '../../../style/library.scss';
 import { convertToEmbed } from "../../../utils/RegexUrl";
-
+import Loading from '../../image/Loading';
+import ModalVideo from "./ModalVideo";
 export default function LibraryVideo() {
   const [data, setData] = useState();
   const [activePage, setActivePage] = useState(1);

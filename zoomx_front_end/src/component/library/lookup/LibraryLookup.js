@@ -3,7 +3,7 @@ import ModalLookup from "./ModalLookup";
 import Loading from '../../image/Loading';
 import { doGet } from '../../../lib/DataSource'
 import Pagination from "react-js-pagination";
-
+import '../../../style/library.scss';
 export default function LibraryLookup() {
   const [data, setData] = useState();
   const [activePage, setActivePage] = useState(1);

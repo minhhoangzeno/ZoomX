@@ -1,7 +1,25 @@
-import React from "react";
 import Slider from "react-slick";
-import vn from "../../image/homePage/vn.png";
+import React, { useEffect, useState } from "react";
+import listItem from "../image/newPage/listItem.png";
+import { useHistory } from "react-router";
+import { doGet } from "../../lib/DataSource";
 export default function News() {
+  const [data, setData] = useState();
+  let history = useHistory()
+  useEffect(() => {
+    async function fetchData() {
+      let path = "/blog-sort";
+      try {
+        let resp = await doGet(path);
+        if (resp.status === 200) {
+          setData(resp.data)
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData()
+  })
   const settings = {
     // dots: true,
     infinite: true,
@@ -56,58 +74,37 @@ export default function News() {
   return (
     <div className="main__view--slider">
       <p className="text__headline--view">
-        {" "}
         WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS
       </p>
       <div className="empty__element-view"></div>
       <p className="big__word-view">Tin tức</p>
       <Slider className="main__slider" {...settings}>
-        <div className="slider__item__cover">
-          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-            <div className="news-content">
-              <p className="item__content">Tháng 4 30, 2021</p>
-              <p className="item__content-cover">
-                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-              </p>
-              <div className="item__btn-main">XEM THÊM</div>
+        {data?.map((item, index) => {
+          return (
+            <div key={index}>
+              <div className="block__detail">
+                <img className="img__news" src={item?.imageInfor?.url} alt="#" />
+                <div className="ingredient__item">
+                  <div className="item__wrap">
+                    <p className="txt__small">TIPS & TRICK</p>
+                    <div className="empty__item"></div>
+                    <p className="txt__content">{item?.title}</p>
+                    <button className="btn__news"
+                      onClick={() => {
+                        history.push({
+                          pathname: "/blog-detail",
+                          state: item
+                        })
+                      }}
+                    >XEM THÊM</button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div className="slider__item__cover">
-          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-            <div className="news-content">
-              <p className="item__content">Tháng 4 30, 2021</p>
-              <p className="item__content-cover">
-                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-              </p>
-              <div className="item__btn-main">XEM THÊM</div>
-            </div>
-          </div>
-        </div>
+          )
+        })}
 
-        <div className="slider__item__cover">
-          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-            <div className="news-content">
-              <p className="item__content">Tháng 4 30, 2021</p>
-              <p className="item__content-cover">
-                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-              </p>
-              <div className="item__btn-main">XEM THÊM</div>
-            </div>
-          </div>
-        </div>
-        <div className="slider__item__cover">
-          <div className="item-block" style={{ backgroundImage: `url(${vn})` }}>
-            <div className="news-content">
-              <p className="item__content">Tháng 4 30, 2021</p>
-              <p className="item__content-cover">
-                Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-              </p>
-              <div className="item__btn-main">XEM THÊM</div>
-            </div>
-          </div>
-        </div>
       </Slider>
       <div className="btn__item-click">
         <button>XEM THÊM</button>

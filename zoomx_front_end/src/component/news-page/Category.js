@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { doGet } from "../../lib/DataSource";
 
-export default function Category() {
+export default function Category({ textSearch, handleTextSearch, handleSearch, handleChangeCategory }) {
   const [categoryBlog, setCategoryBlog] = useState();
   useEffect(() => {
     async function fetchData() {
@@ -23,16 +23,24 @@ export default function Category() {
         <div className="main__category">
           <p className="average__word">DANH MỤC</p>
           <div className="box__content">
+            <p className="small__content"
+              onClick={() => handleChangeCategory(1)}
+            >Tất cả</p>
             {categoryBlog?.map((item, idx) => {
               return (
-                <p key={idx} className="small__content">{item?.name}</p>
+                <p key={idx} className="small__content"
+                  onClick={() => handleChangeCategory(item._id)}
+                >{item?.name}</p>
               )
             })}
 
           </div>
           <p className="average__word">TÌM KIẾM</p>
-          <input className="search__item" type="text" />
-          <button className="btn__search">TÌM KIẾM</button>
+          <input className="search__item" type="text"
+            value={textSearch}
+            onChange={(e) => handleTextSearch(e.target.value)}
+          />
+          <button onClick={() => handleSearch()} className="btn__search">TÌM KIẾM</button>
         </div>
       </div>
     </>

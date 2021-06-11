@@ -37,6 +37,7 @@ var express = require('express'),
     HeroContact = require('./api/model/HeroContactModel'),
     HeroLibrary = require('./api/model/HeroLibraryModel'),
     HeroRecruitment = require('./api/model/HeroRecruitmentModel'),
+    Video = require('./api/model/VideoModel'),
     path = require('path'),
     expressSession = require('express-session')
     ;
@@ -59,9 +60,7 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 app.use(cors({}))
-app.use(expressSession({
-    secret: 'keyboard cat'
-}))
+
 app.use(bodyParser.json());
 app.use(express.static('public'))
 app.use(multer({

@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React from 'react';
 import icon_money from '../../image/icon/money.png'
 
@@ -32,7 +33,7 @@ export default function RecruitmentSameItem({ data }) {
                         </div>
                     </div>
                     <div className="item--content--deadline">
-                        <p>Hạn chót nhận hồ sơ: <span>{data?.dateReceived}</span></p>
+                        <p>Hạn chót nhận hồ sơ: <span>{moment(data?.dateReceived).format("DD/MM/YYYY")}</span></p>
                     </div>
                 </div>
             </div>
