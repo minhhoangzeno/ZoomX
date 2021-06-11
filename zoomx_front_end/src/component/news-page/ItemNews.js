@@ -23,7 +23,6 @@ export default function ItemNews({ data }) {
           </div>
         </div>
       </div>
-
     </>
   );
 }
