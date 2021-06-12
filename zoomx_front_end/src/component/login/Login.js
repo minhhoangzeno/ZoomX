@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { doGet, doPost } from '../../lib/DataSource';
+import { doPost } from '../../lib/DataSource';
 export default function Login() {
     const [account, setAccount] = useState();
     let history = useHistory()
@@ -8,7 +8,7 @@ export default function Login() {
     useEffect(() => {
         if (user) {
             history.push("/admin")
-            localStorage.setItem("user",JSON.stringify(user))
+            localStorage.setItem("user", JSON.stringify(user))
         } else {
             history.push("/login")
         }
@@ -68,7 +68,11 @@ export default function Login() {
                                 >ĐĂNG NHẬP</div>
                             </div>
                             <div className="sign-up">
-                                <a href="http://www.github.com">Chưa có tài khoản? <span>Đăng kí ngay</span></a>
+                                <div
+                                onClick={() => {
+                                    history.push("/signup")
+                                }}
+                                >Chưa có tài khoản? <span>Đăng kí ngay</span></div>
                             </div>
                         </div>
                     </div>
