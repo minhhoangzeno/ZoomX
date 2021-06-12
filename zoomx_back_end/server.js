@@ -41,9 +41,6 @@ var express = require('express'),
     path = require('path'),
     expressSession = require('express-session')
     ;
-
-
-
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb+srv://minhhoang:521985@zoomx.x6xhr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,

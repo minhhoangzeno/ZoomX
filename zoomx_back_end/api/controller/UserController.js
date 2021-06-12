@@ -1,26 +1,50 @@
+
 const mongoose = require('mongoose'),
     User = mongoose.model('user'),
-    bcrypt = require('bcrypt')
+    bcrypt = require('bcrypt'),
+    Upload = require('../model/UploadImageModel'),
+    ImageUtil = require('../utils/ImageUtil')
     ;
 
 exports.get_user = (req, res) => {
-    User.find().then(data => {
-        res.send(data)
-    }).catch(err => {
-        res.send(err)
-    })
+    User.find().
+        populate({
+            path: 'avatar',
+            model: 'image',
+            select: 'url'
+        })
+        .then(data => {
+            res.send(data)
+        }).catch(err => {
+            res.send(err)
+        })
 }
 
 exports.add_user = (req, res) => {
-    User.create({
-        username: req.body.username,
-        password: req.body.password,
-        isAdmin: req.body.isAdmin
-    }).then(data => {
-        res.send(data)
-    }).catch(err => {
-        res.send(err)
+    let uploadAvatar = new Promise((resolve, reject) => {
+        Upload.uploadSingleFile({
+            file: req.files[0],
+            path: 'ZoomX/Admin'
+        }).then(avatar => {
+            resolve(avatar)
+        }).catch(error => {
+            reject(null)
+        })
     })
+    uploadAvatar.then(result => {
+        User.create({
+            username: req.body.username,
+            password: req.body.password,
+            displayName: req.body.displayName,
+            avatar: result._id,
+            isAdmin: req.body.isAdmin
+        }).then(data => {
+            res.send(data)
+        }).catch(err => {
+            res.send(err)
+        })
+    })
+
 }
 
 exports.login_user = (req, res) => {
@@ -39,7 +63,17 @@ exports.login_user = (req, res) => {
         }
     })
 }
-
+exports.delete_user = (req, res) => {
+    let id = req.params.user_id;
+    User.findById(id).exec().then(async user => {
+        await ImageUtil.deleteSingleFile(user.avatar).then(() => {
+            user.remove()
+        })
+        res.send(user)
+    }).catch(err => {
+        res.send(err)
+    })
+}
 // exports.update_user = (req,res) => {
 //     const id = req.params.user_id;
 

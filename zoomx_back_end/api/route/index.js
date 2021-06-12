@@ -341,4 +341,6 @@ module.exports = (app) => {
     .post(user_controller.add_user)
   app.route("/login")
     .post(user_controller.login_user)
+  app.route("/user/:user_id")
+    .delete(user_controller.delete_user)
 };

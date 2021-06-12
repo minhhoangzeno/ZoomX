@@ -12,8 +12,17 @@ const userSchema = new Schema({
         type: String,
         require: true
     },
+    displayName: {
+        type: String,
+        require: true
+    },
+    avatar: {
+        type: Schema.Types.ObjectId,
+        ref: 'image'
+    },
     isAdmin: {
-        type: Boolean
+        type: Boolean,
+        default: false
     }
 })
 userSchema.pre('save', function (next) {

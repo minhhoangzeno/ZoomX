@@ -8,7 +8,9 @@ export default function Signup() {
                         <div className="title">
                             <h1>Sign up</h1>
                         </div>
-                        <input className="mail-btn" placeholder="Email address" />
+                        <input className="mail-btn" placeholder="Email address" 
+                        name="username"
+                        />
                         <input className="pw-btn" placeholder="Password" />
                         <input className="confirm-btn" placeholder="Confirm Password" />
                         <div className="wrapper__sign-btn">

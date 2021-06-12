@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { doGet, doPost } from '../../lib/DataSource';
+import { doPost } from '../../lib/DataSource';
 export default function Login() {
     const [account, setAccount] = useState();
     let history = useHistory()
