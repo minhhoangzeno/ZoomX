@@ -7,8 +7,8 @@ const mongoose = require('mongoose'),
     ;
 
 exports.get_user = (req, res) => {
-    User.find().
-        populate({
+    User.find()
+        .populate({
             path: 'avatar',
             model: 'image',
             select: 'url'
@@ -39,7 +39,14 @@ exports.add_user = (req, res) => {
             avatar: result._id,
             isAdmin: req.body.isAdmin
         }).then(data => {
-            res.send(data)
+            User.findById(data?._id)
+                .populate({
+                    path: 'avatar',
+                    model: 'image',
+                    select: 'url'
+                }).then(user => {
+                    res.send(user)
+                })
         }).catch(err => {
             res.send(err)
         })
@@ -53,7 +60,14 @@ exports.login_user = (req, res) => {
         if (user) {
             bcrypt.compare(password, user.password, (error, same) => {
                 if (same) {
-                    res.send(user)
+                    User.findById(user?._id)
+                        .populate({
+                            path: 'avatar',
+                            model: 'image',
+                            select: 'url'
+                        }).then(data => {
+                            res.send(data)
+                        })
                 } else {
                     res.send(null)
                 }
@@ -74,7 +88,30 @@ exports.delete_user = (req, res) => {
         res.send(err)
     })
 }
-// exports.update_user = (req,res) => {
-//     const id = req.params.user_id;
 
-// }
+exports.set_role_user = (req, res) => {
+    let id = req.params.user_id;
+    let role = req.body.role;
+    User.findByIdAndUpdate(is, { isAdmin: role }).then(data => {
+        res.send(data)
+    }).catch(err => {
+        res.send(err)
+    })
+}
+
+exports.update_user = (req, res) => {
+    let id = req.params.user_id;
+    User.findById(id).exec().then(user => {
+        ImageUtil.updateSingeFile(req.files[0], user.avatar, 'User').then(() => {
+            User.findByIdAndUpdate(id, {
+                password: req.body.password,
+                displayName: req.body.displayName,
+                avatar: result._id
+            }).then(data => {
+                res.send(data)
+            }).catch(error => {
+                res.send(error)
+            })
+        })
+    })
+}

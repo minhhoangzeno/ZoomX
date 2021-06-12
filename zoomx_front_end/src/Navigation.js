@@ -72,8 +72,9 @@ export default function Navigation() {
                 <Route exact path="/login">
                     <Login />
                 </Route>
-                <Route exact path="/admin">
-                    <AdminPage />
+                <Route exact path="/admin" render={() => {
+                    return (localStorage.getItem("user") ? <AdminPage /> : <Login />)
+                }}>
                 </Route>
                 <Route exact path="/auth/blog/add">
                     <BlogAdd />

@@ -310,3 +310,21 @@ select {
     }
   }
 }
+.admin__setting{
+  position: absolute;
+  width: 100%;
+  padding-left: 0;
+  top: 100%;
+  background: #FFF;
+  color: #333;
+  border: 1px solid;
+  left: 0%;
+  li{
+    padding: 8px;
+    border: 1px solid #eaeaea;
+    &:hover{
+      background: #333;
+      color: #fff;
+    }
+  }
+}
