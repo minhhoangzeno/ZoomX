@@ -1007,10 +1007,11 @@
     height: 400px;
   }
 }
-.block__detail {
+.block__details {
+  width: 90%;
+  border: 1px solid #dbdbdb;
   margin-bottom: 50px;
   margin-right: 50px;
-  border: 1px solid #dbdbdb;
   @media (max-width: 768px) {
     width: 90%;
     margin: 0 auto;
@@ -1069,7 +1070,8 @@
         height: 2px;
         background-color: #707070;
       }
-      .txt__content {
+      .txt__contents {
+        height: 50px;
         text-align: left;
         font-weight: 600;
         margin-top: 18px;
