@@ -1,5 +1,8 @@
 import React from 'react';
+
+
 export default function Signup() {
+
     return (
         <>
             <div className="wrapper__signup">
@@ -8,12 +11,29 @@ export default function Signup() {
                         <div className="title">
                             <h1>Sign up</h1>
                         </div>
-                        <input className="mail-btn" placeholder="Email address" />
-                        <input className="pw-btn" placeholder="Password" />
-                        <input className="confirm-btn" placeholder="Confirm Password" />
+                        <form>
+                            <input type="text" placeholder="Username" name="username" />
+                            <div className="pw-wrapper">
+                                <input type="password" placeholder="Create password" name="password" />
+                                <i className="fa fa-eye password-icon" />
+                            </div>
+                            <div className="input-name">
+                                <span>
+                                    <input type="text" placeholder="Họ" name="Họ" />
+                                </span>
+                                <span>
+                                    <input type="text" placeholder="Tên" name="Tên" />
+                                </span>
+                            </div>
+                            <div className="set-avatar">
+                                <p>Set avatar</p>
+                                <input type="file" placeholder="Avatar" name="avatar" />
+                            </div>
+                        </form>
+
                         <div className="wrapper__sign-btn">
                             <div className="sign-up">
-                                <a href="http://www.github.com">ĐĂNG KÍ</a>
+                                <span href="http://www.github.com">ĐĂNG KÍ</span>
                             </div>
                         </div>
                     </div>
@@ -22,3 +42,4 @@ export default function Signup() {
         </>
     )
 }
+
