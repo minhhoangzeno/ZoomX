@@ -35,7 +35,7 @@ export default function HeroProject() {
         <>
 
             <div className="title">
-                <h1>Hero Du an</h1>
+                <h1>Hero Dự án</h1>
             </div>
             <div className="wrapper__table">
                 <section className="content-header">

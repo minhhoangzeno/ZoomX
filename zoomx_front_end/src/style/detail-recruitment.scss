@@ -208,24 +208,21 @@
                                 font-size: 12px !important ;
                             }
                         }
-                        table{
-                            width: 100% !important;
-                            border: none;
-                            tbody{
-                                width: 100%;
-                                tr{
-                                    width: 100%;
-                                    td{
-                                        border: none;
-                                        padding: 5px;
-                                        @media (max-width:500px) {
-                                        }
-                                    }
-                                }
-                    
+                        .welfare-left{
+                            .item{
+                                padding: 5px;
+                            }
+
+                        }
+                        .welfare-right{
+                            margin-left: 180px;
+                            @media (max-width:1190px) {
+                                margin-left: 100px;
+                            }
+                            .item{
+                                padding: 5px;
                             }
                         }
-                        
                     }
     
                 }

@@ -35,7 +35,7 @@ export default function HeroNews() {
         <>
 
             <div className="title">
-                <h1>Hero Tin Tuc</h1>
+                <h1>Hero Tin tức</h1>
             </div>
             <div className="wrapper__table">
                 <section className="content-header">
