@@ -39,7 +39,7 @@ exports.add_user = (req, res) => {
             avatar: result._id,
             isAdmin: req.body.isAdmin
         }).then(data => {
-            User.findById(data?._id)
+            User.findById(data._id)
                 .populate({
                     path: 'avatar',
                     model: 'image',
@@ -60,7 +60,7 @@ exports.login_user = (req, res) => {
         if (user) {
             bcrypt.compare(password, user.password, (error, same) => {
                 if (same) {
-                    User.findById(user?._id)
+                    User.findById(user._id)
                         .populate({
                             path: 'avatar',
                             model: 'image',

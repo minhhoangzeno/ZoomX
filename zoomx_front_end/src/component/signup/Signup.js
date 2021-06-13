@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-
-export default function Signup() {
-
-=======
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { doPost } from '../../lib/DataSource';
@@ -41,72 +34,52 @@ export default function Signup() {
             [name]: value
         })
     }
->>>>>>> dev_giao_dien
     return (
         <>
             <div className="wrapper__signup">
                 <div className="main__signup">
                     <div className="wrapper__sign">
                         <div className="title">
-                            <h1>Sign up</h1>
+                            <h1>ĐĂNG KÝ</h1>
                         </div>
-<<<<<<< HEAD
                         <form>
-                            <input type="text" placeholder="Username" name="username" />
-                            <div className="pw-wrapper">
-                                <input type="password" placeholder="Mật khẩu" name="password" />
-                                <i className="fa fa-eye password-icon" />
-                            </div>
-                            <div className="input-name">
-                                <span>
-                                    <input type="text" placeholder="Họ" name="Họ" />
-                                </span>
-                                <span>
-                                    <input type="text" placeholder="Tên" name="Tên" />
-                                </span>
-                            </div>
+                            <input type="text" name="displayName" placeholder="Tên hiển thị"
+                                onChange={handleUser}
+                            />
                             <div className="set-avatar">
                                 <label>Ảnh đại diện</label>
-                                <input type="file" placeholder="Avatar" name="avatar" />
+                                <input type="file"
+                                    onChange={(e) => {
+                                        setFileCover(URL.createObjectURL(e.target.files[0]))
+                                        setUser({
+                                            ...user,
+                                            avatar: e.target.files[0]
+                                        })
+                                    }}
+                                />
+                            </div>
+
+                            {fileCover ? <div className="cover-img">
+                                <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
+                            </div> : <></>}
+
+                            <input className="nameUser-btn" placeholder="Tên đăng nhập"
+                                name="username"
+                                onChange={handleUser}
+                            />
+                            <div className="pw-wrapper">
+                                <input className="pw-btn" placeholder="Mật khẩu" type="password"
+                                    onChange={handleUser}
+                                />
+                            </div>
+
+                            <div className="wrapper__sign-btn">
+                                <div className="sign-up">
+                                    <div onClick={addUser}>XÁC NHẬN</div>
+                                </div>
                             </div>
                         </form>
 
-                        <div className="wrapper__sign-btn">
-                            <div className="sign-up">
-                                <span href="http://www.github.com">ĐĂNG KÍ</span>
-=======
-                        <label>Ten hien thi</label>
-                        <input type="text" name="displayName" placeholder="Display name"
-                            onChange={handleUser}
-                        />
-                        <label>avatar</label>
-                        <input type="file"
-                            onChange={(e) => {
-                                setFileCover(URL.createObjectURL(e.target.files[0]))
-                                setUser({
-                                    ...user,
-                                    avatar: e.target.files[0]
-                                })
-                            }}
-
-                        />
-                        {fileCover ? <div>
-                            <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
-                        </div> : <></>}
-
-                        <input className="mail-btn" placeholder="Email address"
-                            name="username"
-                            onChange={handleUser}
-                        />
-                        <input className="pw-btn" placeholder="Password"
-                            onChange={handleUser}
-                        />
-                        <div className="wrapper__sign-btn">
-                            <div className="sign-up">
-                                <div onClick={addUser}>ĐĂNG KÍ</div>
->>>>>>> dev_giao_dien
-                            </div>
-                        </div>
                         {error ? <div>Vui long nhap lai thong tin!</div> : <></>}
                     </div>
                 </div>
