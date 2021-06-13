@@ -1,25 +1,24 @@
 import Slider from "react-slick";
 import React, { useEffect, useState } from "react";
-import listItem from "../image/newPage/listItem.png";
 import { useHistory } from "react-router";
 import { doGet } from "../../lib/DataSource";
 export default function News() {
   const [data, setData] = useState();
-  let history = useHistory()
+  let history = useHistory();
   useEffect(() => {
     async function fetchData() {
       let path = "/blog-sort";
       try {
         let resp = await doGet(path);
         if (resp.status === 200) {
-          setData(resp.data)
+          setData(resp.data);
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
-    fetchData()
-  })
+    fetchData();
+  });
   const settings = {
     // dots: true,
     infinite: true,
@@ -82,29 +81,34 @@ export default function News() {
         {data?.map((item, index) => {
           return (
             <div key={index}>
-              <div className="block__detail">
-                <img className="img__news" src={item?.imageInfor?.url} alt="#" />
+              <div className="block__details">
+                <img
+                  className="img__news"
+                  src={item?.imageInfor?.url}
+                  alt="#"
+                />
                 <div className="ingredient__item">
                   <div className="item__wrap">
                     <p className="txt__small">TIPS & TRICK</p>
                     <div className="empty__item"></div>
-                    <p className="txt__content">{item?.title}</p>
-                    <button className="btn__news"
+                    <p className="txt__contents">{item?.title}</p>
+                    <button
+                      className="btn__news"
                       onClick={() => {
                         history.push({
                           pathname: "/blog-detail",
-                          state: item
-                        })
+                          state: item,
+                        });
                       }}
-                    >XEM THÊM</button>
+                    >
+                      XEM THÊM
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-
-          )
+          );
         })}
-
       </Slider>
       <div className="btn__item-click">
         <button>XEM THÊM</button>
