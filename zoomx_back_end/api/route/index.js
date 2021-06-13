@@ -344,6 +344,8 @@ module.exports = (app) => {
   app.route("/user/:user_id")
     .delete(user_controller.delete_user)
     .put(user_controller.update_user)
-  app.route("/user-role/:user_id")
-    .put(user_controller.set_role_user)
+  app.route("/user-role-set-admin/:user_id")
+    .put(user_controller.set_role_admin_user)
+    app.route("/user-role-delete-admin/:user_id")
+    .put(user_controller.delete_role_admin_user)
 };
