@@ -4,6 +4,7 @@ import { doGet } from '../../../lib/DataSource';
 import '../../../style/library.scss';
 import { convertToEmbed } from "../../../utils/RegexUrl";
 import Loading from '../../image/Loading';
+import PlayVid from '../../../image/ThuVien/play.png'
 import ModalVideo from "./ModalVideo";
 export default function LibraryVideo() {
   const [data, setData] = useState();
@@ -67,8 +68,11 @@ function Item({ data }) {
       <ModalVideo show={modalShow} onHide={() => setModalShow(false)}
         videoId={convertToEmbed(data?.videoUrl)}
       />
-      <div className="item" onClick={() => setModalShow(true)}>
+      <div className="item item-lib-video" onClick={() => setModalShow(true)}>
         <div className="item__content--top">
+          <div className="play-btn">
+              <img className="play-video" src={PlayVid} alt="" />
+          </div>
           <img src={`https://i.ytimg.com/vi/${convertToEmbed(data?.videoUrl)}/hqdefault.jpg`} alt="" loading="lazy" />
         </div>
         <div className="item__content--bottom">
