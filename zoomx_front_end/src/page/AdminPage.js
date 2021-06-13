@@ -12,9 +12,7 @@ export default function AdminPage() {
     useEffect(() => {
         fetchData()
     }, [])
-    useEffect(() => {
-        fetchData()
-    }, [userLocal])
+    
     async function fetchData() {
         setUser(userLocal)
     }

@@ -113,7 +113,7 @@ exports.update_user = (req, res) => {
         savePassword = hash;
     })
     User.findById(id).exec().then(user => {
-        ImageUtil.updateSingeFile(req.files[0], user.avatar, 'User').then(() => {
+        ImageUtil.updateSingeFile(req.files[0], user?.avatar, 'User').then(() => {
             User.findByIdAndUpdate(id, {
                 password: savePassword,
                 displayName: req.body.displayName

@@ -51,9 +51,10 @@ export default function Profile() {
 
                         <div className="wrapper__sign">
                             <div className="title">
-                                <h1>ĐĂNG KÝ</h1>
+                                <h1>Tài khoản cá nhân</h1>
                             </div>
                             <form>
+                                <label>Tên hiển thị</label>
                                 <input type="text" name="displayName" placeholder="Tên hiển thị"
                                     onChange={handleUser}
                                     value={user?.displayName}
@@ -74,12 +75,15 @@ export default function Profile() {
                                 {fileCover ? <div className="cover-img">
                                     <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
                                 </div> : <></>}
+                                <label>Tên đăng nhập</label>
 
                                 <input className="nameUser-btn" placeholder="Tên đăng nhập"
                                     name="username"
                                     value={user?.username}
                                 />
                                 <div className="pw-wrapper">
+                                    <label>Mật khẩu</label>
+
                                     <input className="pw-btn" placeholder="Mật khẩu mới" type="password"
                                         onChange={handleUser}
                                     />
