@@ -29,7 +29,9 @@ const investment_controller = require("../controller/InvestmentController"),
   icon_controller = require("../controller/IconController"),
   setting_controller = require("../controller/SettingController"),
   video_controller = require("../controller/VideoController"),
-  person_mail_controller = require("../controller/PersonMailController");
+  person_mail_controller = require("../controller/PersonMailController"),
+  user_controller = require("../controller/UserController")
+  ;
 module.exports = (app) => {
   //get linh vuc dau tu hoat dong co phan trang
   app
@@ -333,4 +335,15 @@ module.exports = (app) => {
     .get(person_mail_controller.get_mails)
     .post(person_mail_controller.add_mail);
   app.route("/person-mail/:mail_id").delete(person_mail_controller.delete_mail);
+
+  app.route('/user')
+    .get(user_controller.get_user)
+    .post(user_controller.add_user)
+  app.route("/login")
+    .post(user_controller.login_user)
+  app.route("/user/:user_id")
+    .delete(user_controller.delete_user)
+    .put(user_controller.update_user)
+  app.route("/user-role/:user_id")
+    .put(user_controller.set_role_user)
 };

@@ -41,9 +41,6 @@ var express = require('express'),
     path = require('path'),
     expressSession = require('express-session')
     ;
-
-
-
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb+srv://minhhoang:521985@zoomx.x6xhr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -60,9 +57,7 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 app.use(cors({}))
-app.use(expressSession({
-    secret: 'keyboard cat'
-}))
+
 app.use(bodyParser.json());
 app.use(express.static('public'))
 app.use(multer({

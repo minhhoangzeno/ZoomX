@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import '../../style/detail-recruitment.scss';
+import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { doPost } from '../../lib/DataSource';
+import '../../style/detail-recruitment.scss';
 
 export default function ModalRecruitment(props) {
     const { address, logo, rank } = props;

@@ -12,6 +12,14 @@ const userSchema = new Schema({
         type: String,
         require: true
     },
+    displayName: {
+        type: String,
+        require: true
+    },
+    avatar: {
+        type: Schema.Types.ObjectId,
+        ref: 'image'
+    },
     isAdmin: {
         type: Boolean
     }
@@ -24,5 +32,5 @@ userSchema.pre('save', function (next) {
     })
 })
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('user', userSchema);
 module.exports = User;
