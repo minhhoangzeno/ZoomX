@@ -14,7 +14,7 @@ export default function Signup() {
                         <form>
                             <input type="text" placeholder="Username" name="username" />
                             <div className="pw-wrapper">
-                                <input type="password" placeholder="Create password" name="password" />
+                                <input type="password" placeholder="Mật khẩu" name="password" />
                                 <i className="fa fa-eye password-icon" />
                             </div>
                             <div className="input-name">
@@ -26,7 +26,7 @@ export default function Signup() {
                                 </span>
                             </div>
                             <div className="set-avatar">
-                                <p>Set avatar</p>
+                                <label>Ảnh đại diện</label>
                                 <input type="file" placeholder="Avatar" name="avatar" />
                             </div>
                         </form>
