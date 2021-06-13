@@ -3,18 +3,21 @@ import { useLocation } from 'react-router';
 import Dashboard from '../component/admin/Dashboard';
 import { SideBar } from '../component/admin/SideBar';
 import '../style/admin.scss';
-const userLocal =  JSON.parse(localStorage.getItem("user"))
 
 export default function AdminPage() {
     const location = useLocation();
     const page = location.state;
     const [user, setUser] = useState();
+    const userLocal = JSON.parse(localStorage.getItem("user"))
     useEffect(() => {
-        async function fetchData() {
-            setUser(userLocal)
-        }
+        fetchData()
+    }, [])
+    useEffect(() => {
         fetchData()
     }, [userLocal])
+    async function fetchData() {
+        setUser(userLocal)
+    }
     const [isPage, setIsPage] = useState("home")
     let handlePage = (page) => {
         setIsPage(page)

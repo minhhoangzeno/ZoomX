@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { doPost } from '../../lib/DataSource';
+import Loading from '../image/Loading';
+
 export default function Signup() {
     const [user, setUser] = useState();
     const [fileCover, setFileCover] = useState();
     let history = useHistory();
+    const [loading,setLoading] = useState(false);
     const [error, setError] = useState()
     let addUser = async () => {
+        setLoading(true)
         let path = "/user";
         let data = new FormData();
         data.append("displayName", user?.displayName);
@@ -22,9 +26,13 @@ export default function Signup() {
             if (resp.status === 200) {
                 localStorage.setItem("user", JSON.stringify(resp.data))
                 history.push("/admin")
+                setLoading(false)
+
             }
         } catch (error) {
             setError(error)
+            setLoading(false)
+
         }
     }
     const handleUser = (e) => {
@@ -36,7 +44,9 @@ export default function Signup() {
     }
     return (
         <>
-            <div className="wrapper__signup">
+            <div className="wrapper__signup" style={{width:'100vw',height:'100vh'}}>
+            {loading && <Loading />}
+
                 <div className="main__signup">
                     <div className="wrapper__sign">
                         <div className="title">

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { doPut } from '../../../lib/DataSource';
+import Loading from '../../image/Loading';
 
 export default function Profile() {
     const [user, setUser] = useState();
     const [fileCover, setFileCover] = useState();
-
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
         async function fetchData() {
             const userLocal = await JSON.parse(localStorage.getItem("user"))
             setUser(userLocal)
+            setFileCover(userLocal?.avatar?.url)
         }
         fetchData()
     }, []);
@@ -20,6 +22,7 @@ export default function Profile() {
         })
     }
     let updateUser = async () => {
+        setLoading(true)
         let path = `/user/${user?._id}`;
         let data = new FormData();
         data.append("displayName", user?.displayName);
@@ -31,43 +34,68 @@ export default function Profile() {
         try {
             let resp = await doPut(path, headers, data);
             if (resp.status === 200) {
-                alert("Update thanh cong")
-                localStorage.setItem("user",JSON.stringify(resp.data))
+                localStorage.setItem("user", JSON.stringify(resp.data))
+                setLoading(false)
+                alert("Sửa tài khoản thành công!")
             }
         } catch (error) {
-         
+            setLoading(false)
         }
     }
     return (
         <>
-            <label>Tài khoản cá nhân </label>
-            <div>{user?.username}</div>
-            <label>Tên hiển thị</label>
-            <input type="text" value={user?.displayName}
-                onChange={handleUser}
-                name="displayName"
-            />
-            <label>Mat khau</label>
-            <input type="text" 
-                onChange={handleUser}
-                name="password"
-            />
-            <label>avatar</label>
-            <input type="file"
-                onChange={(e) => {
-                    setFileCover(URL.createObjectURL(e.target.files[0]))
-                    setUser({
-                        ...user,
-                        avatar: e.target.files[0]
-                    })
-                }}
+            <div className="wrapper__signup">
+                <div className="main__signup">
+                    {loading ? <Loading /> :
 
-            />
-            {fileCover ? <div>
-                <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
-            </div> : <></>}
-            <div className="sign-up">
-                <div onClick={updateUser}>ĐĂNG KÍ</div>
+
+                        <div className="wrapper__sign">
+                            <div className="title">
+                                <h1>ĐĂNG KÝ</h1>
+                            </div>
+                            <form>
+                                <input type="text" name="displayName" placeholder="Tên hiển thị"
+                                    onChange={handleUser}
+                                    value={user?.displayName}
+                                />
+                                <div className="set-avatar">
+                                    <label>Ảnh đại diện</label>
+                                    <input type="file"
+                                        onChange={(e) => {
+                                            setFileCover(URL.createObjectURL(e.target.files[0]))
+                                            setUser({
+                                                ...user,
+                                                avatar: e.target.files[0]
+                                            })
+                                        }}
+                                    />
+                                </div>
+
+                                {fileCover ? <div className="cover-img">
+                                    <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
+                                </div> : <></>}
+
+                                <input className="nameUser-btn" placeholder="Tên đăng nhập"
+                                    name="username"
+                                    value={user?.username}
+                                />
+                                <div className="pw-wrapper">
+                                    <input className="pw-btn" placeholder="Mật khẩu mới" type="password"
+                                        onChange={handleUser}
+                                    />
+                                </div>
+
+                                <div className="wrapper__sign-btn">
+                                    <div className="sign-up">
+                                        <div onClick={updateUser}>XÁC NHẬN</div>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    }
+                </div>
             </div>
         </>
     )

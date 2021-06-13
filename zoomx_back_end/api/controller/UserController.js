@@ -107,10 +107,15 @@ exports.delete_role_admin_user = (req, res) => {
 }
 exports.update_user = (req, res) => {
     let id = req.params.user_id;
+    let password = req.body.password;
+    let savePassword;
+    bcrypt.hash(password, 10, (error, hash) => {
+        savePassword = hash;
+    })
     User.findById(id).exec().then(user => {
         ImageUtil.updateSingeFile(req.files[0], user.avatar, 'User').then(() => {
             User.findByIdAndUpdate(id, {
-                password: req.body.password,
+                password: savePassword,
                 displayName: req.body.displayName
             }).then(data => {
                 User.findById(data?._id)

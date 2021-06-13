@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { doPost } from '../../lib/DataSource';
+import Loading from '../image/Loading';
 export default function Login() {
     const [account, setAccount] = useState();
+    const [loading,setLoading] = useState(false);
     let history = useHistory()
     let [user, setuser] = useState();
     useEffect(() => {
@@ -14,6 +16,7 @@ export default function Login() {
         }
     }, [user])
     let login = async () => {
+        setLoading(true)
         let path = "/login";
         let data = new FormData();
         data.append("username", account?.username);
@@ -24,16 +27,19 @@ export default function Login() {
         try {
             let resp = await doPost(path, headers, data);
             if (resp.status === 200) {
+                setLoading(false)
                 setuser(resp.data)
             }
         } catch (error) {
             console.log(error)
+            setLoading(false)
         }
     }
 
     return (
         <>
             <div className="wrapper__login">
+                {loading && <Loading />}
                 <div className="main__login">
                     <div className="wrapper__sign">
                         <div className="title">
