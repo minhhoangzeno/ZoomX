@@ -5,7 +5,7 @@ import { doPut } from '../../../../lib/DataSource';
 export default function ModalUpdate(props) {
     const { dataVideo } = props;
     const [Video, setVideo] = useState(dataVideo);
-    const [fileCover, setFileCover] = useState(dataVideo.logo.url);
+    const [fileCover, setFileCover] = useState(dataVideo.imageCover.url);
 
     let handleVideo = (event) => {
         const { name, value } = event.target

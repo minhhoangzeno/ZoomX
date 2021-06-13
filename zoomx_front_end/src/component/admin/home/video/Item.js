@@ -8,7 +8,7 @@ export default function Item({ dataVideo, indexNum, getVideo, handleLoading }) {
         <>
             <tr >
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{indexNum}</td>
-                <td className="text-center" style={{ verticalAlign: 'middle' }}>{dataVideo?.videoURL}</td>
+                <td className="text-center" style={{ verticalAlign: 'middle' }}>{dataVideo?.videoUrl}</td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>
                     <img alt="" src={dataVideo?.imageCover?.url} style={{ width: 200, height: 'auto' }} />
                 </td>
