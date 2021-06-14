@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import logoCountry from "../../image/home/country.png";
 import { useSetting } from "../../lib/API";
+import { doGet } from "../../lib/DataSource";
 import "../../style/style.scss";
 export default function Header() {
   const { data } = useSetting();
   let history = useHistory();
   const [height, setHeight] = useState();
+  const [investmentId, setInvestmentId] = useState()
+  useEffect(() => {
+    async function fetchData() {
+      let path = "/investment";
+      try {
+        let resp = await doGet(path);
+        if (resp.status === 200) {
+          setInvestmentId(resp.data?.[0]._id)
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData()
+  }, [])
+
   window.addEventListener("scroll", () => {
     let heightWindow = window.pageYOffset;
     setHeight(heightWindow);
@@ -556,7 +573,10 @@ export default function Header() {
                 <li>
                   <span
                     style={{ cursor: "pointer" }}
-                    onClick={() => history.push("/project")}
+                    onClick={() => history.push({
+                      pathname: '/project',
+                      state: investmentId
+                    })}
                   >
                     Dự án
                   </span>

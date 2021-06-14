@@ -1,29 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from "react-js-pagination";
+import { useLocation } from 'react-router-dom';
 import { doGet } from '../../lib/DataSource';
 import Loading from '../image/Loading';
 import Item from './Item';
 import MenuProject from './MenuProject';
 export default function Project() {
-    const [investmentId, setInvestmentId] = useState();
+    let location = useLocation();
+
+    const [investmentId, setInvestmentId] = useState(location.state);
     const [data, setData] = useState();
     const [activePage, setActivePage] = useState(1);
     const [loading, setLoading] = useState(false)
-    useEffect(() => {
-        async function fetchData() {
-            let path = "/investment";
-            try {
-                let resp = await doGet(path);
-                if (resp.status === 200) {
-                    setInvestmentId(resp.data?.[0]._id)
-                }
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchData()
-    }, [])
-
+    
     useEffect(() => {
         getSearch()
     }, [investmentId, activePage])

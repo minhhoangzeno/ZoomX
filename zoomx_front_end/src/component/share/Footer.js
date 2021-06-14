@@ -1,14 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import iconWeather from "../../image/home/icon-weather.png";
 import logoCountry from "../../image/home/country.png";
 import { useHistory } from "react-router-dom";
 import "../../style/style.scss";
 import { useIcon } from "../../lib/API";
+import { doPost, doGet } from "../../lib/DataSource";
 
 export default function Footer() {
   const { data } = useIcon();
   const [isNavMobile, setIsNavMobile] = useState(false);
   let history = useHistory();
+  const [email, setEmail] = useState();
+  const [investmentId, setInvestmentId] = useState()
+  useEffect(() => {
+    async function fetchData() {
+      let path = "/investment";
+      try {
+        let resp = await doGet(path);
+        if (resp.status === 200) {
+          setInvestmentId(resp.data?.[0]._id)
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData()
+  }, [])
+  const addMail = async () => {
+    let path = '/person-mail';
+    let formData = new FormData();
+    formData.append("mail", email);
+    const headers = {
+      Accept: "*/*"
+    }
+    try {
+      let resp = await doPost(path, headers, formData);
+      if (resp.status === 200) {
+        alert("Bạn đã gửi mail thành công!")
+      }
+    } catch (error) {
+      alert("Thất bại! Vui lòng thử lại")
+    }
+  }
   return (
     <>
       <footer>
@@ -55,10 +88,16 @@ export default function Footer() {
                   </div>
                   <div className="wrapper__top__item--bottom sign__wrapper">
                     <div className="sign__wrapper__input">
-                      <input type="email" placeholder="Email" />
+                      <input type="email" placeholder="Email"
+                        onChange={(e) => {
+                          setEmail(e.target.value)
+                        }}
+                      />
                     </div>
                     <div className="sign__wrapper__btn">
-                      <button>ĐĂNG KÝ</button>
+                      <button
+                        onClick={addMail}
+                      >ĐĂNG KÝ</button>
                     </div>
                   </div>
                 </div>
@@ -604,7 +643,10 @@ export default function Footer() {
           <li>
             <span
               style={{ cursor: "pointer" }}
-              onClick={() => history.push("/project")}
+              onClick={() => history.push({
+                pathname: '/project',
+                state: investmentId
+              })}
             >
               Dự án
             </span>

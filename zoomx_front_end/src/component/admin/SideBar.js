@@ -27,8 +27,12 @@ export function SideBar({ handlePage, isPage, user }) {
                             </svg>
                         </div>
                         <ul className="admin__setting" style={{ display: (isSetting) ? "block" : "none" }}>
-                            <li>Quản lý người dùng</li>
-                            <li>Tài khoản</li>
+                            <li onClick={() => handlePage('manage-user')}
+                                className={handleStyle("manage-user")}
+                            >Quản lý người dùng</li>
+                            <li onClick={() => handlePage('manage-account')}
+                                className={handleStyle("manage-account")}
+                            >Tài khoản</li>
                             <li onClick={() => {
                                 history.push("/login")
                                 localStorage.removeItem("user")
