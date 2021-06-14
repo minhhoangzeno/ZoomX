@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
 import "../../style/style.scss";
-import hero from "../../image/home/hero.png";
 import Slider from "react-slick";
 import { useHero } from "../../lib/API";
 

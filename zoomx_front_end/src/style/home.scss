@@ -155,10 +155,11 @@
     background-color: #707070;
     margin: 0 auto;
   }
-  .text__headline-block {
+  .text__center--top {
     margin-bottom: 20px;
     font-size: 14px;
     letter-spacing: 4px;
+    font-family: Helvtica !important;
     @media (max-width: 1025px) {
       margin-bottom: 10px;
     }
@@ -254,8 +255,11 @@
         font-size: 36px;
         font-family: "Helvetica";
         font-weight: 700;
-        padding: 36px 60px 10px 0;
+        // padding: 36px 60px 10px 0;
         letter-spacing: 2px;
+        padding-top: 36px;
+        text-align: left;
+        margin-left: 63px;
         @media (max-width: 1025px) {
           font-size: 20px;
           padding-left: 32px;
@@ -559,6 +563,7 @@
     padding: 0 15px 0px 15px;
   }
   .text__headline--view {
+    font-family: Helvtica !important;
     margin-bottom: 20px;
     font-size: 14px;
     letter-spacing: 4px;
@@ -802,10 +807,10 @@
     padding: 0;
   }
   .text__headline--field {
-    font-family: Helvetica;
+    font-family: Helvtica !important;
     margin-bottom: 20px;
     letter-spacing: 4px;
-    font-size: 16px;
+    font-size: 14px;
     @media (max-width: 1025px) {
       font-size: 14px;
       letter-spacing: 4px;
@@ -984,6 +989,7 @@
   margin-bottom: 20px;
   font-size: 14px;
   letter-spacing: 4px;
+  font-family: Helvtica;
   @media (max-width: 769px) {
     font-size: 9px;
   }
@@ -1083,18 +1089,25 @@
         }
       }
       .btn__news {
-        display: flex;
-        background-color: #f9f9f9;
         padding: 7px 14px;
-        color: #e01042;
         border: 1px solid #e01042;
         margin-bottom: 20px;
         font-weight: 500;
+        background-color: #e01042;
+        color: #ffffff;
         font-size: 14px;
         letter-spacing: 1px;
+        justify-content: left;
+        display: flex;
         @media (max-width: 769px) {
           font-size: 12px;
         }
+      }
+      .btn__news:hover {
+        color: #e01042;
+        border: 1px solid #e01042;
+        background-color: #f9f9f9;
+        transition: 0.5s;
       }
     }
   }

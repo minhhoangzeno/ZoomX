@@ -136,6 +136,7 @@
               background-color: #707070;
             }
             .txt__content {
+              height: 50px;
               font-weight: 600;
               margin-top: 18px;
               font-size: 16px;
@@ -146,12 +147,12 @@
               }
             }
             .btn__news {
-              background-color: #f9f9f9;
               padding: 7px 14px;
-              color: #e01042;
               border: 1px solid #e01042;
               margin-bottom: 20px;
               font-weight: 500;
+              background-color: #e01042;
+              color: #ffffff;
               font-size: 14px;
               letter-spacing: 1px;
               @media (max-width: 769px) {
@@ -159,9 +160,9 @@
               }
             }
             .btn__news:hover {
+              color: #e01042;
               border: 1px solid #e01042;
-              background-color: #e01042;
-              color: #ffffff;
+              background-color: #f9f9f9;
               transition: 0.5s;
             }
           }

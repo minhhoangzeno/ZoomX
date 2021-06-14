@@ -427,9 +427,9 @@ footer {
     align-items: center;
     flex-direction: column;
     &--top {
-      padding-bottom: 20px;
+      margin-bottom: 20px;
       font-size: 14px;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       font-family: Helvtica;
       @media (max-width: 768px) {
         font-size: 12px;
@@ -600,13 +600,13 @@ footer {
       &:nth-child(1) {
         display: none;
       }
-      &:nth-child(2){
+      &:nth-child(2) {
         display: none;
       }
       &:nth-last-child(1) {
         display: none;
       }
-      &:nth-last-child(2){
+      &:nth-last-child(2) {
         display: none;
       }
     }

@@ -8,13 +8,13 @@ export default function ItemHome() {
   const settings = {
     infinite: true,
     speed: 4000,
-    autoplay: true,
+    // autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
   return (
     <div className="container__item-block">
-      <p className="text__headline-block">
+      <p className="text__center--top">
         WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS
       </p>
       <div className="empty__element-block"></div>

@@ -101,8 +101,8 @@
     }
     @media (max-width: 1025px) {
       font-size: 16px;
-    font-family: 'HELVETICA';
-    line-height: 26px;
+      font-family: "HELVETICA";
+      line-height: 26px;
     }
     @media (max-width: 769px) {
       font-size: 12px;
@@ -145,7 +145,8 @@
       }
     }
     &--btn {
-      button {
+      a {
+        text-decoration: none;
         border: 3px solid transparent;
         background-color: #e01042;
         padding: 15px 38px;
@@ -153,6 +154,10 @@
         color: #fff;
         letter-spacing: 2px;
         font-weight: 600;
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+        }
         @media (max-width: 1024px) {
           font-size: 16px;
           padding: 9px 18px;
@@ -191,7 +196,7 @@
     height: 100%;
     object-fit: cover;
   }
-  @media(max-width:426px){
+  @media (max-width: 426px) {
     padding-top: 0;
     padding-bottom: 30px;
   }
@@ -251,7 +256,7 @@
 }
 .young-wrapper__content {
   font-size: 16px;
-  font-family: 'HELVETICA';
+  font-family: "HELVETICA";
   line-height: 26px;
   @media (max-width: 769px) {
     font-size: 12px;

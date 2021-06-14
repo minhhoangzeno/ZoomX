@@ -1,5 +1,4 @@
 import React, { dataReasonSelect } from "react";
-import hotel from "../../image/zoomX/hotel.png";
 import { useZoomx } from "../../lib/API";
 export default function IntroduceComponent() {
   const { data } = useZoomx();
@@ -32,7 +31,9 @@ export default function IntroduceComponent() {
                     Hồ sơ năng lực
                   </div>
                   <div className="introduce-detail__profile--btn">
-                    <button>TẢI XUỐNG</button>
+                    <a href={data[0]?.profile.fileUrl} target="_blank">
+                      Tải Xuống
+                    </a>
                   </div>
                 </div>
               </div>
