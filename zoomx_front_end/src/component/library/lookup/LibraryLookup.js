@@ -64,7 +64,7 @@ function Item({ data }) {
   return (
     <>
       <ModalLookup show={modalShow} onHide={() => setModalShow(false)} fileBook={data?.fileBook?.fileUrl} />
-      <div className="item" onClick={() => setModalShow(true)}>
+      <div className="item item-lib-look" onClick={() => setModalShow(true)}>
         <div className="item__content--top">
           <img src={data?.imageCover?.url} alt="" loading="lazy" />
         </div>

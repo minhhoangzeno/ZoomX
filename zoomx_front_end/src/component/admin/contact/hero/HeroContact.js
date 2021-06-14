@@ -35,7 +35,7 @@ export default function HeroContact() {
         <>
 
             <div className="title">
-                <h1>Hero Liên hệ</h1>
+                <h1>Hero Contact</h1>
             </div>
             <div className="wrapper__table">
                 <section className="content-header">

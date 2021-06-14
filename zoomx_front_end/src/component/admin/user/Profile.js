@@ -1,60 +1,63 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { doPost } from '../../lib/DataSource';
-import Loading from '../image/Loading';
+import React, { useEffect, useState } from 'react';
+import { doPut } from '../../../lib/DataSource';
+import Loading from '../../image/Loading';
 
-export default function Signup() {
+export default function Profile() {
     const [user, setUser] = useState();
     const [fileCover, setFileCover] = useState();
-    let history = useHistory();
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState()
-    let addUser = async () => {
-        setLoading(true)
-        let path = "/user";
-        let data = new FormData();
-        data.append("displayName", user?.displayName);
-        data.append("username", user?.username);
-        data.append("password", user?.password);
-        data.append("avatar", user?.avatar);
-        data.append("isAdmin", false)
-        const headers = {
-            "Content-Type": "multipart/form-data"
-        };
-        try {
-            let resp = await doPost(path, headers, data);
-            if (resp.status === 200) {
-                localStorage.setItem("user", JSON.stringify(resp.data))
-                history.push("/admin")
-                setLoading(false)
-
-            }
-        } catch (error) {
-            setError(error)
-            setLoading(false)
-
+    const [loading, setLoading] = useState(false)
+    useEffect(() => {
+        async function fetchData() {
+            const userLocal = await JSON.parse(localStorage.getItem("user"))
+            setUser(userLocal)
+            setFileCover(userLocal?.avatar?.url)
         }
-    }
-    const handleUser = (e) => {
-        let { value, name } = e.target;
+        fetchData()
+    }, []);
+    let handleUser = (e) => {
+        let { name, value } = e.target;
         setUser({
             ...user,
             [name]: value
         })
     }
+    let updateUser = async () => {
+        setLoading(true)
+        let path = `/user/${user?._id}`;
+        let data = new FormData();
+        data.append("displayName", user?.displayName);
+        data.append("password", user?.password);
+        data.append("avatar", user?.avatar);
+        const headers = {
+            "Content-Type": "multipart/form-data"
+        };
+        try {
+            let resp = await doPut(path, headers, data);
+            if (resp.status === 200) {
+                localStorage.setItem("user", JSON.stringify(resp.data))
+                setLoading(false)
+                alert("Sửa tài khoản thành công!")
+            }
+        } catch (error) {
+            setLoading(false)
+        }
+    }
     return (
         <>
-            <div className="wrapper__signup" style={{ width: '100vw', height: '100vh' }}>
-                {loading ? <Loading /> :
+            <div className="wrapper__signup">
+                <div className="main__signup">
+                    {loading ? <Loading /> :
 
-                    <div className="main__signup">
+
                         <div className="wrapper__sign">
                             <div className="title">
-                                <h1>ĐĂNG KÝ</h1>
+                                <h1>Tài khoản cá nhân</h1>
                             </div>
                             <form>
+                                <label>Tên hiển thị</label>
                                 <input type="text" name="displayName" placeholder="Tên hiển thị"
                                     onChange={handleUser}
+                                    value={user?.displayName}
                                 />
                                 <div className="set-avatar">
                                     <label>Ảnh đại diện</label>
@@ -72,30 +75,32 @@ export default function Signup() {
                                 {fileCover ? <div className="cover-img">
                                     <img id="target" src={fileCover} style={{ width: 200, height: 'auto' }} alt="" />
                                 </div> : <></>}
+                                <label>Tên đăng nhập</label>
 
                                 <input className="nameUser-btn" placeholder="Tên đăng nhập"
                                     name="username"
-                                    onChange={handleUser}
+                                    value={user?.username}
                                 />
                                 <div className="pw-wrapper">
-                                    <input className="pw-btn" placeholder="Mật khẩu" type="password"
+                                    <label>Mật khẩu</label>
+
+                                    <input className="pw-btn" placeholder="Mật khẩu mới" type="password"
                                         onChange={handleUser}
                                     />
                                 </div>
 
                                 <div className="wrapper__sign-btn">
                                     <div className="sign-up">
-                                        <div onClick={addUser}>XÁC NHẬN</div>
+                                        <div onClick={updateUser}>XÁC NHẬN</div>
                                     </div>
                                 </div>
                             </form>
 
-                            {error ? <div>Vui long nhap lai thong tin!</div> : <></>}
+
                         </div>
-                    </div>
-                }
+                    }
+                </div>
             </div>
         </>
     )
 }
-

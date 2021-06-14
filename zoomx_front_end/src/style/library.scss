@@ -223,8 +223,6 @@ img {
               box-shadow: 0px 2px 3px 2px #e8e8e8;
               &:hover {
                 text-decoration: none;
-              }
-              &:hover {
                 img {
                   transform: scale(1.5);
                   transition: 1s;
@@ -363,10 +361,42 @@ img {
       .item:nth-of-type(3n) {
         margin-right: 0px;
       }
+      .item-lib-look {
+        &:hover{
+          img{
+            transform: none;
+          }
+        }
+      }
+      .item-lib-video {
+        &:hover{
+          img{
+            transform: none;
+          }
+        }
+        .item__content--top{
+          position: relative;
+          .play-btn{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+              height: 60px;
+              width: 60px;
+              @media (max-width: 768px){
+                height: 50px;
+                width: 50px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
-
 
 .paginator__block {
   width: 100%;

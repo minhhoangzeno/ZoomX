@@ -29,6 +29,8 @@ import YoungBusiness from './zoomx/young-business/YoungBusiness';
 import ZoomX from './zoomx/zoom-x/ZoomX';
 import Blog from './news/blog/Blog';
 import Video from './home/video/Video';
+import User from './user/User';
+import Profile from './user/Profile'
 export default function Dashboard({ isPage }) {
     return (
         <div className="wrapper__admin">
@@ -62,8 +64,8 @@ export default function Dashboard({ isPage }) {
             {isPage === "hero-news" && <HeroNews />}
             {isPage === "hero-recruitment" && <HeroRecruitment />}
             {isPage === "video" && <Video />}
-
-
+            {isPage === "manage-user" && <User /> }
+            {isPage === "manage-account" && <Profile />}
 
 
 
