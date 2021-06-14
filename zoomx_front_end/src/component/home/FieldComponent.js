@@ -76,14 +76,19 @@ export default function FieldComponent() {
                     alt="#"
                   />
                   <div className="box__item">
-                    <p className="txt__number">{index + 1}</p>
+                    <p className="txt__number">{
+                      (index < 9) ? `0${index + 1}` : (index + 1) 
+                    } /</p>
                     <p className="txt__adress">Lĩnh vực</p>
                     <p className="txt__hotel">{item.investmentName}</p>
                     <div className="empty__box"></div>
                     <button className="btn__field"
-                    onClick={() => {
-                      history.push('/project')
-                    }}
+                      onClick={() => {
+                        history.push({
+                          pathname: '/project',
+                          state: item?._id
+                        })
+                      }}
                     >XEM THÊM</button>
                   </div>
                   <div className="img__field--overlay"></div>

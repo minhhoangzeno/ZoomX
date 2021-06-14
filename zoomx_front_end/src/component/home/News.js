@@ -117,10 +117,12 @@ export default function News() {
           })}
         </Slider>
         :
-        <Loading />  
-    }
+        <Loading />
+      }
       <div className="btn__item-click">
-        <button>XEM THÊM</button>
+        <button onClick={() => {
+          history.push('/news')
+        }}>XEM THÊM</button>
       </div>
     </div>
   );
