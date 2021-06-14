@@ -17,7 +17,7 @@ export default function Signup() {
         data.append("username", user?.username);
         data.append("password", user?.password);
         data.append("avatar", user?.avatar);
-        data.append("isAdmin", false)
+        data.append("isAdmin", 'Member')
         const headers = {
             "Content-Type": "multipart/form-data"
         };

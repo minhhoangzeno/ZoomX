@@ -16,39 +16,68 @@ export default function UserItem({ data, indexNum, getHero, handleLoading }) {
         }
     }
     const handleSetRoleAdmin = async () => {
-        handleLoading(true)
-        let path = `/user-role-set-admin/${data?._id}`
-      
-        const headers = {
-            "Content-Type": "multipart/form-data"
-        }
-        try {
-            let resp = await doPut(path, headers);
-            if (resp.status === 200) {
-                getHero();
+        let message = window.confirm("Bạn chắc chắn muốn thay đổi quyền?");
+        if (message) {
+            handleLoading(true)
+            let path = `/user-role-set-admin/${data?._id}`
+
+            const headers = {
+                "Content-Type": "multipart/form-data"
+            }
+            try {
+                let resp = await doPut(path, headers);
+                if (resp.status === 200) {
+                    getHero();
+                    handleLoading(false)
+                }
+            } catch (error) {
                 handleLoading(false)
             }
-        } catch (error) {
-            handleLoading(false)
         }
+
     }
-    const handleDeleteRoleAdmin = async () => {
-        handleLoading(true)
-        let path = `/user-role-delete-admin/${data?._id}`
-      
-        const headers = {
-            "Content-Type": "multipart/form-data"
-        }
-        try {
-            let resp = await doPut(path, headers);
-            if (resp.status === 200) {
-                getHero();
+    const handleSetRoleUser = async () => {
+        let message = window.confirm("Bạn chắc chắn muốn thay đổi quyền?");
+        if (message) {
+            handleLoading(true)
+            let path = `/user-role-set-user/${data?._id}`
+
+            const headers = {
+                "Content-Type": "multipart/form-data"
+            }
+            try {
+                let resp = await doPut(path, headers);
+                if (resp.status === 200) {
+                    getHero();
+                    handleLoading(false)
+                }
+            } catch (error) {
                 handleLoading(false)
             }
-        } catch (error) {
-            handleLoading(false)
         }
     }
+    const handleSetRoleMember = async () => {
+        let message = window.confirm("Bạn chắc chắn muốn thay đổi quyền?");
+        if (message) {
+            handleLoading(true)
+            let path = `/user-role-set-member/${data?._id}`
+
+            const headers = {
+                "Content-Type": "multipart/form-data"
+            }
+            try {
+                let resp = await doPut(path, headers);
+                if (resp.status === 200) {
+                    getHero();
+                    handleLoading(false)
+                }
+            } catch (error) {
+                handleLoading(false)
+            }
+        }
+
+    }
+
     return (
         <>
             <tr >
@@ -64,7 +93,7 @@ export default function UserItem({ data, indexNum, getHero, handleLoading }) {
                             type="radio"
                             name={data._id}
                             onChange={() => handleSetRoleAdmin()}
-                            checked={data.isAdmin ? true : false}
+                            checked={(data.isAdmin === 'Admin') ? true : false}
                         />{" "}
                         Admin
                     </div>
@@ -72,10 +101,19 @@ export default function UserItem({ data, indexNum, getHero, handleLoading }) {
                         <input
                             type="radio"
                             name={data._id}
-                            onChange={() => handleDeleteRoleAdmin()}
-                            checked={data.isAdmin ? false : true}
+                            onChange={() => handleSetRoleUser()}
+                            checked={(data.isAdmin === 'User') ? true : false}
                         />{" "}
                         User
+                    </div>
+                    <div>
+                        <input
+                            type="radio"
+                            name={data._id}
+                            onChange={() => handleSetRoleMember()}
+                            checked={(data.isAdmin === 'Member') ? true : false}
+                        />{" "}
+                        Member
                     </div>
                 </td>
                 <td style={{ verticalAlign: 'middle' }} className="btn__setting">

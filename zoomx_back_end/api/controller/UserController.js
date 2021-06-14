@@ -89,22 +89,7 @@ exports.delete_user = (req, res) => {
     })
 }
 
-exports.set_role_admin_user = (req, res) => {
-    let id = req.params.user_id;
-    User.findByIdAndUpdate(id, { isAdmin: true }).then(data => {
-        res.send(data)
-    }).catch(err => {
-        res.send(err)
-    })
-}
-exports.delete_role_admin_user = (req, res) => {
-    let id = req.params.user_id;
-    User.findByIdAndUpdate(id, { isAdmin: false }).then(data => {
-        res.send(data)
-    }).catch(err => {
-        res.send(err)
-    })
-}
+
 exports.update_user = (req, res) => {
     let id = req.params.user_id;
     let password = req.body.password;
@@ -130,5 +115,29 @@ exports.update_user = (req, res) => {
                 res.send(error)
             })
         })
+    })
+}
+exports.set_role_admin_user = (req, res) => {
+    let id = req.params.user_id;
+    User.findByIdAndUpdate(id, { isAdmin: 'Admin' }).then(data => {
+        res.send(data)
+    }).catch(err => {
+        res.send(err)
+    })
+}
+exports.set_role_user_user = (req, res) => {
+    let id = req.params.user_id;
+    User.findByIdAndUpdate(id, { isAdmin: 'User' }).then(data => {
+        res.send(data)
+    }).catch(err => {
+        res.send(err)
+    })
+}
+exports.set_role_member_user = (req, res) => {
+    let id = req.params.user_id;
+    User.findByIdAndUpdate(id, { isAdmin: 'Member' }).then(data => {
+        res.send(data)
+    }).catch(err => {
+        res.send(err)
     })
 }

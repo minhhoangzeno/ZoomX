@@ -1,9 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Slider from "react-slick";
 import icon1 from "../../image/homePage/icon1.png";
 import { useInvestment } from "../../lib/API";
 export default function FieldComponent() {
   const { data } = useInvestment();
+  let history = useHistory()
   const item = {
     // dots: true,
     infinite: true,
@@ -78,7 +80,11 @@ export default function FieldComponent() {
                     <p className="txt__adress">Lĩnh vực</p>
                     <p className="txt__hotel">{item.investmentName}</p>
                     <div className="empty__box"></div>
-                    <button className="btn__field">XEM THÊM</button>
+                    <button className="btn__field"
+                    onClick={() => {
+                      history.push('/project')
+                    }}
+                    >XEM THÊM</button>
                   </div>
                   <div className="img__field--overlay"></div>
                 </div>
