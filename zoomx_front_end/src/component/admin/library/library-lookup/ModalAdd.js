@@ -38,7 +38,7 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Nhập ten lookup</label> <input className="input-txt"
+                        <label className="label-txt">Nhập tên lookup</label> <input className="input-txt"
                             name="name" onChange={(e) => {
                                 setLookUp({
                                     ...lookup,
@@ -66,7 +66,7 @@ export default function ModalAdd(props) {
                         </div> : <></>}
                     </div>
                     <div>
-                        <label>Chon fileBook</label>
+                        <label>Chọn fileBook</label>
                         <input id="file-input" type="file"
                             name="fileBook"
                             onChange={(e) => {

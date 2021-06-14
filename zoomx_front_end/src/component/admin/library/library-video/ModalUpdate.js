@@ -60,7 +60,7 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Nhập ten video</label> <input className="input-txt"
+                        <label className="label-txt">Tên video</label> <input className="input-txt"
                             name="name"
                             onChange={handleVideo}
                             type="text"
@@ -68,7 +68,7 @@ export default function ModalAdd(props) {
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Nhập url video</label> <input className="input-txt"
+                        <label className="label-txt">Url video</label> <input className="input-txt"
                             name="videoUrl"
                             onChange={handleVideo}
                             type="text"

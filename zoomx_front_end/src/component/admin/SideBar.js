@@ -48,7 +48,7 @@ export function SideBar({ handlePage, isPage, user }) {
                         <li onClick={() => handlePage('heroHome')}
                             className={handleStyle("heroHome")}
                         >
-                            <span>Hero Trang chủ</span>
+                            <span>Ảnh đầu trang chủ</span>
                         </li>
                         <li onClick={() => handlePage('defineHome')}
                             className={handleStyle("defineHome")}
@@ -73,12 +73,12 @@ export function SideBar({ handlePage, isPage, user }) {
                         <li onClick={() => handlePage('header')}
                             className={handleStyle("header")}
                         >
-                            <span>Header</span>
+                            <span>Đầu trang</span>
                         </li>
                         <li onClick={() => handlePage('icon')}
                             className={handleStyle("icon")}
                         >
-                            <span>Icon Footer</span>
+                            <span>Icon cuối trang</span>
                         </li>
                     </ul>
                     <hr />
@@ -90,7 +90,7 @@ export function SideBar({ handlePage, isPage, user }) {
                         <li onClick={() => handlePage('hero-zoomx')}
                             className={handleStyle("hero-zoomx")}
                         >
-                            <span>Hero Giới thiệu</span>
+                            <span>Ảnh đầu trang giới thiệu</span>
                         </li>
                         <li onClick={() => handlePage('slogan')}
                             className={handleStyle("slogan")}
@@ -123,7 +123,7 @@ export function SideBar({ handlePage, isPage, user }) {
                         <li onClick={() => handlePage('hero-project')}
                             className={handleStyle("hero-project")}
                         >
-                            <span>Hero Dự án</span>
+                            <span>Ảnh đầu trang dự án</span>
                         </li>
                     </ul>
                     <hr />
@@ -137,7 +137,7 @@ export function SideBar({ handlePage, isPage, user }) {
                         <li onClick={() => handlePage('hero-investment')}
                             className={handleStyle("hero-investment")}
                         >
-                            <span>Hero Lĩnh vực đầu tư</span>
+                            <span>Ảnh đầu trang lĩnh vực đầu tư</span>
                         </li>
                     </ul>
                     <hr />
@@ -149,7 +149,7 @@ export function SideBar({ handlePage, isPage, user }) {
                         <li onClick={() => handlePage('hero-news')}
                             className={handleStyle("hero-news")}
                         >
-                            <span>Hero Tin tức</span>
+                            <span>Ảnh đầu trang tin tức</span>
                         </li>
                         <li onClick={() => handlePage('blog')}
                             className={handleStyle("blog")}
@@ -173,7 +173,7 @@ export function SideBar({ handlePage, isPage, user }) {
                         <li onClick={() => handlePage('hero-contact')}
                             className={handleStyle("hero-contact")}
                         >
-                            <span>Hero Liên hệ</span>
+                            <span>Ảnh đầu trang liên hệ</span>
                         </li>
                     </ul>
                     <hr />
@@ -208,7 +208,7 @@ export function SideBar({ handlePage, isPage, user }) {
                         <li onClick={() => handlePage('hero-library')}
                             className={handleStyle('hero-library')}
                         >
-                            <span>Hero Thư viện</span>
+                            <span>Ảnh đầu trang thư viện</span>
                         </li>
                         <li onClick={() => handlePage('library-lookup')}
                             className={handleStyle('library-lookup')}
@@ -237,7 +237,7 @@ export function SideBar({ handlePage, isPage, user }) {
                         <li onClick={() => handlePage('hero-recruitment')}
                             className={handleStyle('hero-recruitment')}
                         >
-                            <span>Hero Tuyển dụng</span>
+                            <span>Ảnh đầu trang tuyển dụng</span>
                         </li>
                     </ul>
                     <hr />

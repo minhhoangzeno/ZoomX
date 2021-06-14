@@ -43,7 +43,7 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Nhập ten video</label> <input className="input-txt"
+                        <label className="label-txt">Nhập tên video</label> <input className="input-txt"
                             name="name"
                             onChange={handleVideo}
                             type="text"

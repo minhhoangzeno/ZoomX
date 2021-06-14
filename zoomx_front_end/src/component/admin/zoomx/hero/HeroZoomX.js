@@ -33,7 +33,7 @@ export default function HeroZoomX() {
   return (
     <>
       <div className="title">
-        <h1>Hero Tong quan ve ZoomX</h1>
+        <h1>Ảnh tổng quan về ZoomX</h1>
       </div>
       <div className="wrapper__table">
         <section className="content-header">
