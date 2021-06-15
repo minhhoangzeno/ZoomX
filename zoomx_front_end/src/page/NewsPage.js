@@ -10,7 +10,7 @@ import "../style/news-page.scss";
 import Pagination from "react-js-pagination";
 import Loading from "../component/image/Loading";
 import { useHeroNews } from "../lib/API";
-
+import BackToTop from "../image/BacktoTop";
 export default function NewsPage() {
   const [data, setData] = useState();
   const [activePage, setActivePage] = useState(1);
@@ -132,6 +132,7 @@ export default function NewsPage() {
           onChange={(item) => handleActivePage(item)}
         />
       </div>
+      <BackToTop />
       <Footer />
     </>
   );

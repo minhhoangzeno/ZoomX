@@ -6,7 +6,7 @@ import DetailRecruitment from '../component/detail-recruitment/DetailRecruitment
 import { MetaTags } from 'react-meta-tags';
 import { useHeroRecruitment } from '../lib/API';
 import { useLocation } from 'react-router';
-
+import BackToTop from "../image/BacktoTop";
 export default function DetailRecruitmentPage() {
     const { data } = useHeroRecruitment();
     const location = useLocation();
@@ -20,7 +20,7 @@ export default function DetailRecruitmentPage() {
             <Header />
             <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
             <DetailRecruitment data={dataRecruitment} />
-
+            <BackToTop />
             <Footer />
         </>
     )

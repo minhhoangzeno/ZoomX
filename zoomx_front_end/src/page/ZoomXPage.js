@@ -9,6 +9,7 @@ import Header from "../component/share/Header";
 import HeroPage from "../component/share/HeroPage";
 import { useHeroZoomx } from "../lib/API";
 import "../style/introduce.scss";
+import BackToTop from "../image/BacktoTop";
 export default function ZoomXPage() {
   const { data } = useHeroZoomx();
   return (
@@ -26,6 +27,7 @@ export default function ZoomXPage() {
       <IntroduceComponent />
       <YoungBusiness />
       <PartnerComponent />
+      <BackToTop />
       <Footer />
     </>
   );

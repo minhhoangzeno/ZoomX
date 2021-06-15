@@ -9,7 +9,7 @@ import HeroPage from '../component/share/HeroPage';
 import { useLocation } from 'react-router';
 import { doGet } from '../lib/DataSource';
 import { MetaTags } from 'react-meta-tags';
-
+import BackToTop from "../image/BacktoTop";
 export default function BlogDetailPage() {
     const location = useLocation();
     const data = location.state;
@@ -66,6 +66,7 @@ export default function BlogDetailPage() {
                     </div>
                 </div>
             </div>
+            <BackToTop />
             <Footer />
         </>
     )
