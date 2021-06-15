@@ -35,7 +35,7 @@ export default function HeroInvestment() {
         <>
 
             <div className="title">
-                <h1>Hero Linh vuc dau tu</h1>
+                <h1>Hero Lĩnh vực đầu tư</h1>
             </div>
             <div className="wrapper__table">
                 <section className="content-header">

@@ -23,31 +23,37 @@ export default function Item({
     }
   };
   const handleDeleteInvestment = async () => {
-    const path = `/investment/delete/${dataInvestment._id}`;
-    try {
-      let resp = await doPut(path);
-      if (resp.status === 200) {
-        console.log("delete ok");
+    let message = window.confirm("Bạn muốn xóa lĩnh vực đầu tư này?");
+    if (message) {
+      const path = `/investment/delete/${dataInvestment._id}`;
+      try {
+        let resp = await doPut(path);
+        if (resp.status === 200) {
+          console.log("delete ok");
+          handleLoading(false);
+          getInvestment();
+        }
+      } catch (error) {
+        console.log(error);
         handleLoading(false);
-        getInvestment();
       }
-    } catch (error) {
-      console.log(error);
-      handleLoading(false);
     }
   };
   const handleSetInvestment = async () => {
-    const path = `/investment/set/${dataInvestment._id}`;
-    try {
-      let resp = await doPut(path);
-      if (resp.status === 200) {
+    let message = window.confirm("Bạn muốn khôi phục lĩnh vực đầu tư này?");
+    if (message) {
+      const path = `/investment/set/${dataInvestment._id}`;
+      try {
+        let resp = await doPut(path);
+        if (resp.status === 200) {
+          handleLoading(false);
+          console.log("set ok");
+          getInvestment();
+        }
+      } catch (error) {
+        console.log(error);
         handleLoading(false);
-        console.log("set ok");
-        getInvestment();
       }
-    } catch (error) {
-      console.log(error);
-      handleLoading(false);
     }
   };
   return (

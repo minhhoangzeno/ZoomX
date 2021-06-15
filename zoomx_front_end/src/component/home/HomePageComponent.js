@@ -1,9 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import item from "../../image/homePage/item.png";
 import { useDefineHome } from "../../lib/API";
 
 export default function HomePage() {
   const { data } = useDefineHome();
+  let history = useHistory();
   return (
     <>
       <div className="home-page">
@@ -22,7 +24,9 @@ export default function HomePage() {
                 <div className="empty__element"></div>
                 <p className="bigs__words--mid">{data[0]?.title}</p>
                 <p className="title__element">{data[0]?.content}</p>
-                <button className="next_element">XEM THÊM</button>
+                <button className="next_element"
+                onClick={() => history.push('/zoomx')}
+                >XEM THÊM</button>
               </div>
             </div>
           </div>
