@@ -89,29 +89,55 @@ exports.delete_user = (req, res) => {
     })
 }
 
-exports.set_role_user = (req, res) => {
+
+exports.update_user = (req, res) => {
     let id = req.params.user_id;
-    let role = req.body.role;
-    User.findByIdAndUpdate(is, { isAdmin: role }).then(data => {
+    let password = req.body.password;
+    let savePassword;
+    bcrypt.hash(password, 10, (error, hash) => {
+        savePassword = hash;
+    })
+    User.findById(id).exec().then(user => {
+        ImageUtil.updateSingeFile(req.files[0], user?.avatar, 'User').then(() => {
+            User.findByIdAndUpdate(id, {
+                password: savePassword,
+                displayName: req.body.displayName
+            }).then(data => {
+                User.findById(data?._id)
+                    .populate({
+                        path: 'avatar',
+                        model: 'image',
+                        select: 'url'
+                    }).then(user => {
+                        res.send(user)
+                    })
+            }).catch(error => {
+                res.send(error)
+            })
+        })
+    })
+}
+exports.set_role_admin_user = (req, res) => {
+    let id = req.params.user_id;
+    User.findByIdAndUpdate(id, { isAdmin: 'Admin' }).then(data => {
         res.send(data)
     }).catch(err => {
         res.send(err)
     })
 }
-
-exports.update_user = (req, res) => {
+exports.set_role_user_user = (req, res) => {
     let id = req.params.user_id;
-    User.findById(id).exec().then(user => {
-        ImageUtil.updateSingeFile(req.files[0], user.avatar, 'User').then(() => {
-            User.findByIdAndUpdate(id, {
-                password: req.body.password,
-                displayName: req.body.displayName,
-                avatar: result._id
-            }).then(data => {
-                res.send(data)
-            }).catch(error => {
-                res.send(error)
-            })
-        })
+    User.findByIdAndUpdate(id, { isAdmin: 'User' }).then(data => {
+        res.send(data)
+    }).catch(err => {
+        res.send(err)
+    })
+}
+exports.set_role_member_user = (req, res) => {
+    let id = req.params.user_id;
+    User.findByIdAndUpdate(id, { isAdmin: 'Member' }).then(data => {
+        res.send(data)
+    }).catch(err => {
+        res.send(err)
     })
 }

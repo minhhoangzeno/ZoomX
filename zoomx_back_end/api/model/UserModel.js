@@ -21,7 +21,8 @@ const userSchema = new Schema({
         ref: 'image'
     },
     isAdmin: {
-        type: Boolean
+        type: String,
+        require: true
     }
 })
 userSchema.pre('save', function (next) {
