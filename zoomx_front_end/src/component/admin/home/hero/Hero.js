@@ -35,7 +35,7 @@ export default function Hero() {
         <>
 
             <div className="title">
-                <h1>Hero Trang Chủ</h1>
+                <h1>Ảnh đầu trang chủ</h1>
             </div>
             <div className="wrapper__table">
                 <section className="content-header">
@@ -53,9 +53,9 @@ export default function Hero() {
                         <thead>
                             <tr>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Tiêu đề</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Label</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ảnh cover</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Lời chào</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Nội dung</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ảnh</th>
                                 <th className="text-center" width="12%">Setting</th>
                             </tr>
                         </thead>

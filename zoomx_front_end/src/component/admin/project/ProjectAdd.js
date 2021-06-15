@@ -113,7 +113,7 @@ export default function ProjectAdd() {
                             typeInvestment: e.target.value
                         })
                     }}>
-                        <option value="0">Chon linh vuc dau tu</option>
+                        <option value="0">Chọn lĩnh vực đầu tư</option>
 
                         {investment?.map((item, idx) => {
                             return (

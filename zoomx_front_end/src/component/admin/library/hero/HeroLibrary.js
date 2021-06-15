@@ -35,7 +35,7 @@ export default function HeroLibrary() {
         <>
 
             <div className="title">
-                <h1>Hero Thu vien</h1>
+                <h1>Ảnh đầu trang thư viện</h1>
             </div>
             <div className="wrapper__table">
                 <section className="content-header">
@@ -54,8 +54,8 @@ export default function HeroLibrary() {
                             <tr>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Tiêu đề</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Label</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ảnh cover</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Tên trang</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ảnh</th>
                                 <th className="text-center" width="12%">Setting</th>
                             </tr>
                         </thead>

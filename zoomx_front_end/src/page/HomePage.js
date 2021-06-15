@@ -11,6 +11,7 @@ import "../style/home.scss";
 import HeroHeader from "../component/share/HeroHeader";
 import EnjoyVideo from "../component/home/EnjoyVideo";
 import News from "../component/home/News";
+import BackToTop from "../image/BackToTop";
 export default function HomePage() {
   return (
     <div>
@@ -28,6 +29,8 @@ export default function HomePage() {
       <EnjoyVideo />
       <News />
       <Footer />
+      <BackToTop />
     </div>
+
   );
 }

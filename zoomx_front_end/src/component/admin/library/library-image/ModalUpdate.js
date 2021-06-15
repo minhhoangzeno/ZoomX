@@ -72,7 +72,7 @@ export default function ModalUpdate(props) {
       >
         <div className="wrapper__modal">
           <div>
-            <label className="label-txt">Nhập ten thu vien</label>{" "}
+            <label className="label-txt">Tên thư viện</label>{" "}
             <input
               className="input-txt"
               name="name"
@@ -88,7 +88,7 @@ export default function ModalUpdate(props) {
           </div>
           <div>
             <div>
-              <label>Ảnh Cover:</label>{" "}
+              <label>Ảnh :</label>{" "}
               <input
                 id="file-input"
                 type="file"

@@ -85,7 +85,7 @@
                         }
                         
                         img{
-                            object-fit: cover;
+                            object-fit: contain;
                             @media (max-width:1679px) {
                                 width: 120px;
                             }

@@ -37,8 +37,16 @@ header {
         .contact {
           display: flex;
           opacity: 0.87;
+          &__number{
+            span{
+              font-size: 16px;
+            }
+          }
           &__mail {
             margin-left: 20px;
+            span{
+              font-size: 16px;
+            }
           }
         }
         &--right {
@@ -595,7 +603,7 @@ footer {
       a {
         text-decoration: none;
         color: #333;
-        font-size: 16;
+        font-size: 16px;
       }
       &:nth-child(1) {
         display: none;
@@ -611,7 +619,7 @@ footer {
       }
     }
     li.active {
-      background-color: #707070;
+      background-color: #E01042 !important;
       a {
         color: #fff;
       }
