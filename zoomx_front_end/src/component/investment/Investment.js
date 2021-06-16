@@ -6,7 +6,7 @@ import { doGet } from '../../lib/DataSource';
 import Item from './Item'
 import { useHeroInvestment } from '../../lib/API';
 
-export default function Investment() {
+export default function Investment( ) {
     let history = useHistory();
     const [data, setData] = useState(null); //tao 1 state data
     const [error, setError] = useState(null); //tao 1 state error
@@ -31,7 +31,7 @@ export default function Investment() {
             setLoading(true)
         }
     }
-
+    
     return (
         <>
             <div className="investment-wrapper">
