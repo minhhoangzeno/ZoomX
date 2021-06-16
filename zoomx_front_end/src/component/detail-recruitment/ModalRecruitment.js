@@ -47,7 +47,7 @@ export default function ModalRecruitment(props) {
                         </div>
                         <div className="quick--application--info">
                             <div className="logo">
-                                <img src={logo} />
+                                <img src={logo} alt="#" />
                             </div>
                             <div className="info">
                                 <div className="info-left">

@@ -7,10 +7,10 @@ export default function Item({ data, handleLoading, indexNum, getSearch }) {
     let history = useHistory()
     useEffect(() => {
         getCategory();
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
     useEffect(() => {
         getCategory();
-    }, [data?.categoryId])
+    }, [data?.categoryId]) // eslint-disable-line react-hooks/exhaustive-deps
     const getCategory = async () => {
         let path = `/categoryblog/${data?.categoryId}`;
         try {

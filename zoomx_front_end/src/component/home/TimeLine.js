@@ -68,7 +68,7 @@ export default function TimeLine() {
                 {data?.map((item, index) => {
                   return (
                     <div
-                      className="col-4 col-item"
+                      className="col-4 col-item" key={index}
                       style={{ maxWidth: "100%" }}
                     >
                       <div className="timeline__content__item">

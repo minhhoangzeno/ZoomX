@@ -71,7 +71,7 @@ export default function Footer() {
                         {data?.map((item, index) => {
                           return (
                             <li key={index}>
-                              <a href={item.url} target="_blank">
+                              <a href={item.url} target="_blank" rel="noopener noreferrer">
                                 <img src={item.imageCover.url} alt="#" />
                               </a>
                             </li>

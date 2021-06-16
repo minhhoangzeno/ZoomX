@@ -1,8 +1,7 @@
 import { Editor } from '@tinymce/tinymce-react';
 import moment from 'moment';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useHistory, useLocation } from 'react-router';
-import { doGet, doPost } from '../../../lib/DataSource';
 import { tinyconfig } from '../../../TinyConfig';
 import { tinyconfigBlog } from '../../../TinyConfigBlog';
 

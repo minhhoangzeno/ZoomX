@@ -15,6 +15,7 @@ export default function ModalVideo(props) {
             className="video__stream"
             src={`https://www.youtube.com/embed/${props?.videoId}`}
             frameborder="0"
+            title="c"
           ></iframe>
         </div>
       </Modal>

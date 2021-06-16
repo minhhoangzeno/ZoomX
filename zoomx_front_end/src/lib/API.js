@@ -7,7 +7,7 @@ export const useContact = () => {
   const [loading, setLoading] = useState(false); //state loading
   useEffect(() => {
     getContact();
-  }, []); //vua vao page se chay luon
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getContact() {
     const path = "/contact";
@@ -34,7 +34,7 @@ export const useInvestment = () => {
   const [loading, setLoading] = useState(false); //state loading
   useEffect(() => {
     getInvestment();
-  }, []); //vua vao page se chay luon
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getInvestment() {
     const path = "/investment";
@@ -61,7 +61,7 @@ export const usePartner = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     getPartner();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   async function getPartner() {
     setLoading(true);
     const path = "/partner";
@@ -70,7 +70,7 @@ export const usePartner = () => {
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
         setLoading(false);
       }
@@ -88,7 +88,7 @@ export const useProject = () => {
 
   useEffect(() => {
     getProject();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getProject() {
     const path = "/project";
@@ -113,7 +113,7 @@ export const useTimeLine = () => {
 
   useEffect(() => {
     getTimeLine();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getTimeLine() {
     const path = "/timeline";
@@ -122,7 +122,7 @@ export const useTimeLine = () => {
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
       }
     } catch (e) {
@@ -138,7 +138,7 @@ export const useRecruitmentDetail = () => {
 
   useEffect(() => {
     getRecruitment();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getRecruitment() {
     const path = "/recruitment";
@@ -147,7 +147,7 @@ export const useRecruitmentDetail = () => {
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
       }
     } catch (e) {
@@ -166,7 +166,7 @@ export const useSetting = () => {
 
   useEffect(() => {
     getSetting();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getSetting() {
     const path = "/setting";
@@ -175,7 +175,7 @@ export const useSetting = () => {
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
       }
     } catch (e) {
@@ -191,7 +191,7 @@ export const useHero = () => {
 
   useEffect(() => {
     getHero();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getHero() {
     const path = "/hero";
@@ -200,7 +200,7 @@ export const useHero = () => {
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
       }
     } catch (e) {
@@ -219,7 +219,7 @@ export const useDefineHome = () => {
 
   useEffect(() => {
     getDefineHome();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getDefineHome() {
     const path = "/define-home";
@@ -228,7 +228,7 @@ export const useDefineHome = () => {
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
       }
     } catch (e) {
@@ -244,7 +244,7 @@ export const useReasonSelect = () => {
 
   useEffect(() => {
     getReasonSelect();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getReasonSelect() {
     const path = "/reason-select";
@@ -253,7 +253,7 @@ export const useReasonSelect = () => {
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
       }
     } catch (e) {
@@ -273,7 +273,7 @@ export const useSlogan = () => {
 
   useEffect(() => {
     getSlogan();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getSlogan() {
     const path = "/slogan";
@@ -282,7 +282,7 @@ export const useSlogan = () => {
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
       }
     } catch (e) {
@@ -302,7 +302,7 @@ export const useZoomx = () => {
 
   useEffect(() => {
     getZoomx();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getZoomx() {
     const path = "/zoomx";
@@ -311,7 +311,7 @@ export const useZoomx = () => {
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
       }
     } catch (e) {
@@ -327,7 +327,7 @@ export const useYoungbusiness = () => {
 
   useEffect(() => {
     getYoungbusiness();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function getYoungbusiness() {
     const path = "/youngbusiness";
@@ -336,7 +336,7 @@ export const useYoungbusiness = () => {
     };
     try {
       var resp = await doGet(path, headers);
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         setData(resp.data);
       }
     } catch (e) {
@@ -352,7 +352,7 @@ export const useHeroInvestment = () => {
 
   useEffect(() => {
     getHero();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   async function getHero() {
     const path = "/hero/investment";
     const headers = {
@@ -377,7 +377,7 @@ export const useHeroZoomx = () => {
 
   useEffect(() => {
     getHeroZoomx();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   async function getHeroZoomx() {
     const path = "/hero/zoomx";
     const headers = {
@@ -402,7 +402,7 @@ export const useHeroContact = () => {
 
   useEffect(() => {
     getHero();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   async function getHero() {
     const path = "/hero/contact";
     const headers = {
@@ -427,7 +427,7 @@ export const useHeroLibrary = () => {
 
   useEffect(() => {
     getHero();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   async function getHero() {
     const path = "/hero/library";
     const headers = {
@@ -452,7 +452,7 @@ export const useHeroRecruitment = () => {
 
   useEffect(() => {
     getHero();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   async function getHero() {
     const path = "/hero/recruitment";
     const headers = {
@@ -477,7 +477,7 @@ export const useHeroNews = () => {
 
   useEffect(() => {
     getHero();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   async function getHero() {
     const path = "/hero/news";
     const headers = {
@@ -502,7 +502,7 @@ export const useHeroProject = () => {
 
   useEffect(() => {
     getHero();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   async function getHero() {
     const path = "/hero/project";
     const headers = {
@@ -526,7 +526,7 @@ export const useIcon = () => {
 
   useEffect(() => {
     getIcon();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   async function getIcon() {
     const path = "/icon";
     const headers = {
@@ -536,7 +536,6 @@ export const useIcon = () => {
       var resp = await doGet(path, headers);
       if (resp.status === 200) {
         setData(resp.data);
-        console.log(data);
       }
     } catch (error) {
       setError(error);

@@ -48,19 +48,19 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Nhập linh vuc dau tu: </label> <input className="input-txt"
+                        <label className="label-txt">Nhập tên lĩnh vực đầu tư: </label> <input className="input-txt"
                             name="investmentName" onChange={handleInvestment}
                             type="text"
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Nhập mo ta linh vuc dau tu: </label> <input className="input-txt"
+                        <label className="label-txt">Nhập mô tả lĩnh vực đầu tư: </label> <input className="input-txt"
                             name="description" onChange={handleInvestment}
                             type="text"
                         />
                     </div>
                     <div>
-                        <label>Anh linh vuc dau tu:</label> <input id="file-input" type="file"
+                        <label>Ảnh lĩnh vực đầu tư:</label> <input id="file-input" type="file"
                             name="imageCover"
                             onChange={(e) => {
                                 setFileCover(URL.createObjectURL(e.target.files[0]))

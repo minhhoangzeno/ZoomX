@@ -26,10 +26,10 @@ export default function Blog() {
     }
     useEffect(() => {
         getSearch()
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
     useEffect(() => {
         getSearch()
-    }, [activePage, categoryId,isSearch])
+    }, [activePage, categoryId,isSearch]) // eslint-disable-line react-hooks/exhaustive-deps
     const getSearch = async () => {
         if (isSearch) {
             setLoading(true);

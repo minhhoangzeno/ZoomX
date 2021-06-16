@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import moment from 'moment';
+import React from 'react';
 import '../../style/project-detail.scss';
-import infoImg from '../../image/investment/img.png'
-import ImageBg from '../../image/project/background.jpg'
-import { useLocation } from 'react-router';
-import { doGet } from '../../lib/DataSource';
-import moment from 'moment'
 export default function ProjectDetail({ project }) {
 
     return (

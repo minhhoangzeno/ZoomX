@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import Slider from "react-slick";
-import icon1 from "../../image/homePage/icon1.png";
 import { useInvestment } from "../../lib/API";
 export default function FieldComponent() {
   const { data } = useInvestment();

@@ -12,10 +12,10 @@ export default function LibraryVideo() {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     getSearch();
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     getSearch();
-  }, [activePage])
+  }, [activePage]) // eslint-disable-line react-hooks/exhaustive-deps
   const handleChangData = (item) => {
     setActivePage(item)
   }

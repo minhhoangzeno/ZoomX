@@ -24,7 +24,7 @@ export default function ModalUpdate(props) {
     }    
     useEffect(() => {
         fetchData()
-    },[lookup?._id])
+    },[lookup?._id]) // eslint-disable-line react-hooks/exhaustive-deps
     const handleUpdate = async () => {
         props.handleLoading(true);
 
@@ -57,7 +57,7 @@ export default function ModalUpdate(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Nhập ten lookup</label> <input className="input-txt"
+                        <label className="label-txt">Tên lookup</label> <input className="input-txt"
                             value={props?.data.name}
                             name="name" onChange={(e) => {
                                 setLookUp({
@@ -83,11 +83,11 @@ export default function ModalUpdate(props) {
                         </div>
                         {fileCover ? <div>
                             <img id="target" src={fileCover} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
-                        </div> : <img src={lookup?.imageCover?.url} style={{ width: 300, height: 200, objectFit: 'cover' }} />}
+                        </div> : <img src={lookup?.imageCover?.url} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />}
                          
                     </div>
                     <div>
-                        <label>Chon fileBook</label>
+                        <label>FileBook</label>
                         <input id="file-input" type="file"
                             name="fileBook"
                             onChange={(e) => {

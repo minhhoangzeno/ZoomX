@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import item from "../../image/homePage/item.png";
 import { useDefineHome } from "../../lib/API";
 
 export default function HomePage() {

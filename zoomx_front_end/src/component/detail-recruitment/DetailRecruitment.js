@@ -9,7 +9,7 @@ export default function DetailRecruitment({ data }) {
     const [sames, setSame] = useState();
     useEffect(() => {
         getDataSame()
-    }, [data?._id])
+    }, [data?._id]) // eslint-disable-line react-hooks/exhaustive-deps
     let getDataSame = async () => {
         let path = `/recruitment-search?q=${data?.career}`;
         try {

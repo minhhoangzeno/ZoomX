@@ -56,13 +56,13 @@ export default function ModalAdd(props) {
                         />
                     </div>
                     <div>
-                        <label className="label-txt">Label: </label> <input className="input-txt"
+                        <label className="label-txt">Tên trang: </label> <input className="input-txt"
                             name="label" onChange={handleHero}
                             type="text"
                         />
                     </div>
                     <div>
-                        <label>Ảnh Cover :</label> <input id="file-input" type="file"
+                        <label>Ảnh :</label> <input id="file-input" type="file"
                             name="imageCover"
                             onChange={(e) => {
                                 setFileCover(URL.createObjectURL(e.target.files[0]))
