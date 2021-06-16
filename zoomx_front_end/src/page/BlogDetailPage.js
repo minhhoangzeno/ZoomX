@@ -3,31 +3,66 @@ import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
 import BlogDetail from '../component/blog-detail/BlogDetail';
 import '../style/blog-detail.scss';
-import Category from '../component/news-page/Category';
+import Category from '../component/blog-detail/Category';
 import ItemNews from '../component/news-page/ItemNews';
 import HeroPage from '../component/share/HeroPage';
 import { useLocation } from 'react-router';
 import { doGet } from '../lib/DataSource';
 import { MetaTags } from 'react-meta-tags';
-
+import BlogOption from '../component/blog-detail/BlogOption';
 export default function BlogDetailPage() {
     const location = useLocation();
     const data = location.state;
     const [blog, setBlog] = useState();
+    const [textSearch, setTextSearch] = useState("");
+    const [isSearch, setIsSearch] = useState(false);
+    const [categoryId, setCategory] = useState(data?.categoryId);
+    const [loading, setLoading] = useState(false)
+
+    const handleChangeCategory = (id) => {
+        setCategory(id)
+    }
     useEffect(() => {
-        async function fetchData() {
-            let path = `/blog?page=1&categoryId=${data?.categoryId}`;
+        getSearch()
+    }, [])
+    useEffect(() => {
+        getSearch()
+    }, [categoryId, isSearch])
+
+    const getSearch = async () => {
+        if (isSearch) {
+            setLoading(true);
+            let path = `/blog-search?page=1&categoryId=${categoryId}&q=${textSearch}`;
             try {
                 let resp = await doGet(path);
                 if (resp.status === 200) {
-                    setBlog(resp.data?.data)
+                    setBlog(resp.data)
+                    setLoading(false)
                 }
             } catch (error) {
-                console.log(error)
+                setLoading(false)
+            }
+        } else {
+            setLoading(true)
+            let path = `/blog?page=1&categoryId=${categoryId}`;
+            try {
+                let resp = await doGet(path);
+                if (resp.status === 200) {
+                    setBlog(resp.data)
+                    setLoading(false)
+                }
+            } catch (error) {
+                setLoading(false)
             }
         }
-        fetchData()
-    }, [data?.categoryId])
+    }
+    const handleSearch = (search) => {
+        setIsSearch(search)
+    }
+    const handleTextSearch = (text) => {
+        setTextSearch(text)
+    }
+    console.log(blog)
     return (
         <>
             <MetaTags>
@@ -45,25 +80,15 @@ export default function BlogDetailPage() {
                         <BlogDetail data={data} />
                     </div>
                     <div className="col-xl-4 main__news--cover">
-                        <Category />
+                        <Category handleChangeCategory={handleChangeCategory}
+                            textSearch={textSearch} handleTextSearch={handleTextSearch} handleSearch={handleSearch}
+                        />
                     </div>
-                    <div className="col-xl-8 col-6 col-12 main__news__page related-blog">
-                        <div className="container main__item__detail">
-                            <h1>Bài viết liên quan</h1>
-                            <div className="row list__inner">
-
-                                {blog?.length > 2 ? <>
-                                    <ItemNews data={blog[0]} />
-                                    <ItemNews data={blog[1]} />
-                                </> : blog?.map((item, idex) => {
-                                    return (
-                                        <ItemNews data={item} />
-                                    )
-                                })}
-
-                            </div>
-                        </div>
-                    </div>
+                    <BlogOption blog={blog} isSearch={isSearch} textSearch={textSearch} loading={loading} categoryId={categoryId}
+                        isSearch={isSearch}
+                        handleSearch={handleSearch}
+                        handleTextSearch={handleTextSearch}
+                    />
                 </div>
             </div>
             <Footer />
