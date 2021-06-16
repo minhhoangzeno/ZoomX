@@ -3,7 +3,7 @@ export const tinyconfigBlog = {
     toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | image code',
     plugins: 'table image code ',
     height: 800,
-    width:1500,
+    width:1440,
     image_list:[],
     file_browser_callback_types: 'image',
     file_picker_callback: function (callback, value, meta) {
