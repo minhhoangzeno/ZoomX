@@ -1,11 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import item1 from "../../image/zoomX/item1.png";
-import item2 from "../../image/zoomX/item2.png";
-import item3 from "../../image/zoomX/item3.png";
-import item4 from "../../image/zoomX/item4.png";
-import item5 from "../../image/zoomX/item5.png";
-import item6 from "../../image/zoomX/item6.png";
 import { usePartner } from "../../lib/API";
 
 export default function PartnerComponent() {

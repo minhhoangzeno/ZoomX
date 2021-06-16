@@ -14,7 +14,7 @@ export default function Login() {
         } else {
             history.push("/login")
         }
-    }, [user])
+    }, [user]) // eslint-disable-line react-hooks/exhaustive-deps
     let login = async () => {
         setLoading(true)
         let path = "/login";

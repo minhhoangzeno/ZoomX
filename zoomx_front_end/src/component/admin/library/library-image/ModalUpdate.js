@@ -13,10 +13,10 @@ export default function ModalUpdate(props) {
   const [fileList, setFileList] = useState();
   useEffect(() => {
     getLibraryImage();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     getLibraryImage();
-  }, [image?._id]);
+  }, [image?._id]); // eslint-disable-line react-hooks/exhaustive-deps
   const getLibraryImage = async () => {
     let path = `/library/image/${props.data._id}`;
     try {

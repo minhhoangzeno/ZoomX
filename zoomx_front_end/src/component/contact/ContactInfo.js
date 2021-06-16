@@ -1,6 +1,4 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import hotel from '../../image/contact/hotel.png'
 import { useContact } from '../../lib/API';
 export default function ContactInfo() {
     

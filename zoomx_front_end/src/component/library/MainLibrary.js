@@ -6,9 +6,9 @@ export default function MainLibrary({ isPage }) {
   
   return (
     <>
-      {isPage == "lookup" && <LibraryLookup />}
-      {isPage == "image" && <LibraryImage />}
-      {isPage == "video" && <LibraryVideo />}
+      {isPage === "lookup" && <LibraryLookup />}
+      {isPage === "image" && <LibraryImage />}
+      {isPage === "video" && <LibraryVideo />}
     </>
   );
 }

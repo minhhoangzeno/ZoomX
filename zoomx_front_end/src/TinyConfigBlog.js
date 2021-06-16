@@ -7,7 +7,7 @@ export const tinyconfigBlog = {
     image_list:[],
     file_browser_callback_types: 'image',
     file_picker_callback: function (callback, value, meta) {
-        if (meta.filetype == 'image') {
+        if (meta.filetype === 'image') {
             var input = document.getElementById('my-file');
             input.click();
             input.onchange = function () {

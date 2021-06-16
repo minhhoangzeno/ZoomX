@@ -8,10 +8,10 @@ export default function ModalAdd(props) {
 
     useEffect(() => {
         getLibraryVideo()
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
     useEffect(() => {
         getLibraryVideo()
-    }, [video?._id])
+    }, [video?._id]) // eslint-disable-line react-hooks/exhaustive-deps
     const getLibraryVideo = async () => {
         let path = `/library/video/${props?.data?._id}`;
         try {

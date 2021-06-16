@@ -25,7 +25,7 @@ export default function Project() {
 
     useEffect(() => {
         getSearch()
-    },[investmentId,activePage])
+    },[investmentId,activePage]) // eslint-disable-line react-hooks/exhaustive-deps
     const getSearch = async () => {
         handleLoading(true)
         let path = `/project?page=${activePage}&typeInvestment=${investmentId}`;

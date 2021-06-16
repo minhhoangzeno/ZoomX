@@ -12,11 +12,11 @@ export default function Recruitment() {
     const [activePage,setActivePage] = useState(1);
     useEffect(() => {
         getSearch()
-    },[])
+    },[]) // eslint-disable-line react-hooks/exhaustive-deps
    
     useEffect(() => {
         getSearch()
-    },[activePage])
+    },[activePage]) // eslint-disable-line react-hooks/exhaustive-deps
    
     const getSearch = async () => {
         const path = `/recruitment?page=${activePage}`;

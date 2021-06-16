@@ -11,7 +11,7 @@ export default function AdminPage() {
     const userLocal = JSON.parse(localStorage.getItem("user"))
     useEffect(() => {
         fetchData()
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
     
     async function fetchData() {
         setUser(userLocal)
@@ -22,7 +22,7 @@ export default function AdminPage() {
     }
     useEffect(() => {
         handlePage(page)
-    }, [page])
+    }, [page]) // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <>
             <div className="wrapper-adminPage">

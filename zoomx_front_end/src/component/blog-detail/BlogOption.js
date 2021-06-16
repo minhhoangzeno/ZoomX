@@ -3,23 +3,7 @@ import ItemNews from '../news-page/ItemNews';
 import Loading from '../image/Loading';
 import { doGet } from '../../lib/DataSource';
 export default function BlogOption({ blog, loading, textSearch, categoryId, isSearch, handleSearch, handleTextSearch }) {
-
-    const [categoryBlog, setCategoryBlog] = useState();
     const [name, setName] = useState()
-    useEffect(() => {
-        async function fetchData() {
-            let path = '/categoryBlog';
-            try {
-                let resp = await doGet(path);
-                if (resp.status === 200) {
-                    setCategoryBlog(resp.data)
-                }
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchData()
-    }, [])
     useEffect(() => {
         async function fetchData() {
             if (categoryId === 1) {

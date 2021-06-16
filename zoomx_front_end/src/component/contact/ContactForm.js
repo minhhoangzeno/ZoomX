@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { doPost } from "../../lib/DataSource";
-import hotel from '../../image/contact/hotel.png'
 import { useContact } from '../../lib/API';
+import { doPost } from "../../lib/DataSource";
 export default function ContactForm() {
   const [person, setPerson] = useState();
-  const [content, setContent] = useState();
+ 
   const { data } = useContact()
   const handlePerson = (e) => {
     const { name, value } = e.target;
@@ -111,7 +110,7 @@ export default function ContactForm() {
         <button onClick={addPersonContact}>
           <strong>GỬI</strong>
         </button>
-        <p>{content}</p>
+      
       </div>
     </div>
 

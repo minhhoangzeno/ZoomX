@@ -6,7 +6,7 @@ export default function RecruitmentMain({ data }) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    console.log(data?.welfare)
+   
     const str = data?.welfare;
     const welfare = str.split("\n");
     const welfareLeft = [];

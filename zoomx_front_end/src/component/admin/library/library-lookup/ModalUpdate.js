@@ -24,7 +24,7 @@ export default function ModalUpdate(props) {
     }    
     useEffect(() => {
         fetchData()
-    },[lookup?._id])
+    },[lookup?._id]) // eslint-disable-line react-hooks/exhaustive-deps
     const handleUpdate = async () => {
         props.handleLoading(true);
 
@@ -83,7 +83,7 @@ export default function ModalUpdate(props) {
                         </div>
                         {fileCover ? <div>
                             <img id="target" src={fileCover} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
-                        </div> : <img src={lookup?.imageCover?.url} style={{ width: 300, height: 200, objectFit: 'cover' }} />}
+                        </div> : <img src={lookup?.imageCover?.url} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />}
                          
                     </div>
                     <div>

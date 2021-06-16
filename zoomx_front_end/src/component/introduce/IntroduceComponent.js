@@ -1,4 +1,4 @@
-import React, { dataReasonSelect } from "react";
+import React from "react";
 import { useZoomx } from "../../lib/API";
 export default function IntroduceComponent() {
   const { data } = useZoomx();
@@ -31,7 +31,7 @@ export default function IntroduceComponent() {
                     Hồ sơ năng lực
                   </div>
                   <div className="introduce-detail__profile--btn">
-                    <a href={data[0]?.profile.fileUrl} target="_blank">
+                    <a href={data[0]?.profile.fileUrl} target="_blank" rel="noopener noreferrer">
                       Tải Xuống
                     </a>
                   </div>
