@@ -6,6 +6,7 @@ import Header from '../component/share/Header';
 import HeroPage from '../component/share/HeroPage';
 import '../style/contact.scss'
 import { useHeroContact } from '../lib/API';
+import BackToTop from "../image/BacktoTop";
 export default function ContactPage(){
     const { data } = useHeroContact()
     return(
@@ -16,7 +17,7 @@ export default function ContactPage(){
         <Header />
         <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
         <Contact />
-            
+        <BackToTop />
         <Footer />
         </>
     )

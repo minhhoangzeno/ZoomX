@@ -8,7 +8,7 @@ import '../style/project.scss';
 import '../style/library.scss';
 import { useHeroProject } from '../lib/API';
 import Project from '../component/project/Project';
-
+import BackToTop from "../image/BacktoTop";
 export default function ProjectPage() {
     const { data } = useHeroProject()
     return (
@@ -20,7 +20,7 @@ export default function ProjectPage() {
             <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
             <Project />
         
-
+            <BackToTop />
             <Footer />
         </>
     )

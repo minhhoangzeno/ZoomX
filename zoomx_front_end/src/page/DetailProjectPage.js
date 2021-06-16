@@ -7,7 +7,7 @@ import { MetaTags } from 'react-meta-tags';
 import HeroPage from '../component/share/HeroPage';
 import { useLocation } from 'react-router';
 import { doGet } from '../lib/DataSource';
-
+import BackToTop from "../image/BacktoTop";
 export default function DetailProjectPage() {
     const location = useLocation();
     const projectId = location.state;
@@ -40,6 +40,7 @@ export default function DetailProjectPage() {
             <HeroPage title="DỰ ÁN" title_sub={project?.projectName}  imageBackground={project?.imageCover?.url} />
 
             <ProjectDetail project={project} />
+            <BackToTop />
             <Footer />
         </>
     )

@@ -6,7 +6,7 @@ import HeroPage from '../component/share/HeroPage';
 import { useHeroInvestment } from '../lib/API';
 import '../style/investment.scss';
 import Investment from './../component/investment/Investment';
-
+import BackToTop from "../image/BacktoTop";
 
 export default function InvestmentPage() {
     const { data } = useHeroInvestment()
@@ -20,7 +20,7 @@ export default function InvestmentPage() {
             <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
 
             <Investment />
-
+            <BackToTop />
             <Footer />
         </>
     )
