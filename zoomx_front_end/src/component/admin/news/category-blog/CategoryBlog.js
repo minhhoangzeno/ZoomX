@@ -39,7 +39,7 @@ export default function CategoryBlog() {
         <>
 
             <div className="title">
-                <h1>Danh muc bai viet</h1>
+                <h1>Danh mục bài viết</h1>
             </div>
 
             <div className="wrapper__table">
@@ -58,7 +58,7 @@ export default function CategoryBlog() {
                         <thead>
                             <tr>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ten danh muc</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Tên danh mục</th>
                                 <th className="text-center" width="12%">Setting</th>
                             </tr>
                         </thead>
