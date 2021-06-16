@@ -7,6 +7,9 @@ import { useHeroInvestment } from '../lib/API';
 import '../style/investment.scss';
 import Investment from './../component/investment/Investment';
 
+import SubItem from '../component/admin/react-sub/Sub-item';
+import '../component/admin/react-sub/style/subpage.scss'
+
 
 export default function InvestmentPage() {
     const { data } = useHeroInvestment()
@@ -18,7 +21,7 @@ export default function InvestmentPage() {
             </MetaTags>
             <Header />
             <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
-
+            <SubItem />
             <Investment />
 
             <Footer />
