@@ -18,7 +18,7 @@ export default function InvestmentPage() {
             </MetaTags>
             <Header />
             <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
-            <SubItem />
+            {/* <SubItem /> */}
             <Investment />
             <BackToTop
                 showOnScrollUp
