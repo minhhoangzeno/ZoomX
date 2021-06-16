@@ -7,10 +7,9 @@ export default function TimeLine() {
   const { data } = useTimeLine();
   var settings = {
     // dots: true,
-    speed: 3000,
+    speed: 4000,
     autoplay: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
     responsive: [
