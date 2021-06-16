@@ -9,17 +9,17 @@ export default function News() {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     async function fetchData() {
-      setLoading(true)
+      setLoading(true);
       let path = "/blog-sort";
       try {
         let resp = await doGet(path);
         if (resp.status === 200) {
           setData(resp.data);
-          setLoading(false)
+          setLoading(false);
         }
       } catch (error) {
         console.log(error);
-        setLoading(false)
+        setLoading(false);
       }
     }
     fetchData();
@@ -30,7 +30,7 @@ export default function News() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     responsive: [
       {
@@ -82,7 +82,7 @@ export default function News() {
       </p>
       <div className="empty__element-view"></div>
       <p className="big__word-view">Tin tức</p>
-      {!loading ?
+      {!loading ? (
         <Slider className="main__slider" {...settings}>
           {data?.map((item, index) => {
             return (
@@ -116,13 +116,17 @@ export default function News() {
             );
           })}
         </Slider>
-        :
+      ) : (
         <Loading />
-      }
+      )}
       <div className="btn__item-click">
-        <button onClick={() => {
-          history.push('/news')
-        }}>XEM THÊM</button>
+        <button
+          onClick={() => {
+            history.push("/news");
+          }}
+        >
+          XEM THÊM
+        </button>
       </div>
     </div>
   );

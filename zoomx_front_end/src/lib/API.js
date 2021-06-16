@@ -487,7 +487,6 @@ export const useHeroNews = () => {
       var resp = await doGet(path, headers);
       if (resp.status === 200) {
         setHero(resp.data);
-      
       }
     } catch (error) {
       setError(error);

@@ -12,17 +12,11 @@ export default function ModalImage(props) {
     <>
       <Modal
         {...props}
-        style={{ background_color: "red" }}
         size="xl"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Swiper
-          style={{ background_color: "red" }}
-          wrapperTag="ul"
-          navigation={true}
-          className="mySwiper"
-        >
+        <Swiper wrapperTag="ul" navigation={true} className="mySwiper">
           {props?.listImage?.map((item, index) => {
             return (
               <SwiperSlide tag="li" className="image-item" key={index}>
