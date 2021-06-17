@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MetaTags } from 'react-meta-tags';
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
@@ -10,7 +10,9 @@ import BackToTop from 'react-back-to-top-button';
 // import SubItem from '../../'
 export default function InvestmentPage() {
     const { data } = useHeroInvestment()
-    console.log(data)
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
         <>
             <MetaTags>

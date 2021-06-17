@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
 import HeroPage from '../component/share/HeroPage';
@@ -11,7 +11,10 @@ export default function DetailRecruitmentPage() {
     const { data } = useHeroRecruitment();
     const location = useLocation();
     const dataRecruitment = location.state;
-    console.log(dataRecruitment)
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+  
     return (
         <>
             <MetaTags>

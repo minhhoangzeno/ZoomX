@@ -1,6 +1,8 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-export default function item({ data }) {
+export default function Item({ data }) {
+  let history = useHistory();
   return (
     <>
       <div className="col-xl-12 wrappers">
@@ -11,7 +13,12 @@ export default function item({ data }) {
               <p className="txt__small">TIPS & TRICK</p>
               <div className="empty__item"></div>
               <p className="txt__content">{data?.title}</p>
-              <button className="btn__news">XEM THÊM</button>
+              <button className="btn__news"
+                onClick={() => history.push({
+                  pathname: '/blog-detail',
+                  state: data
+                })}
+              >XEM THÊM</button>
             </div>
           </div>
         </div>

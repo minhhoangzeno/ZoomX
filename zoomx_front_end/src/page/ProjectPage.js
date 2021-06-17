@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { MetaTags } from 'react-meta-tags';
 import Footer from '../component/share/Footer';
 import Header from '../component/share/Header';
@@ -10,7 +10,10 @@ import { useHeroProject } from '../lib/API';
 import Project from '../component/project/Project';
 import BackToTop from 'react-back-to-top-button';
 export default function ProjectPage() {
-    const { data } = useHeroProject()
+    const { data } = useHeroProject();
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
         <>
             <MetaTags>

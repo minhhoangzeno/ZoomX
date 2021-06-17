@@ -24,7 +24,9 @@ export default function BlogDetailPage() {
   };
   useEffect(() => {
     getSearch();
+    window.scrollTo(0, 0)
   }, []);
+ 
   useEffect(() => {
     getSearch();
   }, [categoryId, isSearch]);

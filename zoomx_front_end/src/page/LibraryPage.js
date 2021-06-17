@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MenuLibrary from '../component/library/MenuLibrary';
 import Header from '../component/share/Header';
 import Footer from '../component/share/Footer';
@@ -12,6 +12,9 @@ export default function LibraryPage() {
     const handlePage = (page) => {
         setIsPage(page)
     }
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     const { data } = useHeroLibrary()
     return (
         <>
