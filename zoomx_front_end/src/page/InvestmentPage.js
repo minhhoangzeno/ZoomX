@@ -7,7 +7,7 @@ import { useHeroInvestment } from '../lib/API';
 import '../style/investment.scss';
 import Investment from './../component/investment/Investment';
 import BackToTop from 'react-back-to-top-button';
-
+// import SubItem from '../../'
 export default function InvestmentPage() {
     const { data } = useHeroInvestment()
     console.log(data)
@@ -18,7 +18,7 @@ export default function InvestmentPage() {
             </MetaTags>
             <Header />
             <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
-            <SubItem />
+            {/* <SubItem /> */}
             <Investment />
             <BackToTop
                 showOnScrollUp
