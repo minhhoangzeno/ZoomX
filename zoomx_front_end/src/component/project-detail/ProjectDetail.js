@@ -121,39 +121,8 @@ export default function ProjectDetail({ project }) {
                     </div>
                     <div className="row row__content--project-detail">
                         <div dangerouslySetInnerHTML={{ __html: project?.description }}>
-
-                        </div>
-
-                    </div>
-                    {/* <div className="row row__back-ground">
-                        <div className="wrapper__back-ground">
-                            <img src={ImageBg} alt="" />
                         </div>
                     </div>
-                    <div className="row row__text-content">
-                        <div className="wrapper__text-content">
-                            <p>
-                                Được tư vấn thiết kế bởi Humphreys & Partners Architects, một trong những công ty thiết kế kiến trúc hàng đầu tại Hoa Kỳ, FLC Tropical City Ha Long được phân bổ thành bốn phân khu độc đáo với 4 phong cách khác nhau thể hiện qua 2.600 căn shophouse, liền kề và gần 826 căn chung cư. Được tư vấn thiết kế bởi Humphreys & Partners Architects, một trong những công ty thiết kế kiến trúc hàng đầu tại Hoa Kỳ, FLC Tropical City Ha Long được phân bổ thành bốn phân khu độc đáo với 4 phong cách khác nhau thể hiện qua 2.600 căn shophouse, liền kề và gần 826 căn chung cư.
-                            </p>
-                            <p>
-                                Được tư vấn thiết kế bởi Humphreys & Partners Architects, một trong những công ty thiết kế kiến trúc hàng đầu tại Hoa Kỳ, FLC Tropical City Ha Long được phân bổ thành bốn phân khu độc đáo với 4 phong cách khác nhau thể hiện qua 2.600 căn shophouse, liền kề và gần 826 căn chung cư. Được tư vấn thiết kế bởi Humphreys & Partners Architects, một trong những công ty thiết kế kiến trúc hàng đầu tại Hoa Kỳ, FLC Tropical City Ha Long được phân bổ thành bốn phân khu độc đáo với 4 phong cách khác nhau thể hiện qua 2.600 căn shophouse, liền kề và gần 826 căn chung cư.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row row__img-content">
-                        <div className="wrapper__img-content">
-                            <div className="col-xl-6 col-lg-6 col-sm-12 col-img col__img--left">
-                                <div className="wrapper__img">
-                                    <img src={infoImg} alt="" />
-                                </div>
-                            </div>
-                            <div className="col-xl-6 col-lg-6 col-sm-12 col-img col__img--right">
-                                <div className="wrapper__img">
-                                    <img src={infoImg} alt="" />
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </>
