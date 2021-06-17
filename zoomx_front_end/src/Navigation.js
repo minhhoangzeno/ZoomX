@@ -26,6 +26,7 @@ import ProjectUpdate from './component/admin/project/ProjectUpdate';
 import BlogUpdate from './component/admin/news/blog/BlogUpdate';
 import Login from './component/login/Login';
 
+const user = JSON.parse(localStorage.getItem("user"));
 export default function Navigation() {
     return (
         <Router>
@@ -73,26 +74,38 @@ export default function Navigation() {
                     <Login />
                 </Route>
                 <Route exact path="/admin" render={() => {
-                    return (localStorage.getItem("user") ? <AdminPage /> : <Login />)
+                    return (user ? <AdminPage /> : <Login />)
                 }}>
                 </Route>
-                <Route exact path="/auth/blog/add">
-                    <BlogAdd />
+
+                <Route exact path="/auth/blog/add" render={() => {
+                    return (user && (user.isAdmin !== "Member")) ? <BlogAdd /> : <Login />
+                }}>
                 </Route>
-                <Route exact path="/auth/blog/detail">
-                   <BlogDetail />
+
+                <Route exact path="/auth/blog/detail" render={() => {
+                    return (user && (user.isAdmin !== "Member")) ? <BlogDetail /> : <Login />
+                }}>
                 </Route>
-                <Route exact path="/auth/blog/update">
-                    <BlogUpdate />
+
+                <Route exact path="/auth/blog/update" render={() => {
+                    return (user && (user.isAdmin !== "Member")) ? <BlogUpdate /> : <Login />
+                }}>
                 </Route>
-                <Route exact path="/auth/project/add">
-                    <ProjectAdd />
+
+                <Route exact path="/auth/project/add" render={() => {
+                    return (user && (user.isAdmin === "Admin")) ? <ProjectAdd /> : <Login />
+                }}>
                 </Route>
-                <Route exact path="/auth/project/detail">
-                    <ProjectDetail />
+
+                <Route exact path="/auth/project/detail" render={() => {
+                    return (user && (user.isAdmin === "Admin")) ? <ProjectDetail /> : <Login />
+                }}>
                 </Route>
-                <Route exact path="/auth/project/update">
-                    <ProjectUpdate />
+
+                <Route exact path="/auth/project/update" render={() => {
+                    return (user && (user.isAdmin === "Admin")) ? <ProjectUpdate /> : <Login />
+                }}>
                 </Route>
             </Switch>
         </Router>
