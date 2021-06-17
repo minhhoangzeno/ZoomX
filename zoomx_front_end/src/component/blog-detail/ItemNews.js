@@ -13,14 +13,12 @@ export default function ItemNews({ data }) {
               <div className="empty__item"></div>
               <p className="txt__content">
                 Kinh nghiệm du lịch Ninh Bình 4 ngày 3 đêm
-                  </p>
+              </p>
               <button className="btn__news">Xem thêm</button>
             </div>
           </div>
         </div>
       </div>
-
-
     </>
   );
 }
