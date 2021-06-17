@@ -17,6 +17,8 @@ export default function LibraryImage() {
   };
   useEffect(() => {
     getSearch();
+    window.scrollTo(0, 0)
+
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {

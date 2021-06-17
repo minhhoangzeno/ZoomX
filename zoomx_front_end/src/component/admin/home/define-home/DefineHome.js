@@ -10,6 +10,7 @@ export default function DefineHome() {
 
     useEffect(() => {
         getDefineHome()
+        window.scrollTo(0, 0)
     }, [])
 
     const handleLoading = (isLoading) => {

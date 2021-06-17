@@ -11,6 +11,8 @@ export default function Investment() {
 
   useEffect(() => {
     getInvestment();
+    window.scrollTo(0, 0)
+
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleLoading = (isLoading) => {

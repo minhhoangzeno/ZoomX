@@ -11,6 +11,8 @@ export default function CategoryBlog() {
 
     useEffect(() => {
         getData()
+        window.scrollTo(0, 0)
+
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleLoading = (isLoading) => {

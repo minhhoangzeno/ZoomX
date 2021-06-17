@@ -8,7 +8,9 @@ export default function UserContact(){
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
     const [activePage, setActivePage] = useState(1)
-    
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    },[])
     useEffect(() => {
         let getData = async () => {
             const path = `/person-contact?page=${activePage}`;

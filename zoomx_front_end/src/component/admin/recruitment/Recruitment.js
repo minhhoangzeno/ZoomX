@@ -12,6 +12,8 @@ export default function Recruitment() {
     const [activePage,setActivePage] = useState(1);
     useEffect(() => {
         getSearch()
+        window.scrollTo(0, 0)
+
     },[]) // eslint-disable-line react-hooks/exhaustive-deps
    
     useEffect(() => {
