@@ -3,7 +3,7 @@ import React from "react";
 export default function item({ data }) {
   return (
     <>
-      <div className="col-xl-12 wrappers">
+      <div className="col-xl-12 item_padding--none">
         <div className="block__detail">
           <img className="img__news" src={data?.imageInfor?.url} alt="#" />
           <div className="ingredient__item">
