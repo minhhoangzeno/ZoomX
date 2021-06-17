@@ -14,7 +14,7 @@ export default function BlogOption({
 }) {
   const settings = {
     infinite: true,
-    speed: 3000,
+    speed: 4000,
     autoplay: true,
     slidesToShow: 2,
     slidesToScroll: 1,
@@ -25,7 +25,6 @@ export default function BlogOption({
           slidesToShow: 2,
           slidesToScroll: 3,
           infinite: true,
-          autoplay: true,
           autoplaySpeed: 3000,
         },
       },
@@ -35,7 +34,6 @@ export default function BlogOption({
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          autoplay: true,
           autoplaySpeed: 3000,
         },
       },
@@ -45,7 +43,6 @@ export default function BlogOption({
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          autoplay: true,
           autoplaySpeed: 3000,
         },
       },
@@ -55,7 +52,6 @@ export default function BlogOption({
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          autoplay: true,
           autoplaySpeed: 3000,
         },
       },
@@ -123,10 +119,8 @@ export default function BlogOption({
               <Slider {...settings}>
                 {blog?.data?.map((item, index) => {
                   return (
-                    <div className="col-xl-12">
-                      <div className="row list__inner" key={index}>
-                        <Item data={item} />
-                      </div>
+                    <div className="row list__inner" key={index}>
+                      <Item data={item} />
                     </div>
                   );
                 })}
