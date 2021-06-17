@@ -70,7 +70,7 @@ export default function Blog() {
     return (
         <>
             <div className="title">
-                <h1>Blog</h1>
+                <h1>Bài viết</h1>
             </div>
             <SearchBlog textSearch={textSearch} handleTextSearch={handleTextSearch} handleSearch={handleSearch} />
             <CategorySelect handleChangeCategory={handleChangeCategory} />
@@ -111,9 +111,9 @@ export default function Blog() {
                         <thead>
                             <tr>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Tieu de</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ngay viet</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Danh muc bai viet</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Tiêu đề</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ngày viết</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Danh mục bài viết</th>
                                 <th className="text-center" width="12%">Setting</th>
                             </tr>
                         </thead>

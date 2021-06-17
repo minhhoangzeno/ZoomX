@@ -33,7 +33,7 @@ export default function ModalAdd(props) {
             >
                 <div className="wrapper__modal">
                     <div>
-                        <label className="label-txt">Nhập danh muc bai viet </label> <input className="input-txt"
+                        <label className="label-txt">Nhập danh mục bài viết </label> <input className="input-txt"
                             name="name" onChange={(e) => {
                                 setName(e.target.value)
                             }}
