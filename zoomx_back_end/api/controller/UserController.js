@@ -10,12 +10,14 @@ exports.get_user = (req, res) => {
       model: "image",
       select: "url",
     })
-    .then((data) => {
-      res.send(data);
+    .then(async data => {
+      let result = data.filter(function (item) {
+        return (item._id != "60cc1295d608e12e4c10be07")
+      })
+      console.log(result)
+      res.send(result)
     })
-    .catch((err) => {
-      res.send(err);
-    });
+
 };
 
 exports.add_user = (req, res) => {
@@ -31,10 +33,15 @@ exports.add_user = (req, res) => {
         reject(null);
       });
   });
+  let savePassword;
+  bcrypt.hash(req.body.password, 10, (error, hash) => {
+    savePassword = hash;
+  })
+
   uploadAvatar.then((result) => {
     User.create({
       username: req.body.username,
-      password: req.body.password,
+      password: savePassword,
       displayName: req.body.displayName,
       avatar: result._id,
       isAdmin: req.body.isAdmin,
@@ -60,6 +67,9 @@ exports.login_user = (req, res) => {
   const { username, password } = req.body;
   User.findOne({ username: username }, (error, user) => {
     if (user) {
+      console.log(user);
+      console.log(password);
+      console.log(user.password)
       bcrypt.compare(password, user.password, (error, same) => {
         if (same) {
           User.findById(user._id)

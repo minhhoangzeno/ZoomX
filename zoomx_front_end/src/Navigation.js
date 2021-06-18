@@ -16,8 +16,10 @@ import RecruitmentPage from './page/RecruitmentPage';
 import ZoomXPage from './page/ZoomXPage';
 import BlogDetailPage from './page/BlogDetailPage';
 import AdminPage from './page/AdminPage';
-import LoginPage from './page/LoginPage';
 import SignupPage from './page/SignupPage';
+
+import LoginPage from './page/LoginPage';
+import DemoSignUp from './component/signup/DemoSignUp'
 import BlogDetail from './component/admin/news/blog/BlogDetail';
 import BlogAdd from './component/admin/news/blog/BlogAdd';
 import ProjectAdd from './component/admin/project/ProjectAdd';
@@ -27,6 +29,7 @@ import BlogUpdate from './component/admin/news/blog/BlogUpdate';
 import Login from './component/login/Login';
 
 const user = JSON.parse(localStorage.getItem("user"));
+console.log(user)
 export default function Navigation() {
     return (
         <Router>

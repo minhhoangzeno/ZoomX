@@ -19,7 +19,7 @@ export function SideBar({ handlePage, isPage, user }) {
                     <div className="sidebar__admin--menu--item"
                         style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}
                     >
-                        <div><img alt="" src={user?.avatar?.url} style={{ width: 40, height: 40, borderRadius: 20 }} /></div>
+                        <div><img alt="" src={user?.avatar?.url} style={{ width: 40, height: 40, borderRadius: 20, objectFit: 'cover' }} /></div>
                         <div>{user?.displayName}</div>
                         <div onClick={() => setSetting(!isSetting)}>
                             <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
@@ -27,9 +27,13 @@ export function SideBar({ handlePage, isPage, user }) {
                             </svg>
                         </div>
                         <ul className="admin__setting" style={{ display: (isSetting) ? "block" : "none" }}>
-                            <li onClick={() => handlePage('manage-user')}
-                                className={handleStyle("manage-user")}
-                            >Quản lý người dùng</li>
+                            {user?.isAdmin === "Admin" &&
+                                <>
+                                    <li onClick={() => handlePage('manage-user')}
+                                        className={handleStyle("manage-user")}
+                                    >Quản lý người dùng</li>
+                                </>
+                            }
                             <li onClick={() => handlePage('manage-account')}
                                 className={handleStyle("manage-account")}
                             >Tài khoản</li>
@@ -40,114 +44,119 @@ export function SideBar({ handlePage, isPage, user }) {
                         </ul>
                     </div>
                     <hr />
-                    <div className="sidebar__admin--menu--item"
-                    >
-                        <span>Trang chủ</span>
-                    </div>
-                    <ul className="sub__menu">
-                        <li onClick={() => handlePage('heroHome')}
-                            className={handleStyle("heroHome")}
-                        >
-                            <span>Ảnh đầu trang chủ</span>
-                        </li>
-                        <li onClick={() => handlePage('defineHome')}
-                            className={handleStyle("defineHome")}
-                        >
-                            <span>Khách sạn quay ZoomX là gì</span>
-                        </li>
-                        <li onClick={() => handlePage('reasonSelect')}
-                            className={handleStyle("reasonSelect")}
-                        >
-                            <span>Tại sao chọn ZoomX Hotels</span>
-                        </li>
-                        <li onClick={() => handlePage('timeLine')}
-                            className={handleStyle("timeLine")}
-                        >
-                            <span>Lộ trình triển khai</span>
-                        </li>
-                        <li onClick={() => handlePage('video')}
-                            className={handleStyle("video")}
-                        >
-                            <span>Video</span>
-                        </li>
-                        <li onClick={() => handlePage('header')}
-                            className={handleStyle("header")}
-                        >
-                            <span>Đầu trang</span>
-                        </li>
-                        <li onClick={() => handlePage('icon')}
-                            className={handleStyle("icon")}
-                        >
-                            <span>Icon cuối trang</span>
-                        </li>
-                    </ul>
-                    <hr />
-                    <div className="sidebar__admin--menu--item"
-                    >
-                        <span >Giới thiệu</span>
-                    </div>
-                    <ul className="sub__menu">
-                        <li onClick={() => handlePage('hero-zoomx')}
-                            className={handleStyle("hero-zoomx")}
-                        >
-                            <span>Ảnh đầu trang giới thiệu</span>
-                        </li>
-                        <li onClick={() => handlePage('slogan')}
-                            className={handleStyle("slogan")}
-                        >
-                            <span>Trích dẫn</span>
-                        </li>
-                        <li onClick={() => handlePage('zoomx')}
-                            className={handleStyle("zoomx")}
-                        >
-                            <span>ZoomX</span>
-                        </li>
-                        <li onClick={() => handlePage('youngBusiness')}
-                            className={handleStyle("youngBusiness")}
-                        >
-                            <span>Khởi nghiệp khát vọng tuổi trẻ</span>
-                        </li>
-                        <li onClick={() => handlePage('partner')}
-                            className={handleStyle("partner")}
-                        >
-                            <span>Đối tác</span>
-                        </li>
-                    </ul>
-                    <hr />
-                    <div className="sidebar__admin--menu--item"
-                    >
-                        <span>Trang Dự án</span>
-                    </div>
-                    <ul className="sub__menu">
-                        <li onClick={() => handlePage('project')}
-                            className={handleStyle("project")}
-                        >
-                            <span>Dự án</span>
-                        </li>
-                        <li onClick={() => handlePage('hero-project')}
-                            className={handleStyle("hero-project")}
-                        >
-                            <span>Ảnh đầu trang dự án</span>
-                        </li>
-                    </ul>
-                    <hr />
-                    <div className="sidebar__admin--menu--item"
-                    >
-                        <span>Trang Lĩnh vực đầu tư</span>
-                    </div>
-                    <ul className="sub__menu">
-                        <li onClick={() => handlePage('investment')}
-                            className={handleStyle("investment")}
-                        >
-                            <span>Lĩnh vực đầu tư</span>
-                        </li>
-                        <li onClick={() => handlePage('hero-investment')}
-                            className={handleStyle("hero-investment")}
-                        >
-                            <span>Ảnh đầu trang lĩnh vực đầu tư</span>
-                        </li>
-                    </ul>
-                    <hr />
+                    {user?.isAdmin === "Admin" &&
+                        <>
+                            <div className="sidebar__admin--menu--item"
+                            >
+                                <span>Trang chủ</span>
+                            </div>
+                            <ul className="sub__menu">
+                                <li onClick={() => handlePage('heroHome')}
+                                    className={handleStyle("heroHome")}
+                                >
+                                    <span>Ảnh đầu trang chủ</span>
+                                </li>
+                                <li onClick={() => handlePage('defineHome')}
+                                    className={handleStyle("defineHome")}
+                                >
+                                    <span>Khách sạn quay ZoomX là gì</span>
+                                </li>
+                                <li onClick={() => handlePage('reasonSelect')}
+                                    className={handleStyle("reasonSelect")}
+                                >
+                                    <span>Tại sao chọn ZoomX Hotels</span>
+                                </li>
+                                <li onClick={() => handlePage('timeLine')}
+                                    className={handleStyle("timeLine")}
+                                >
+                                    <span>Lộ trình triển khai</span>
+                                </li>
+                                <li onClick={() => handlePage('video')}
+                                    className={handleStyle("video")}
+                                >
+                                    <span>Video</span>
+                                </li>
+                                <li onClick={() => handlePage('header')}
+                                    className={handleStyle("header")}
+                                >
+                                    <span>Đầu trang</span>
+                                </li>
+                                <li onClick={() => handlePage('icon')}
+                                    className={handleStyle("icon")}
+                                >
+                                    <span>Icon cuối trang</span>
+                                </li>
+                            </ul>
+                            <hr />
+                            <div className="sidebar__admin--menu--item"
+                            >
+                                <span >Giới thiệu</span>
+                            </div>
+                            <ul className="sub__menu">
+                                <li onClick={() => handlePage('hero-zoomx')}
+                                    className={handleStyle("hero-zoomx")}
+                                >
+                                    <span>Ảnh đầu trang giới thiệu</span>
+                                </li>
+                                <li onClick={() => handlePage('slogan')}
+                                    className={handleStyle("slogan")}
+                                >
+                                    <span>Trích dẫn</span>
+                                </li>
+                                <li onClick={() => handlePage('zoomx')}
+                                    className={handleStyle("zoomx")}
+                                >
+                                    <span>ZoomX</span>
+                                </li>
+                                <li onClick={() => handlePage('youngBusiness')}
+                                    className={handleStyle("youngBusiness")}
+                                >
+                                    <span>Khởi nghiệp khát vọng tuổi trẻ</span>
+                                </li>
+                                <li onClick={() => handlePage('partner')}
+                                    className={handleStyle("partner")}
+                                >
+                                    <span>Đối tác</span>
+                                </li>
+                            </ul>
+                            <hr />
+                            <div className="sidebar__admin--menu--item"
+                            >
+                                <span>Trang Dự án</span>
+                            </div>
+                            <ul className="sub__menu">
+                                <li onClick={() => handlePage('project')}
+                                    className={handleStyle("project")}
+                                >
+                                    <span>Dự án</span>
+                                </li>
+                                <li onClick={() => handlePage('hero-project')}
+                                    className={handleStyle("hero-project")}
+                                >
+                                    <span>Ảnh đầu trang dự án</span>
+                                </li>
+                            </ul>
+                            <hr />
+                            <div className="sidebar__admin--menu--item"
+                            >
+                                <span>Trang Lĩnh vực đầu tư</span>
+                            </div>
+                            <ul className="sub__menu">
+                                <li onClick={() => handlePage('investment')}
+                                    className={handleStyle("investment")}
+                                >
+                                    <span>Lĩnh vực đầu tư</span>
+                                </li>
+                                <li onClick={() => handlePage('hero-investment')}
+                                    className={handleStyle("hero-investment")}
+                                >
+                                    <span>Ảnh đầu trang lĩnh vực đầu tư</span>
+                                </li>
+                            </ul>
+                            <hr />
+
+                        </>
+                    }
                     <div className="sidebar__admin--menu--item"
                     >
                         <span>Tin tức - Sự kiện</span>
@@ -170,87 +179,92 @@ export function SideBar({ handlePage, isPage, user }) {
                         </li>
                     </ul>
                     <hr />
-                    <div className={"sidebar__admin--menu--item"}
-                    >
-                        <span>Trang Liên hệ</span>
-                    </div>
-                    <ul className="sub__menu">
-                        <li onClick={() => handlePage('contact')}
-                            className={handleStyle("contact")}
-                        >
-                            <span>Liên hệ</span>
-                        </li>
-                        <li onClick={() => handlePage('hero-contact')}
-                            className={handleStyle("hero-contact")}
-                        >
-                            <span>Ảnh đầu trang liên hệ</span>
-                        </li>
-                    </ul>
-                    <hr />
-                    <div className="sidebar__admin--menu--item">
-                        <span>Danh sách người gửi tin</span>
-                    </div>
-                    <ul className="sub__menu">
-                        <li onClick={() => handlePage("user-contact")}
-                            className={handleStyle("user-contact")}
-                        >
-                            <span>Người liên hệ</span>
-                        </li>
-                        <li onClick={() => handlePage('user-recruitment')}
-                            className={handleStyle('user-recruitment')}
-                        >
-                            <span>Người tuyển dụng</span>
-                        </li>
-                        <li onClick={() => handlePage('user-mail')}
-                            className={handleStyle('user-mail')}
-                        >
-                            <span>Người gửi mail</span>
-                        </li>
-                    </ul>
-                    <hr />
-                    <div className="sidebar__admin--menu--item">
-                        <span>Thư viện</span>
-                    </div>
-                    <ul className="sub__menu">
-                        <li onClick={() => handlePage('hero-library')}
-                            className={handleStyle('hero-library')}
-                        >
-                            <span>Ảnh đầu trang thư viện</span>
-                        </li>
-                        <li onClick={() => handlePage('library-lookup')}
-                            className={handleStyle('library-lookup')}
-                        >
-                            <span>Thư viện Lookup</span>
-                        </li>
-                        <li onClick={() => handlePage('library-image')}
-                            className={handleStyle('library-image')}
-                        >
-                            <span>Thư viện ảnh</span>
-                        </li>
-                        <li onClick={() => handlePage('library-video')}
-                            className={handleStyle('library-video')}
-                        >
-                            <span>Thư viện Video</span>
-                        </li>
-                    </ul>
-                    <hr />
-                    <div className="sidebar__admin--menu--item">
-                        <span>Trang Tuyển dụng</span>
-                    </div>
-                    <ul className="sub__menu">
-                        <li onClick={() => handlePage('recruitment')}
-                            className={handleStyle('recruitment')}
-                        >
-                            <span>Tuyển dụng</span>
-                        </li>
-                        <li onClick={() => handlePage('hero-recruitment')}
-                            className={handleStyle('hero-recruitment')}
-                        >
-                            <span>Ảnh đầu trang tuyển dụng</span>
-                        </li>
-                    </ul>
-                    <hr />
 
+                    {user?.isAdmin === "Admin" &&
+                        <>
+                            <div className={"sidebar__admin--menu--item"}
+                            >
+                                <span>Trang Liên hệ</span>
+                            </div>
+                            <ul className="sub__menu">
+                                <li onClick={() => handlePage('contact')}
+                                    className={handleStyle("contact")}
+                                >
+                                    <span>Liên hệ</span>
+                                </li>
+                                <li onClick={() => handlePage('hero-contact')}
+                                    className={handleStyle("hero-contact")}
+                                >
+                                    <span>Ảnh đầu trang liên hệ</span>
+                                </li>
+                            </ul>
+                            <hr />
+                            <div className="sidebar__admin--menu--item">
+                                <span>Danh sách người gửi tin</span>
+                            </div>
+                            <ul className="sub__menu">
+                                <li onClick={() => handlePage("user-contact")}
+                                    className={handleStyle("user-contact")}
+                                >
+                                    <span>Người liên hệ</span>
+                                </li>
+                                <li onClick={() => handlePage('user-recruitment')}
+                                    className={handleStyle('user-recruitment')}
+                                >
+                                    <span>Người tuyển dụng</span>
+                                </li>
+                                <li onClick={() => handlePage('user-mail')}
+                                    className={handleStyle('user-mail')}
+                                >
+                                    <span>Người gửi mail</span>
+                                </li>
+                            </ul>
+                            <hr />
+                            <div className="sidebar__admin--menu--item">
+                                <span>Thư viện</span>
+                            </div>
+                            <ul className="sub__menu">
+                                <li onClick={() => handlePage('hero-library')}
+                                    className={handleStyle('hero-library')}
+                                >
+                                    <span>Ảnh đầu trang thư viện</span>
+                                </li>
+                                <li onClick={() => handlePage('library-lookup')}
+                                    className={handleStyle('library-lookup')}
+                                >
+                                    <span>Thư viện Lookup</span>
+                                </li>
+                                <li onClick={() => handlePage('library-image')}
+                                    className={handleStyle('library-image')}
+                                >
+                                    <span>Thư viện ảnh</span>
+                                </li>
+                                <li onClick={() => handlePage('library-video')}
+                                    className={handleStyle('library-video')}
+                                >
+                                    <span>Thư viện Video</span>
+                                </li>
+                            </ul>
+                            <hr />
+                            <div className="sidebar__admin--menu--item">
+                                <span>Trang Tuyển dụng</span>
+                            </div>
+                            <ul className="sub__menu">
+                                <li onClick={() => handlePage('recruitment')}
+                                    className={handleStyle('recruitment')}
+                                >
+                                    <span>Tuyển dụng</span>
+                                </li>
+                                <li onClick={() => handlePage('hero-recruitment')}
+                                    className={handleStyle('hero-recruitment')}
+                                >
+                                    <span>Ảnh đầu trang tuyển dụng</span>
+                                </li>
+                            </ul>
+                            <hr />
+
+                        </>
+                    }
                 </div>
             </div>
 

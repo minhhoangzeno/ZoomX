@@ -31,6 +31,7 @@ import Blog from './news/blog/Blog';
 import Video from './home/video/Video';
 import User from './user/User';
 import Profile from './user/Profile'
+
 export default function Dashboard({ isPage }) {
     return (
         <div className="wrapper__admin">
