@@ -2,6 +2,11 @@
 img {
     object-fit: cover;
 }
+p.txt__adress, p.txt__hotel{
+    font-family: Gigory;
+    text-transform: uppercase;
+}
+
 .investment-wrapper {
     width: 100%;
     padding: 100px 140px;
@@ -151,7 +156,7 @@ img {
                         font-size: 14px;
                         font-weight: 700;
                         transition: 0.5s;
-                        border: 3px solid #e01042;
+                        border: 2px solid #e01042;
                         @media (max-width: 1025px) {
                             font-size: 12px;
                             padding: 5px 20px;
@@ -168,7 +173,7 @@ img {
                         &:hover {
                             text-decoration: none;
                             background-color: #fff;
-                            border: 3px solid #e01042;
+                            border: 2px solid #e01042;
                             color: #e01042;
                             transition: 0.5s;
                         }
