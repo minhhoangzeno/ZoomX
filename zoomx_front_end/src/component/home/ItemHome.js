@@ -8,7 +8,7 @@ export default function ItemHome() {
   const settings = {
     infinite: true,
     speed: 4000,
-    // autoplay: true,
+    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
