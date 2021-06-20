@@ -4,9 +4,8 @@ import Slider from "react-slick";
 import { useInvestment } from "../../lib/API";
 export default function FieldComponent() {
   const { data } = useInvestment();
-  let history = useHistory()
+  let history = useHistory();
   const item = {
-    // dots: true,
     infinite: true,
     speed: 1000,
     slidesToShow: 4,
@@ -75,20 +74,23 @@ export default function FieldComponent() {
                     alt="#"
                   />
                   <div className="box__item">
-                    <p className="txt__number">{
-                      (index < 9) ? `0${index + 1}` : (index + 1) 
-                    } /</p>
+                    <p className="txt__number">
+                      {index < 9 ? `0${index + 1}` : index + 1} /
+                    </p>
                     <p className="txt__adress">Lĩnh vực</p>
                     <p className="txt__hotel">{item.investmentName}</p>
                     <div className="empty__box"></div>
-                    <button className="btn__field"
+                    <button
+                      className="btn__field"
                       onClick={() => {
                         history.push({
-                          pathname: '/project',
-                          state: item?._id
-                        })
+                          pathname: "/project",
+                          state: item?._id,
+                        });
                       }}
-                    >XEM THÊM</button>
+                    >
+                      XEM THÊM
+                    </button>
                   </div>
                   <div className="img__field--overlay"></div>
                 </div>
