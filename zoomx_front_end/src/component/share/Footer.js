@@ -62,10 +62,12 @@ export default function Footer() {
                 </div>
                 <div className="col-lg-4 col-md-6 col-6  wrapper__top__item">
                   <div>
-                    <div className="wrapper__top__item--top">
+                    <div className="wrapper__top__item--top fl-right">
                       Liên hệ với chúng tôi
                     </div>
-                    <div className="wrapper__top__item--mid">MẠNG XÃ HỘI</div>
+                    <div className="wrapper__top__item--mid fl-right">
+                      MẠNG XÃ HỘI
+                    </div>
                     <div className="wrapper__top__item--bottom">
                       <ul>
                         {data?.map((item, index) => {
