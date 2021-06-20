@@ -12,6 +12,8 @@ export default function Header() {
 //vua vao trang web thi no se auto chay vao day dau tien
     useEffect(() => {
         getSearch()
+        window.scrollTo(0, 0)
+
     }, [])
 
     const handleLoading = (isLoading) => {

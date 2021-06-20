@@ -10,6 +10,8 @@ export default function Slogan() {
 
     useEffect(() => {
         getSlogan()
+        window.scrollTo(0, 0)
+
     }, [])
 
     const handleLoading = (isLoading) => {

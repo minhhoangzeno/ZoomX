@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { doGet, doPost } from '../../../lib/DataSource';
 import { tinyconfig } from '../../../TinyConfig';
 import { tinyconfigBlog } from '../../../TinyConfigBlog';
-
+import { useHistory } from 'react-router-dom';
 export default function ProjectAdd() {
     const [fileCover, setFileCover] = useState();
     const [project, setProject] = useState({})
     const [fileInfor, setFileInfor] = useState();
     const [investment, setInvestment] = useState();
+    let history = useHistory();
     useEffect(() => {
         getInvestment()
     }, [])
@@ -183,11 +184,16 @@ export default function ProjectAdd() {
                         }}
                     />
                 </div>
+                
                 <div className="btn--bottom">
                     <div className="wrapper__btn">
                         <button className="back-btn" onClick={() => {
                             setFileCover(null)
                             setFileInfor(null)
+                            history.push({
+                                pathname:"/admin",
+                                state: "project"
+                            })
                         }}>Quay lại</button>
                         <button
                             onClick={() => {

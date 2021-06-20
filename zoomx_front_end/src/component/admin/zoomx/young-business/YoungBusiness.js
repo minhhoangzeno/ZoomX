@@ -10,6 +10,8 @@ export default function YoungBusiness() {
 
     useEffect(() => {
         getYoungBusiness()
+        window.scrollTo(0, 0)
+
     }, [])
 
     const handleLoading = (isLoading) => {

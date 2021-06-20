@@ -70,6 +70,7 @@ module.exports = (app) => {
     .get(blog_controller.get_a_blog);
   app.route("/blog-search").get(blog_controller.search_blog);
   app.route("/blog-sort").get(blog_controller.soft_blog_by_date)
+  app.route('/blog-search-all').get(blog_controller.search_all_blog)
   app
     .route("/images")
     .get(image_controller.get_image)

@@ -10,6 +10,8 @@ export default function ZoomX() {
 
     useEffect(() => {
         getZoomX()
+        window.scrollTo(0, 0)
+
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleLoading = (isLoading) => {

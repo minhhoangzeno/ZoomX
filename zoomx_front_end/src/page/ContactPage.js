@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MetaTags } from 'react-meta-tags';
 import Contact from '../component/contact/Contact'
 import Footer from '../component/share/Footer';
@@ -8,7 +8,10 @@ import '../style/contact.scss'
 import { useHeroContact } from '../lib/API';
 import BackToTop from 'react-back-to-top-button';
 export default function ContactPage(){
-    const { data } = useHeroContact()
+    const { data } = useHeroContact();
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return(
         <>
         <MetaTags>

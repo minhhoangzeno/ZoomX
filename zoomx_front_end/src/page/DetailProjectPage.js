@@ -16,6 +16,7 @@ export default function DetailProjectPage() {
 
     useEffect(() => {
         getSearch()
+        window.scrollTo(0, 0)
     }, [])
     const getSearch = async () => {
         let path = `/project/${projectId}`;
@@ -37,7 +38,7 @@ export default function DetailProjectPage() {
                 <title>Dự án {project?.projectName}</title>
             </MetaTags>
             <Header />
-            <HeroPage title="DỰ ÁN" title_sub={project?.projectName}  imageBackground={project?.imageCover?.url} />
+            <HeroPage title="DỰ ÁN" title_sub={project?.projectName} imageBackground={project?.imageCover?.url} />
 
             <ProjectDetail project={project} />
             <BackToTop

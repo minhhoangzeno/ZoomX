@@ -18,6 +18,8 @@ export default function LibraryLookup() {
     }
     useEffect(() => {
         getSearch()
+        window.scrollTo(0, 0)
+
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {

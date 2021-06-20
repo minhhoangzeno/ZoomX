@@ -85,7 +85,7 @@ export default function UserItem({ data, indexNum, getHero, handleLoading }) {
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{data?.displayName}</td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>{data?.username}</td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>
-                    <img alt="" src={data?.avatar?.url} style={{ width: 100, height: 100, borderRadius: 50 }} />
+                    <img alt="" src={data?.avatar?.url} style={{ width: 100, height: 100, borderRadius: 50,objectFit:'cover' }} />
                 </td>
                 <td className="text-center" style={{ verticalAlign: 'middle' }}>
                     <div>

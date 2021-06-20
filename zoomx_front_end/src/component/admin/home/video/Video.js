@@ -11,6 +11,8 @@ export default function Video() {
     
     useEffect(() => {
         getVideo()
+        window.scrollTo(0, 0)
+
     }, [])
 
     const handleLoading = (isLoading) => {

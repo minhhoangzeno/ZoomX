@@ -5,13 +5,18 @@ import { useHistory } from "react-router-dom";
 import "../../style/style.scss";
 import { useIcon } from "../../lib/API";
 import { doPost, doGet } from "../../lib/DataSource";
-
+import SearchMobile from "./SearchMobile";
 export default function Footer() {
   const { data } = useIcon();
   const [isNavMobile, setIsNavMobile] = useState(false);
   let history = useHistory();
   const [email, setEmail] = useState();
-  const [investmentId, setInvestmentId] = useState()
+  const [investmentId, setInvestmentId] = useState();
+  const [isNavSearch, setIsNavSearch] = useState(false);
+  const handleNavSearch = (isSearch) => {
+    setIsNavSearch(isSearch)
+  }
+
   useEffect(() => {
     async function fetchData() {
       let path = "/investment";
@@ -62,10 +67,12 @@ export default function Footer() {
                 </div>
                 <div className="col-lg-4 col-md-6 col-6  wrapper__top__item">
                   <div>
-                    <div className="wrapper__top__item--top">
+                    <div className="wrapper__top__item--top fl-right">
                       Liên hệ với chúng tôi
                     </div>
-                    <div className="wrapper__top__item--mid">MẠNG XÃ HỘI</div>
+                    <div className="wrapper__top__item--mid fl-right">
+                      MẠNG XÃ HỘI
+                    </div>
                     <div className="wrapper__top__item--bottom">
                       <ul>
                         {data?.map((item, index) => {
@@ -156,7 +163,7 @@ export default function Footer() {
           </div>
           <ul className="header__wrapper--nav">
             <li>
-              <a href="http://www.github.com">
+              <a href="tel:0972335594">
                 <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
                   <path
                     fill="currentColor"
@@ -181,14 +188,14 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="http://www.github.com">
+              <div onClick={() => setIsNavSearch(true)}>
                 <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
                   <path
                     fill="currentColor"
                     d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
                   />
                 </svg>
-              </a>
+              </div>
             </li>
           </ul>
         </div>
@@ -704,6 +711,7 @@ export default function Footer() {
           </svg>
         </div>
       </div>
+      <SearchMobile isNavSearch={isNavSearch} handleNavSearch={handleNavSearch} />
     </>
   );
 }

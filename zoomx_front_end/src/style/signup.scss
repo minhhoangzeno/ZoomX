@@ -173,3 +173,42 @@
         }
     }
 }
+.form__signup{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #eaeaea;
+    background: #fff;
+    .ipt__sumbit{
+        width: 100%;
+        height: 50px;
+        background: #cc0000;
+        color: #fff;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+        margin-top: 15px;
+    }
+    label{
+        display: flex;
+        flex-direction: column;
+        font-size: 18px;
+        margin: 8px;
+        input{
+            margin-top: 5px;
+            padding: 5px;
+            &:focus{
+                outline-width: 0;
+            }
+        }
+    }
+}
+.sign__up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: #948282;
+}

@@ -3,12 +3,15 @@ import { useHistory } from "react-router";
 import logoCountry from "../../image/home/country.png";
 import { useSetting } from "../../lib/API";
 import { doGet } from "../../lib/DataSource";
+import Img from '../image/contact/hotel.png';
 import "../../style/style.scss";
 export default function Header() {
   const { data } = useSetting();
   let history = useHistory();
   const [height, setHeight] = useState();
   const [investmentId, setInvestmentId] = useState()
+  const [blog, setBlog] = useState();
+
   useEffect(() => {
     async function fetchData() {
       let path = "/investment";
@@ -28,6 +31,19 @@ export default function Header() {
     let heightWindow = window.pageYOffset;
     setHeight(heightWindow);
   });
+  const [isSearch, setIsSearch] = useState(false);
+  const [textSearch, setTextSearch] = useState("");
+  let getSearch = async () => {
+    let path = `/blog-search-all?q=${textSearch}`;
+    try {
+      let resp = await doGet(path);
+      if (resp.status === 200) {
+        setBlog(resp.data)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -610,13 +626,58 @@ export default function Header() {
                 <div className="country">
                   <img src={logoCountry} alt="" />
                 </div>
-                <div className="search">
-                  <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
+                <div className="search" >
+                  <div style={{ display: (isSearch ? 'flex' : 'none'), position: 'absolute' }} className="search__input">
+                    <input type="text" placeholder="Tìm kiếm..."
+                      onChange={(e) => {
+                        setTextSearch(e.target.value)
+                        getSearch()
+                      }}
+                      value={textSearch}
+                    />
+                    <div onClick={() => {
+                      setIsSearch(false)
+                    }} className="search__input--close">
+                      <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24" color="#333">
+                        <path fill="currentColor" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
+                      </svg>
+                    </div>
+                    <div className="list__blog">
+                      <ul>
+                        {blog?.map((item, index) => {
+                          return (
+                            <li key={index}>
+                              <div className="image">
+                                <img src={item?.imageInfor?.url} />
+                                <div className="content__title" onClick={() => history.push({
+                                  pathname: '/blog-detail',
+                                  state: item
+                                })}>
+                                  {item?.title}
+                                </div>
+                              </div>
+                              <div className="content">
+                                <div className="content__description" dangerouslySetInnerHTML={{ __html: item?.content }}>
+
+                                </div>
+                              </div>
+                            </li>
+                          )
+                        })}
+
+                      </ul>
+                    </div>
+                  </div>
+                  <svg style={{ width: 24, height: 24, cursor: 'pointer' }} viewBox="0 0 24 24" onClick={() => {
+                    setIsSearch(true)
+                    setTextSearch("")
+                  }}>
                     <path
                       fill="currentColor"
                       d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
                     />
                   </svg>
+
                 </div>
               </div>
             </div>

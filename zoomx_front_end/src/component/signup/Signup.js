@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { doPost } from '../../lib/DataSource';
+
 import Loading from '../image/Loading';
 
 export default function Signup() {
@@ -9,6 +10,9 @@ export default function Signup() {
     let history = useHistory();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState()
+    useEffect(() => {
+        localStorage.removeItem("user")
+    },[])
     let addUser = async () => {
         setLoading(true)
         let path = "/user";
@@ -19,13 +23,13 @@ export default function Signup() {
         data.append("avatar", user?.avatar);
         data.append("isAdmin", 'Member')
         const headers = {
-            "Content-Type": "multipart/form-data"
-        };
+            Accept: "*/*"
+        }
         try {
-            let resp = await doPost(path, headers, data);
+            let resp = await doPost(path,headers, data);
             if (resp.status === 200) {
-                localStorage.setItem("user", JSON.stringify(resp.data))
-                history.push("/admin")
+                alert("Bạn đã đăng ký tài khoản thành công! Vui lòng chờ admin chấp nhận.")
+                history.push("/")
                 setLoading(false)
 
             }
@@ -35,6 +39,7 @@ export default function Signup() {
 
         }
     }
+    
     const handleUser = (e) => {
         let { value, name } = e.target;
         setUser({
@@ -78,7 +83,7 @@ export default function Signup() {
                                     onChange={handleUser}
                                 />
                                 <div className="pw-wrapper">
-                                    <input className="pw-btn" placeholder="Mật khẩu" type="password"
+                                    <input className="pw-btn" placeholder="Mật khẩu" type="text"
                                         onChange={handleUser}
                                     />
                                 </div>

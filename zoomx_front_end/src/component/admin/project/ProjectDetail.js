@@ -100,8 +100,10 @@ export default function ProjectDetail() {
                 <div className="btn--bottom">
                     <div className="wrapper__btn">
                         <button className="back-btn" onClick={() => {
-                            history.goBack()
-                        }}>Quay lại</button>
+                            history.push({
+                                pathname:"/admin",
+                                state: "project"
+                            })}} >Quay lại</button>
 
                     </div>
                 </div>

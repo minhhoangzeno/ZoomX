@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MetaTags } from "react-meta-tags";
 import Founder from "../component/home/Founder";
 import IntroduceComponent from "../component/introduce/IntroduceComponent";
@@ -11,7 +11,10 @@ import { useHeroZoomx } from "../lib/API";
 import "../style/introduce.scss";
 import BackToTop from 'react-back-to-top-button';
 export default function ZoomXPage() {
-  const { data } = useHeroZoomx();
+  const { data } = useHeroZoomx(); 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <>
       <MetaTags>

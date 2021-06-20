@@ -31,6 +31,7 @@ export default function NewsPage() {
   }
   useEffect(() => {
     getSearch()
+    window.scrollTo(0, 0)
   }, [])
   useEffect(() => {
     getSearch()
@@ -75,7 +76,7 @@ export default function NewsPage() {
       </MetaTags>
       <Header />
       <HeroPage
-         title={hero?.[0]?.title} title_sub={hero?.[0]?.label} imageBackground={hero?.[0]?.imageCover?.url}
+        title={hero?.[0]?.title} title_sub={hero?.[0]?.label} imageBackground={hero?.[0]?.imageCover?.url}
       />
       <main className="main__container">
 
@@ -83,7 +84,7 @@ export default function NewsPage() {
           {isSearch && <>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 18 }}>
               {data?.totalPage}  Kết quả hiện thị cho tìm kiếm &nbsp; <strong>{textSearch}</strong> &nbsp;
-                            <div onClick={() => setIsSearch(false)}>
+              <div onClick={() => setIsSearch(false)}>
                 <svg style={{ width: 35, height: 35, cursor: 'pointer' }} color="#65676b" viewBox="0 0 24 24"
                   onClick={async () => {
                     await handleTextSearch("");
@@ -133,18 +134,18 @@ export default function NewsPage() {
         />
       </div>
       <BackToTop
-                showOnScrollUp
-                showAt={300}
-                speed={1000}
-                easing="easeInOutQuint"
-                showOnScrollUp={true}
-            >
-                <div className="backToTop">
-                    <svg viewBox="0 0 24 24" color="#FFF">
-                        <path fill="currentColor" d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
-                    </svg>
-                </div>
-            </BackToTop>
+        showOnScrollUp
+        showAt={300}
+        speed={1000}
+        easing="easeInOutQuint"
+        showOnScrollUp={true}
+      >
+        <div className="backToTop">
+          <svg viewBox="0 0 24 24" color="#FFF">
+            <path fill="currentColor" d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
+          </svg>
+        </div>
+      </BackToTop>
       <Footer />
     </>
   );
