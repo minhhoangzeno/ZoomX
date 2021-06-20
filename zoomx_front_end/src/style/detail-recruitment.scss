@@ -454,11 +454,17 @@
                         @media (max-width: 767px) {
                             padding-right: 20px;
                         } 
-                        svg{
+                        img{
+                            height: auto;
+                            object-fit: contain;
+                            width: 120px;
+                            
+                            @media (max-width:1190px) {
+                                width: 100px;
+                            }
                             @media (max-width: 767px) {
                                 width: 60px;
-                                height: auto;
-                                object-fit: contain;
+                                
                             } 
                         }
                     }
