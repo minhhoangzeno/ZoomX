@@ -44,7 +44,7 @@ export default function Header() {
       console.log(error)
     }
   }
-  console.log(blog)
+
   return (
     <>
       <header>
