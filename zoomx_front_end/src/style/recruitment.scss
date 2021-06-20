@@ -73,7 +73,7 @@
                     &--logo{
                         padding-bottom: 20px;
                         img{
-                            object-fit: cover;
+                            object-fit: contain;
                         }
                         @media (max-width:500px) {
                             padding-bottom: 0px;

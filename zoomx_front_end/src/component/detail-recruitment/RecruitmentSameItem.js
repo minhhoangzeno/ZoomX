@@ -1,18 +1,22 @@
 import moment from 'moment';
 import React from 'react';
 import icon_money from '../../image/icon/money.png'
-
+import { useHistory } from 'react-router-dom';
 export default function RecruitmentSameItem({ data }) {
+    let history = useHistory();
     return (
 
         <div className="recruitment__same">
-            <div className="recruitment__same--item">
+            <div className="recruitment__same--item" onClick={() => history.push({
+                pathname: '/detail-recruitment',
+                state: data
+            })} style={{cursor:'pointer'}}>
                 <div className="logo">
                     <img src={data?.imageRecruitment?.url} width="92.332" height="67.86" alt="" />
                 </div>
                 <div className="item--content">
                     <div className="item--content--title">
-                        <strong><a href="http://www.github.com">{data?.title}</a></strong>
+                        <strong><div>{data?.title}</div></strong>
                     </div>
                     <div className="item--content--address">
                         <div className="icon">

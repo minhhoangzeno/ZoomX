@@ -14,28 +14,23 @@ const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 const personRecruitment = new Schema({
     career: {
-        type: String,
-        require: true
+        type: String
     },
     addressWork: {
         type: String,
         require: true
     },
     firstName: {
-        type: String,
-        require: true
+        type: String
     },
     lastName: {
-        type: String,
-        require: true
+        type: String
     },
     email: {
-        type: String,
-        require: true
+        type: String
     },
     numberPhone: {
-        type: Number,
-        require: true
+        type: String
     },
     fileCv: {
         type: Schema.Types.ObjectId,
