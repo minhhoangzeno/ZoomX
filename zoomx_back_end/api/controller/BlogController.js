@@ -324,3 +324,25 @@ exports.soft_blog_by_date = (req, res) => {
       res.send(err)
     })
 }
+exports.search_all_blog = (req, res) => {
+  let regex = new RegExp(req.query.q, "i");
+  Blog.find({ title: regex })
+    .populate([
+      {
+        path: "imageCover",
+        model: "image",
+        select: "url",
+      },
+      {
+        path: "imageInfor",
+        model: "image",
+        select: "url",
+      },
+    ])
+    .then(data => {
+      res.send(data)
+    })
+    .catch(err => {
+      res.send(err)
+    })
+}

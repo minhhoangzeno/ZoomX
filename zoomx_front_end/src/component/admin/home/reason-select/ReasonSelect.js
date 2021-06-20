@@ -10,6 +10,8 @@ export default function ReasonSelect() {
 
     useEffect(() => {
         getReasonSelect()
+        window.scrollTo(0, 0)
+
     }, [])
 
     const handleLoading = (isLoading) => {

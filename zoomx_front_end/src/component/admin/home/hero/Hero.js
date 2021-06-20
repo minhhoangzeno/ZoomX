@@ -10,6 +10,7 @@ export default function Hero() {
 
     useEffect(() => {
         getHero()
+        window.scrollTo(0, 0)
     }, [])
 
     const handleLoading = (isLoading) => {

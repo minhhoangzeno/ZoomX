@@ -10,6 +10,8 @@ export default function Timeline() {
 
     useEffect(() => {
         getTimeline()
+        window.scrollTo(0, 0)
+
     }, [])
 
     const handleLoading = (isLoading) => {

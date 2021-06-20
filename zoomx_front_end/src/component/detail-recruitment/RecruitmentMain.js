@@ -42,6 +42,7 @@ export default function RecruitmentMain({ data }) {
                                         address={data?.address}
                                         rank={`${data?.rank} ${data?.career}`}
                                         logo={data?.imageRecruitment?.url}
+                                        onHide={() => setShow(false)}
                                     />
                                 </div>
                                 <div className="col-8">

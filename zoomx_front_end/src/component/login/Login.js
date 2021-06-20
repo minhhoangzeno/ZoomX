@@ -8,13 +8,8 @@ export default function Login() {
     let history = useHistory()
     let [user, setuser] = useState();
     useEffect(() => {
-        if (user) {
-            history.push("/admin")
-            localStorage.setItem("user", JSON.stringify(user))
-        } else {
-            history.push("/login")
-        }
-    }, [user]) // eslint-disable-line react-hooks/exhaustive-deps
+        localStorage.removeItem("user")
+    }, [])
     let login = async () => {
         setLoading(true)
         let path = "/login";
@@ -28,7 +23,13 @@ export default function Login() {
             let resp = await doPost(path, headers, data);
             if (resp.status === 200) {
                 setLoading(false)
-                setuser(resp.data)
+                if (resp.data == "") {
+                    history.push('/login')
+                } else {
+                    localStorage.setItem("user", JSON.stringify(resp.data))
+                    history.push('/admin')
+                }
+
             }
         } catch (error) {
             console.log(error)
@@ -61,6 +62,7 @@ export default function Login() {
                                             password: e.target.value
                                         })
                                     }}
+                                    type="password"
                                 />
                                 <div className="wrapper__sign-btn">
                                     <div className="sign-in">

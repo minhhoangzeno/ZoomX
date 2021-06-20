@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MetaTags } from 'react-meta-tags';
 import Recruitment from '../component/recruitment/Recruitment';
 import Footer from '../component/share/Footer';
@@ -8,7 +8,9 @@ import { useHeroRecruitment } from '../lib/API';
 import BackToTop from 'react-back-to-top-button';
 export default function RecruitmentPage() {
     const { data } = useHeroRecruitment()
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
         <>
             <MetaTags>

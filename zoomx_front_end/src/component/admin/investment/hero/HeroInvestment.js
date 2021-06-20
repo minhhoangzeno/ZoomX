@@ -10,6 +10,8 @@ export default function HeroInvestment() {
 
     useEffect(() => {
         getHero()
+        window.scrollTo(0, 0)
+
     }, [])
 
     const handleLoading = (isLoading) => {

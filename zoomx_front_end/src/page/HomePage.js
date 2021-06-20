@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../component/share/Footer";
 import Header from "../component/share/Header";
 import MetaTags from "react-meta-tags";
@@ -13,6 +13,9 @@ import EnjoyVideo from "../component/home/EnjoyVideo";
 import News from "../component/home/News";
 import BackToTop from 'react-back-to-top-button';
 export default function HomePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div>
       <MetaTags>
