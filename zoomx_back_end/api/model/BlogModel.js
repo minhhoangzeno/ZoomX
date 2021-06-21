@@ -8,39 +8,32 @@
 const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 const blogSchema = new Schema({
-    titleBlog: {
+    title: {
         type: String,
         require: true
     },
-    createdDate:{
-        type:Date,
-        require:true,
-        default: Date.now
-    },
-    typeBlog:{
+    categoryId: {
         type: String,
         require: true
     },
-    startTitle: String,
-    startImage: [{
+    date: {
+        type: Date,
+        default: Date.now()
+    },
+    content: {
+        type: String,
+        require: true
+    },
+    imageCover: {
         type: Schema.Types.ObjectId,
         ref: 'image'
-    }],
-    startDescription: String,
-    midTitle: String,
-    midImage: [{
+    },
+    imageInfor: {
         type: Schema.Types.ObjectId,
         ref: 'image'
-    }],
-    midDescription: String,
-    beginTitle: String,
-    beginImage: [{
-        type: Schema.Types.ObjectId,
-        ref: 'image'
-    }],
-    beginDescription: String,
-
-
-
+    }
+}, {
+    bufferCommands: true,
+    autoCreate: true
 })
 module.exports = mongoose.model('blog', blogSchema);

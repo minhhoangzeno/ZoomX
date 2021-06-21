@@ -1,5 +1,7 @@
 @import "../style/common.scss";
-
+img {
+    object-fit: cover;
+}
 .project__wrapper {
     width: 100%;
     .container-fluid {
@@ -8,21 +10,34 @@
             width: 100%;
             margin-left: 0;
             margin-right: 0;
+            @media (max-width: 768px) {
+                font-size: 14px;
+            }
+            @media (max-width: 426px) {
+                font-size: 12px;
+            }
         }
 
         .row__info-project-detail {
             padding: 0 140px 50px 140px;
             margin-top: 60px;
-            @media (max-width: 1440px) {
-                padding: 60px 50px;
+            @media (max-width: 426px) {
+                margin-top: 0;
             }
-            @media (max-width: 769px) {
+            @media (max-width: 1440px) {
+                padding: 50px 50px;
+            }
+            @media (max-width: 1024px) {
+                margin-top: 30px;
+            }
+            @media (max-width: 768px) {
                 padding: 50px 15px;
+                margin-top: 0;
             }
             .wrapper__info {
                 width: 100%;
                 height: 100%;
-                box-shadow: 0px 2px 3px 2px #bebebe;
+                box-shadow: 0px 2px 3px 2px #efefef;
                 letter-spacing: 1px !important;
                 h1 {
                     width: 100%;
@@ -31,6 +46,17 @@
                     font-size: 21px;
                     font-weight: bold;
                     color: #cc0000;
+                    text-transform: uppercase;
+                    @media (max-width: 1024px) {
+                        font-size: 18px;
+                    }
+                    @media (max-width: 769px) {
+                        font-size: 16px;
+                    }
+                    @media (max-width: 425px) {
+                        margin: 20px 0;
+                        font-size: 14px;
+                    }
                 }
                 .info-project-content {
                     width: 100%;
@@ -38,6 +64,7 @@
                     padding: 0 70px 50px 70px;
                     @media (max-width: 1024px) {
                         flex-wrap: wrap;
+                        padding: 0 50px 50px;
                     }
                     @media (max-width: 2560px) {
                         flex-direction: row;
@@ -47,6 +74,7 @@
                     }
                     @media (max-width: 769px) {
                         flex-direction: column !important;
+                        padding: 0 30px 30px 30px;
                     }
                     .col-info {
                         padding: 0 20px 0 0;
@@ -57,45 +85,174 @@
                         @media (min-width: 769px) {
                             width: 50%;
                         }
-                        p.no-mg {
-                            margin-bottom: 0;
+                        @media (max-width: 426px) {
+                            padding: 0 0 30px 0;
                         }
-                        p {
-                            position: relative;
-                            padding-left: 30px;
-                            font-size: 16px;
-                            font-family: Helvetica;
-                            svg {
-                                position: absolute;
-                                left: 0;
-                                top: 5px;
+                        .info-wrapper {
+                            p.no-mg {
+                                margin-bottom: 0;
+                            }
+                            p {
+                                width: 100%;
+                                position: relative;
+                                padding-left: 30px;
+                                font-size: 16px;
+                                font-family: Helvetica;
+                                @media (max-width: 1025px) {
+                                    font-size: 14px;
+                                }
+                                @media (max-width: 769px) {
+                                    font-size: 12px;
+                                }
+                                @media (max-width: 425px) {
+                                    font-size: 10px;
+                                }
+                                svg {
+                                    position: absolute;
+                                    left: 0;
+                                    top: 5px;
+                                }
+                                div {
+                                    p {
+                                        padding: 0 !important;
+                                    }
+                                }
                             }
                         }
                     }
                     .col-img {
                         padding: 0;
-                        box-shadow: 0px 2px 3px 2px #bebebe;
-
+                        height: auto;
                         @media (max-width: 769px) {
                             width: 100% !important;
                         }
                         @media (min-width: 769px) {
                             width: 50%;
                         }
-                        .img-wrapper {
+                        p.img-detail {
+                            margin-bottom: 0;
+                            padding: 0 !important;
                             width: 100%;
                             height: 100%;
-                            box-shadow: 0px 2px 3px 2px #bebebe;
+                            display: flex;
+                            justify-content: center;
                             img {
                                 height: 100%;
                                 width: 100%;
+                                box-shadow: 0px 2px 3px 2px #bebebe;
+                                @media (max-width: 2560px) {
+                                    height: 320px;
+                                    width: auto;
+                                }
+                                @media (max-width: 1920px) {
+                                    height: 320px;
+                                    width: auto;
+                                }
+                                @media (max-width: 1440px) {
+                                    width: 100%;
+                                    height: auto;
+                                }
                             }
                         }
                     }
                 }
             }
+            p {
+                width: 100%;
+                position: relative;
+                padding-left: 30px;
+                font-size: 16px;
+                font-family: Helvetica;
+                @media (max-width: 1024px) {
+                    margin-bottom: 10px;
+                }
+                @media (max-width: 769px) {
+                    font-size: 12px;
+                    padding-left: 20px !important;
+                }
+                svg {
+                    position: absolute;
+                    left: 0;
+                    top: 5px;
+                    @media (max-width: 1024px) {
+                        top: 3px !important;
+                    }
+                    @media (max-width: 768px) {
+                        height: 10px;
+                        width: 10px;
+                    }
+                    @media (max-width: 425px) {
+                        left: 3px !important;
+                        height: 8px;
+                        width: 8px;
+                    }
+                }
+            }
         }
-
+        .row__content--project-detail {
+            padding: 0 140px 50px 140px;
+            margin-top: 20px;
+            @media (max-width: 1440px) {
+                padding: 0 50px 50px 50px;
+            }
+            @media (max-width: 1024px) {
+                margin-top: 0;
+            }
+            @media (max-width: 769px) {
+                padding: 0 15px 50px 15px;
+            }
+            @media (max-width: 426px) {
+                padding: 0 15px 20px;
+            }
+            p {
+                letter-spacing: 1px;
+                display: flex;
+                flex-wrap: wrap;
+                @media (max-width: 1024px) {
+                    font-size: 14px;
+                }
+                @media (max-width: 769px) {
+                    flex-direction: column;
+                }
+                @media (max-width: 769px) {
+                    font-size: 12px;
+                }
+                @media (max-width: 425px) {
+                    font-size: 10px;
+                }
+                img {
+                    margin: 20px 0;
+                    object-fit: cover;
+                    margin-left: auto;
+                    box-shadow: 0 2px 3px 2px #bebebe;
+                    &:nth-of-type(1){
+                        margin-left: 0;
+                    }
+                    @media (max-width: 1440px) {
+                        height: auto;
+                        width: 48%;
+                        &:nth-of-type(2n){
+                            margin-left: auto;
+                        }
+                        &:nth-of-type(odd){
+                            margin-left: 0;
+                        }
+                    }
+                    @media (max-width: 1024px) {
+                        margin: 15px 0;
+                        width: 48.5%;
+                    }
+                    @media (max-width: 769px) {
+                        width: 100%;
+                        max-height: 450px;
+                        margin: 15px 0;
+                    }
+                    @media (max-width: 426px) {
+                        height: 300px;
+                    }
+                }
+            }
+        }
         .row__back-ground {
             width: 100%;
             height: 532px;
@@ -130,6 +287,10 @@
             }
             .wrapper__text-content {
                 padding: 0 15px;
+                font-size: 16px;
+                @media (max-width: 769px) {
+                    font-size: 12px;
+                }
             }
         }
         .row__img-content {

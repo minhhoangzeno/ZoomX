@@ -1,5 +1,8 @@
 @import "./common.scss";
 
+img{
+    object-fit: cover;
+}
 *{
     letter-spacing: 1px;
 }
@@ -38,6 +41,8 @@
                 color: #a4abb3;
                 font-weight: 700;
                 font-size: 16px;
+                margin-top: 10px;
+                text-transform: uppercase;
                 display: flex;
                 align-items: center;
                 position: relative;
@@ -66,7 +71,7 @@
                         height: 12px;
                     }
                 }
-                a {
+                div {
                     padding: 0 0 0 25px;
                     @media (max-width: 526px){
                         padding: 0 0 0 15px;
@@ -85,7 +90,7 @@
                         bottom: -5px;
                         opacity: .4;
                         background-color: #676767;
-                        @media (max-width: 375px){
+                        @media (max-width: 426px){
                             height: 2px;
                         }
                     }
@@ -98,7 +103,7 @@
 .list__wrapper-project {
     width: 100%;
     .container-fluid {
-        padding-bottom: 100px;
+        padding: 0 0 50px 0;
         .row {
             margin: 0;
             width: 100%;
@@ -112,7 +117,7 @@
             @media(max-width: 768px){
                 padding: 0 15px;
             }
-            a.item {
+            .item {
                 width: calc((100% - 70px) / 2);
                 margin-right: 70px;
                 margin-bottom: 50px;
@@ -130,7 +135,7 @@
                     margin-bottom: 30px;
                     width: calc((100% - 40px) / 2);
                 }
-                @media (max-width: 425px){
+                @media (max-width: 426px){
                     margin-right: 0;
                     margin-bottom: 30px;
                     width: 100%;
@@ -138,6 +143,19 @@
                 .item__content--top {
                     overflow: hidden;
                     .wrapper-img{
+                        
+                        @media(max-width: 1440px){
+                            height: 455px;
+                        }
+                        @media (max-width: 1024px){
+                            height: 400px;
+                        }
+                        @media(max-width: 768px){
+                            height: 305px;
+                        }
+                        @media(max-width: 320px){
+                            height: 230px;
+                        }
                         &:hover{
                             img {
                                 transform: scale(1.5);
@@ -190,14 +208,20 @@
                             letter-spacing: 1px;
                             font-size: 16px;
                             @media (max-width: 1024px){
-                            // font-size: 16px;
-                            padding: 5px 25px;
+                            font-size: 14px;
+                            padding: 3px 15px;
                             } 
+                            @media (max-width: 768px){
+                                font-size: 12px;
+                            }
                             font-weight: 700;
                             border: 2px solid #E01042;
-                            @media (max-width: 768px){
+                            @media (max-width: 769px){
                                 padding: 3px 15px;
-                                // font-size: 13px;
+                                font-size: 12px;
+                            }
+                            @media (max-width: 426px){
+                                font-size: 10px;
                             }
                             &:hover {
                                 text-decoration: none;
@@ -219,10 +243,13 @@
                         @media (max-width: 1024px){
                             width: 100%;
                             text-align: center;
-                            font-size: 18px;
+                            font-size: 16px;
                         }
-                        @media (max-width: 768px){
-                            font-size: 15px;
+                        @media (max-width: 769px){
+                            font-size: 14px;
+                        }
+                        @media (max-width: 426px){
+                            font-size: 12px;
                         }
                         &:hover {
                             color: #af8d41;

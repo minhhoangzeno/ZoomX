@@ -1,61 +1,64 @@
 import React, { useEffect, useState } from 'react';
+import Pagination from "react-js-pagination";
+import { useHistory } from 'react-router';
 import { doGet } from '../../../lib/DataSource';
-import Item from './Item';
-// import { doGet } from '../../../lib/DataSource';
 import Loading from '../../image/Loading';
-// import Item from './Item';
-import ModalAdd from './ModalAdd';
+import Item from './Item';
+
+import SelectInvestment from './SelectInvestment';
 export default function Project() {
     const [data, setData] = useState();
-    const [investmentId, setInvestmentId] = useState(null);
+    let history = useHistory();
+    const [activePage, setActivePage] = useState(1);
+    const [investmentId, setInvestmentId] = useState(1);
+    const [loading, setLoading] = useState(false);
+    const handleLoading = (isLoading) => {
+        setLoading(isLoading)
+    }
     const handleInvestment = (id) => {
         setInvestmentId(id)
+        setActivePage(1)
     }
-    const [loading, setLoading] = useState(true);
-    const [modalShow,setModalShow] = useState(false)
     useEffect(() => {
         getSearch()
-    },[investmentId])
+        window.scrollTo(0, 0)
+
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => {
+        getSearch()
+    },[investmentId,activePage]) // eslint-disable-line react-hooks/exhaustive-deps
     const getSearch = async () => {
-        let path = (investmentId==null) ? '/project' : `/project/${investmentId}`;      
-        const headers = {
-            Accept: "*/*"
-        }
+        handleLoading(true)
+        let path = `/project?page=${activePage}&typeInvestment=${investmentId}`;
         try {
-            var resp = await doGet(path, headers);
+            let resp = await doGet(path);
             if (resp.status === 200) {
                 setData(resp.data)
                 handleLoading(false)
             }
-        } catch (e) {
-            console.log(e)
+        } catch (error) {
+            console.log(error);
             handleLoading(false)
         }
     }
-    const handleLoading = (isLoading) => {
-        setLoading(isLoading)
+
+    const handleChangData = (item) => {
+        setActivePage(item)
     }
-   
     return (
         <>
             <div className="title">
                 <h1>Dự án</h1>
             </div>
 
-            {/* <div className="find__input">
-                <input className="input-txt" placeholder="Tìm kiếm..."
-                />
-                <button>
-                    <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-                    </svg>
-                </button>
-            </div> */}
-            <InvestmentSelect handleInvestment={handleInvestment} />
+            <SelectInvestment handleInvestment={handleInvestment} />
             <div className="wrapper__table">
-                <section className="content-header">
+                <section className="content-header" >
                     <div className="button__add" >
-                        <button onClick={() => setModalShow(true)}>
+                        <button onClick={() => {
+                            history.push('/auth/project/add')
+                        }}>
                             <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
                             </svg>
@@ -70,67 +73,35 @@ export default function Project() {
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Ảnh</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Tên dự án</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Tổng vốn đầu tư</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Địa điểm</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Lĩnh vực đầu tư</th>
                                 <th className="text-center" width="12%">Setting</th>
                             </tr>
                         </thead>
-                        <ModalAdd
-                            show={modalShow}
-                            onHide={() => setModalShow(false)}
-                            handleLoading={handleLoading}
-                            getSearch={getSearch}
 
-                        />
                         {!loading ?
                             <tbody>
-                                {data?.map((item, index) => {
+                                {data?.data.map((item, index) => {
                                     return (
-                                        <Item data={item} key={index} handleLoading={handleLoading} indexNum={index + 1} getSearch={getSearch} />
+                                        <Item data={item} indexNum={index + 1} key={index} getSearch={getSearch} handleLoading={handleLoading} />
                                     )
                                 })}
                             </tbody>
                             : <Loading />
                         }
-
                     </table>
                 </div>
             </div>
-        </>
-    )
-}
+            <div className="wrapper-paginate">
 
-function InvestmentSelect({ handleInvestment }) {
-    const [investment, setInvestment] = useState();
-    useEffect(() => {
-        getInvestment()
-    }, [])
-    const getInvestment = async () => {
-        const path = "/investment";
-        const headers = {
-            Accept: "*/*"
-        }
-        try {
-            var resp = await doGet(path, headers);
-            if (resp.status === 200) {
-                setInvestment(resp.data)
+                <Pagination
+                    activePage={activePage}
+                    itemsCountPerPage={6}
+                    totalItemsCount={parseInt(data?.totalPage)}
+                    pageRangeDisplayed={3}
+                    onChange={handleChangData}
 
-            }
-        } catch (e) {
-            console.log(e)
-        }
-    }
-    
-    return (
-        <>
-            <label for="cars">Chon linh vuc dau tu:</label>
-            <select name="cars" id="cars" onChange={(e) => handleInvestment(e.target.value)}>
-            <option value="">Tat ca</option>
-                {investment?.map((item, idx) => {
-                    return (
-                        <option key={idx} value={item._id}>{item.investmentName}</option>
-                    )
-                })}
-            </select>
+                />
+            </div>
         </>
     )
 }

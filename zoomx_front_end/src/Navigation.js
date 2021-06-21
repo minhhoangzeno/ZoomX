@@ -16,9 +16,20 @@ import RecruitmentPage from './page/RecruitmentPage';
 import ZoomXPage from './page/ZoomXPage';
 import BlogDetailPage from './page/BlogDetailPage';
 import AdminPage from './page/AdminPage';
-import LoginPage from './page/LoginPage';
 import SignupPage from './page/SignupPage';
 
+import LoginPage from './page/LoginPage';
+import DemoSignUp from './component/signup/DemoSignUp'
+import BlogDetail from './component/admin/news/blog/BlogDetail';
+import BlogAdd from './component/admin/news/blog/BlogAdd';
+import ProjectAdd from './component/admin/project/ProjectAdd';
+import ProjectDetail from './component/admin/project/ProjectDetail';
+import ProjectUpdate from './component/admin/project/ProjectUpdate';
+import BlogUpdate from './component/admin/news/blog/BlogUpdate';
+import Login from './component/login/Login';
+
+const user = JSON.parse(localStorage.getItem("user"));
+console.log(user)
 export default function Navigation() {
     return (
         <Router>
@@ -62,8 +73,42 @@ export default function Navigation() {
                 <Route exact path="/blog-detail">
                     <BlogDetailPage />
                 </Route>
-                <Route exact path="/admin">
-                    <AdminPage />
+                <Route exact path="/login">
+                    <Login />
+                </Route>
+                <Route exact path="/admin" render={() => {
+                    return (user ? <AdminPage /> : <Login />)
+                }}>
+                </Route>
+
+                <Route exact path="/auth/blog/add" render={() => {
+                    return (user && (user.isAdmin !== "Member")) ? <BlogAdd /> : <Login />
+                }}>
+                </Route>
+
+                <Route exact path="/auth/blog/detail" render={() => {
+                    return (user && (user.isAdmin !== "Member")) ? <BlogDetail /> : <Login />
+                }}>
+                </Route>
+
+                <Route exact path="/auth/blog/update" render={() => {
+                    return (user && (user.isAdmin !== "Member")) ? <BlogUpdate /> : <Login />
+                }}>
+                </Route>
+
+                <Route exact path="/auth/project/add" render={() => {
+                    return (user && (user.isAdmin === "Admin")) ? <ProjectAdd /> : <Login />
+                }}>
+                </Route>
+
+                <Route exact path="/auth/project/detail" render={() => {
+                    return (user && (user.isAdmin === "Admin")) ? <ProjectDetail /> : <Login />
+                }}>
+                </Route>
+
+                <Route exact path="/auth/project/update" render={() => {
+                    return (user && (user.isAdmin === "Admin")) ? <ProjectUpdate /> : <Login />
+                }}>
                 </Route>
             </Switch>
         </Router>

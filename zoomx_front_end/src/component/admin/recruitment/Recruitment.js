@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { doGet } from '../../../lib/DataSource';
 import Loading from '../../image/Loading';
+import Pagination from "react-js-pagination";
+
 import Item from './Item';
 import ModalAdd from './ModalAdd';
 export default function Recruitment() {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
-    const [modalShow,setModalShow] = useState(false)
+    const [modalShow,setModalShow] = useState(false);
+    const [activePage,setActivePage] = useState(1);
     useEffect(() => {
         getSearch()
-    },[])
+        window.scrollTo(0, 0)
+
+    },[]) // eslint-disable-line react-hooks/exhaustive-deps
+   
+    useEffect(() => {
+        getSearch()
+    },[activePage]) // eslint-disable-line react-hooks/exhaustive-deps
+   
     const getSearch = async () => {
-        const path = "/recruitment";
+        const path = `/recruitment?page=${activePage}`;
         const headers = {
             Accept: "*/*"
         }
@@ -26,6 +36,7 @@ export default function Recruitment() {
             handleLoading(false)
         }
     }
+   
     const handleLoading = (isLoading) => {
         setLoading(isLoading)
     }
@@ -35,15 +46,7 @@ export default function Recruitment() {
                 <h1>Tuyển dụng</h1>
             </div>
 
-            <div className="find__input">
-                <input className="input-txt" placeholder="Tìm kiếm..."
-                />
-                <button>
-                    <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-                    </svg>
-                </button>
-            </div>
+           
             <div className="wrapper__table">
                 <section className="content-header">
                     <div className="button__add" >
@@ -62,7 +65,7 @@ export default function Recruitment() {
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Ảnh</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Tiêu đề</th>
-                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Nơi làm việc</th>
+                                <th className="text-center" style={{ verticalAlign: 'middle' }}>Ngành nghề</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Lương</th>
                                 <th className="text-center" style={{ verticalAlign: 'middle' }}>Hạn nộp hồ sơ</th>
                                 <th className="text-center" width="12%">Setting</th>
@@ -77,7 +80,7 @@ export default function Recruitment() {
                         />
                         {!loading ?
                             <tbody>
-                                {data?.map((item, index) => {
+                                {data?.data.map((item, index) => {
                                     return (
                                         <Item data={item} key={index} handleLoading={handleLoading} indexNum={index + 1} getSearch={getSearch} />
                                     )
@@ -88,6 +91,16 @@ export default function Recruitment() {
                         
                     </table>
                 </div>
+            </div>
+            <div className="wrapper-paginate">
+
+                <Pagination
+                    activePage={activePage}
+                    itemsCountPerPage={6}
+                    totalItemsCount={parseInt(data?.totalPage)}
+                    pageRangeDisplayed={3}
+                    onChange={(item) => setActivePage(item)}
+                />
             </div>
         </>
     )

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Modal from 'react-bootstrap/Modal'
-import { doPost } from '../../../lib/DataSource';
 import { Editor } from '@tinymce/tinymce-react';
+import React, { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import { doPost } from '../../../lib/DataSource';
 import { tinyconfig } from '../../../TinyConfig';
 export default function ModalAdd(props) {
     const [fileCover, setFileCover] = useState();
@@ -129,7 +129,12 @@ export default function ModalAdd(props) {
                         <label className="label-txt">Hạn chót nhận hồ sơ: </label> <input className="input-txt"
                             name="dateReceived"
                             type="date"
-                            onChange={handleRecruitment}
+                            onChange={(e) => {
+                                setRecruitment({
+                                    ...recruitment,
+                                    dateReceived: e.target.value
+                                })
+                            }}
 
                         />
                     </div>

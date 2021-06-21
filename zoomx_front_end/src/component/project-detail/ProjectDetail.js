@@ -1,9 +1,8 @@
+import moment from 'moment';
 import React from 'react';
 import '../../style/project-detail.scss';
-import infoImg from '../../image/investment/img.png'
-import ImageBg from '../../image/project/background.jpg'
+export default function ProjectDetail({ project }) {
 
-export default function ProjectDetail() {
     return (
         <>
             <div className="project__wrapper">
@@ -28,7 +27,7 @@ export default function ProjectDetail() {
                                                 Địa điểm
                                             </strong>
                                             :
-                                            Hạ Long, Quảng Ninh
+                                            {project?.address}
 
                                         </p>
                                         <p>
@@ -44,7 +43,7 @@ export default function ProjectDetail() {
                                             <strong>
                                                 Diện tích
                                             </strong>
-                                            : Gần 300 ha
+                                            : {project?.acreage}
                                         </p>
                                         <p>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="13.685" height="13.64" viewBox="0 0 13.685 13.64">
@@ -59,7 +58,7 @@ export default function ProjectDetail() {
                                             <strong>
                                                 Tổng vốn đầu tư
                                             </strong>
-                                            : 12000 tỉ đồng
+                                            : {project?.totalInvestment}
 
                                         </p>
                                         <p>
@@ -76,14 +75,9 @@ export default function ProjectDetail() {
                                                 Hạng mục đầu tư
                                             </strong>
                                             :
-                                            <span>
-                                                2.600 căn shophouse, liền kề<br />
-                                                04 tòa chung cư<br />
-                                                Hệ thống trường liên cấp<br />
-                                                Bể bơi ngoài trời<br />
-                                                Khu phố lễ hội<br />
-                                                Quảng trường<br />
-                                            </span>
+                                            <div dangerouslySetInnerHTML={{ __html: project?.categoryInvestment }}>
+
+                                            </div>
                                         </p>
                                         <p>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="13.685" height="13.64" viewBox="0 0 13.685 13.64">
@@ -98,7 +92,7 @@ export default function ProjectDetail() {
                                             <strong>
                                                 Thời gian khởi công
                                             </strong>
-                                            : Tháng 12/2020
+                                            : Tháng {moment(project?.dataStart).format('MM/YYYY')}
                                         </p>
                                         <p className="no-mg">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="13.685" height="13.64" viewBox="0 0 13.685 13.64">
@@ -113,45 +107,20 @@ export default function ProjectDetail() {
                                             <strong>
                                                 Thời gian hoàn thành
                                             </strong>
-                                            : Tháng 12/2022
+                                            : Tháng {moment(project?.dataFinish).format('MM/YYYY')}
                                         </p>
                                     </div>
                                 </div>
                                 <div className="col-img">
-                                    <div className="img-wrapper">
-                                        <img src={infoImg} alt="" />
-                                    </div>
+                                    <p className="img-detail">
+                                        <img src={project?.imageInfor?.url} alt="" />
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="row row__back-ground">
-                        <div className="wrapper__back-ground">
-                            <img src={ImageBg} alt="" />
-                        </div>
-                    </div>
-                    <div className="row row__text-content">
-                        <div className="wrapper__text-content">
-                            <p>
-                                Được tư vấn thiết kế bởi Humphreys & Partners Architects, một trong những công ty thiết kế kiến trúc hàng đầu tại Hoa Kỳ, FLC Tropical City Ha Long được phân bổ thành bốn phân khu độc đáo với 4 phong cách khác nhau thể hiện qua 2.600 căn shophouse, liền kề và gần 826 căn chung cư. Được tư vấn thiết kế bởi Humphreys & Partners Architects, một trong những công ty thiết kế kiến trúc hàng đầu tại Hoa Kỳ, FLC Tropical City Ha Long được phân bổ thành bốn phân khu độc đáo với 4 phong cách khác nhau thể hiện qua 2.600 căn shophouse, liền kề và gần 826 căn chung cư.
-                            </p>
-                            <p>
-                                Được tư vấn thiết kế bởi Humphreys & Partners Architects, một trong những công ty thiết kế kiến trúc hàng đầu tại Hoa Kỳ, FLC Tropical City Ha Long được phân bổ thành bốn phân khu độc đáo với 4 phong cách khác nhau thể hiện qua 2.600 căn shophouse, liền kề và gần 826 căn chung cư. Được tư vấn thiết kế bởi Humphreys & Partners Architects, một trong những công ty thiết kế kiến trúc hàng đầu tại Hoa Kỳ, FLC Tropical City Ha Long được phân bổ thành bốn phân khu độc đáo với 4 phong cách khác nhau thể hiện qua 2.600 căn shophouse, liền kề và gần 826 căn chung cư.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row row__img-content">
-                        <div className="wrapper__img-content">
-                            <div className="col-xl-6 col-lg-6 col-sm-12 col-img col__img--left">
-                                <div className="wrapper__img">
-                                    <img src={infoImg} alt="" />
-                                </div>
-                            </div>
-                            <div className="col-xl-6 col-lg-6 col-sm-12 col-img col__img--right">
-                                <div className="wrapper__img">
-                                    <img src={infoImg} alt="" />
-                                </div>
-                            </div>
+                    <div className="row row__content--project-detail">
+                        <div dangerouslySetInnerHTML={{ __html: project?.description }}>
                         </div>
                     </div>
                 </div>

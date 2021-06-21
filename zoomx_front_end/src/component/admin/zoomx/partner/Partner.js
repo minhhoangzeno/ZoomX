@@ -1,52 +1,45 @@
 import React, { useEffect, useState } from 'react';
-// import '../../../style/admin/investment.scss';
-// import Loading from '../../../image/Loading';
-// import Item from './Item';
-// import ModalAdd from './ModalAdd';
-// import { doGet } from '../../../lib/DataSource';
+import Item from './Item';
+import Loading from "../../../image/Loading"
+import ModalAdd from './ModalAdd';
+ import { doGet } from '../../../../lib/DataSource'
 
 export default function Partner() {
-//     const [modalShow, setModalShow] = React.useState(false);
-//     const [data, setData] = useState()
-//     const [loading, setLoading] = useState(false)
+    const [modalShow, setModalShow] = React.useState(false);
+    const [data, setData] = useState()
+    const [loading, setLoading] = useState(false)
     
-// //vua vao trang web thi no se auto chay vao day dau tien
-//     useEffect(() => {
-//         getPartner()
-//     }, [])
+//vua vao trang web thi no se auto chay vao day dau tien
+    useEffect(() => {
+        getPartner()
+        window.scrollTo(0, 0)
 
-//     const handleLoading = (isLoading) => {
-//         setLoading(isLoading)
-//     }
+    }, [])
 
-//     const getPartner = async () => {
-//         const path = "/partner";
-//         const headers = {
-//             Accept: "*/*"
-//         }
-//         try {
-//             var resp = await doGet(path, headers);
-//             if (resp.status === 200) {
-//                 setData(resp.data)
+    const handleLoading = (isLoading) => {
+        setLoading(isLoading)
+    }
 
-//             }
-//         } catch (e) {
-//             console.log(e)
-//         }
-//     }
+    const getPartner = async () => {
+        const path = "/partner";
+        const headers = {
+            Accept: "*/*"
+        }
+        try {
+            var resp = await doGet(path, headers);
+            if (resp.status === 200) {
+                setData(resp.data)
+
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
     return (
         <>
-            {/* <div className="wrapper__admin">
+            <div className="wrapper__admin">
                 <div className="title">
                     <h1>Đối tác</h1>
-                </div>
-                <div className="find__input">
-                    <input className="input-txt" placeholder="Tìm kiếm..." />
-                    <button>
-                        <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-                        </svg>
-                    </button>
                 </div>
                 <div className="wrapper__table">
                     <section className="content-header">
@@ -71,7 +64,6 @@ export default function Partner() {
                                     <th className="text-center" style={{ verticalAlign: 'middle' }}>STT</th>
                                     <th className="text-center" style={{ verticalAlign: 'middle' }}>Tên đối tác</th>
                                     <th className="text-center" style={{ verticalAlign: 'middle' }}>Logo</th>
-                                    <th className="text-center" style={{ verticalAlign: 'middle' }}>Trạng thái</th>
                                     <th className="text-center" width="12%">Setting</th>
                                 </tr>
                             </thead>
@@ -94,9 +86,8 @@ export default function Partner() {
                         </table>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
-            Doi tac
 
         </>
     )

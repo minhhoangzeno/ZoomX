@@ -1,20 +1,39 @@
-import React from "react";
-import hotel from "../../image/homePage/hotel.png";
-import play from "../../image/home/play.png";
-import videoMp4 from '../../image/video.mp4';
-import ReactPlayer from 'react-player';
+import React, { useEffect, useState } from "react";
 import { ReactVideo } from "reactjs-media";
+import { doGet } from "../../lib/DataSource";
+import Loading from "../image/Loading";
 export default function EnjoyVideo() {
+  const [video, setVideo] = useState();
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true)
+      let path = "/video";
+      try {
+        let resp = await doGet(path);
+        if (resp.status === 200) {
+          setVideo(resp.data)
+          setLoading(false)
+        }
+      } catch (error) {
+        console.log(error)
+        setLoading(false)
+      }
+    }
+    fetchData()
+  },[])
   return (
     <>
       <div className="enjoy-video">
-            <ReactVideo
-                src={videoMp4}
-                poster={hotel}
-                primaryColor="red"
-                // other props
-            />
-        </div>
+        {!loading ?
+          <ReactVideo
+            src={video?.[0]?.videoUrl}
+            poster={video?.[0]?.imageCover?.url}
+            primaryColor="red"
+          /> : 
+          <Loading /> 
+      }
+      </div>
     </>
   );
 }

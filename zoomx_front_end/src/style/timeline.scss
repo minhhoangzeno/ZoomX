@@ -30,7 +30,7 @@
     width: 89%;
     height: auto;
     object-fit: contain;
-    @media(max-width: 1025px){
+    @media (max-width: 1025px) {
       width: 100%;
     }
   }
@@ -42,13 +42,19 @@
   justify-content: center;
   width: 100%;
   &__title {
-    font-family: Helvetica;
+    font-family: Helvtica !important;
     margin-bottom: 20px;
     letter-spacing: 4px;
     font-size: 14px;
     @media (max-width: 1025px) {
       font-size: 14px;
       letter-spacing: 3x;
+    }
+    @media (max-width: 769px) {
+      font-size: 9px;
+    }
+    @media (max-width: 426px) {
+      font-size: 8px;
     }
   }
   &__border {
@@ -83,9 +89,10 @@
     }
     @media (max-width: 426px) {
       margin-top: 10px;
-      font-size: 24px;
+      font-size: 32px;
       line-height: 40px;
       letter-spacing: 3px;
+      margin-bottom: 25px;
     }
   }
 }
@@ -112,13 +119,18 @@
 .timeline__content__item {
   background-color: #fff;
   position: relative;
-  box-shadow: 0px 2px 3px 2px #bebebe;
+  box-shadow: 0px 2px 3px 2px #eaeaea;
   min-height: 350px;
   width: 300px;
   font-family: "Helvetica";
   @media (max-width: 1025px) {
     width: 250px;
     min-height: 300px;
+  }
+  @media (max-width: 426px) {
+    width: 340px;
+    min-height: 260px;
+    box-shadow: 0px 0px 3px 2px #ececec;
   }
   &--text {
     position: absolute;
@@ -134,17 +146,23 @@
       p {
         font-size: 16px;
         color: #282828;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         line-height: 26px;
         padding-left: 26px;
         padding-right: 15px;
         @media (max-width: 1025px) {
           font-size: 14px;
         }
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
+        @media (max-width: 768px) {
+          letter-spacing: 1px;
+        }
         &:nth-child(1) {
           text-align: center;
           color: #e01042;
-          font-size: 32px;
+          font-size: 27px;
           letter-spacing: 1px;
           font-weight: 600;
           text-align: center;
@@ -152,6 +170,9 @@
           padding-left: 0;
           @media (max-width: 1025px) {
             margin-bottom: 20px;
+          }
+          @media (max-width: 768px) {
+            font-size: 21px;
           }
         }
       }

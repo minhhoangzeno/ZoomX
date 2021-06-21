@@ -1,179 +1,348 @@
-const mongoose = require('mongoose'),
-    Blog = mongoose.model('blog'),
-    Upload = require('../model/UploadImageModel');
-exports.get_all_blog = (req, res) => {
-    Blog.find({})
-        .populate([
-            {
-                path: 'startImg',
-                model: 'image',
-                select: 'url'
-            },
-            {
-                path: 'midImg',
-                model: 'image',
-                select: 'url'
-            },
-            {
-                path: 'beginImg',
-                model: 'image',
-                select: 'url'
-            },
-        ])
-        // .populate('startContent.$*.imageContent')
-        .then(blog => {
-            res.send(blog)
+const ImageUtil = require("../utils/ImageUtil");
+
+const mongoose = require("mongoose"),
+  Blog = mongoose.model("blog"),
+  Upload = require("../model/UploadImageModel");
+
+exports.search_blog = async (req, res) => {
+  let perPage = 8; // số lượng sản phẩm xuất hiện trên 1 page
+  let page = req.query.page;
+  let categoryId = req.query.categoryId;
+  let regex = new RegExp(req.query.q, "i");
+  if (categoryId == 1) {
+    let totalPage;
+    await Blog.find({ title: regex })
+      .then((result) => {
+        totalPage = result;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    Blog.find({ title: regex }) // find tất cả các data
+      .populate([
+        {
+          path: "imageCover",
+          model: "image",
+          select: "url",
+        },
+        {
+          path: "imageInfor",
+          model: "image",
+          select: "url",
+        },
+      ])
+      .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+      .limit(perPage)
+      .exec((err, data) => {
+        Blog.countDocuments((err, count) => {
+          // đếm để tính có bao nhiêu trang
+          if (err) return next(err);
+          // res.send({
+          //     data,
+          //     totalPage: totalPage?.length
+          // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+          // res.status(200).json(data)
+          res.send({
+            data: data,
+            totalPage: totalPage.length,
+          });
+        });
+      });
+  } else {
+    let totalPage;
+    await Blog.find({ title: regex, categoryId: categoryId })
+      .then((result) => {
+        totalPage = result;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    Blog.find({ title: regex, categoryId: categoryId }) // find tất cả các data
+      .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+      .limit(perPage)
+      .exec((err, data) => {
+        Blog.countDocuments((err, count) => {
+          // đếm để tính có bao nhiêu trang
+          if (err) return next(err);
+          // res.send({
+          //     data,
+          //     totalPage: totalPage?.length
+          // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+          // res.status(200).json(data)
+          res.send({
+            data: data,
+            totalPage: totalPage.length,
+          });
+        });
+      });
+  }
+};
+
+exports.add_a_blog = (req, res) => {
+  let fileInfor = req.files.filter((item) => item.fieldname == "imageInfor");
+  let fileCover = req.files.filter((item) => item.fieldname == "imageCover");
+
+  let uploadCover = new Promise((resolve, reject) => {
+    Upload.uploadSingleFile({
+      file: fileCover[0],
+      path: "ZoomX/Blog",
+    })
+      .then((resultCover) => {
+        resolve({
+          imageCover: resultCover._id,
+        });
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+  let uploadInfor = new Promise((resolve, reject) => {
+    Upload.uploadSingleFile({
+      file: fileInfor[0],
+      path: "ZoomX/Blog",
+    })
+      .then((resultFileBook) => {
+        resolve({
+          imageInfor: resultFileBook._id,
+        });
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+  Promise.all([uploadCover, uploadInfor]).then((result) => {
+    Blog.create({
+      title: req.body.title,
+      categoryId: req.body.categoryId,
+      content: req.body.content,
+      imageCover: result.filter((item) => item.imageCover)[0].imageCover,
+      imageInfor: result.filter((item) => item.imageInfor)[0].imageInfor,
+    })
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((error) => {
+        res.send(error);
+        console.log(error);
+      });
+  });
+};
+exports.get_blog = async (req, res) => {
+  let perPage = 8; // số lượng sản phẩm xuất hiện trên 1 page
+  let page = req.query.page;
+  let categoryId = req.query.categoryId;
+  if (categoryId == 1) {
+    let totalPage;
+    await Blog.find()
+      .then((result) => {
+        totalPage = result;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    Blog.find() // find tất cả các data
+      .populate([
+        {
+          path: "imageCover",
+          model: "image",
+          select: "url",
+        },
+        {
+          path: "imageInfor",
+          model: "image",
+          select: "url",
+        },
+      ])
+      .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+      .limit(perPage)
+      .exec((err, data) => {
+        Blog.countDocuments((err, count) => {
+          // đếm để tính có bao nhiêu trang
+          if (err) return next(err);
+          // res.send({
+          //     data,
+          //     totalPage: totalPage?.length
+          // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+          // res.status(200).json(data)
+          res.send({
+            data: data,
+            totalPage: totalPage.length,
+          });
+        });
+      });
+  } else {
+    let totalPage;
+    await Blog.find({ categoryId: categoryId })
+      .then((result) => {
+        totalPage = result;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    Blog.find({ categoryId: categoryId }) // find tất cả các data
+      .populate([
+        {
+          path: "imageCover",
+          model: "image",
+          select: "url",
+        },
+        {
+          path: "imageInfor",
+          model: "image",
+          select: "url",
+        },
+      ])
+      .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+      .limit(perPage)
+      .exec((err, data) => {
+        Blog.countDocuments((err, count) => {
+          // đếm để tính có bao nhiêu trang
+          if (err) return next(err);
+          // res.send({
+          //     data,
+          //     totalPage: totalPage?.length
+          // }) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+          // res.status(200).json(data)
+          res.send({
+            data: data,
+            totalPage: totalPage.length,
+          });
+        });
+      });
+  }
+};
+exports.update_blog = async (req, res) => {
+  let fileInfor = req.files.filter((item) => item.fieldname == "imageInfor")[0];
+  let fileCover = req.files.filter((item) => item.fieldname == "imageCover")[0];
+  let blog = await Blog.findById(req.params.blog_id);
+  let updateCover = new Promise((resolve, reject) => {
+    ImageUtil.updateSingeFile(fileCover, blog.imageCover, "Blog")
+      .then((result) => {
+        resolve(result);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+  let updateInfor = new Promise((resolve, reject) => {
+    ImageUtil.updateSingeFile(fileInfor, blog.imageInfor, "Blog")
+      .then((result) => {
+        resolve(result);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+  Promise.all([updateCover, updateInfor])
+    .then((result) => {
+      Blog.findByIdAndUpdate(req.params.blog_id, {
+        title: req.body.title,
+        categoryId: req.body.categoryId,
+        content: req.body.content,
+      })
+        .then((data) => {
+          res.send(data);
         })
-        .catch(error => {
-            res.send(error)
-        })
-}
+        .catch((error) => {
+          res.send(error);
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+exports.delete_blog = async (req, res) => {
+  let blog = await Blog.findById(req.params.blog_id);
+  let deleteImageCover = new Promise((resolve, reject) => {
+    ImageUtil.deleteSingleFile(blog.imageCover)
+      .then((result) => {
+        resolve(result);
+      })
+      .catch((error) => {
+        res.send(error);
+      });
+  });
+  let deleteImageInfor = new Promise((resolve, reject) => {
+    ImageUtil.deleteSingleFile(blog.imageInfor)
+      .then((result) => {
+        resolve(result);
+      })
+      .catch((error) => {
+        res.send(error);
+      });
+  });
+  Promise.all([deleteImageInfor, deleteImageCover])
+    .then(() => {
+      blog.remove();
+      res.send("Xoa thanh cong");
+    })
+    .catch((error) => {
+      res.send(error);
+    });
+};
 exports.get_a_blog = (req, res) => {
-    Blog.findById(req.params.blog_id)
-        .populate([
-            {
-                path: 'startImg',
-                model: 'image',
-                select: 'url'
-            },
-            {
-                path: 'midImg',
-                model: 'image',
-                select: 'url'
-            },
-            {
-                path: 'beginImg',
-                model: 'image',
-                select: 'url'
-            },
-        ])
-        .then(blog => {
-            res.send(blog)
-        })
-        .catch(error => {
-            res.send(error)
-        })
-}
-exports.add_blog = (req, res) => {
-    let objBlog = new Blog(req.body);
-    let addBlogPromise = new Promise((resolve, reject) => {
-        objBlog.save()
-            .then(result => {
-                resolve(result)
-            })
-            .catch(error => {
-                reject(error)
-            })
+  Blog.findById(req.params.blog_id)
+    .populate([
+      {
+        path: "imageCover",
+        model: "image",
+        select: "url",
+      },
+      {
+        path: "imageInfor",
+        model: "image",
+        select: "url",
+      },
+    ])
+    .then((data) => {
+      res.send(data);
     })
-    addBlogPromise.then(blog => {
-        res.send(blog)
-    })
-        .catch(error => {
-            res.send(error)
-        })
-}
+    .catch((err) => {
+      res.send(err);
+    });
+};
 
-exports.upload_imgae_start = (req, res) => {
-    Upload.uploadMultipleFile({
-        file: req.files,
-        path: 'ZoomX/Blog'
-    }).then((result) => {
-        const image_id = []
-        result.map(rs => {
-            image_id.push(rs._id)
-        })
-        let update_blog = new Promise((resolve, reject) => {
-            Blog.findByIdAndUpdate(req.params.blog_id, { startImg: image_id })
-                .then(result => {
-                    resolve(result)
-                })
-                .catch(err => {
-                    reject(err)
-                })
-        })
-        update_blog
-            .then(blog => {
-                res.send(blog)
-            })
-            .catch(error => {
-                res.send(error)
-            })
+exports.soft_blog_by_date = (req, res) => {
+  Blog.find({}).sort({ field: 'asc', date: -1 })
+    .populate([
+      {
+        path: "imageCover",
+        model: "image",
+        select: "url",
+      },
+      {
+        path: "imageInfor",
+        model: "image",
+        select: "url",
+      },
+    ])
+    .then(data => {
+      res.send(data)
+    })
+    .catch(err => {
+      res.send(err)
     })
 }
-
-
-exports.upload_imgae_mid = (req, res) => {
-    Upload.uploadMultipleFile({
-        file: req.files,
-        path: 'ZoomX/Blog'
-    }).then((result) => {
-        const image_id = []
-        result.map(rs => {
-            image_id.push(rs._id)
-        })
-        let update_blog = new Promise((resolve, reject) => {
-            Blog.findByIdAndUpdate(req.params.blog_id, { midImg: image_id })
-                .then(result => {
-                    resolve(result)
-                })
-                .catch(err => {
-                    reject(err)
-                })
-        })
-        update_blog
-            .then(blog => {
-                res.send(blog)
-            })
-            .catch(error => {
-                res.send(error)
-            })
+exports.search_all_blog = (req, res) => {
+  let regex = new RegExp(req.query.q, "i");
+  Blog.find({ title: regex })
+    .populate([
+      {
+        path: "imageCover",
+        model: "image",
+        select: "url",
+      },
+      {
+        path: "imageInfor",
+        model: "image",
+        select: "url",
+      },
+    ])
+    .then(data => {
+      res.send(data)
     })
-}
-
-
-exports.upload_imgae_begin = (req, res) => {
-    Upload.uploadMultipleFile({
-        file: req.files,
-        path: 'ZoomX/Blog'
-    }).then((result) => {
-        const image_id = []
-        result.map(rs => {
-            image_id.push(rs._id)
-        })
-        let update_blog = new Promise((resolve, reject) => {
-            Blog.findByIdAndUpdate(req.params.blog_id, { beginImg: image_id })
-                .then(result => {
-                    resolve(result)
-                })
-                .catch(err => {
-                    reject(err)
-                })
-        })
-        update_blog
-            .then(blog => {
-                res.send(blog)
-            })
-            .catch(error => {
-                res.send(error)
-            })
+    .catch(err => {
+      res.send(err)
     })
-}
-
-exports.update_blog = (req, res) => {
-    Blog.findByIdAndUpdate(req.params.blog_id, req.body)
-        .then(blog => {
-            res.send(blog)
-        })
-        .catch(error => {
-            res.send(error)
-        })
-}
-exports.delete_blog = (req, res) => {
-    Blog.findByIdAndDelete(req.params.blog_id)
-        .then(blog => {
-            res.send(blog)
-        })
-        .catch(error => {
-            res.send(error)
-        })
 }
