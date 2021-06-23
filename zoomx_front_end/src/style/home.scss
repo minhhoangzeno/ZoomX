@@ -46,6 +46,8 @@
       }
       @media (max-width: 426px) {
         padding: 0 15px;
+        flex-wrap: wrap-reverse;
+        margin-top: 50px;
       }
       .col-lg-6 {
         .img__page {
@@ -70,7 +72,6 @@
         }
       }
       .align-img {
-        // position: relative;
         padding: 0;
         @media (max-width: 426px) {
           padding: 0;
