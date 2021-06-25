@@ -144,6 +144,9 @@
                                         font-size: 12px;
                                         padding: 5px 10px;
                                     }
+                                    @media (max-width:370px) {
+                                        padding: 5px 2px;
+                                    }
                                 }
                             }
                             .button:hover{
