@@ -75,6 +75,9 @@
                         img{
                             object-fit: contain;
                         }
+                        @media(max-width:769px){
+                            padding-bottom: 0px;
+                        }
                         @media (max-width:500px) {
                             padding-bottom: 0px;
                             img{
@@ -93,7 +96,9 @@
                         height: 50px;
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
-                        
+                        @media(max-width:769px){
+                            height: 25px;
+                        }
                         @media (max-width:500px) {
                             padding-bottom: 10px;
                             margin-top: 0px;

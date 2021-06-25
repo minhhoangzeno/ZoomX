@@ -7,7 +7,7 @@ export default function ItemHome() {
   const { data } = useReasonSelect();
   const settings = {
     infinite: true,
-    speed: 4000,
+    speed: 10000,
     autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,

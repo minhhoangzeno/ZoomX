@@ -8,7 +8,7 @@ export default function HeroHeader() {
   const { data } = useHero();
   const settings = {
     infinite: true,
-    speed: 4000,
+    speed: 6000,
     autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,

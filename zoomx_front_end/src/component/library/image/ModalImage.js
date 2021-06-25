@@ -13,8 +13,8 @@ export default function ModalImage(props) {
       <Modal
         {...props}
         size="xl"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
+     
+        
       >
         <Swiper wrapperTag="ul" navigation={true} className="mySwiper">
           {props?.listImage?.map((item, index) => {

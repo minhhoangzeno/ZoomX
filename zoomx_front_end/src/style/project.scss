@@ -156,7 +156,7 @@ img{
                         @media(max-width: 768px){
                             height: 305px;
                         }
-                        @media(max-width: 320px){
+                        @media(max-width: 426px){
                             height: 230px;
                         }
                         &:hover{
@@ -183,6 +183,9 @@ img{
                     }
                     @media (max-width: 768px){
                         padding: 10px;
+                    }
+                    @media (max-width: 426px){
+                        padding: 10px 10px 20px 10px;
                     }
                     .label {
                         font-family: Giroly;
@@ -229,7 +232,7 @@ img{
                             &:hover {
                                 text-decoration: none;
                                 background-color: #fff;
-                                border: 2px solid #E01042;
+                                border: 1px solid #E01042;
                                 color: #E01042;
                             }
                         }
@@ -252,6 +255,7 @@ img{
                         }          
                         @media (max-width: 426px){
                             font-size: 12px;
+                            padding-top: 20px;
                         }
                         &:hover {
                             color: #af8d41;

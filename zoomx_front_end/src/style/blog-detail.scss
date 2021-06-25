@@ -11,18 +11,19 @@ img {
 .blog-detail__wrapper {
     width: 100%;
     height: 100%;
+    font-family: Helvetica;
     p {
         display: flex;
         flex-wrap: wrap;
         letter-spacing: 1px;
-        @media (max-width: 1024px) {
+        @media (max-width: 1441px) {
             font-size: 14px;
         }
         @media (max-width: 769px) {
             font-size: 12px;
         }
-        @media (max-width: 425px) {
-            font-size: 10px;
+        @media (max-width: 426px) {
+            font-size: 12px;
         }
         img {
             margin: 20px 0;

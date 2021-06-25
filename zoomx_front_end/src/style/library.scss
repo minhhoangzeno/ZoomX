@@ -150,6 +150,9 @@ img {
           background-size: cover;
           background-position: center center;
           overflow: hidden;
+          @media(max-width:426px){
+            height: 230px;
+          }
           img {
             width: 100%;
             height: 100%;
@@ -196,7 +199,7 @@ img {
               &:hover {
                 text-decoration: none;
                 background-color: #fff;
-                border: 2px solid #e01042;
+                border: 1px solid #e01042;
                 color: #e01042;
               }
             }
@@ -241,6 +244,9 @@ img {
                 background-size: cover;
                 background-position: center center;
                 overflow: hidden;
+                @media(max-width:426px){
+                  height: 230px;
+                }
                 img {
                   width: 100%;
                   height: 100%;
@@ -312,7 +318,7 @@ img {
                         &:hover {
                           text-decoration: none;
                           background-color: #fff;
-                          border: 2px solid #e01042;
+                          border: 1px solid #e01042;
                           color: #e01042;
                         }
                       }
