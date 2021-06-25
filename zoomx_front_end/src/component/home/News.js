@@ -78,7 +78,7 @@ export default function News() {
   return (
     <div className="main__view--slider">
       <p className="text__headline--view">
-        WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS
+        WELCOME  TO  ZOOMX HOTELS
       </p>
       <div className="empty__element-view"></div>
       <p className="big__word-view">Tin tức</p>

@@ -59,7 +59,7 @@ export default function FieldComponent() {
     <>
       <div className="main__field">
         <p className="text__headline--field">
-          WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS
+          WELCOME  TO ZOOMX HOTELS
         </p>
         <div className="empty__element--field"></div>
         <p className="big__word--field">Lĩnh vực đầu tư</p>
@@ -75,7 +75,7 @@ export default function FieldComponent() {
                   />
                   <div className="box__item">
                     <p className="txt__number">
-                      {index < 9 ? `0${index + 1}` : index + 1} /
+                      {index < 9 ? `0${index + 1}` : index + 1} <span>/</span>
                     </p>
                     <p className="txt__adress">Lĩnh vực</p>
                     <p className="txt__hotel">{item.investmentName}</p>

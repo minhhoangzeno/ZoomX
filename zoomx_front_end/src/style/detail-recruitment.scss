@@ -413,7 +413,7 @@
                 &--title{
                     strong{
                         font-size: 36px;
-                        @media (max-width:1190px) {
+                        @media (max-width:1441px) {
                             font-size: 30px;
                         } 
                         @media (max-width:767px) {
@@ -425,7 +425,7 @@
                     text-align: center;
                     padding-top: 50px;
                     padding-bottom: 50px;
-                    @media (max-width:1190px) {
+                    @media (max-width:1441px) {
                         padding-top: 30px;
                         padding-bottom: 30px;
                     } 
@@ -434,9 +434,9 @@
                     padding-top: 60px;
                     padding-bottom: 70px;
                     padding-left: 60px;
-                    @media (max-width:1190px) {
-                        padding-top: 40px;
-                        padding-bottom: 40px;
+                    @media (max-width:1441px) {
+                        padding-top: 30px;
+                        padding-bottom: 30px;
                         padding-left: 30px;
                     } 
                     @media (max-width: 767px) {
@@ -449,7 +449,6 @@
                         padding-right: 100px;
                         @media (max-width:1190px) {
                             padding-right: 60px;
-                            
                         } 
                         @media (max-width: 767px) {
                             padding-right: 20px;

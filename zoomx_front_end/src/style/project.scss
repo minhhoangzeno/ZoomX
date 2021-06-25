@@ -48,6 +48,9 @@ img{
                 position: relative;
                 cursor: pointer;
                 letter-spacing: 1px;
+                @media (max-width: 1441px){
+                    font-size: 14px !important;
+                }
                 @media (max-width: 768px){
                     padding: 0 20px !important;
                     font-size: 13px !important;
@@ -207,7 +210,7 @@ img{
                             cursor: pointer;
                             letter-spacing: 1px;
                             font-size: 16px;
-                            @media (max-width: 1024px){
+                            @media (max-width: 1441px){
                             font-size: 14px;
                             padding: 3px 15px;
                             } 
@@ -236,18 +239,17 @@ img{
                         margin-bottom: 0;
                         color: #333;
                         font-weight: bold;
-                        // font-size: 21px;
+                        font-size: 16px;
                         width: 70%;
                         letter-spacing: 1px;
                         font-family: 'Helvetica';
-                        @media (max-width: 1024px){
-                            width: 100%;
-                            text-align: center;
-                            font-size: 16px;
-                        }
-                        @media (max-width: 769px){
+                        @media (max-width: 1441px){
                             font-size: 14px;
                         }
+                        @media (max-width: 1024px){     
+                            width: 100%;
+                            text-align: center;
+                        }          
                         @media (max-width: 426px){
                             font-size: 12px;
                         }
