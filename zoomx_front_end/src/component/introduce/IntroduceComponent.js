@@ -13,7 +13,7 @@ export default function IntroduceComponent() {
             >
               <div className="introduce-detail">
                 <p className="introduce-detail__title">
-                  WELCOME &nbsp; TO &nbsp; ZOOMX &nbsp; HOTELS
+                  WELCOME TO  ZOOMX HOTELS
                 </p>
                 <div className="introduce-detail__empty"></div>
                 <p className="introduce-detail__label">
@@ -32,7 +32,7 @@ export default function IntroduceComponent() {
                   </div>
                   <div className="introduce-detail__profile--btn">
                     <a href={data[0]?.profile.fileUrl} target="_blank" rel="noopener noreferrer">
-                      Tải Xuống
+                      TẢI XUỐNG
                     </a>
                   </div>
                 </div>
