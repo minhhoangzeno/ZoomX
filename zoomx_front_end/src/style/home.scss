@@ -302,18 +302,15 @@
       }
       @media (max-width: 426px) {
         max-width: 350px;
-        top: 63px;
+        top: 25px;
         left: 19px;
+        padding-bottom: 25px;
       }
-      @media (max-width: 375px) {
-        max-width: 345px;
-        top: 63px;
-        left: 12px;
-      }
-      @media (max-width: 320px) {
-        max-width: 300px;
+     
+      @media (max-width: 321px) {
+       width: 310px;
         top: 50px;
-        left: 10px;
+        left: 5px;
       }
       .txt__headline {
         font-size: 36px;
@@ -338,14 +335,10 @@
         }
         @media (max-width: 426px) {
           font-size: 19px;
-          padding-left: 26px;
-          padding-bottom: 15px;
+          padding-left: 20px;
+          padding-bottom: 0px;
         }
-        @media (max-width: 375px) {
-          padding-bottom: 2px;
-          padding-left: 22px;
-          font-size: 18px;
-        }
+        
         @media (max-width: 320px) {
           padding-left: 15px;
           padding-top: 28px;
@@ -370,9 +363,10 @@
         }
         @media (max-width: 426px) {
           padding-left: 25px !important;
+          padding-right: 0;
         }
-        @media (max-width: 320px) {
-          padding-left: 20px !important;
+        @media (max-width: 321px) {
+           padding-bottom: 0;
         }
         .txt__item {
           text-align: left;

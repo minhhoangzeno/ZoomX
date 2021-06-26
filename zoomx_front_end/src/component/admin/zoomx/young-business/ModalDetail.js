@@ -39,7 +39,7 @@ export default function ModalDetail(props) {
                         {fileImageYoung?.map((item,idx) => {
                             return (
                                 <div key={idx} style={{ margin: 10 }}>
-                                    <img id="target" src={item} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
+                                    <img id="target" src={item} style={{ width: 200, height: 100, objectFit: 'cover' }} alt="" />
                                 </div>
                             )
                         })}

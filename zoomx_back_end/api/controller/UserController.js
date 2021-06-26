@@ -12,9 +12,9 @@ exports.get_user = (req, res) => {
     })
     .then(async data => {
       let result = data.filter(function (item) {
-        return (item._id != "60cc1295d608e12e4c10be07")
+        return (item._id != "60d6e7538042df351caab861")
       })
-      console.log(result)
+     
       res.send(result)
     })
 
@@ -67,9 +67,6 @@ exports.login_user = (req, res) => {
   const { username, password } = req.body;
   User.findOne({ username: username }, (error, user) => {
     if (user) {
-      console.log(user);
-      console.log(password);
-      console.log(user.password)
       bcrypt.compare(password, user.password, (error, same) => {
         if (same) {
           User.findById(user._id)

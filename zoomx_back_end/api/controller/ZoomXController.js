@@ -58,6 +58,7 @@ exports.add_zoomx = (req, res) => {
         reject({
           profile: null,
         });
+        console.log(err)
       });
   });
   Promise.all([uploadPDF, uploadCover])
@@ -80,6 +81,7 @@ exports.add_zoomx = (req, res) => {
     })
     .catch((error) => {
       res.send(error);
+      console.log(error)
     });
 };
 exports.update_zoomx = async (req, res) => {
