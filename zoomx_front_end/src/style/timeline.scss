@@ -98,6 +98,13 @@
       letter-spacing: 3px;
       margin-bottom: 25px;
     }
+    @media (max-width: 321px) {
+      margin-top: 10px;
+      font-size: 29px;
+      line-height: 40px;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+    }
   }
 }
 
