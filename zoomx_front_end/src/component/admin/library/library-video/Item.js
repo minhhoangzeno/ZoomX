@@ -29,7 +29,7 @@ export default function Item({ data, indexNum, getSearch, handleLoading }) {
                         frameBorder="0" allowFullScreen></iframe> */}
 
                     {convertToEmbed(data?.videoUrl) && <>
-                        <iframe title="A" width="400" height="300" src={`https://www.youtube.com/embed/${convertToEmbed(data?.videoUrl)}`}
+                        <iframe title="A" width="200" height="100" src={`https://www.youtube.com/embed/${convertToEmbed(data?.videoUrl)}`}
                             frameBorder="0" allowFullScreen></iframe>
 
                     </>}
