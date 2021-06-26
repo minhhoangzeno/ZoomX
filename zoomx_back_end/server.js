@@ -42,7 +42,7 @@ var express = require('express'),
     expressSession = require('express-session')
     ;
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb+srv://minhhoang:521985@zoomx.x6xhr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://Nguyennsah:nguyen26@cluster0.xrmn9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
