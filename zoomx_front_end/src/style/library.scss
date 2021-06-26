@@ -207,19 +207,20 @@ img {
           .title {
             color: #333;
             // font-family: Giroly;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 21px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
             @media (max-width: 1024px) {
               width: 100%;
               text-align: center;
               font-size: 18px;
             }
-            @media (max-width: 768px) {
-              font-size: 15px;
-              overflow: hidden;
-              display: -webkit-box;
-              -webkit-box-orient: vertical;
-              -webkit-line-clamp: 2;
+            @media (max-width: 769px) {
+              font-size: 14px;
             }
             .item {
               width: calc((100% - 60px) / 3);

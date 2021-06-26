@@ -172,6 +172,7 @@ header {
                         text-overflow: ellipsis;
                         display: -webkit-box;
                         -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
                       }
                     }
                   }
@@ -604,7 +605,7 @@ footer {
         margin-top: 20px;
         margin-bottom: 5px;
         letter-spacing: 4px;
-        line-height: 32px;
+        line-height: 40px;
       }
       @media (max-width: 376px) {
         font-size: 23px;
@@ -735,6 +736,21 @@ footer {
       display: flex;
       justify-content: center;
       align-items: center;
+      @media(max-width:1025px){
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+      }
+      @media(max-width:769px){
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+      @media(max-width:426px){
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+      }
       a {
         text-decoration: none;
         color: #333;
