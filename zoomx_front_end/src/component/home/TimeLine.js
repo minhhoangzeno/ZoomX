@@ -18,7 +18,7 @@ export default function TimeLine() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          speed: 3000,
+          speed: 4000,
           autoplay: true,
           infinite: true,
         },

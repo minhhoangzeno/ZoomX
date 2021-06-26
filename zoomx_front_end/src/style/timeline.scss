@@ -161,8 +161,9 @@
         @media (max-width: 1441px) {
           font-size: 14px;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 769px) {
           font-size: 12px;
+          line-height: 22px;
         }
         @media (max-width: 768px) {
           letter-spacing: 1px;
@@ -203,6 +204,10 @@
     @media (max-width: 1025px) {
       font-size: 265px;
     }
+    @media(max-width:426px){
+      bottom: -38%;
+      right: -12px;
+    }
   }
   &--border {
     position: absolute;
@@ -222,6 +227,14 @@
   display: none;
   @media (max-width: 1023px) {
     display: block !important;
+  }
+  @media (max-width: 769px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @media (max-width: 426px) {
+    padding-left: 0px;
+    padding-right: 0px;
   }
   &__content {
     padding-left: 50px;

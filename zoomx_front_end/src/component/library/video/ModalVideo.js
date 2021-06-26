@@ -6,8 +6,7 @@ export default function ModalVideo(props) {
       <Modal
         {...props}
         size="sm"
-        aria-labelledby="example-modal-sizes-title-sm"
-        centered
+       
       >
         {/* <Modal.Header closeButton></Modal.Header> */}
         <div className="main__video">
