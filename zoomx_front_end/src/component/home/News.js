@@ -25,9 +25,7 @@ export default function News() {
     fetchData();
   }, []);
   const settings = {
-    // dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
@@ -77,9 +75,7 @@ export default function News() {
   };
   return (
     <div className="main__view--slider">
-      <p className="text__headline--view">
-        WELCOME  TO  ZOOMX HOTELS
-      </p>
+      <p className="text__headline--view">WELCOME TO ZOOMX HOTELS</p>
       <div className="empty__element-view"></div>
       <p className="big__word-view">Tin tức</p>
       {!loading ? (

@@ -100,7 +100,7 @@
           @media (max-width: 426px) {
             height: 230px;
           }
-          
+
           @media (max-width: 321px) {
             height: 158px;
           }
@@ -128,6 +128,7 @@
               background-color: #707070;
             }
             .txt__content {
+              height: 45px;
               font-weight: 600;
               margin-top: 18px;
               font-size: 16px;

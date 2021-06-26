@@ -23,12 +23,12 @@ export default function Category({ textSearch, handleTextSearch, handleSearch, h
         <div className="main__category">
           <p className="average__word">DANH MỤC</p>
           <div className="box__content">
-            <p className="small__content"
+            <p className="small__content" style={{cursor:'pointer'}}
               onClick={() => handleChangeCategory(1)}
             >Tất cả</p>
             {categoryBlog?.map((item, idx) => {
               return (
-                <p key={idx} className="small__content"
+                <p key={idx} className="small__content" style={{cursor:'pointer'}}
                   onClick={() => handleChangeCategory(item._id)}
                 >{item?.name}</p>
               )

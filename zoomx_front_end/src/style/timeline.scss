@@ -47,7 +47,7 @@
     letter-spacing: 4px;
     font-size: 14px;
     color: #797979;
-    @media(max-width:1441px){
+    @media (max-width: 1441px) {
       font-size: 12px;
     }
     @media (max-width: 1025px) {
@@ -98,6 +98,13 @@
       letter-spacing: 3px;
       margin-bottom: 25px;
     }
+    @media (max-width: 321px) {
+      margin-top: 10px;
+      font-size: 29px;
+      line-height: 40px;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+    }
   }
 }
 
@@ -127,7 +134,7 @@
   min-height: 350px;
   width: 300px;
   font-family: "Helvetica";
-  @media(max-width:1441px){
+  @media (max-width: 1441px) {
     min-height: 320px;
   }
   @media (max-width: 1025px) {
@@ -138,6 +145,12 @@
     width: 340px;
     min-height: 260px;
     box-shadow: 0px 0px 3px 2px #ececec;
+  }
+  @media (max-width: 376px) {
+    width: 320px;
+  }
+  @media (max-width: 320px) {
+    width: 270px;
   }
   &--text {
     position: absolute;
@@ -177,7 +190,7 @@
           text-align: center;
           margin-bottom: 50px;
           padding-left: 0;
-          @media(max-width:1441px){
+          @media (max-width: 1441px) {
             font-size: 21px;
           }
           @media (max-width: 1025px) {
@@ -197,14 +210,14 @@
     font-size: 320px;
     color: #000000;
     opacity: 0.05;
-    @media(max-width:1441px){
+    @media (max-width: 1441px) {
       font-size: 260px;
       bottom: -31%;
     }
     @media (max-width: 1025px) {
       font-size: 265px;
     }
-    @media(max-width:426px){
+    @media (max-width: 426px) {
       bottom: -38%;
       right: -12px;
     }

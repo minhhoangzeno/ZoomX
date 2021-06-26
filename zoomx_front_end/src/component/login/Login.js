@@ -7,9 +7,9 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
     let history = useHistory()
     let [user, setuser] = useState();
-    useEffect(() => {
-        localStorage.removeItem("user")
-    }, [])
+    // useEffect(() => {
+    //     localStorage.removeItem("user")
+    // }, [])
     let login = async () => {
         setLoading(true)
         let path = "/login";
@@ -23,13 +23,17 @@ export default function Login() {
             let resp = await doPost(path, headers, data);
             if (resp.status === 200) {
                 setLoading(false)
-                if (resp.data == "") {
-                    history.push('/login')
-                } else {
-                    localStorage.setItem("user", JSON.stringify(resp.data))
+                console.log(resp.data)
+               
+                if (resp.data !== "") {
+                    await localStorage.setItem("user", JSON.stringify(resp.data))
                     history.push('/admin')
+                } else {
+                    history.push('/login')
                 }
 
+            }else{
+                alert("Vui lòng kiểm tra lại thông tin!")
             }
         } catch (error) {
             console.log(error)

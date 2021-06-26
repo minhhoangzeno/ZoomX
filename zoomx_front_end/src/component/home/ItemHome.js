@@ -14,9 +14,7 @@ export default function ItemHome() {
   };
   return (
     <div className="container__item-block">
-      <p className="text__center--top">
-        WELCOME  TO  ZOOMX HOTELS
-      </p>
+      <p className="text__center--top">WELCOME TO ZOOMX HOTELS</p>
       <div className="empty__element-block"></div>
       <p className="big__word-block">Tại sao chọn ZoomX Hotels ?</p>
       <div className="item__element">
