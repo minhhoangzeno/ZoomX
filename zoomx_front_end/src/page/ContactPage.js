@@ -24,7 +24,7 @@ export default function ContactPage(){
                 showOnScrollUp
                 showAt={300}
                 speed={1000}
-                easing="easeInOutQuint"
+                 easing={"easeInOutQuint"}
                 showOnScrollUp={true}
             >
                 <div className="backToTop">

@@ -362,7 +362,7 @@ export const useHeroInvestment = () => {
       var resp = await doGet(path, headers);
       if (resp.status === 200) {
         setData(resp.data);
-        console.log(data);
+         
       }
     } catch (error) {
       setError(error);
@@ -387,7 +387,7 @@ export const useHeroZoomx = () => {
       var resp = await doGet(path, headers);
       if (resp.status === 200) {
         setData(resp.data);
-        console.log(data);
+         
       }
     } catch (error) {
       setError(error);
@@ -412,7 +412,7 @@ export const useHeroContact = () => {
       var resp = await doGet(path, headers);
       if (resp.status === 200) {
         setData(resp.data);
-        console.log(data);
+         
       }
     } catch (error) {
       setError(error);
@@ -437,7 +437,7 @@ export const useHeroLibrary = () => {
       var resp = await doGet(path, headers);
       if (resp.status === 200) {
         setData(resp.data);
-        console.log(data);
+         
       }
     } catch (error) {
       setError(error);
@@ -462,7 +462,7 @@ export const useHeroRecruitment = () => {
       var resp = await doGet(path, headers);
       if (resp.status === 200) {
         setData(resp.data);
-        console.log(data);
+         
       }
     } catch (error) {
       setError(error);
@@ -511,7 +511,7 @@ export const useHeroProject = () => {
       var resp = await doGet(path, headers);
       if (resp.status === 200) {
         setData(resp.data);
-        console.log(data);
+         
       }
     } catch (error) {
       setError(error);

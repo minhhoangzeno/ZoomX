@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import iconWeather from "../../image/home/icon-weather.png";
-import logoCountry from "../../image/home/country.png";
 import { useHistory } from "react-router-dom";
-import "../../style/style.scss";
+import logoCountry from "../../image/home/country.png";
 import { useIcon } from "../../lib/API";
-import { doPost, doGet } from "../../lib/DataSource";
+import { doGet, doPost } from "../../lib/DataSource";
+import "../../style/style.scss";
 import SearchMobile from "./SearchMobile";
 import WeatherIcon from './WeatherIcon';
 export default function Footer() {

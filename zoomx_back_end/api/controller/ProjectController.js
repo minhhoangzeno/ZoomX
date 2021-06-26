@@ -71,7 +71,7 @@ exports.get_project = async (req, res, next) => {
 exports.add_project = (req, res) => {
   let fileInfor = req.files.filter((item) => item.fieldname == "imageInfor");
   let fileCover = req.files.filter((item) => item.fieldname == "imageCover");
-  console.log(req.files);
+ 
   let uploadCover = new Promise((resolve, reject) => {
     Upload.uploadSingleFile({
       file: fileCover[0],

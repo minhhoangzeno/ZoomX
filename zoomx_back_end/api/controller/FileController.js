@@ -48,7 +48,7 @@ exports.update_file = (req, res) => {
     const file_id = req.params.file_id;
     File.findById(file_id).then((file) => {
         Cloudinary.uploadSingle(req.files[0].path).then((result) => {
-            console.log(result);
+           
             file.fileName = result.name
             file.fileUrl = result.url
             file.fileId = result.id
