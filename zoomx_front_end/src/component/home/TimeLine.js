@@ -6,7 +6,6 @@ import { useTimeLine } from "../../lib/API";
 export default function TimeLine() {
   const { data } = useTimeLine();
   var settings = {
-    // dots: true,
     speed: 4000,
     autoplay: true,
     infinite: true,
@@ -30,9 +29,7 @@ export default function TimeLine() {
       <>
         <div className="timelineBlock">
           <div className="timeline-head">
-            <p className="timeline-head__title">
-              WELCOME  TO  ZOOMX HOTELS
-            </p>
+            <p className="timeline-head__title">WELCOME TO ZOOMX HOTELS</p>
             <div className="timeline-head__border"></div>
             <p className="timeline-head__label">Lộ trình triển khai</p>
           </div>
@@ -68,7 +65,8 @@ export default function TimeLine() {
                 {data?.map((item, index) => {
                   return (
                     <div
-                      className="col-4 col-item" key={index}
+                      className="col-4 col-item"
+                      key={index}
                       style={{ maxWidth: "100%" }}
                     >
                       <div className="timeline__content__item">
