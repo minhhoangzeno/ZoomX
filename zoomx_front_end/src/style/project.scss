@@ -48,6 +48,9 @@ img{
                 position: relative;
                 cursor: pointer;
                 letter-spacing: 1px;
+                @media (max-width: 1441px){
+                    font-size: 14px !important;
+                }
                 @media (max-width: 768px){
                     padding: 0 20px !important;
                     font-size: 13px !important;
@@ -153,7 +156,7 @@ img{
                         @media(max-width: 768px){
                             height: 305px;
                         }
-                        @media(max-width: 320px){
+                        @media(max-width: 426px){
                             height: 230px;
                         }
                         &:hover{
@@ -181,6 +184,9 @@ img{
                     @media (max-width: 768px){
                         padding: 10px;
                     }
+                    @media (max-width: 426px){
+                        padding: 10px 10px 20px 10px;
+                    }
                     .label {
                         font-family: Giroly;
                         position: absolute;
@@ -207,7 +213,7 @@ img{
                             cursor: pointer;
                             letter-spacing: 1px;
                             font-size: 16px;
-                            @media (max-width: 1024px){
+                            @media (max-width: 1441px){
                             font-size: 14px;
                             padding: 3px 15px;
                             } 
@@ -226,7 +232,7 @@ img{
                             &:hover {
                                 text-decoration: none;
                                 background-color: #fff;
-                                border: 2px solid #E01042;
+                                border: 1px solid #E01042;
                                 color: #E01042;
                             }
                         }
@@ -236,20 +242,20 @@ img{
                         margin-bottom: 0;
                         color: #333;
                         font-weight: bold;
-                        // font-size: 21px;
+                        font-size: 16px;
                         width: 70%;
                         letter-spacing: 1px;
                         font-family: 'Helvetica';
-                        @media (max-width: 1024px){
-                            width: 100%;
-                            text-align: center;
-                            font-size: 16px;
-                        }
-                        @media (max-width: 769px){
+                        @media (max-width: 1441px){
                             font-size: 14px;
                         }
+                        @media (max-width: 1024px){     
+                            width: 100%;
+                            text-align: center;
+                        }          
                         @media (max-width: 426px){
                             font-size: 12px;
+                            padding-top: 20px;
                         }
                         &:hover {
                             color: #af8d41;

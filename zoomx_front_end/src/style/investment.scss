@@ -44,13 +44,13 @@ p.txt__adress{
                     @media (max-width: 1920px) {
                         height: 500px;
                     }
-                    @media (max-width: 1440px) {
+                    @media (max-width: 1441px) {
                         height: 455px;
                     }
-                    @media (max-width: 768px) {
+                    @media (max-width: 769px) {
                         height: 305px;
                     }
-                    @media (max-width: 320px) {
+                    @media (max-width: 426px) {
                         height: 230px;
                     }
                     position: relative;
@@ -123,7 +123,7 @@ p.txt__adress{
                         margin-bottom: 20px;
                         text-transform: uppercase;
                         @media (max-width: 769px) {
-                            margin-top: 5px;
+                            margin-top: 10px;
                             margin-bottom: 15px;
                             font-size: 18px;
                         }
@@ -140,12 +140,13 @@ p.txt__adress{
                         display: -webkit-box;
                         -webkit-line-clamp: 2;
                         -webkit-box-orient: vertical;
+                        @media (max-width: 1441px) {
+                            font-size: 14px;
+                        }
                         @media (max-width: 769px) {
                             font-size: 12px;
                         }
-                        @media (max-width: 425px) {
-                            font-size: 12px;
-                        }
+                        
                     }
                     .read-more-btn {
                         padding: 5px 18px;
@@ -172,7 +173,7 @@ p.txt__adress{
                         &:hover {
                             text-decoration: none;
                             background-color: #fff;
-                            border: 2px solid #e01042;
+                            border: 1px solid #e01042;
                             color: #e01042;
                             transition: 0.5s;
                         }

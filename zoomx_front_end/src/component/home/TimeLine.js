@@ -18,7 +18,7 @@ export default function TimeLine() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          speed: 3000,
+          speed: 4000,
           autoplay: true,
           infinite: true,
         },
@@ -31,7 +31,7 @@ export default function TimeLine() {
         <div className="timelineBlock">
           <div className="timeline-head">
             <p className="timeline-head__title">
-              WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS
+              WELCOME  TO  ZOOMX HOTELS
             </p>
             <div className="timeline-head__border"></div>
             <p className="timeline-head__label">Lộ trình triển khai</p>

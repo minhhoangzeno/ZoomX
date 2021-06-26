@@ -10,7 +10,8 @@ img {
             width: 100%;
             margin-left: 0;
             margin-right: 0;
-            @media (max-width: 768px) {
+            font-family:  'Helvetica';
+            @media (max-width: 1441px) {
                 font-size: 14px;
             }
             @media (max-width: 426px) {
@@ -104,9 +105,7 @@ img {
                                 @media (max-width: 769px) {
                                     font-size: 12px;
                                 }
-                                @media (max-width: 425px) {
-                                    font-size: 10px;
-                                }
+                                
                                 svg {
                                     position: absolute;
                                     left: 0;
@@ -217,9 +216,7 @@ img {
                 @media (max-width: 769px) {
                     font-size: 12px;
                 }
-                @media (max-width: 425px) {
-                    font-size: 10px;
-                }
+              
                 img {
                     margin: 20px 0;
                     object-fit: cover;

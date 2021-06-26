@@ -18,7 +18,7 @@ export default function HomePage() {
             <div className="col-12 col-sm-12 col-md-6 col-lg-6 wrap__element">
               <div className="flex__element--top">
                 <p className="text__headlines">
-                  WELCOME &nbsp; TO &nbsp; ZOOMX&nbsp; HOTELS
+                  WELCOME  TO  ZOOMX HOTELS
                 </p>
                 <div className="empty__element"></div>
                 <p className="bigs__words--mid">{data[0]?.title}</p>
