@@ -29,7 +29,7 @@ export default function ModalUpdate(props) {
             if(res.status === 200){
                 props.handleLoading(false)
                 props.getDefineHome()
-                console.log("1")
+              
             }
     
         } catch (error) {

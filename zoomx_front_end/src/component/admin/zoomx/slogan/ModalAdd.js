@@ -7,7 +7,7 @@ export default function ModalAdd(props) {
         content: null,
         label:null
     });
-    console.log(slogan)
+
     let handleSlogan = (e) => {
         const { name, value } = e.target
         setSlogan({

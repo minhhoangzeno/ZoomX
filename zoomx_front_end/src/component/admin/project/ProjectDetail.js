@@ -7,9 +7,9 @@ import { tinyconfigBlog } from '../../../TinyConfigBlog';
 
 export default function ProjectDetail() {
     const location = useLocation();
-    console.log(location)
     const { project, investmentName } = location.state;
     let history = useHistory()
+    console.log(location.state.project)
     return (
         <>
             <div className="wrapper__modal">
@@ -26,7 +26,7 @@ export default function ProjectDetail() {
                             <label>Ảnh Cover:</label>
                         </div>
 
-                        <img id="target" src={project?.imageCover?.url} style={{ width: 300, height: 200, objectFit: 'cover' }} alt="" />
+                        <img id="target" src={project?.imageCover?.url} style={{ width: 700, height: 200, objectFit: 'cover' }} alt="" />
 
                     </div>
                     <div>
@@ -54,15 +54,15 @@ export default function ProjectDetail() {
                 <div>
                     <label className="label-txt">Ngày khởi công: </label> <input className="input-txt"
                         name="dateStart"
-                        type="date"
-                        value={moment(project?.dateStart).format("YYYY-DD-MM")}
+                       
+                        value={moment(project?.dateStart).format("DD-MM-YYYY")}
                     />
                 </div>
                 <div>
                     <label className="label-txt">Ngày dự đoán hoàn thành: </label> <input className="input-txt"
                         name="dateFinish"
-                        type="date"
-                        value={moment(project?.dateFinish).format("YYYY-DD-MM")}
+                       
+                        value={moment(project?.dateFinish).format("DD-MM-YYYY")}
                     />
                 </div>
                 <div>

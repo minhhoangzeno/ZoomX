@@ -75,6 +75,9 @@
             @media (max-width: 426px) {
               width: 100%;
             }
+            @media (max-width: 376px) {
+              height: 75%;
+            }
           }
           @media (max-width: 760px) {
             margin-bottom: 30px;
@@ -302,7 +305,7 @@
       }
       @media (max-width: 426px) {
         max-width: 350px;
-        top: 25px;
+        top: 70px;
         left: 19px;
         padding-bottom: 25px;
       }

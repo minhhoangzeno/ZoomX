@@ -211,6 +211,12 @@
     @media (max-width: 769px) {
       height: 450px;
     }
+    @media (max-width: 426px) {
+      height: 350px;
+    }
+    @media (max-width: 321px) {
+      height: 250px;
+    }
   }
   @media (max-width: 426px) {
     padding-top: 0;

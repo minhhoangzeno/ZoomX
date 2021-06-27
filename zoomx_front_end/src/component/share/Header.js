@@ -3,7 +3,6 @@ import { useHistory } from "react-router";
 import logoCountry from "../../image/home/country.png";
 import { useSetting } from "../../lib/API";
 import { doGet } from "../../lib/DataSource";
-import Img from "../image/contact/hotel.png";
 import "../../style/style.scss";
 export default function Header() {
   const { data } = useSetting();
@@ -668,7 +667,7 @@ export default function Header() {
                           return (
                             <li key={index}>
                               <div className="image">
-                                <img src={item?.imageInfor?.url} />
+                                <img src={item?.imageInfor?.url} alt="" />
                                 <div
                                   className="content__title"
                                   onClick={() =>

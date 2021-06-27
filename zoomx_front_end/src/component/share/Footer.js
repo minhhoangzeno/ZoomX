@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import iconWeather from "../../image/home/icon-weather.png";
-import logoCountry from "../../image/home/country.png";
 import { useHistory } from "react-router-dom";
-import "../../style/style.scss";
+import logoCountry from "../../image/home/country.png";
 import { useIcon } from "../../lib/API";
-import { doPost, doGet } from "../../lib/DataSource";
+import { doGet, doPost } from "../../lib/DataSource";
+import "../../style/style.scss";
 import SearchMobile from "./SearchMobile";
 import WeatherIcon from './WeatherIcon';
 export default function Footer() {
@@ -33,19 +32,24 @@ export default function Footer() {
     fetchData()
   }, [])
   const addMail = async () => {
-    let path = '/person-mail';
-    let formData = new FormData();
-    formData.append("mail", email);
-    const headers = {
-      Accept: "*/*"
-    }
-    try {
-      let resp = await doPost(path, headers, formData);
-      if (resp.status === 200) {
-        alert("Bạn đã gửi mail thành công!")
+    if (email?.length > 0) {
+      let path = '/person-mail';
+      let formData = new FormData();
+      formData.append("mail", email);
+      const headers = {
+        Accept: "*/*"
       }
-    } catch (error) {
-      alert("Thất bại! Vui lòng thử lại")
+      try {
+        let resp = await doPost(path, headers, formData);
+        if (resp.status === 200) {
+          alert("Bạn đã gửi mail thành công!")
+          setEmail("")
+        }
+      } catch (error) {
+        alert("Thất bại! Vui lòng thử lại")
+      }
+    } else {
+      alert("Vui lòng nhập địa chỉ email!")
     }
   }
   return (
@@ -100,6 +104,7 @@ export default function Footer() {
                         onChange={(e) => {
                           setEmail(e.target.value)
                         }}
+                        value={email}
                       />
                     </div>
                     <div className="sign__wrapper__btn">
@@ -129,19 +134,19 @@ export default function Footer() {
               </div>
               <ul className="wrapper__bottom--nav">
                 <li>
-                  <a href="http://www.github.com">Giới thiệu</a>
+                  <span> Giới thiệu</span>
                 </li>
                 <li>
-                  <a href="http://www.github.com">Điều khoản</a>
+                  <span>  Điều khoản</span>
                 </li>
                 <li>
-                  <a href="http://www.github.com">Bảo mật</a>
+                  <span> Bảo mật</span>
                 </li>
                 <li>
-                  <a href="http://www.github.com">Hỗ trợ</a>
+                  <span> Hỗ trợ</span>
                 </li>
                 <li>
-                  <a href="http://www.github.com">Liên hệ</a>
+                  <span> Liên hệ</span>
                 </li>
               </ul>
             </div>
@@ -174,7 +179,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <div style={{cursor:'pointer'}} onClick={() => {
+              <div style={{ cursor: 'pointer' }} onClick={() => {
                 history.push('/contact')
               }}>
                 <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
