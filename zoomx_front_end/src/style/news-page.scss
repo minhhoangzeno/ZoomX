@@ -135,6 +135,7 @@
               font-family: "Helvetica";
               letter-spacing: 1px;
               overflow: hidden;
+              text-overflow: ellipsis;
               display: -webkit-box;
               -webkit-box-orient: vertical;
               -webkit-line-clamp: 2;
@@ -153,6 +154,13 @@
               letter-spacing: 1px;
               @media (max-width: 769px) {
                 font-size: 12px;
+              }
+              @media (max-width: 375px){
+                padding: 5px 12px;
+              }
+              @media (max-width: 320px){
+                padding: 3px 12px;
+                font-size: 10px;
               }
             }
             .btn__news:hover {

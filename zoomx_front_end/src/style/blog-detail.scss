@@ -16,14 +16,14 @@ img {
         display: flex;
         flex-wrap: wrap;
         letter-spacing: 1px;
-        @media (max-width: 1441px) {
-            font-size: 14px;
-        }
+        // @media (max-width: 1441px) {
+        //     font-size: 14px !important;
+        // }
         @media (max-width: 769px) {
-            font-size: 12px;
+            font-size: 14px !important;
         }
         @media (max-width: 426px) {
-            font-size: 12px;
+            font-size: 12px !important;
         }
         img {
             margin: 20px 0;
