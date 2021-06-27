@@ -188,7 +188,7 @@
       font-family: "Helvetica";
       margin-bottom: 20px;
       @media (max-width: 769px) {
-        font-size: 18px;
+        font-size: 14px;
       }
     }
     .average__words {
@@ -196,9 +196,11 @@
       font-weight: 600;
       margin-bottom: 30px;
       margin-top: 30px;
+     
     }
     .box__content {
       margin-bottom: 30px;
+      font-family:  Helvetica;
       .small__content {
         letter-spacing: 1px;
         font-size: 16px;
@@ -206,6 +208,9 @@
         border-bottom: 1px solid #d4d4d4;
         @media (max-width: 769px) {
           font-size: 14px;
+        }
+        @media (max-width: 426px) {
+          font-size: 12px;
         }
       }
     }

@@ -152,6 +152,21 @@ label {
       &:nth-last-child(1) {
         display: none;
       }
+      @media(max-width:1025px){
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+      }
+      @media(max-width:769px){
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+      @media(max-width:426px){
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+      }
     }
     li.active {
       background-color: gray;

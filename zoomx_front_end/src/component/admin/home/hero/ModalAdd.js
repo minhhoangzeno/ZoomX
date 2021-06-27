@@ -9,7 +9,7 @@ export default function ModalAdd(props) {
         label:null,
         imageCover:null
     });
-    console.log(hero)
+  
     let handleHero = (e) => {
         const { name, value } = e.target
         setHero({

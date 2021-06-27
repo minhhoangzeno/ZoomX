@@ -35,7 +35,7 @@ export default function HomePage() {
         showOnScrollUp
         showAt={300}
         speed={1000}
-        easing="easeInOutQuint"
+         easing={"easeInOutQuint"}
         showOnScrollUp={true}
       >
         <div className="backToTop">

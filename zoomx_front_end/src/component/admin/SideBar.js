@@ -125,15 +125,15 @@ export function SideBar({ handlePage, isPage, user }) {
                                 <span>Trang Dự án</span>
                             </div>
                             <ul className="sub__menu">
-                                <li onClick={() => handlePage('project')}
-                                    className={handleStyle("project")}
-                                >
-                                    <span>Dự án</span>
-                                </li>
                                 <li onClick={() => handlePage('hero-project')}
                                     className={handleStyle("hero-project")}
                                 >
                                     <span>Ảnh đầu trang dự án</span>
+                                </li>
+                                <li onClick={() => handlePage('project')}
+                                    className={handleStyle("project")}
+                                >
+                                    <span>Dự án</span>
                                 </li>
                             </ul>
                             <hr />
@@ -142,16 +142,17 @@ export function SideBar({ handlePage, isPage, user }) {
                                 <span>Trang Lĩnh vực đầu tư</span>
                             </div>
                             <ul className="sub__menu">
-                                <li onClick={() => handlePage('investment')}
-                                    className={handleStyle("investment")}
-                                >
-                                    <span>Lĩnh vực đầu tư</span>
-                                </li>
                                 <li onClick={() => handlePage('hero-investment')}
                                     className={handleStyle("hero-investment")}
                                 >
                                     <span>Ảnh đầu trang lĩnh vực đầu tư</span>
                                 </li>
+                                <li onClick={() => handlePage('investment')}
+                                    className={handleStyle("investment")}
+                                >
+                                    <span>Lĩnh vực đầu tư</span>
+                                </li>
+
                             </ul>
                             <hr />
 
@@ -187,16 +188,17 @@ export function SideBar({ handlePage, isPage, user }) {
                                 <span>Trang Liên hệ</span>
                             </div>
                             <ul className="sub__menu">
-                                <li onClick={() => handlePage('contact')}
-                                    className={handleStyle("contact")}
-                                >
-                                    <span>Liên hệ</span>
-                                </li>
                                 <li onClick={() => handlePage('hero-contact')}
                                     className={handleStyle("hero-contact")}
                                 >
                                     <span>Ảnh đầu trang liên hệ</span>
                                 </li>
+                                <li onClick={() => handlePage('contact')}
+                                    className={handleStyle("contact")}
+                                >
+                                    <span>Liên hệ</span>
+                                </li>
+
                             </ul>
                             <hr />
                             <div className="sidebar__admin--menu--item">
@@ -250,16 +252,17 @@ export function SideBar({ handlePage, isPage, user }) {
                                 <span>Trang Tuyển dụng</span>
                             </div>
                             <ul className="sub__menu">
-                                <li onClick={() => handlePage('recruitment')}
-                                    className={handleStyle('recruitment')}
-                                >
-                                    <span>Tuyển dụng</span>
-                                </li>
                                 <li onClick={() => handlePage('hero-recruitment')}
                                     className={handleStyle('hero-recruitment')}
                                 >
                                     <span>Ảnh đầu trang tuyển dụng</span>
                                 </li>
+                                <li onClick={() => handlePage('recruitment')}
+                                    className={handleStyle('recruitment')}
+                                >
+                                    <span>Tuyển dụng</span>
+                                </li>
+
                             </ul>
                             <hr />
 

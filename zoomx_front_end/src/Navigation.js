@@ -29,7 +29,7 @@ import BlogUpdate from './component/admin/news/blog/BlogUpdate';
 import Login from './component/login/Login';
 
 const user = JSON.parse(localStorage.getItem("user"));
-console.log(user)
+
 export default function Navigation() {
     return (
         <Router>
