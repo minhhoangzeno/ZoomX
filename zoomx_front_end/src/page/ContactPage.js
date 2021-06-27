@@ -7,24 +7,24 @@ import HeroPage from '../component/share/HeroPage';
 import '../style/contact.scss'
 import { useHeroContact } from '../lib/API';
 import BackToTop from 'react-back-to-top-button';
-export default function ContactPage(){
+export default function ContactPage() {
     const { data } = useHeroContact();
     useEffect(() => {
         window.scrollTo(0, 0)
-      }, [])
-    return(
+    }, [])
+    return (
         <>
-        <MetaTags>
+            <MetaTags>
                 <title>Liên hệ</title>
             </MetaTags>
-        <Header />
-        <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
-        <Contact />
-        <BackToTop
+            <Header />
+            <HeroPage title={data?.[0]?.title} title_sub={data?.[0]?.label} imageBackground={data?.[0]?.imageCover?.url} />
+            <Contact />
+            <BackToTop
                 showOnScrollUp
                 showAt={300}
                 speed={1000}
-                 easing={"easeInOutQuint"}
+                easing={"easeInOutQuint"}
                 showOnScrollUp={true}
             >
                 <div className="backToTop">
@@ -33,7 +33,7 @@ export default function ContactPage(){
                     </svg>
                 </div>
             </BackToTop>
-        <Footer />
+            <Footer />
         </>
     )
 }

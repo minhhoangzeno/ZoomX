@@ -1,4 +1,5 @@
 import { Editor } from '@tinymce/tinymce-react';
+import moment from 'moment';
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { doPut } from '../../../lib/DataSource';
@@ -136,7 +137,7 @@ export default function ModalUpdate(props) {
                             name="dateReceived"
                             type="date"
                             onChange={handleRecruitment}
-                           
+                            value={moment(recruitment?.dateReceived).format("YYYY-MM-DD")}
 
                         />
                     </div>

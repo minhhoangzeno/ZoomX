@@ -30,7 +30,7 @@ export default function SelectInvestment({ handleInvestment }) {
                 marginTop: 15,
                 marginBottom: 15
             }}>
-                <option value="1">Tat ca</option>
+                <option value="1">Tất cả</option>
                 {investment?.map((item, idx) => {
                     return (
                         <option key={idx} value={item._id}>{item.investmentName}</option>

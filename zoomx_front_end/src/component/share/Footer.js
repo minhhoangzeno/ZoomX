@@ -32,19 +32,24 @@ export default function Footer() {
     fetchData()
   }, [])
   const addMail = async () => {
-    let path = '/person-mail';
-    let formData = new FormData();
-    formData.append("mail", email);
-    const headers = {
-      Accept: "*/*"
-    }
-    try {
-      let resp = await doPost(path, headers, formData);
-      if (resp.status === 200) {
-        alert("Bạn đã gửi mail thành công!")
+    if (email?.length > 0) {
+      let path = '/person-mail';
+      let formData = new FormData();
+      formData.append("mail", email);
+      const headers = {
+        Accept: "*/*"
       }
-    } catch (error) {
-      alert("Thất bại! Vui lòng thử lại")
+      try {
+        let resp = await doPost(path, headers, formData);
+        if (resp.status === 200) {
+          alert("Bạn đã gửi mail thành công!")
+          setEmail("")
+        }
+      } catch (error) {
+        alert("Thất bại! Vui lòng thử lại")
+      }
+    } else {
+      alert("Vui lòng nhập địa chỉ email!")
     }
   }
   return (
@@ -99,6 +104,7 @@ export default function Footer() {
                         onChange={(e) => {
                           setEmail(e.target.value)
                         }}
+                        value={email}
                       />
                     </div>
                     <div className="sign__wrapper__btn">
@@ -173,7 +179,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <div style={{cursor:'pointer'}} onClick={() => {
+              <div style={{ cursor: 'pointer' }} onClick={() => {
                 history.push('/contact')
               }}>
                 <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
