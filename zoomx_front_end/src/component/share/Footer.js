@@ -134,19 +134,19 @@ export default function Footer() {
               </div>
               <ul className="wrapper__bottom--nav">
                 <li>
-                  <a href="http://www.github.com">Giới thiệu</a>
+                  <span> Giới thiệu</span>
                 </li>
                 <li>
-                  <a href="http://www.github.com">Điều khoản</a>
+                  <span>  Điều khoản</span>
                 </li>
                 <li>
-                  <a href="http://www.github.com">Bảo mật</a>
+                  <span> Bảo mật</span>
                 </li>
                 <li>
-                  <a href="http://www.github.com">Hỗ trợ</a>
+                  <span> Hỗ trợ</span>
                 </li>
                 <li>
-                  <a href="http://www.github.com">Liên hệ</a>
+                  <span> Liên hệ</span>
                 </li>
               </ul>
             </div>
