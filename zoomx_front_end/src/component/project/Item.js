@@ -19,9 +19,11 @@ export default function Item({ data }) {
           </div>
         </div>
         <div className="item__content--bottom">
-          <h6 className="title">{data?.projectName}</h6>
-          <div className="label">
-            <span>XEM THÊM</span>
+          <div className="item__bottom--wrapper">
+            <h6 className="title">{data?.projectName}</h6>
+            <div className="label">
+              <span>XEM THÊM</span>
+            </div>
           </div>
         </div>
       </div>

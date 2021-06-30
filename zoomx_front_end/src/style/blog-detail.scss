@@ -16,9 +16,6 @@ img {
         display: flex;
         flex-wrap: wrap;
         letter-spacing: 1px;
-        // @media (max-width: 1441px) {
-        //     font-size: 14px !important;
-        // }
         @media (max-width: 769px) {
             font-size: 14px !important;
         }
@@ -29,7 +26,6 @@ img {
             margin: 20px 0;
             object-fit: cover;
             min-width: 47%;
-            // margin-left: auto;
             box-shadow: 0 2px 3px 2px #bebebe;
             &:nth-of-type(1) {
                 margin-left: 0;
@@ -158,6 +154,7 @@ img {
       padding: 0;
       img {
         width: 100%;
+        max-height: 545px;
         height: 100%;
         @media (max-width: 1920px) {
           width: 48%;
