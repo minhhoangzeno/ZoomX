@@ -169,7 +169,7 @@ export default function Footer() {
           </div>
           <ul className="header__wrapper--nav">
             <li>
-              <a href="tel:0972335594">
+              <a href="tel:0766262838">
                 <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
                   <path
                     fill="currentColor"
