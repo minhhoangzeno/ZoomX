@@ -511,3 +511,38 @@ img {
   font-size: 35px !important;
   opacity: 1.5 !important;
 }
+
+.modal__library--img{
+  height: 600px;
+  button{
+    display: block !important;
+
+  }
+  .slick-prev{
+    left: 0;
+  }
+  .slick-next{
+    right: 0;
+  }
+  .slick-slide{
+   
+    div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .image__modal__library{
+        width: 90% !important;
+        height: 600px;
+        object-fit: contain;
+        @media(max-width:769px){
+          height: 450px;
+        }
+        @media(max-width:426px){
+          height: 300px;
+          width: 82% !important;
+        }
+      }
+    }
+  }
+  
+}

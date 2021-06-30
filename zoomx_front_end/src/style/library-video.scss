@@ -1,0 +1,28 @@
+.modal__library__video{
+    height: 600px !important;
+      @media(max-width:769px){
+        height: 450px !important;
+      }
+      @media(max-width:426px){
+        height: 300px !important;
+      }
+    .main__video{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        iframe{
+            height: 600px !important;
+            @media(max-width:769px){
+              height: 450px !important;
+            }
+            @media(max-width:426px){
+              height: 300px !important;
+            }
+            .ytp-cued-thumbnail-overlay{
+                .ytp-cued-thumbnail-overlay-image{
+                    background-size: contain !important;
+                }
+            }
+        }
+    }
+  }

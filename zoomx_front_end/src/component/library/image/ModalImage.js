@@ -1,31 +1,40 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
-import "swiper/components/navigation/navigation.min.css";
-import "swiper/components/pagination/pagination.min.css";
-import SwiperCore, { Navigation, Pagination } from "swiper/core";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
-SwiperCore.use([Pagination, Navigation]);
+import Slider from "react-slick";
+import '../../../style/library-image.scss';
+
+// SwiperCore.use([Pagination, Navigation]);
 
 export default function ModalImage(props) {
+  const item = {
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+
+   
+  };
   return (
     <>
       <Modal
         {...props}
-        size="xl"
-     
-        
+        size="sm"
+        centered
+        aria-labelledby="contained-modal-title-vcenter"
+        dialogClassName="modal__library--img"
       >
-        <Swiper wrapperTag="ul" navigation={true} className="mySwiper">
+
+
+        <Slider className="main__slider--item" {...item}>
           {props?.listImage?.map((item, index) => {
             return (
-              <SwiperSlide tag="li" className="image-item" key={index}>
-                <img style={{ listStyle: "none" }} src={item?.url} alt="#" />
-              </SwiperSlide>
+              <img src={item?.url} alt="#" className="image__modal__library" />
             );
           })}
-        </Swiper>
+        </Slider>
+
       </Modal>
     </>
   );
 }
+
