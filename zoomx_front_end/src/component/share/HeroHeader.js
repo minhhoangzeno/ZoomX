@@ -14,7 +14,7 @@ export default function HeroHeader() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 8000,
-    // tốc độ dừng
+    // tgian dừng
   };
   const history = useHistory();
   return (
