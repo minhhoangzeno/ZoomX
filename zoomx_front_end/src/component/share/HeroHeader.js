@@ -9,9 +9,12 @@ export default function HeroHeader() {
   const settings = {
     infinite: true,
     speed: 1000,
-    autoplaySpeed: 6000,
+    // tốc độ chạy của slide
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 8000,
+    // tốc độ dừng
   };
   const history = useHistory();
   return (

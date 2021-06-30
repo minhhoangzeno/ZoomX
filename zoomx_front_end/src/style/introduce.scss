@@ -392,12 +392,13 @@
     width: 150px !important;
     height: 60px;
     .img-partner {
-      width: 100%;
+      // width: 100%;
+      max-width: 150px;
       height: auto;
       object-fit: contain;
       @media (max-width: 375px) {
         margin: 0 auto;
-        width: 80%;
+        max-width: 100px;
       }
     }
   }
