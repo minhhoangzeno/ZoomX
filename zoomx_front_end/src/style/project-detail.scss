@@ -207,16 +207,14 @@ img {
                 letter-spacing: 1px;
                 display: flex;
                 flex-wrap: wrap;
-                @media (max-width: 1024px) {
-                    font-size: 14px;
-                }
+                font-family:  Helvetica !important;
+                
                 @media (max-width: 769px) {
                     flex-direction: column;
                 }
-                @media (max-width: 769px) {
-                    font-size: 12px;
+                @media(max-width:426px){
+                    font-size: 14px !important;
                 }
-              
                 img {
                     margin: 20px 0;
                     object-fit: cover;

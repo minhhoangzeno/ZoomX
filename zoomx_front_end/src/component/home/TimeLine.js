@@ -6,11 +6,12 @@ import { useTimeLine } from "../../lib/API";
 export default function TimeLine() {
   const { data } = useTimeLine();
   var settings = {
-    speed: 4000,
+    // speed: 1000,
     autoplay: true,
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
+    autoplaySpeed: 300,
     responsive: [
       {
         breakpoint: 427,
