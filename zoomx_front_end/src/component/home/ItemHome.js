@@ -7,12 +7,12 @@ export default function ItemHome() {
   const { data } = useReasonSelect();
   const settings = {
     infinite: true,
-    speed: 6000,
+    speed: 1000,
     autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    autoplaySpeed: 300,
+    autoplaySpeed: 5000,
   };
   return (
     <div className="container__item-block">

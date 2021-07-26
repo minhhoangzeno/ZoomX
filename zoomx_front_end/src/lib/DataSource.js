@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "https://zoomxhotels.com/api";
 export const doPost = async (path, headers, formData) => {
   return axios({
     url: BASE_URL + path,

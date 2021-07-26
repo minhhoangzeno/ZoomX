@@ -8,10 +8,12 @@ export default function HeroHeader() {
   const { data } = useHero();
   const settings = {
     infinite: true,
+    autoplay:true,
     speed: 1000,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    fade: true,
   };
   const history = useHistory();
   return (

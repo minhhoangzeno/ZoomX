@@ -131,6 +131,7 @@ exports.add_a_blog = (req, res) => {
 exports.get_blog = async (req, res) => {
   let perPage = 8; // số lượng sản phẩm xuất hiện trên 1 page
   let page = req.query.page;
+  console.log("a")
   let categoryId = req.query.categoryId;
   if (categoryId == 1) {
     let totalPage;
