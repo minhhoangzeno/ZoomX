@@ -6,12 +6,7 @@ export default function Item({ data }) {
     <>
       <div
         className="item item-left"
-        onClick={() => {
-          history.push({
-            pathname: "/detail-project",
-            state: data._id,
-          });
-        }}
+        
       >
         <div className="item__content--top">
           <div className="wrapper-img">
